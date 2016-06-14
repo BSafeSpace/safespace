@@ -1,4 +1,6 @@
-# countonanon
+# SafeSpace
+
+Originally a CS 169 Project: https://github.com/hendolim/countonanon
 
 [![Code Climate](https://codeclimate.com/github/rails/rails/badges/gpa.svg)](https://codeclimate.com/github/rails/rails)
 
