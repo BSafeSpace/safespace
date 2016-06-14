@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
+  <head>
+    <title>SafeSpace</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    
+  <nav class="navbar navbar-inverse homepage-nav">
+    <div class="container">
+      <div class="navbar-header">
+        <%= link_to 'SafeSpace', root_path, class: 'navbar-brand' %>
+      </div>
+      <div id="navbar">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "About", home_about_path %></li>
+          <li><%= link_to 'Contact', home_contact_path %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to 'Chat', conversations_path %></li>
+            <li id = "people"><%= link_to 'People', profiles_path %></li>
+          <% end %>
+        </ul>
+        <ul class="nav navbar-nav pull-right">
+          <% if user_signed_in? %>
+            <li>
+              <% if !current_user.appear_offline %>
+                <div class="online-status-indicator" id="online-navbar"></div>
+              <% else %>
+                <div class="offline-status-indicator" id="offline-navbar"></div>
+              <% end %>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <%= current_user.username %>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <% if !current_user.appear_offline %>
+                   <li id="appear_offline"><%= link_to 'Appear Offline', toggle_appear_offline_path, method: :get%></li>
+                <% elsif current_user.appear_offline %>
+                   <li id="appear_offline"><%= link_to 'Appear Online', toggle_appear_offline_path, method: :get%></li>
+                <% end %>
+                <li><%= link_to 'Profile', edit_user_registration_path %></li>
+                <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </li>
+          <% else %>
+            <li><%= link_to 'Sign In', new_user_session_path %></li>
+            <!--<li><#%= link_to 'Sign Up', new_user_registration_path %></li>-->
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="media-list" id="notif"></div>
+  
+    <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>">
+          <%= value %>
+        </div>
+      <% end %>
+    </div>
+    
+    <%= yield :top_content %>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+    
+  </body>
+
+<%= subscribe_to '/about' %>
+</html>

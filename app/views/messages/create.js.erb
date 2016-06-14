@@ -1,0 +1,16 @@
+<% publish_to '/about' do %>
+	var sender_id = "<%= @message.user.id %>";
+    var current_id = $('meta[name=user-id]').attr("content");
+
+    if(sender_id != current_id){
+		$("#msg").append("<%= j render 'receiver' %>");
+	}
+	else{
+		$("#msg").append("<%= j render 'sender' %>");
+	}
+
+	if(sender_id != current_id){
+		$("#notif").append("<%= j render 'notif' %>");
+	}
+<% end %>
+$("#new_message")[0].reset();

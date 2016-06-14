@@ -1,0 +1,89 @@
+<div class="ui segment">
+  <h3>Friends</h3>
+  <div class="ui list">
+    <% current_user.friends.each do |friend| %>
+        <div class="item horizontal-align">
+          <div class="item">
+            <% if friend.online? && !friend.appear_offline %>
+              <div class="horizontal-align">
+                <div class="online-status-indicator" style="display: inline-block;"></div>
+                <%= link_to friend.username, conversations_path(sender_id: current_user.id, recipient_id: friend.id), method: 'post', :class => "contact-list-name" %>
+              </div>
+              <div class="status-text">Online</div>
+            <% else %>
+              <div class="horizontal-align">
+                <div class="offline-status-indicator" style="display: inline-block;"></div>
+                <%= link_to friend.username, conversations_path(sender_id: current_user.id, recipient_id: friend.id), method: 'post', :class => "contact-list-name" %>
+              </div>
+              <div class="status-text">Offline</div>
+            <% end %>
+          </div>
+  
+          <div class="links-container horizontal-align">
+            <%= link_to "Remove", friendship_path(:id => friend), :method => :delete, :class => "friend-link" %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+  
+ <div class="ui list">
+    <h5>Friend Requests</h5>
+    <div class="item">
+      <% current_user.requested_friendships.each do |request| %>
+        
+        <div class="item horizontal-align">
+          <div class="item">
+            <% if request.online? && !request.appear_offline %>
+              <div class="horizontal-align">
+                <div class="online-status-indicator" style="display: inline-block;"></div>
+                <%= link_to request.username, conversations_path(sender_id: current_user.id, recipient_id: request.id), method: 'post', :class => "contact-list-name" %>
+              </div>
+              <div class="status-text">Online</div>
+            <% else %>
+              <div class="horizontal-align">
+                <div class="offline-status-indicator" style="display: inline-block;"></div>
+                <%= link_to request.username, conversations_path(sender_id: current_user.id, recipient_id: request.id), method: 'post', :class => "contact-list-name" %>
+              </div>
+              <div class="status-text">Offline</div>
+            <% end %>
+          </div>
+          
+          <div class="links-container horizontal-align">
+            <%= link_to "Accept", friendship_path(:id => request), :method => "put", :class => "friend-link" %> 
+            <%= link_to "Decline", friendship_path(:id => request), :method => :delete, :class => "friend-link" %>
+          </div>
+        </div>
+        
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="ui list">
+    <h5>Pending Requests</h5>
+    <div class="item">
+      <% current_user.pending_friends.each do |pending| %>
+        
+        <div class="item horizontal-align">
+          <div class="item">
+            <% if pending.online? && !pending.appear_offline %>
+              <div class="horizontal-align">
+                <div class="online-status-indicator" style="display: inline-block;"></div>
+                <%= link_to pending.username, conversations_path(sender_id: current_user.id, recipient_id: pending.id), method: 'post', :class => "contact-list-name" %>
+              </div>
+              <div class="status-text">Online</div>
+            <% else %>
+              <div class="horizontal-align">
+                <div class="offline-status-indicator" style="display: inline-block;"></div>
+                <%= link_to pending.username, conversations_path(sender_id: current_user.id, recipient_id: pending.id), method: 'post', :class => "contact-list-name" %>
+              </div>
+              <div class="status-text">Offline</div>
+            <% end %>
+          </div>
+          
+        </div>
+        
+      <% end %>
+    </div>
+  </div>
+  
+</div>

@@ -1,0 +1,67 @@
+.homepage-nav {
+	margin-bottom:0px;
+}
+
+.horizontal-align {
+  	display:flex;
+  	align-items:center;
+}
+
+.vertical-center {
+  	text-align:center;
+}
+
+.online-status-indicator {
+	border-radius: 50%;
+	width: 6px;
+	height: 6px; 
+	background: #4CAF50;
+	margin-right: 5px;
+}
+
+#online-navbar  {
+	margin-top:22px;
+	margin-bottom:22px;
+	margin-right:0px;
+}
+
+#offline-navbar {
+	margin-top:22px;
+	margin-bottom:22px;
+	margin-right:0px;
+	background: #9d9d9d;
+}
+
+.offline-status-indicator {
+	border-radius: 50%;
+	width: 6px;
+	height: 6px; 
+	background: rgba(0, 0, 0, 0.38);
+	margin-right: 5px;
+}
+
+.homepage {
+	height: 655px;
+	background-image: image-url("sea1.jpg");
+	background-size: 120%;
+	background-position: left center;
+	background-repeat: no-repeat;
+	padding: 0;
+	margin: 0;
+}
+
+.my-header {
+	color: gray;
+	font-size: 55px;
+	font-weight: 600;
+	padding-top: 135px;
+	padding-bottom: 20px;
+}
+
+.tagline {
+	color: gray;
+	font-family: 'Lato';
+	font-size: 22px;
+	padding-bottom: 85px;
+	font-weight: 400;
+}

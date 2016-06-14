@@ -1,0 +1,54 @@
+<h3>Edit Account</h3>
+
+<div style="margin-top: 15px; margin-bottom: 30px">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+  
+    <div class="form-group">
+      <%= f.label :username %>
+      <%= f.text_field :username, class: 'form-control' %>
+    </div>
+  
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <span class="label label-info">Currently waiting confirmation for: <%= resource.unconfirmed_email %></span>
+      <% end %>
+    </div>
+  
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+      <span class="help-block">Leave blank if you don't want to change it</span>
+    </div>
+  
+    <div class="form-group">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+    </div>
+  
+    <div class="form-group">
+      <%= f.label :current_password %>
+      <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
+      <span class="help-block">Enter password to save changes</span>
+    </div>
+  
+    <%= f.submit "Update", class: 'btn btn-primary' %>
+  <% end %>
+</div>
+
+<h4>Cancel my account</h4>
+
+<p>Unhappy?</p>
+<div style="margin-top: 10px; margin-bottom: 20px">
+  <%= button_to "Cancel my account", registration_path(resource_name), class: 'btn btn-danger',
+                data: { confirm: "Are you sure?" }, method: :delete %>
+</div>
+<% if current_user.profile.nil? %>
+  <%= link_to "Start profile", new_profile_path(), class: 'btn btn-default btn-sm' %>
+<%else%>
+  <%= link_to "Edit Profile", edit_profile_path(current_user.profile.id), class: 'btn btn-default btn-sm button-bottom' %>
+<% end %>
+
+<%= link_to "Back", :back, class: 'btn btn-default btn-sm button-bottom' %>

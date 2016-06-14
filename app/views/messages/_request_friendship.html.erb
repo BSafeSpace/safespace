@@ -1,0 +1,11 @@
+<% user = User.find(@conversation.recipient_id) %>
+  <div class="request_screen">
+    <div class="request-message">
+      <h4>Friend Request</h4>
+      <%= user.username %> sent you a friend request!<br>Accept to start chatting.
+    </div>
+    <div style="display:inline-block">
+      <%= link_to "Accept", friendship_path(:id => user), :method => "put", :class => "request-link" %> 
+      <%= link_to "Decline", friendship_path(:id => user), :method => :delete, :class => "request-link" %>
+    </div>
+  </div>

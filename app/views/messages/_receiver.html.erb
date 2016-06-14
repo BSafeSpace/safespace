@@ -1,0 +1,17 @@
+<% @messages.each do |message| %>
+    <% if message.body %>
+        <% user = User.find(message.user) %>
+            <div style="text-align:left">
+                <% if !@last_user.id.eql? user.id %>
+                  <div style="text-align:center">
+                     <small class="text-muted"><%= message.message_time %></small> 
+                  </div>
+                  <b class="message-username"> <%= user.username %></b>
+                <% end %>   
+                <div class="message-container">
+                    <div class="message" id="other-message"><%= message.body %></div>
+                </div>
+            </div>
+    <%end%>
+ <%end%>
+            

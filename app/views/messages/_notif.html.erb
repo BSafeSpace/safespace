@@ -1,0 +1,14 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js" type="text/javascript"></script>
+	<script src="/assets/jquery.growl.js" type="text/javascript"></script>
+	<link href="/assets/jquery.growl.css" rel="stylesheet" type="text/css" />
+</head>
+
+<script type="text/javascript">
+  var sender = "<%= @message.user.username %>";
+  var msg = "<%= @message.body %>"
+  if (msg.length > 35) {
+  	msg = msg.substring(0,35) + "..."
+  } 
+  $.growl.notice({ title: sender, message: msg});
+</script>

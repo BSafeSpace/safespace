@@ -1,0 +1,92 @@
+<p id="notice"><%= notice %></p>
+
+<h3><%= @profile.user.username %></h3>
+
+<div style="margin-top: 15px; margin-bottom: 20px">
+  <p class="char-edit">
+    <strong>Class Rank:</strong>
+    <%= @profile.class_rank %>
+  </p>
+  
+  <p class="char-edit">
+    <strong>Socioeconomic Status:</strong>
+    <%= @profile.socioeconomic_status %>
+  </p>
+  
+  <p class="char-edit">
+    <strong class="char-field-title">Living Situation:</strong>
+    <%= @profile.living_situation %>
+  </p>
+  
+  <p class="char-edit">
+    <strong>Sexual Orientation:</strong>
+    <%= @profile.sexual_orientation %>
+  </p>
+  
+  <p class="char-edit">
+    <strong>Comfort With Sexuality:</strong>
+    <%= @profile.comfort_with_sexuality %>
+  </p>
+  
+  <p class="char-edit">
+    <strong>Age:</strong>
+    <%= @profile.age %>
+  </p>
+  
+  <p class="char-edit">
+    <strong>First Generation College Student:</strong>
+    <%= @profile.is_first_generation_college_student %>
+  </p>
+  
+  <p class="char-edit">
+    <strong>Physically Disabled:</strong>
+    <%= @profile.is_physically_disabled %>
+  </p>
+  
+  <p class="char-edit">
+    <strong>Parent:</strong>
+    <%= @profile.is_parent %>
+  </p>
+  
+  <p class="char-edit">
+    <strong>Single Parent:</strong>
+    <%= @profile.is_single_parent %>
+  </p>
+  
+  <p class="char-edit">
+    <strong>From Foster Care:</strong>
+    <%= @profile.is_from_foster_care %>
+  </p>
+  
+  <p class="char-edit">
+    <strong>Intercollegiate Athlete:</strong>
+    <%= @profile.is_intercollegiate_athlete %>
+  </p>
+  
+  <p class="char-edit">
+    <strong>Military:</strong>
+    <%= @profile.is_military %>
+  </p>
+  
+  <p class="char-edit">
+    <strong>Out Of State Student:</strong>
+    <%= @profile.is_out_of_state_student %>
+  </p>
+  
+  <p class="char-edit">
+    <strong>International Student:</strong>
+    <%= @profile.is_international_student %>
+  </p>
+  
+  <p class="char-edit">
+    <strong>Is transfer student:</strong>
+    <%= @profile.is_transfer_student %>
+  </p>
+  
+  <h3> Characteristics </h3>
+  <% @profile.characteristics.each do |characteristic| %>
+    <div class="char-option" style="padding-bottom: 10px"> <%= characteristic.name %> </div>
+  <% end %>
+</div>
+
+<%= link_to "Back", :back, class: 'btn btn-default btn-sm button-bottom' %>

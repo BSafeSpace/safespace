@@ -1,0 +1,37 @@
+<% last_user = nil %>
+<% last_time = nil %>
+<% @messages.each do |message| %>
+    <% if message.body %>
+        <% user = User.find(message.user_id) %>
+
+        <% if message.show_time(last_time) %>  
+          <div style="text-align:center">
+             <small class="text-muted message-date"><%= message.message_time %></small> 
+          </div>
+        <% end %>
+
+        <% if current_user.username.eql? user.username %>
+            <div style="text-align:right">
+                <% if (!last_user.eql? user.username) || (message.show_time(last_time)) %>
+                  <b class="message-username"> <%= user.username %></b>
+                  <% last_user = user.username %>
+                <% end %>
+                <div class="message-container" id="message-right">
+                    <div class="message" id="curr-message"><%= message.body %></div>
+                </div>
+            </div>
+            
+        <% else %>
+            <div>
+                <% if (!last_user.eql? user.username) || (message.show_time(last_time)) %>
+                  <b class="message-username"> <%= user.username %></b>
+                  <% last_user = user.username %>
+                <% end %>
+                <div class="message-container">
+                    <div class="message" id="other-message"><%= message.body %></div>
+                </div>
+            </div>
+        <% end %>
+        <% last_time = message.created_at %>
+    <% end %>
+<% end %>

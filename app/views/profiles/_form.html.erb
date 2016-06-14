@@ -1,0 +1,133 @@
+<%= form_for(@profile) do |f| %>
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% @profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= render '/profiles/new_vars' %>
+
+  <div class="char-edit">
+    <div><%= f.label :class_rank, :class => "char-field-title" %></div>
+    <%= f.select :class_rank, @arr_class_rank , class: "form-control col-md-6 "%>
+  </div>
+  <div class="char-edit">
+    <%= f.label :socioeconomic_status, :class => "char-field-title" %><br>
+    <%= f.select :socioeconomic_status, @arr_socioeconomic_status , class: "form-control col-md-6 "%>
+  </div>
+  <div class="char-edit">
+    <%= f.label :living_situation, :class => "char-field-title" %><br>
+    <%= f.select :living_situation, @arr_living_situation , class: "form-control col-md-6 "%>
+  </div>
+  <div class="char-edit">
+    <%= f.label :sexual_orientation, :class => "char-field-title" %><br>
+    <%= f.select :sexual_orientation , @arr_sexual_orientation , class: "form-control col-md-6 "%>
+  </div>
+  <div class="char-edit">
+    <%= f.label :comfort_with_sexuality, :class => "char-field-title" %><br>
+    <%= f.select :comfort_with_sexuality , @arr_comfort_with_sexuality, class: "form-control col-md-6 "%>
+  </div>
+  <div class="char-edit">
+    <%= f.label :age, :class => "char-field-title" %><br>
+    <%= f.number_field :age %>
+  </div>
+  <div class="check-box-container">
+    <%= f.check_box :is_first_generation_college_student %>
+    <%= f.label :is_first_generation_college_student, :class => "char-option" %><br>
+  </div>
+  <div class="check-box-container">
+    <%= f.check_box :is_physically_disabled %>
+    <%= f.label :is_physically_disabled, :class => "char-option" %><br>
+  </div>
+  <div class="check-box-container">
+    <%= f.check_box :is_parent %>
+    <%= f.label :is_parent, :class => "char-option" %><br>
+  </div>
+  <div class="check-box-container">
+    <%= f.check_box :is_single_parent %>
+    <%= f.label :is_single_parent, :class => "char-option" %><br>
+  </div>
+  <div class="check-box-container">
+    <%= f.check_box :is_from_foster_care %>
+    <%= f.label :is_from_foster_care, :class => "char-option" %><br>
+  </div>
+  <div class="check-box-container">
+    <%= f.check_box :is_intercollegiate_athlete %>
+    <%= f.label :is_intercollegiate_athlete, :class => "char-option" %><br>
+  </div>
+  <div class="check-box-container">
+    <%= f.check_box :is_military %>
+    <%= f.label :is_military, :class => "char-option" %><br>
+  </div>
+  <div class="check-box-container">
+    <%= f.check_box :is_out_of_state_student %>
+    <%= f.label :is_out_of_state_student, :class => "char-option" %><br>
+  </div>
+  <div class="check-box-container">
+    <%= f.check_box :is_international_student %>
+    <%= f.label :is_international_student, :class => "char-option" %><br>
+  </div>
+  <div class="check-box-container">
+    <%= f.check_box :is_transfer_student %>
+    <%= f.label :is_transfer_student, :class => "char-option" %><br>
+  </div>
+  <div class="char-section">
+    <h5>Mental Health Disorder</h5>
+    <%= f.collection_check_boxes :characteristic_ids, Characteristic.find((1..10).to_a), :id, :name do |b| %>
+      <div class="collection-check-box check-box-container">
+        <%= b.check_box %>
+        <%= b.label :class => "char-option" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="char-section">
+    <h5> Gender </h5>
+    <%= f.collection_check_boxes :characteristic_ids, Characteristic.find((11..18).to_a), :id, :name do |b| %>
+      <div class="collection-check-box check-box-container">
+        <%= b.check_box %>
+        <%= b.label :class => "char-option" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="char-section">
+    <h5> Ethnicity </h5>
+    <%= f.collection_check_boxes :characteristic_ids, Characteristic.find((18..34).to_a), :id, :name do |b| %>
+      <div class="collection-check-box check-box-container">
+        <%= b.check_box %>
+        <%= b.label :class => "char-option" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="char-section">
+    <h5>Academic Focus</h5>
+    <%= f.collection_check_boxes :characteristic_ids, Characteristic.find((34..50).to_a), :id, :name do |b| %>
+      <div class="collection-check-box check-box-container">
+        <%= b.check_box %>
+        <%= b.label :class => "char-option" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="char-section">
+    <h5>Religion</h5>
+    <%= f.collection_check_boxes :characteristic_ids, Characteristic.find((50..63).to_a), :id, :name do |b| %>
+      <div class="collection-check-box check-box-container">
+        <%= b.check_box %>
+        <%= b.label :class => "char-option" %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <div class="actions" style="margin-bottom: 20px">
+    <%= f.submit "Update", class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+
+  
