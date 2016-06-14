@@ -45,7 +45,7 @@
                 <% elsif current_user.appear_offline %>
                    <li id="appear_offline"><%= link_to 'Appear Online', toggle_appear_offline_path, method: :get%></li>
                 <% end %>
-                <li><%= link_to 'Profile', edit_profile_path(current_user.id) %></li>
+                <li><%= link_to 'Profile', profile_path(current_user.id) %></li>
                 <li><%= link_to 'Account', edit_user_registration_path %></li>
                 <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
               </ul>

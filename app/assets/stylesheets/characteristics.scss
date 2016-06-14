@@ -1,6 +1,22 @@
 // Place all the styles related to the characteristics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#edit-profile-header {
+    text-align: center;
+}
+
+.check-box-scroll {
+    height: 200px;
+    overflow: auto;
+    width: 300px;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
 .char-edit {
     margin-bottom: 10px;
 }
@@ -23,7 +39,7 @@
 }
 
 .button-bottom {
-    margin-bottom: 30px;
+    margin-top: 40px;
     margin-right: 10px;
 }
 
