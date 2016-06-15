@@ -16,7 +16,42 @@
 !/log/.keep
 /tmp
 .env
+log/*.log
+tmp/**/*
 
 Down to Split.sublime-project
 Down to Split.sublime-workspace
 old suff.rhtml
+
+# various artifacts
+**.war
+*.gem
+*.rbc
+*.sassc
+.rspec
+.redcar/
+.config
+.sass-cache
+/public/cache
+/public/stylesheets/compiled
+/public/system/*
+/public/assets/*
+/public/sitemaps
+/spec/tmp/*
+/cache
+/capybara*
+/capybara-*.html
+/gems
+/specifications
+rerun.txt
+pickle-email-*.html
+.zeus.sock
+/solr/
+/.gemtags
+/coverage
+/coverage.data
+/InstalledFiles
+/pkg/
+/spec/reports/
+/test/tmp/
+/test/version_tmp/
