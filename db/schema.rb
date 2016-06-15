@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415233316) do
+ActiveRecord::Schema.define(version: 20160615224449) do
 
   create_table "characteristics", force: :cascade do |t|
     t.string   "name"
@@ -94,6 +94,8 @@ ActiveRecord::Schema.define(version: 20160415233316) do
     t.datetime "updated_at"
     t.datetime "last_sign_out_at"
     t.boolean  "appear_offline",         default: false
+    t.boolean  "done_tut_filter",        default: false
+    t.boolean  "done_tut_add_friend",    default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

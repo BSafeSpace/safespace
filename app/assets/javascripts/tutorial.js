@@ -1,23 +1,33 @@
 $(function() {
-	var doneTutFirst = false;
+	var dontTutAddFriend;
 
 	if (gon.firstSignIn) {
 		// initialize Bootstrap Tooltips
 		var $filterTooltip = $('#filter-tooltip');
-		$filterTooltip.tooltip('show');
 
-		if (!doneTutFirst) {
+		if (!gon.doneTutFilter) {
 			$(".expose").css('z-index','99999');
 	    	$('#overlay').fadeIn(300);
-		}
-	    
-		$('.filter-button').click(function(){
-		    $('#overlay').fadeOut(300, function(){
-		        $('.expose').css('z-index','1');
-		    });
-		    doneTutFirst = true;
-		});
+	    	$filterTooltip.tooltip('show');
 
+	    	$('.filter-button').click(function(){
+			    $('#overlay').fadeOut(300, function(){
+			        $('.expose').css('z-index','1');
+			        $filterTooltip.tooltip('hide');
+			    });
+
+			    $.ajax({
+				   method: 'get',
+				   url: '/profiles',
+				   data: { doneTutFilter: true },
+				   success: function(response) {
+						console.log(response)
+				   }
+				});
+
+			});
+		}
+	    	
 		console.log(gon.firstSignIn);
 	}
 	
