@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   resources :friendships
   resources :characteristics
   resources :profiles
-  devise_for :users, :controllers => {:destroy => "destroy"}
+  # devise_for :users, :controllers => {:destroy => "destroy"}
+  devise_for :users, :controllers => {:destroy => "destroy", registrations: "registrations"}
   root 'static_pages#home'
   get 'about' => 'static_pages#about', :as => :home_about
   get 'contact' => 'static_pages#contact', :as => :home_contact
@@ -12,6 +13,10 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
+  
+  #edit
+  get 'quiz' => 'static_pages#quiz'
+  get 'welcome' => 'static_pages#welcome', as: 'welcome'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

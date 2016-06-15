@@ -70,3 +70,5 @@ group :development do
   gem 'spring'
   gem 'sqlite3'
 end
+
+gem 'ruql'

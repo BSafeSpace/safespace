@@ -1,0 +1,50 @@
+<h2> Welcome, <%= @user.username %>!</h2>
+
+
+
+<div id="player"></div>
+<script>
+    var tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    
+    var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '390',
+          width: '640',
+          videoId: 'osS1NXMPwWE',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+      
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+      
+      function onPlayerStateChange(event) {
+        
+        if (event.data == YT.PlayerState.ENDED) {
+        
+            toggleButton();
+        
+        }
+      }
+      
+      function toggleButton() {
+            document.getElementById("button").className = 'show'; 
+        }
+     
+</script>
+
+<button id="button" class="hidden" onclick="redirectQuiz()">Quiz</button>
+<p id="demo"></p>
+<script>
+    function redirectQuiz() {
+        window.location.replace('quiz'); 
+    }
+</script>
