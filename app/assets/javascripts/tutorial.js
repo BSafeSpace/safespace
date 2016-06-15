@@ -1,9 +1,14 @@
 $(function() {
-	var isFiltered = false;
+	var doneTutFirst = false;
 
 	if (gon.firstSignIn) {
-		if (!isFiltered) {
+		// initialize Bootstrap Tooltips
+		var $filterTooltip = $('#filter-tooltip');
+		$filterTooltip.tooltip('show');
+
+		if (!doneTutFirst) {
 			$(".expose").css('z-index','99999');
+			$filterTooltip.css('z-index','99999');
 	    	$('#overlay').fadeIn(300);
 		}
 	    
@@ -11,7 +16,7 @@ $(function() {
 		    $('#overlay').fadeOut(300, function(){
 		        $('.expose').css('z-index','1');
 		    });
-		    isFiltered = true;
+		    doneTutFirst = true;
 		});
 
 		console.log(gon.firstSignIn);
