@@ -7,6 +7,16 @@ class ProfilesController < ApplicationController
     @search = Profile.search(params[:q])
     @profiles = @search.result(distinct: true)
     # @profiles = Profile.all
+
+    # start tutorial on first sign in
+    if user_signed_in?
+      @signInCount = current_user.sign_in_count;
+      if @signInCount == 1
+        gon.firstSignIn = true
+      else
+        gon.firstSignIn = false
+      end
+    end
   end
 
   # GET /profiles/1

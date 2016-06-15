@@ -6,6 +6,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <%= include_gon(:init => true) %>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   </head>
@@ -21,8 +22,8 @@
           <li><%= link_to "About", home_about_path %></li>
           <li><%= link_to 'Contact', home_contact_path %></li>
           <% if user_signed_in? %>
-            <li><%= link_to 'Chat', conversations_path %></li>
             <li id = "people"><%= link_to 'People', profiles_path %></li>
+            <li><%= link_to 'Chat', conversations_path %></li>
           <% end %>
         </ul>
         <ul class="nav navbar-nav pull-right">
