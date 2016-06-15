@@ -8,7 +8,6 @@ $(function() {
 
 		if (!doneTutFirst) {
 			$(".expose").css('z-index','99999');
-			$filterTooltip.css('z-index','99999');
 	    	$('#overlay').fadeIn(300);
 		}
 	    

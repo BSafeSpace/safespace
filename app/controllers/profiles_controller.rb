@@ -17,6 +17,7 @@ class ProfilesController < ApplicationController
         gon.firstSignIn = false
       end
     end
+
   end
 
   # GET /profiles/1

@@ -1,5 +1,5 @@
 <fieldset class="search-field">
-  <%= search_form_for @search do |f| %>
+  <%= search_form_for @search, remote: true do |f| %>
     <!-- <div class="field">
       <%= f.label :class_rank_cont, "Class Rank contains" %>
       <%= f.text_field :class_rank_cont %>
