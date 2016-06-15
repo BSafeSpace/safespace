@@ -12,6 +12,21 @@
     width: 300px;
 }
 
+.filter-box-scroll {
+    height: 100px;
+    overflow: auto;
+    width: 300px;
+}
+
+.button-header {
+    display: inline;
+}
+
+.filter-button {
+    display: inline;
+    margin-left: 120px;
+}
+
 .col-centered{
     float: none;
     margin: 0 auto;

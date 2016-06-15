@@ -6,51 +6,65 @@
     </div> -->
 
     <div class="char-section">
-    <h5>Mental Health Disorder</h5>
-    <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('id > 0').limit(10), :id, :name do |b| %>
-      <div class="collection-check-box">
-        <%= b.check_box %>
-        <%= b.label :class => "char-option" %>
+      <h5 class="button-header"><strong>Mental Health</strong></h5>
+      <div class="actions filter-button"><%= f.submit "Search", class: 'btn btn-primary' %></div>
+      <div class="filter-box-scroll">
+        <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('id > 0').limit(10), :id, :name do |b| %>
+          <div class="collection-check-box">
+            <%= b.check_box %>
+            <%= b.label :class => "char-option" %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-  </div>
-  <div class="char-section">
-    <h5> Gender </h5>
-    <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('id > 10').limit(8), :id, :name do |b| %>
-      <div class="collection-check-box">
-        <%= b.check_box %>
-        <%= b.label :class => "char-option" %>
-      </div>
-    <% end %>
-  </div>
-  <div class="char-section">
-    <h5> Ethnicity </h5>
-    <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('id > 17').limit(16), :id, :name do |b| %>
-      <div class="collection-check-box">
-        <%= b.check_box %>
-        <%= b.label :class => "char-option" %>
-      </div>
-    <% end %>
-  </div>
-  <div class="char-section">
-    <h5>Academic Focus</h5>
-    <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('id > 33').limit(16), :id, :name do |b| %>
-      <div class="collection-check-box">
-        <%= b.check_box %>
-        <%= b.label :class => "char-option" %>
-      </div>
-    <% end %>
-  </div>
-  <div class="char-section">
-    <h5>Religion</h5>
-    <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('id > 49').limit(13), :id, :name do |b| %>
-      <div class="collection-check-box">
-        <%= b.check_box %>
-        <%= b.label :class => "char-option" %>
-      </div>
-    <% end %>
-  </div>
+    </div>
 
-    <div class="actions"><%= f.submit "Search", class: 'btn btn-primary button-bottom' %></div>
+    <div class="char-section">
+      <h5><strong>Gender</strong></h5>
+      <div class="filter-box-scroll">
+        <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('id > 10').limit(8), :id, :name do |b| %>
+          <div class="collection-check-box">
+            <%= b.check_box %>
+            <%= b.label :class => "char-option" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="char-section">
+      <h5><strong>Ethnicity</strong></h5>
+      <div class="filter-box-scroll">
+        <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('id > 17').limit(16), :id, :name do |b| %>
+          <div class="collection-check-box">
+            <%= b.check_box %>
+            <%= b.label :class => "char-option" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="char-section">
+      <h5><strong>Academic Focus</strong></h5>
+      <div class="filter-box-scroll">
+        <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('id > 33').limit(16), :id, :name do |b| %>
+          <div class="collection-check-box">
+            <%= b.check_box %>
+            <%= b.label :class => "char-option" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="char-section">
+      <h5><strong>Religion</strong></h5>
+      <div class="filter-box-scroll">
+        <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('id > 49').limit(13), :id, :name do |b| %>
+          <div class="collection-check-box">
+            <%= b.check_box %>
+            <%= b.label :class => "char-option" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
   <% end %>
 </fieldset>
