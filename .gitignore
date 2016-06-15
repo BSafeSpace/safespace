@@ -18,6 +18,7 @@
 .env
 log/*.log
 tmp/**/*
+/log
 
 Down to Split.sublime-project
 Down to Split.sublime-workspace
@@ -55,3 +56,13 @@ pickle-email-*.html
 /spec/reports/
 /test/tmp/
 /test/version_tmp/
+
+db/*.sqlite3
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/public/system
+/coverage/
+/spec/tmp
+**.orig
+rerun.txt
+pickle-email-*.html
