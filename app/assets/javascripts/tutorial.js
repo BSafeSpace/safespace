@@ -24,31 +24,31 @@ $(function() {
 				   }
 				});
 
-			});
-		}
+				var $resultsTooltip = $('#results-tooltip');
+				if (gon.doneTutFilter && !gon.doneTutAddFriend) {
+					$(".profile-results-container.expose").css('z-index','99999');
+			    	$('#overlay').fadeIn(300);
+			    	$resultsTooltip.tooltip('show');
 
-		var $resultsTooltip = $('#results-tooltip');
-		if (!gon.doneTutAddFriend) {
-			$(".profile-results-container.expose").css('z-index','99999');
-	    	$('#overlay').fadeIn(300);
-	    	$resultsTooltip.tooltip('show');
+			    	$('.add-friend').click(function(){
+					    $('#overlay').fadeOut(300, function(){
+					        $('.profile-results-container.expose').css('z-index','1');
+					        $resultsTooltip.tooltip('hide');
+					    });
 
-	    	$('.add-friend').click(function(){
-			    $('#overlay').fadeOut(300, function(){
-			        $('.profile-results-container.expose').css('z-index','1');
-			        $resultsTooltip.tooltip('hide');
-			    });
+					    $.ajax({
+						   method: 'get',
+						   url: '/profiles',
+						   data: { doneTutAddFriend: true },
+						   success: function(response) {
+								console.log(response)
+						   }
+						});
 
-			    $.ajax({
-				   method: 'get',
-				   url: '/profiles',
-				   data: { doneTutAddFriend: true },
-				   success: function(response) {
-						console.log(response)
-				   }
-				});
+						$('#chat-tooltip').tooltip();
 
-				$('#chat-tooltip').tooltip();
+					});
+				}
 
 			});
 		}
