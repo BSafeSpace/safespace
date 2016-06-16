@@ -4,7 +4,14 @@ class ConversationsController < ApplicationController
   def index
     @user = current_user
     @users = User.all
-    @conversations = Conversation.all
+    @conversations = Conversation.where(sender: @user)
+    @conversations.push Conversation.where(receiver: @user)
+    if @conversations
+      @conversation = Conversation.order("updated_at").last
+      @message = @conversation.messages.new
+      puts @conversation
+      @messages = @conversation.messages
+    end
   end
 
   def create

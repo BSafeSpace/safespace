@@ -13,7 +13,7 @@
         <% if current_user.username.eql? user.username %>
             <div style="text-align:right">
                 <% if (!last_user.eql? user.username) || (message.show_time(last_time)) %>
-                  <b class="message-username"> <%= user.username %></b>
+                  <b class="message-username"> You </b>
                   <% last_user = user.username %>
                 <% end %>
                 <div class="message-container" id="message-right">

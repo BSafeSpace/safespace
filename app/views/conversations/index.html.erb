@@ -90,6 +90,9 @@
   </div>
 
   <div class="col-md-6" id="chat">
+    <% if @conversation %>
+      <%= render '/messages/chat' %>
+    <% end %>
   </div>
-  
+
 </div>

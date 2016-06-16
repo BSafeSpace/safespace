@@ -8,4 +8,8 @@ class Conversation < ActiveRecord::Base
 
   scope :between, -> (sender_id, recipient_id) { where("(conversations.sender_id = ? AND conversations.recipient_id =?) OR (conversations.sender_id = ? AND conversations.recipient_id =?)", sender_id,recipient_id, recipient_id, sender_id) }
 
+  def update_time
+  	self.updated_at = Time.now
+  	self.save
+  end
 end
