@@ -27,6 +27,12 @@ class MessagesController < ApplicationController
     end
 
     @message = @conversation.messages.new
+ 
+    respond_to do |format|
+      format.html { redirect_to conversations_path(@conversation, @message, @messages) }
+      format.js
+    end
+
   end
 
   def new

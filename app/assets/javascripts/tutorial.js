@@ -48,6 +48,8 @@ $(function() {
 				   }
 				});
 
+				$('#chat-tooltip').tooltip();
+
 			});
 		}
 
