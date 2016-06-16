@@ -1,51 +1,49 @@
-<div class="col-md-6" id="chat">
-  <% if @over_ten %>
-   <%= link_to 'Show Previous', '?m=all' %>
-  <% end %>
+<% if @over_ten %>
+ <%= link_to 'Show Previous', '?m=all' %>
+<% end %>
 
-  <% if current_user.id != @conversation.recipient_id %>
-    <% user = User.find(@conversation.recipient_id) %>
-  <% else %>
-    <% user = User.find(@conversation.sender_id) %>
-  <% end %>
+<% if current_user.id != @conversation.recipient_id %>
+  <% user = User.find(@conversation.recipient_id) %>
+<% else %>
+  <% user = User.find(@conversation.sender_id) %>
+<% end %>
 
-  <% if current_user.friends.include? user %>
-    <div class="panel panel-default" id="messages">
-        <div class="panel-body">
-          <ul class="media-list" id="msg">
-            <%= render 'message' %>
-          </ul>
-        </div>
-    </div>
-    
-    <div style="margin-top:15px">
-      <%= form_for [@conversation, @message], :remote => true do |f| %>
-        <div class="form-group">
-          <%= f.text_field :body, class: 'form-control', maxlength: 2000, placeholder: "Type a message..." %>
-          <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
-        </div>
-      <% end %>
-    </div>
-
-  <% elsif current_user.pending_friends.include? user %>
-    <div class="request_screen">
-      <div class="request-message">
-        <h4>Pending Request</h4>
-        Your friend request to <%= user.username %> is pending.
+<% if current_user.friends.include? user %>
+  <div class="panel panel-default" id="messages">
+      <div class="panel-body">
+        <ul class="media-list" id="msg">
+          <%= render 'message' %>
+        </ul>
       </div>
-    </div>
-
-  <% elsif current_user.requested_friendships.include? user %>
-    <h5>Friend Request</h5>
-    <%= render 'request_friendship' %>
-
-  <% else %>
-    <div class="request_screen">
-      <div class="request-message">
-        Send <%= user.username %> a friend request to chat!
+  </div>
+  
+  <div style="margin-top:15px">
+    <%= form_for [@conversation, @message], :remote => true do |f| %>
+      <div class="form-group">
+        <%= f.text_field :body, class: 'form-control', maxlength: 2000, placeholder: "Type a message..." %>
+        <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
       </div>
+    <% end %>
+  </div>
+
+<% elsif current_user.pending_friends.include? user %>
+  <div class="request_screen">
+    <div class="request-message">
+      <h4>Pending Request</h4>
+      Your friend request to <%= user.username %> is pending.
     </div>
+  </div>
+
+<% elsif current_user.requested_friendships.include? user %>
+  <h5>Friend Request</h5>
+  <%= render 'request_friendship' %>
+
+<% else %>
+  <div class="request_screen">
+    <div class="request-message">
+      Send <%= user.username %> a friend request to chat!
+    </div>
+  </div>
 
   <% end %>
-</div>
 
