@@ -1,4 +1,4 @@
-<div class="col-md-6">
+<div class="col-md-6" id="chat">
   <% if @over_ten %>
    <%= link_to 'Show Previous', '?m=all' %>
   <% end %>
@@ -21,10 +21,9 @@
     <div style="margin-top:15px">
       <%= form_for [@conversation, @message], :remote => true do |f| %>
         <div class="form-group">
-          <%= f.text_area :body, rows: 3, class: 'form-control', maxlength: 2000 %>
+          <%= f.text_field :body, class: 'form-control', maxlength: 2000, placeholder: "Type a message..." %>
           <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
         </div>
-        <%= f.submit 'Send', class: 'btn btn-primary btn-md' %>
       <% end %>
     </div>
 

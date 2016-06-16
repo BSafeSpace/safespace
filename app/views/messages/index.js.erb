@@ -1,1 +1,3 @@
-$('.row').append('<%= j render("chat") %>');
+if ( $('#chat').length == 0 ) {
+	$('.row').append('<%= j render("chat") %>');
+}

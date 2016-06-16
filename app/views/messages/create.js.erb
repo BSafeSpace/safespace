@@ -4,9 +4,11 @@
 
     if(sender_id != current_id){
 		$("#msg").append("<%= j render 'receiver' %>");
+		$('.message').last().focus();
 	}
 	else{
 		$("#msg").append("<%= j render 'sender' %>");
+		$('.message').last().focus();
 	}
 
 	if(sender_id != current_id){
