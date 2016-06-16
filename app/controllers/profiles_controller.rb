@@ -13,17 +13,23 @@ class ProfilesController < ApplicationController
       @signInCount = current_user.sign_in_count;
       if @signInCount == 1
         gon.firstSignIn = true
-
-        @doneTutFilter = params[:doneTutFilter]
-        if @doneTutFilter
-          current_user.done_tut_filter = @doneTutFilter
-          current_user.save
-        end
-        gon.doneTutFilter = current_user.done_tut_filter
-
       else
         gon.firstSignIn = false
       end
+
+      @doneTutFilter = params[:doneTutFilter]
+      if @doneTutFilter
+        current_user.done_tut_filter = @doneTutFilter
+        current_user.save
+      end
+      gon.doneTutFilter = current_user.done_tut_filter
+
+      @doneTutAddFriend = params[:doneTutAddFriend]
+      if @doneTutAddFriend
+        current_user.done_tut_add_friend = @doneTutAddFriend
+        current_user.save
+      end
+      gon.doneTutAddFriend = current_user.done_tut_add_friend
     end
 
     respond_to do |format|

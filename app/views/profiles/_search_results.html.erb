@@ -1,4 +1,4 @@
-<div class="results-container">
+<div class="results-container" id="results-tooltip" data-toggle="tooltip" title="Add a buddy as a friend!" data-placement="right" data-trigger="manual">
 	            
   <% @profiles.each do |profile| %>
       <% if profile.user != current_user%>
@@ -30,7 +30,7 @@
                 <div class="friend-link" id="friend-info">Pending request</div>
               </div>
           <% elsif !current_user.friends.include? profile.user %>
-              <div class="links-container horizontal-align">
+              <div class="links-container horizontal-align add-friend">
                 <%= link_to "Add Friend", friendships_path(:friend_id => profile.user), :method => :post, :class => "friend-link" %>
               </div>
           <% end %>
