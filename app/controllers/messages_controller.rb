@@ -36,6 +36,9 @@ class MessagesController < ApplicationController
   def create
     respond_to do |format|
       @message = @conversation.messages.new(message_params)
+      
+      @message.user.try(:touch)
+      
       @messages = @conversation.messages
       if @messages.length==0
         @last_user = nil
