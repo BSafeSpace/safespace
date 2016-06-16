@@ -24,8 +24,8 @@
           <li><%= link_to 'Contact', home_contact_path %></li>
           <% if user_signed_in? %>
             <li id = "people"><%= link_to 'People', profiles_path %></li>
-            <li id="chat-tooltip" data-toggle="tooltip" title="Find a buddy that is like you!" data-placement="bottom">
-              <%= link_to 'Chat', conversations_path %>
+            <li id="chat-link">
+              <%= link_to 'Chat', conversations_path, id: "chat-tooltip", :data => { :toggle => "tooltip", :title => "Go here to start chatting with your friends!", :placement => "bottom", :trigger => "manual", :container => "chat-link" } %>
             </li>
           <% end %>
         </ul>

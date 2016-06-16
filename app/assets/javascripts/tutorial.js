@@ -1,58 +1,69 @@
 $(function() {
 
-	if (gon.firstSignIn) {
-		// initialize Bootstrap Tooltips
-		var $filterTooltip = $('#filter-tooltip');
+	// initialize Bootstrap Tooltips
+	var $filterTooltip = $('#filter-tooltip');
 
-		if (!gon.doneTutFilter) {
-			$(".expose").css('z-index','99999');
-	    	$('#overlay').fadeIn(300);
-	    	$filterTooltip.tooltip('show');
+	if (!gon.doneTutFilter) {
+		$(".filters-container.expose").css('z-index','99999');
+    	$('#overlay').fadeIn(300);
+    	$filterTooltip.tooltip('show');
 
-	    	$('.filter-button').click(function(){
+    	$('.filter-button').click(function(){
+		    $('#overlay').fadeOut(300, function(){
+		        $('.expose').css('z-index','1');
+		        $filterTooltip.tooltip('hide');
+		    });
+
+		    $.ajax({
+			   method: 'get',
+			   url: '/profiles',
+			   data: { doneTutFilter: true },
+			});
+
+			tutorial2();
+
+		});
+	}
+
+	$('.filter-button').click(function() {
+		if (gon.doneTutFilter && !gon.doneTutAddFriend) {
+	    	tutorial2();
+		}
+	});
+
+	function tutorial2() {
+		if ($('.results-container').children().length > 0) {
+			$('#overlay').fadeIn(300);
+			$('.profile-results-container.expose').css('z-index', '99998');
+
+	    	$('.profile-results-container.expose')
+	    		.children('.results-container')
+	    		.children()
+	    		.first()
+	            .tooltip({
+	                container: 'body',
+	                html: true,
+	                trigger: 'manual',
+	                title: 'Add a buddy as a friend!',
+	                placement: 'right'
+	            }).tooltip('show');
+
+	    	$('.friend-link').click(function(){
 			    $('#overlay').fadeOut(300, function(){
-			        $('.expose').css('z-index','1');
-			        $filterTooltip.tooltip('hide');
+			        $('.profile-results-container.expose').css('z-index', '1');
 			    });
 
 			    $.ajax({
 				   method: 'get',
 				   url: '/profiles',
-				   data: { doneTutFilter: true },
-				   success: function(response) {
-						console.log(response)
-				   }
+				   data: { doneTutAddFriend: true },
 				});
 
-				var $resultsTooltip = $('#results-tooltip');
-				if (gon.doneTutFilter && !gon.doneTutAddFriend) {
-					$(".profile-results-container.expose").css('z-index','99999');
-			    	$('#overlay').fadeIn(300);
-			    	$resultsTooltip.tooltip('show');
+				$('#chat-tooltip').tooltip('show');
+				console.log('clicked add friend');
 
-			    	$('.add-friend').click(function(){
-					    $('#overlay').fadeOut(300, function(){
-					        $('.profile-results-container.expose').css('z-index','1');
-					        $resultsTooltip.tooltip('hide');
-					    });
-
-					    $.ajax({
-						   method: 'get',
-						   url: '/profiles',
-						   data: { doneTutAddFriend: true },
-						   success: function(response) {
-								console.log(response)
-						   }
-						});
-
-						$('#chat-tooltip').tooltip();
-
-					});
-				}
-
-			});
+			});	
 		}
-
 	}
 	
 });
