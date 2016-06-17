@@ -23,8 +23,9 @@
 }
 
 .filter-button {
-    display: inline;
+    display: inline-block;
     margin-left: 120px;
+    margin-bottom: 1vh;
 }
 
 .col-centered{
@@ -46,6 +47,7 @@
 
 .char-option {
     font-weight: 400;
+    display: inline;
 }
 
 .check-box-container {
