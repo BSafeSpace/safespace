@@ -40,7 +40,7 @@ $(function() {
 			var $resultsTooltip = $('.profile-results-container.expose').children('.results-container').children().first();
 
 	    	$resultsTooltip.attr('id', 'results-tooltip');
-
+	    	
 	    	$resultsTooltip.tooltip({
                 container: 'body',
                 html: true,
