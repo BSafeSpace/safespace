@@ -10,7 +10,7 @@ $(function() {
 
     	$('.filter-button').click(function(){
 		    $('#overlay').fadeOut(300, function(){
-		        $('.expose').css('z-index','1');
+		        $('.filters-container.expose').css('z-index','1');
 		        $filterTooltip.tooltip('hide');
 		    });
 
@@ -34,7 +34,7 @@ $(function() {
 	function tutorial2() {
 		if ($('.results-container').children().length > 0) {
 			$('#overlay').fadeIn(300);
-			$('.profile-results-container.expose').css('z-index', '99998');
+			$('.profile-results-container.expose').css('z-index','99998');
 
 	    	$('.profile-results-container.expose')
 	    		.children('.results-container')
@@ -48,7 +48,9 @@ $(function() {
 	                placement: 'right'
 	            }).tooltip('show');
 
-	    	$('.friend-link').click(function(){
+	        console.log("expose");
+
+	    	$('.add-friend').click(function() {
 			    $('#overlay').fadeOut(300, function(){
 			        $('.profile-results-container.expose').css('z-index', '1');
 			    });
@@ -61,7 +63,6 @@ $(function() {
 
 				$('#chat-tooltip').tooltip('show');
 				console.log('clicked add friend');
-
 			});	
 		}
 	}
