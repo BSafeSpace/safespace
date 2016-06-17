@@ -5,8 +5,8 @@ class ConversationsController < ApplicationController
     @user = current_user
     @users = User.all
     @conversations = Conversation.where(sender: @user)
-    @conversations.push Conversation.where(receiver: @user)
-    if @conversations
+    @conversations += Conversation.where(recipient: @user)
+    if !@conversations.empty?
       @conversation = Conversation.order("updated_at").last
       @message = @conversation.messages.new
       puts @conversation
