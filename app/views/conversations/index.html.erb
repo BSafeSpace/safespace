@@ -92,6 +92,8 @@
   <div class="col-md-6" id="chat">
     <% if @conversation %>
       <%= render '/messages/chat' %>
+    <% else %>
+      <div class="pre-chat center-text">Pick a friend and start chatting!</div>
     <% end %>
   </div>
 
