@@ -1,7 +1,38 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: Merriweather, verdana, arial, helvetica, sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-family: "Open Sans";
+}
+
+.navbar {
+	font-family: "Open Sans"
+}
+
+p, ol, ul, td {
+  font-family: Merriweather, verdana, arial, helvetica, sans-serif;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
 .register {
 	width: 60%;
 	margin-top: 20px;
+}
+
+.text-container {
+	width: 60vw;
+	max-width: 34em;
+	margin: 0 auto;
+	padding: 0 1em;
+	padding-top: 1vh;
 }
