@@ -6,6 +6,7 @@ class ProfilesController < ApplicationController
   def index
     @search = Profile.search(params[:q])
     @profiles = @search.result(distinct: true)
+    gon.profiles = @profiles
     # @profiles = Profile.all
 
     # start tutorial on first sign in

@@ -18,9 +18,10 @@ $(function() {
 			   method: 'get',
 			   url: '/profiles',
 			   data: { doneTutFilter: true },
+			   complete: function(response) {
+			   	tutorial2();
+			   }
 			});
-
-			tutorial2();
 
 		});
 	}
@@ -36,34 +37,19 @@ $(function() {
 			$('#overlay').fadeIn(300);
 			$('.profile-results-container.expose').css('z-index','99998');
 
-	    	$('.profile-results-container.expose')
-	    		.children('.results-container')
-	    		.children()
-	    		.first()
-	            .tooltip({
-	                container: 'body',
-	                html: true,
-	                trigger: 'manual',
-	                title: 'Add a buddy as a friend!',
-	                placement: 'right'
-	            }).tooltip('show');
+			var $resultsTooltip = $('.profile-results-container.expose').children('.results-container').children().first();
+
+	    	$resultsTooltip.attr('id', 'results-tooltip');
+
+	    	$resultsTooltip.tooltip({
+                container: 'body',
+                html: true,
+                trigger: 'manual',
+                title: 'Add a buddy as a friend!',
+                placement: 'right'
+            }).tooltip('show');
 
 	        console.log("expose");
-
-	    	$('.add-friend').click(function() {
-			    $('#overlay').fadeOut(300, function(){
-			        $('.profile-results-container.expose').css('z-index', '1');
-			    });
-
-			    $.ajax({
-				   method: 'get',
-				   url: '/profiles',
-				   data: { doneTutAddFriend: true },
-				});
-
-				$('#chat-tooltip').tooltip('show');
-				console.log('clicked add friend');
-			});	
 		}
 	}
 	

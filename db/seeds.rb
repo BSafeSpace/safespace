@@ -15,6 +15,10 @@ u4 = User.create( email: "user4@berkeley.edu", password: "password", password_co
 u5 = User.create( email: "user5@berkeley.edu", password: "password", password_confirmation: "password", username: "user5")
 u6 = User.create( email: "user6@berkeley.edu", password: "password", password_confirmation: "password", username: "user6")
 
+for num in 17..100
+  user = User.create! email: "user" + num.to_s + "@berkeley.edu", password: "password", password_confirmation: "password", username: "user" + num.to_s
+end
+
 mental_health = ["Depression" , "Feelings of Isolation/Loneliness" , "General Anxiety/Stress" , "Social Anxiety" , 
 				"Autistic" , "Bipolar Disorder" , "Eating Disorder" , "Have Been Sexually Assaulted" , "Grieving", 
 				"Other/Prefer to omit from personal profile"]

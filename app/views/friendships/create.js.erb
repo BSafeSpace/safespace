@@ -1,0 +1,30 @@
+if (gon.doneTutFilter && !gon.doneTutAddFriend) {
+
+	$('.tooltip').remove();
+	$('#overlay').fadeOut(300, function(){
+	    $('.profile-results-container.expose').css('z-index', '1');
+	});
+
+	$.ajax({
+	   method: 'get',
+	   url: '/profiles',
+	   data: { doneTutAddFriend: true },
+	});
+
+	gon.doneTutAddFriend = true;
+
+	$('#chat-tooltip').tooltip({
+	    html: true,
+	    trigger: 'manual',
+	    title: 'Go here to start chatting with your friends!',
+	    placement: 'bottom'
+	}).tooltip('show');
+
+	console.log('clicked add friend');
+}
+
+$('.results-container').remove();
+$('.profile-results-container').append('<%= j render("/profiles/search_results") %>');
+
+// results tooltip doesnt hide after adding friend
+// results reset after adding friend

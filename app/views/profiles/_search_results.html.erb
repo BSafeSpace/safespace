@@ -1,5 +1,4 @@
 <div class="results-container">
-	            
   <% @profiles.each do |profile| %>
     <% if profile.user %>
       <% @profile_user = User.find(profile.user_id) %>
@@ -33,7 +32,7 @@
               </div>
           <% elsif !current_user.friends.include? @profile_user %>
               <div class="links-container horizontal-align add-friend">
-                <%= link_to "Add Friend", friendships_path(:friend_id => @profile_user), :method => :post, :class => "friend-link" %>
+                <%= link_to "Add Friend", friendships_path(:friend_id => @profile_user), :method => :post, :class => "friend-link", remote: true %>
               </div>
           <% end %>
           

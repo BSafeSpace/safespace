@@ -1,4 +1,8 @@
-$('.search-field').hide();
+if (!gon.doneTutFilter) {
+	gon.doneTutFilter = true;
+}
+
+$('.search-field').remove();
 $('.filters-container').append('<%= j render("search_form") %>');
 
 $('.results-container').remove();
