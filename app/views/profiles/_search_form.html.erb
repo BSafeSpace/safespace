@@ -9,7 +9,7 @@
       <h5 class="button-header"><strong>Mental Health</strong></h5>
       <div class="actions filter-button"><%= f.submit "Search", class: 'btn btn-primary' %></div>
       <div class="filter-box-scroll">
-        <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('id > 0').limit(10), :id, :name do |b| %>
+        <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "mental_health"), :id, :name do |b| %>
           <div class="collection-check-box">
             <%= b.check_box %>
             <%= b.label :class => "char-option" %>
@@ -21,7 +21,7 @@
     <div class="char-section">
       <h5><strong>Gender</strong></h5>
       <div class="filter-box-scroll">
-        <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('id > 10').limit(8), :id, :name do |b| %>
+        <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "gender"), :id, :name do |b| %>
           <div class="collection-check-box">
             <%= b.check_box %>
             <%= b.label :class => "char-option" %>
@@ -33,7 +33,7 @@
     <div class="char-section">
       <h5><strong>Ethnicity</strong></h5>
       <div class="filter-box-scroll">
-        <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('id > 17').limit(16), :id, :name do |b| %>
+        <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "ethnicity"), :id, :name do |b| %>
           <div class="collection-check-box">
             <%= b.check_box %>
             <%= b.label :class => "char-option" %>
@@ -45,7 +45,7 @@
     <div class="char-section">
       <h5><strong>Academic Focus</strong></h5>
       <div class="filter-box-scroll">
-        <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('id > 33').limit(16), :id, :name do |b| %>
+        <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "academic_focus"), :id, :name do |b| %>
           <div class="collection-check-box">
             <%= b.check_box %>
             <%= b.label :class => "char-option" %>
@@ -57,7 +57,7 @@
     <div class="char-section">
       <h5><strong>Religion</strong></h5>
       <div class="filter-box-scroll">
-        <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('id > 49').limit(13), :id, :name do |b| %>
+        <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "religion"), :id, :name do |b| %>
           <div class="collection-check-box">
             <%= b.check_box %>
             <%= b.label :class => "char-option" %>

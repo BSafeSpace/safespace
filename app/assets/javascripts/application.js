@@ -16,6 +16,5 @@
 //= require jquery-ui
 //= require bootstrap-sprockets
 //= require bootstrap/dropdown
-//= require faye
 //= require private_pub
 //= require_tree .

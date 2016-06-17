@@ -34,7 +34,7 @@ gem 'ransack'
 #heroku gem to convert to postgres
 gem 'private_pub'
 gem 'taps'
-gem 'faye-rails', '~> 2.0'
+# gem 'faye-rails', '~> 2.0'
 gem 'thin'
 gem 'foreman'
 

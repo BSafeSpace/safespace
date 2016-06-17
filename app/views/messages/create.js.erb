@@ -1,4 +1,4 @@
-<% publish_to '/about' do %>
+<% publish_to conversation_path(@conversation) do %>
 	var sender_id = "<%= @message.user.id %>";
     var current_id = $('meta[name=user-id]').attr("content");
 

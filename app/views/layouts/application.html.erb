@@ -82,5 +82,8 @@
     
   </body>
 
-<%= subscribe_to '/about' %>
+  <% if current_user %>
+    <%= subscribe_to profile_path(current_user.id) %>
+  <% end %>
+
 </html>
