@@ -24,6 +24,14 @@
     </div>
 
     <div class="char-section">
+      <h5 class="button-header"><strong>Age</strong></h5><br>
+      <%= f.label "Min. Age", :class => "char-option" %>
+      <%= f.search_field :age_gteq %><br>
+      <%= f.label "Max. Age", :class => "char-option" %>
+      <%= f.search_field :age_lteq %><br>
+    </div>
+
+    <div class="char-section">
       <h5><strong>Gender</strong></h5>
       <div class="filter-box-scroll">
         <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "gender"), :id, :name do |b| %>
