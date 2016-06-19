@@ -9,6 +9,12 @@ class ProfilesController < ApplicationController
     gon.profiles = @profiles
     # @profiles = Profile.all
 
+    if params[:q] && params[:q][:online_true] == "1"
+      @online_only = true
+    else
+      @online_only = false
+    end
+
     # start tutorial on first sign in
     if user_signed_in?
       @signInCount = current_user.sign_in_count;

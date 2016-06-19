@@ -1,4 +1,10 @@
 <div class="results-container">
+  <% if @online_only %>
+    <p class="status-text"><a href="" id="toggle-online">All</a> | Online</p>
+  <% else %>
+    <p class="status-text">All | <a href="" id="toggle-online">Online</a></p>
+  <% end %>
+  <hr>
   <% @profiles.each do |profile| %>
     <% if profile.user %>
       <% @profile_user = User.find(profile.user_id) %>
@@ -6,19 +12,18 @@
         <div class="item horizontal-align profile-result">
           
           <div class="item">
-              <% if @profile_user.online? && !@profile_user.appear_offline %>
+              <% if @profile_user.online? %>
                 <div class="horizontal-align">
                   <div class="online-status-indicator" style="display: inline-block;"></div>
                   <%= link_to @profile_user.username, profile, :class => "contact-list-name" %>
                 </div>
-                <div class="status-text">Online</div>
               <% else %>
                 <div class="horizontal-align">
                   <div class="offline-status-indicator" style="display: inline-block;"></div>
                   <%= link_to @profile_user.username, profile, :class => "contact-list-name" %>
                 </div>
-                <div class="status-text">Offline</div>
               <% end %>
+              <div class="status-text">Age: <%= profile.age %></div>
           </div>
           
           <% if current_user.requested_friendships.include? @profile_user %>

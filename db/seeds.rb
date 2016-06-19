@@ -19,10 +19,6 @@ for num in 17..100
   user = User.create! email: "user" + num.to_s + "@berkeley.edu", password: "password", password_confirmation: "password", username: "user" + num.to_s
 end
 
-mental_health = ["Depression" , "Feelings of Isolation/Loneliness" , "General Anxiety/Stress" , "Social Anxiety" , 
-				"Autistic" , "Bipolar Disorder" , "Eating Disorder" , "Have Been Sexually Assaulted" , "Grieving", 
-				"Other/Prefer to omit from personal profile"]
-
 questions = {mental_health: ["No issue: Seeking out peers", "Depression", "General Anxiety" , "Social Anxiety", "ADHD", "OCD", "Autistic", "Bipolar Disorder", "Post-traumatic Stress Disorder (PTSD)", "Grieving", "Addiction", "Insomnia", "Other"],
 			class_standing: ["Freshman", "Sophomore", "Junior", "Senior", "Other"],
 			gender: ["Male", "Female", "Transgender", "Intersex", "Gender Queer", "Gender Nonconforming", "Questioning", "Other"],

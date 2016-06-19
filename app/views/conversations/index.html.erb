@@ -34,7 +34,7 @@
           
           <div class="item horizontal-align">
             <div class="item">
-              <% if request.online? && !request.appear_offline %>
+              <% if request.online? %>
                 <div class="horizontal-align">
                   <div class="online-status-indicator" style="display: inline-block;"></div>
                   <%= link_to request.username, conversations_path(sender_id: current_user.id, recipient_id: request.id), method: 'post', :class => "contact-list-name" %>
@@ -66,7 +66,7 @@
           
           <div class="item horizontal-align">
             <div class="item">
-              <% if pending.online? && !pending.appear_offline %>
+              <% if pending.online? %>
                 <div class="horizontal-align">
                   <div class="online-status-indicator" style="display: inline-block;"></div>
                   <%= link_to pending.username, conversations_path(sender_id: current_user.id, recipient_id: pending.id), method: 'post', :class => "contact-list-name" %>

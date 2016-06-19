@@ -4,7 +4,6 @@ class CharacteristicsController < ApplicationController
   # GET /characteristics
   # GET /characteristics.json
   def index
-    @characteristics = Characteristic.all
   end
 
   # GET /characteristics/1

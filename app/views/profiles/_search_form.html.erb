@@ -4,10 +4,15 @@
       <%= f.label :class_rank_cont, "Class Rank contains" %>
       <%= f.text_field :class_rank_cont %>
     </div> -->
+    <div class="actions filter-button"><%= f.submit "Search", class: 'btn btn-primary' %></div>
+
+    <div class="field">
+      <%= f.check_box :online_true, :id => "online-check-box" %>
+      <%= f.label "Online" %>
+    </div>
 
     <div class="char-section">
       <h5 class="button-header"><strong>Mental Health</strong></h5>
-      <div class="actions filter-button"><%= f.submit "Search", class: 'btn btn-primary' %></div>
       <div class="filter-box-scroll">
         <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "mental_health"), :id, :name do |b| %>
           <div class="collection-check-box">
