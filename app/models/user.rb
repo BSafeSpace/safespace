@@ -46,10 +46,13 @@ class User < ActiveRecord::Base
       if (online_status)
         online_status = updated_at > 1.minutes.ago
       end
-      online_status
+      profile.online = online_status && !appear_offline
     else
-      false
+      profile.online = false
     end
+    
+    profile.save
+    profile.online
   end
 
 end

@@ -90,7 +90,7 @@
     <div class="char-section col-md-4">
       <h5><strong>Mental Health Disorder</strong></h5>
       <div class="check-box-scroll">
-        <%= f.collection_check_boxes :characteristic_ids, Characteristic.find((1..10).to_a), :id, :name do |b| %>
+        <%= f.collection_check_boxes :characteristic_ids, Characteristic.where('category = ?', "mental_health"), :id, :name do |b| %>
           <div class="collection-check-box check-box-container">
             <%= b.check_box %>
             <%= b.label :class => "char-option" %>
@@ -100,7 +100,7 @@
     <div class="char-section col-md-4">
       <h5><strong>Gender</strong></h5>
       <div class="check-box-scroll">
-        <%= f.collection_check_boxes :characteristic_ids, Characteristic.find((11..18).to_a), :id, :name do |b| %>
+        <%= f.collection_check_boxes :characteristic_ids, Characteristic.where('category = ?', "gender"), :id, :name do |b| %>
           <div class="collection-check-box check-box-container">
             <%= b.check_box %>
             <%= b.label :class => "char-option" %>
@@ -112,7 +112,7 @@
     <div class="char-section col-md-4">
       <h5><strong>Ethnicity</strong></h5>
       <div class="check-box-scroll">
-        <%= f.collection_check_boxes :characteristic_ids, Characteristic.find((18..34).to_a), :id, :name do |b| %>
+        <%= f.collection_check_boxes :characteristic_ids, Characteristic.where('category = ?', "ethnicity"), :id, :name do |b| %>
           <div class="collection-check-box check-box-container">
             <%= b.check_box %>
             <%= b.label :class => "char-option" %>
@@ -124,7 +124,7 @@
     <div class="char-section col-md-4">
       <h5><strong>Academic Focus</strong></h5>
       <div class="check-box-scroll">
-        <%= f.collection_check_boxes :characteristic_ids, Characteristic.find((34..50).to_a), :id, :name do |b| %>
+        <%= f.collection_check_boxes :characteristic_ids, Characteristic.where('category = ?', "academic_focus"), :id, :name do |b| %>
           <div class="collection-check-box check-box-container">
             <%= b.check_box %>
             <%= b.label :class => "char-option" %>
@@ -136,7 +136,7 @@
     <div class="char-section col-md-4">
       <h5><strong>Religion</strong></h5>
       <div class="check-box-scroll">
-        <%= f.collection_check_boxes :characteristic_ids, Characteristic.find((50..63).to_a), :id, :name do |b| %>
+        <%= f.collection_check_boxes :characteristic_ids, Characteristic.where('category = ?', "religion"), :id, :name do |b| %>
           <div class="collection-check-box check-box-container">
             <%= b.check_box %>
             <%= b.label :class => "char-option" %>
