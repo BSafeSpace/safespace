@@ -2,8 +2,8 @@
 
 Originally a [CS 169 Project](https://github.com/hendolim/countonanon)
 
-To enable the chat features, run  
-rackup private_pub.ru -s thin -E production  
+To enable the chat features, run    
+rackup private_pub.ru -s thin -E production    
 in another terminal window in addition to rails s  
 Learn more about the chat implementation [here](http://www.thegreatcodeadventure.com/hello-or-building-a-chatting-app-with-rails/)
 
