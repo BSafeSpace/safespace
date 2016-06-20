@@ -13,19 +13,19 @@
   </head>
   <body>
     
-  <nav class="navbar navbar-inverse homepage-nav">
+  <nav class="navbar navbar-default homepage-nav">
     <div class="container">
       <div class="navbar-header">
         <%= link_to 'SafeSpace', root_path, class: 'navbar-brand' %>
       </div>
       <div id="navbar">
         <ul class="nav navbar-nav">
-          <li><%= link_to "About", home_about_path %></li>
-          <li><%= link_to 'Contact', home_contact_path %></li>
+          <li><%= link_to_in_li "About", home_about_path %></li>
+          <li><%= link_to_in_li 'Contact', home_contact_path %></li>
           <% if user_signed_in? %>
-            <li id = "people"><%= link_to 'People', profiles_path %></li>
+            <li id = "people"><%= link_to_in_li 'People', profiles_path %></li>
             <li id="chat-link">
-              <%= link_to 'Chat', conversations_path, id: "chat-tooltip" %>
+              <%= link_to_in_li 'Chat', conversations_path, id: "chat-tooltip" %>
             </li>
           <% end %>
         </ul>

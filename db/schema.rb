@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20160619014934) do
     t.integer  "user_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.boolean  "online", default: false
+    t.boolean  "online"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"

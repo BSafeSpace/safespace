@@ -16,7 +16,7 @@ To enable the chat features, run:
 ```
 rackup private_pub.ru -s thin -E production
 ```
-in another terminal window in addition to
+in another terminal window in addition to the normal
 ```
 rails s
 ```
