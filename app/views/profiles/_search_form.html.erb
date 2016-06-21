@@ -8,7 +8,7 @@
 
     <div class="char-section">
       <%= f.check_box :online_or_all_profiles, :id => "online-check-box" %>
-      <%= f.label "Online", :class => "char-option" %>
+      <%= f.label "Online only", :class => "char-option" %>
     </div>
 
     <div class="char-section">
@@ -31,12 +31,12 @@
     </div>
 
     <div class="char-section">
-      <h5 class="button-header"><strong>Age</strong></h5><br>
-      <%= f.label "Min. Age", :class => "char-option" %>
-      <%= f.search_field :age_gteq %><br>
-      <%= f.label "Max. Age", :class => "char-option" %>
-      <%= f.search_field :age_lteq %><br>
+      <h5 class="button-header"><strong>Age range: <input type="text" id="age-range" readonly style="border:0; font-weight:bold;"></strong></h5><br><br>
+      <div id="slider-range"></div>
     </div>
+
+    <%= f.search_field :age_gteq, style: 'display: none' %>
+    <%= f.search_field :age_lteq, style: 'display: none' %>
 
     <div class="char-section">
       <h5><strong>Gender</strong></h5>
