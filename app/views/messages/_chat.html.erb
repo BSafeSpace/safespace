@@ -2,11 +2,7 @@
  <%= link_to 'Show Previous', '?m=all' %>
 <% end %>
 
-<% if current_user.id != @conversation.recipient_id %>
-  <% user = User.find(@conversation.recipient_id) %>
-<% else %>
-  <% user = User.find(@conversation.sender_id) %>
-<% end %>
+<% user = @conversation.get_other_user(current_user) %>
 
 <% if current_user.friends.include? user %>
   <div class="panel panel-default" id="messages">

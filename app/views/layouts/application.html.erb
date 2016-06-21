@@ -23,7 +23,7 @@
           <li><%= link_to_in_li "About", home_about_path %></li>
           <li><%= link_to_in_li 'Contact', home_contact_path %></li>
           <% if user_signed_in? %>
-            <li id = "people"><%= link_to_in_li 'People', profiles_path %></li>
+            <li id = "people"><%= link_to_in_li  'People', profiles_path %></li>
             <li id="chat-link">
               <%= link_to_in_li 'Chat', conversations_path, id: "chat-tooltip" %>
             </li>
@@ -64,12 +64,10 @@
   </nav>
   
   <div class="media-list" id="notif"></div>
-  
-    <div class="container">
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>">
-          <%= value %>
-        </div>
+
+    <div id="flash">
+      <% if notice.present? %>
+        <%= render partial: "shared/flash" %>
       <% end %>
     </div>
     

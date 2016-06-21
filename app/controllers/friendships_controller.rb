@@ -1,5 +1,6 @@
 class FriendshipsController < ApplicationController
   before_action :set_friendship, only: [:show, :edit]
+  after_filter { flash.discard if request.xhr? }
 
   # GET /friendships
   # GET /friendships.json
@@ -34,7 +35,7 @@ class FriendshipsController < ApplicationController
     @profiles = @search.result(distinct: true)
     respond_to do |format|
       format.html { redirect_to profiles_path }
-      format.js
+      format.js { flash[:notice] = "Friend requested." }
     end
   end
 

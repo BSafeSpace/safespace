@@ -26,4 +26,4 @@ if (gon.doneTutFilter && !gon.doneTutAddFriend) {
 $('.results-container').remove();
 $('.profile-results-container').append('<%= j render("/profiles/search_results") %>');
 
-// results reset after adding friend
+$("#flash").html('<%= j render partial: "shared/flash" %>');
