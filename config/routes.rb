@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   resources :friendships
   resources :characteristics
-  resources :profiles
+  
+  resources :profiles do
+    collection do 
+      match 'search' => 'profiles#search', via: [:get, :post], as: :search
+    end
+  end
+
   devise_for :users, :controllers => {:destroy => "destroy"}
   root 'static_pages#home'
   get 'about' => 'static_pages#about', :as => :home_about

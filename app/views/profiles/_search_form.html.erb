@@ -1,14 +1,21 @@
 <fieldset class="search-field">
-  <%= search_form_for @search, remote: true do |f| %>
+  <%= search_form_for @search, remote: true, url: search_profiles_path, html: { method: :post } do |f| %>
     <!-- <div class="field">
       <%= f.label :class_rank_cont, "Class Rank contains" %>
       <%= f.text_field :class_rank_cont %>
     </div> -->
     <div class="actions filter-button"><%= f.submit "Search", class: 'btn btn-primary' %></div>
 
-    <div class="field">
-      <%= f.check_box :online_true, :id => "online-check-box" %>
-      <%= f.label "Online" %>
+    <div class="char-section">
+      <%= f.check_box :online_or_all_profiles, :id => "online-check-box" %>
+      <%= f.label "Online", :class => "char-option" %>
+    </div>
+
+    <div class="char-section">
+      <h5 class="button-header"><strong>Sort by..</strong></h5><br>
+      <%= f.sort_fields do |s| %>
+        <%= s.sort_select %>
+      <% end %>
     </div>
 
     <div class="char-section">

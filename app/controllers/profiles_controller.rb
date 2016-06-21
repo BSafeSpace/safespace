@@ -5,11 +5,12 @@ class ProfilesController < ApplicationController
   # GET /profiles.json
   def index
     @search = Profile.search(params[:q])
+    @search.build_sort if @search.sorts.empty?
     @profiles = @search.result(distinct: true)
     gon.profiles = @profiles
     # @profiles = Profile.all
 
-    if params[:q] && params[:q][:online_true] == "1"
+    if params[:q] && params[:q][:online_or_all_profiles] == "1"
       @online_only = true
     else
       @online_only = false
@@ -44,6 +45,50 @@ class ProfilesController < ApplicationController
       format.js
     end
 
+  end
+
+  def search
+    @search = Profile.search(params[:q])
+    @search.build_sort if @search.sorts.empty?
+    @profiles = @search.result(distinct: true)
+    gon.profiles = @profiles
+    # @profiles = Profile.all
+
+    if params[:q] && params[:q][:online_or_all_profiles] == "1"
+      @online_only = true
+    else
+      @online_only = false
+    end
+
+    # start tutorial on first sign in
+    if user_signed_in?
+      @signInCount = current_user.sign_in_count;
+      if @signInCount == 1
+        gon.firstSignIn = true
+      else
+        gon.firstSignIn = false
+      end
+
+      @doneTutFilter = params[:doneTutFilter]
+      if @doneTutFilter
+        current_user.done_tut_filter = @doneTutFilter
+        current_user.save
+      end
+      gon.doneTutFilter = current_user.done_tut_filter
+
+      @doneTutAddFriend = params[:doneTutAddFriend]
+      if @doneTutAddFriend
+        current_user.done_tut_add_friend = @doneTutAddFriend
+        current_user.save
+      end
+      gon.doneTutAddFriend = current_user.done_tut_add_friend
+    end
+
+    respond_to do |format|
+      format.html { render :template => 'profiles/index' }
+      format.js { render :template => 'profiles/index' }
+    end
+    
   end
 
   # GET /profiles/1
