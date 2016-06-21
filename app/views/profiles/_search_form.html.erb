@@ -1,4 +1,4 @@
-<fieldset class="search-field">
+<fieldset class="search-field search-scroll custom-scroll">
   <%= search_form_for @search, remote: true, url: search_profiles_path, html: { method: :post } do |f| %>
     <!-- <div class="field">
       <%= f.label :class_rank_cont, "Class Rank contains" %>
@@ -20,7 +20,7 @@
 
     <div class="char-section">
       <h5 class="button-header"><strong>Mental Health</strong></h5>
-      <div class="filter-box-scroll">
+      <div class="filter-box-scroll custom-scroll">
         <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "mental_health"), :id, :name do |b| %>
           <div class="collection-check-box">
             <%= b.check_box %>
@@ -40,7 +40,7 @@
 
     <div class="char-section">
       <h5><strong>Gender</strong></h5>
-      <div class="filter-box-scroll">
+      <div class="filter-box-scroll custom-scroll">
         <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "gender"), :id, :name do |b| %>
           <div class="collection-check-box">
             <%= b.check_box %>
@@ -52,7 +52,7 @@
 
     <div class="char-section">
       <h5><strong>Ethnicity</strong></h5>
-      <div class="filter-box-scroll">
+      <div class="filter-box-scroll custom-scroll">
         <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "ethnicity"), :id, :name do |b| %>
           <div class="collection-check-box">
             <%= b.check_box %>
@@ -64,7 +64,7 @@
 
     <div class="char-section">
       <h5><strong>Academic Focus</strong></h5>
-      <div class="filter-box-scroll">
+      <div class="filter-box-scroll custom-scroll">
         <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "academic_focus"), :id, :name do |b| %>
           <div class="collection-check-box">
             <%= b.check_box %>
@@ -76,7 +76,7 @@
 
     <div class="char-section">
       <h5><strong>Religion</strong></h5>
-      <div class="filter-box-scroll">
+      <div class="filter-box-scroll custom-scroll">
         <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "religion"), :id, :name do |b| %>
           <div class="collection-check-box">
             <%= b.check_box %>

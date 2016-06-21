@@ -8,6 +8,8 @@
 @import "profiles";
 @import "static_pages";
 @import "nav";
+@import "jquery.mCustomScrollbar.min.scss";
+@import "profiles";
 
 .alert-alert {
   @extend .alert-warning;
