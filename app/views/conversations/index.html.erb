@@ -97,4 +97,10 @@
     <% end %>
   </div>
 
+  <% if @conversation %>
+    <div class="col-md-3 chat-sidebar">
+      <%= link_to 'Download this chat', download_chat_conversation_path(@conversation)%>
+    </div>
+  <% end %>
+
 </div>

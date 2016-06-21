@@ -10,11 +10,11 @@
 
 <% if current_user.friends.include? user %>
   <div class="panel panel-default" id="messages">
-      <div class="panel-body">
-        <ul class="media-list" id="msg">
-          <%= render '/messages/message' %>
-        </ul>
-      </div>
+    <div class="panel-body">
+      <ul class="media-list" id="msg">
+        <%= render '/messages/message' %>
+      </ul>
+    </div>
   </div>
   
   <div style="margin-top:15px">
@@ -46,5 +46,5 @@
   </div>
 
   <% end %>
-  
+
 <%= subscribe_to conversation_path(@conversation) %>

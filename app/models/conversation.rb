@@ -12,4 +12,12 @@ class Conversation < ActiveRecord::Base
   	self.updated_at = Time.now
   	self.save
   end
+
+  def get_other_user(user)
+  	if user.id != self.recipient_id
+  		return User.find self.recipient_id
+  	else
+  		return User.find self.sender_id
+  	end
+  end
 end

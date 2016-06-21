@@ -10,8 +10,11 @@ Rails.application.routes.draw do
   get '/toggle_appear_offline', to: 'application#toggle_appear_offline', as: :toggle_appear_offline
   
   resources :conversations do
+    get 'download_chat', on: :member
     resources :messages
   end
+
+  # get 'conversations/download_chat'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
