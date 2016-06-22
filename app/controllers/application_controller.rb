@@ -18,9 +18,9 @@ class ApplicationController < ActionController::Base
     @mental_health = @other_user_chars.where('category = ?', "mental_health")
     @age = @other_user.profile.age
     @gender = @other_user_chars.where('category = ?', "gender")
-    @religion = @other_user_chars.where('category = ?', "mental_health")
+    @religion = @other_user_chars.where('category = ?', "religion")
     @ethnicity = @other_user_chars.where('category = ?', "ethnicity")
-    @academic_focus = @other_user_chars.where('category = ?', "mental_health")
+    @academic_focus = @other_user_chars.where('category = ?', "academic_focus")
     return OpenStruct.new(mental_health: @mental_health, 
                           age: @age, 
                           gender: @gender, 

@@ -1,90 +1,96 @@
-<fieldset class="search-field search-scroll custom-scroll">
+<fieldset class="search-field">
   <%= search_form_for @search, remote: true, url: search_profiles_path, html: { method: :post } do |f| %>
     <!-- <div class="field">
       <%= f.label :class_rank_cont, "Class Rank contains" %>
       <%= f.text_field :class_rank_cont %>
     </div> -->
-    <div class="actions filter-button"><%= f.submit "Search", class: 'btn btn-primary' %></div>
-
-    <div class="char-section">
-      <%= f.check_box :online_or_all_profiles, :id => "online-check-box" %>
-      <%= f.label "Online only", :class => "char-option" %>
+    <div class="filter-button">
+      <%= button_tag "Clear", type: :reset, class: 'btn btn-default' %>
+      <%= f.submit "Save Filters", class: 'btn btn-primary' %>
     </div>
-
-    <div class="char-section">
-      <h5 class="button-header"><strong>Sort by..</strong></h5><br>
-      <%= f.sort_fields do |s| %>
-        <%= s.sort_select %>
-      <% end %>
-    </div>
-
-    <div class="char-section">
-      <h5 class="button-header"><strong>Mental Health</strong></h5>
-      <div class="filter-box-scroll custom-scroll">
-        <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "mental_health"), :id, :name do |b| %>
-          <div class="collection-check-box">
-            <%= b.check_box %>
-            <%= b.label :class => "char-option" %>
+    
+    <div class="search-scroll custom-scroll">
+    
+        <div class="char-section">
+          <%= f.check_box :online_or_all_profiles, :id => "online-check-box" %>
+          <%= f.label "Online only", :class => "char-option" %>
+        </div>
+    
+        <div class="char-section">
+          <h5 class="button-header"><strong>Sort by..</strong></h5><br>
+          <%= f.sort_fields do |s| %>
+            <%= s.sort_select %>
+          <% end %>
+        </div>
+    
+        <div class="char-section">
+          <h5 class="button-header"><strong>Mental Health</strong></h5>
+          <div class="filter-box-scroll custom-scroll">
+            <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "mental_health"), :id, :name do |b| %>
+              <div class="collection-check-box">
+                <%= b.check_box %>
+                <%= b.label :class => "char-option" %>
+              </div>
+            <% end %>
           </div>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="char-section">
-      <h5 class="button-header"><strong>Age range: <input type="text" id="age-range" readonly style="border:0; font-weight:bold;"></strong></h5><br><br>
-      <div id="slider-range"></div>
-    </div>
-
-    <%= f.search_field :age_gteq, style: 'display: none' %>
-    <%= f.search_field :age_lteq, style: 'display: none' %>
-
-    <div class="char-section">
-      <h5><strong>Gender</strong></h5>
-      <div class="filter-box-scroll custom-scroll">
-        <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "gender"), :id, :name do |b| %>
-          <div class="collection-check-box">
-            <%= b.check_box %>
-            <%= b.label :class => "char-option" %>
+        </div>
+    
+        <div class="char-section">
+          <h5 class="button-header"><strong>Age range: <input type="text" id="age-range" readonly style="border:0; font-weight:bold;"></strong></h5><br><br>
+          <div id="slider-range"></div>
+        </div>
+    
+        <%= f.search_field :age_gteq, style: 'display: none' %>
+        <%= f.search_field :age_lteq, style: 'display: none' %>
+    
+        <div class="char-section">
+          <h5><strong>Gender</strong></h5>
+          <div class="filter-box-scroll custom-scroll">
+            <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "gender"), :id, :name do |b| %>
+              <div class="collection-check-box">
+                <%= b.check_box %>
+                <%= b.label :class => "char-option" %>
+              </div>
+            <% end %>
           </div>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="char-section">
-      <h5><strong>Ethnicity</strong></h5>
-      <div class="filter-box-scroll custom-scroll">
-        <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "ethnicity"), :id, :name do |b| %>
-          <div class="collection-check-box">
-            <%= b.check_box %>
-            <%= b.label :class => "char-option" %>
+        </div>
+    
+        <div class="char-section">
+          <h5><strong>Ethnicity</strong></h5>
+          <div class="filter-box-scroll custom-scroll">
+            <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "ethnicity"), :id, :name do |b| %>
+              <div class="collection-check-box">
+                <%= b.check_box %>
+                <%= b.label :class => "char-option" %>
+              </div>
+            <% end %>
           </div>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="char-section">
-      <h5><strong>Academic Focus</strong></h5>
-      <div class="filter-box-scroll custom-scroll">
-        <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "academic_focus"), :id, :name do |b| %>
-          <div class="collection-check-box">
-            <%= b.check_box %>
-            <%= b.label :class => "char-option" %>
+        </div>
+    
+        <div class="char-section">
+          <h5><strong>Academic Focus</strong></h5>
+          <div class="filter-box-scroll custom-scroll">
+            <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "academic_focus"), :id, :name do |b| %>
+              <div class="collection-check-box">
+                <%= b.check_box %>
+                <%= b.label :class => "char-option" %>
+              </div>
+            <% end %>
           </div>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="char-section">
-      <h5><strong>Religion</strong></h5>
-      <div class="filter-box-scroll custom-scroll">
-        <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "religion"), :id, :name do |b| %>
-          <div class="collection-check-box">
-            <%= b.check_box %>
-            <%= b.label :class => "char-option" %>
+        </div>
+    
+        <div class="char-section">
+          <h5><strong>Religion</strong></h5>
+          <div class="filter-box-scroll custom-scroll">
+            <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "religion"), :id, :name do |b| %>
+              <div class="collection-check-box">
+                <%= b.check_box %>
+                <%= b.label :class => "char-option" %>
+              </div>
+            <% end %>
           </div>
-        <% end %>
+        </div>
       </div>
-    </div>
 
   <% end %>
 </fieldset>
