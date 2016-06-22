@@ -5,7 +5,7 @@
     <p class="status-text">All | <a href="" id="toggle-online-1">Online</a></p>
   <% end %>
   <hr>
-  <div class="search-scroll custom-scroll">
+  <div class="result-names search-scroll custom-scroll">
     <% @profiles.each do |profile| %>
       <% if profile.user %>
         <% @profile_user = User.find(profile.user_id) %>

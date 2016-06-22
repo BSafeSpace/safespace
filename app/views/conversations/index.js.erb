@@ -1,3 +1,9 @@
 $('#messages').remove();
 $('#chat').append('<%= j render("/messages/chat") %>');
 console.log("test");
+
+var $chatBox = $('#messages');
+$chatBox.mCustomScrollbar("update");
+$chatBox.mCustomScrollbar("scrollTo", 'bottom', {
+	scrollInertia: 300
+});

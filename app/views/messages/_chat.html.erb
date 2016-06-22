@@ -5,7 +5,7 @@
 <% user = @conversation.get_other_user(current_user) %>
 
 <% if current_user.friends.include? user %>
-  <div class="panel panel-default custom-scroll" id="messages">
+  <div class="panel panel-default" id="messages">
     <div class="panel-body">
       <ul class="media-list" id="msg">
         <%= render '/messages/message' %>
