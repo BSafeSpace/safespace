@@ -97,10 +97,51 @@
     <% end %>
   </div>
 
-  <% if @conversation && !(current_user.pending_friends.include? @conversation.get_other_user(current_user)) %>
-    <div class="col-md-3 chat-sidebar">
-      <%= link_to 'Download this chat', download_chat_conversation_path(@conversation)%>
-    </div>
+  <% if @conversation %>
+    <% if !(current_user.pending_friends.include? @other_user) %>
+      <div class="col-md-3 chat-sidebar">
+        <div class="item">
+          <% if @other_user.online? && !@other_user.appear_offline %>
+            <div class="horizontal-align">
+              <div class="online-status-indicator" style="display: inline-block;"></div>
+              <%= link_to @other_user.username, profile_path(@other_user.id), :class => "contact-list-name" %>
+            </div>
+            <div class="status-text">Online</div>
+          <% else %>
+            <div class="horizontal-align">
+              <div class="offline-status-indicator" style="display: inline-block;"></div>
+              <%= link_to @other_user.username, profile_path(@other_user.id), :class => "contact-list-name" %>
+            </div>
+            <div class="status-text">Offline</div>
+          <% end %>
+        </div>        
+
+        <div class="char-title">Mental Health</div>
+        <% @mental_health.each do |mh| %>
+          <div><%= mh.name %></div>
+        <% end %>
+
+        <div class="char-title">Age: <%= @age %></div>
+
+        <div class="char-title">Gender</div>
+        <% @gender.each do |g| %>
+          <div><%= g.name %></div>
+        <% end %>
+
+        <div class="char-title">Ethnicity</div>
+        <% @ethnicity.each do |e| %>
+          <div><%= e.name %></div>
+        <% end %>
+
+        <div class="char-title">Academic Focus</div>
+        <% @academic_focus.each do |af| %>
+          <div><%= af.name %></div>
+        <% end %>
+
+        <div class="download-link"><%= link_to 'Download this chat', download_chat_conversation_path(@conversation)%></div>
+
+      </div>
+    <% end %>
   <% end %>
 
 </div>
