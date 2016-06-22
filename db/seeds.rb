@@ -6,18 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-annie = User.create(email: "annielo@berkeley.edu", password: "password", password_confirmation: "password", username: "Annie Lo")
-minh = User.create(email: "mnguyen@berkeley.edu", password: "password", password_confirmation: "password", username: "Minh Nguyen")
-u1 = User.create( email: "user1@berkeley.edu", password: "password", password_confirmation: "password", username: "user1")
-u2 = User.create( email: "user2@berkeley.edu", password: "password", password_confirmation: "password", username: "user2")
-u3 = User.create( email: "user3@berkeley.edu", password: "password", password_confirmation: "password", username: "user3")
-u4 = User.create( email: "user4@berkeley.edu", password: "password", password_confirmation: "password", username: "user4")
-u5 = User.create( email: "user5@berkeley.edu", password: "password", password_confirmation: "password", username: "user5")
-u6 = User.create( email: "user6@berkeley.edu", password: "password", password_confirmation: "password", username: "user6")
-
-for num in 17..100
-  user = User.create! email: "user" + num.to_s + "@berkeley.edu", password: "password", password_confirmation: "password", username: "user" + num.to_s
-end
+users = [User.create(email: "annielo@berkeley.edu", password: "password", password_confirmation: "password", username: "Annie Lo"),
+         User.create(email: "mnguyen@berkeley.edu", password: "password", password_confirmation: "password", username: "Minh Nguyen"),
+         User.create( email: "mscott2757@berkeley.edu", password: "password", password_confirmation: "password", username: "Mason Scott"),
+         User.create( email: "swee@berkeley.edu", password: "password", password_confirmation: "password", username: "Sagang Wee"),
+         User.create( email: "j-tang@berkeley.edu", password: "password", password_confirmation: "password", username: "Joy Tang"),
+         User.create( email: "monica-casanova@berkeley.edu", password: "password", password_confirmation: "password", username: "Monica Casanova")]
 
 questions = {mental_health: ["No issue: Seeking out peers", "Depression", "General Anxiety" , "Social Anxiety", "ADHD", "OCD", "Autistic", "Bipolar Disorder", "Post-traumatic Stress Disorder (PTSD)", "Grieving", "Addiction", "Insomnia", "Other"],
 			class_standing: ["Freshman", "Sophomore", "Junior", "Senior", "Other"],
@@ -33,6 +27,7 @@ questions.each do |category, names|
 	   Characteristic.create(name: name, category: category, created_at: "2016-04-15 12:00:00")
 	end
 end
+
 
 
 
