@@ -1,4 +1,5 @@
 require 'csv'
+require 'ostruct'
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -8,6 +9,25 @@ class ApplicationController < ActionController::Base
   # before_filter :toggle_appear_offline
 
   after_filter :user_activity
+
+  helper_method :get_chars
+
+  def get_chars(conversation)
+    @other_user = conversation.get_other_user(current_user)
+    @other_user_chars = @other_user.profile.characteristics 
+    @mental_health = @other_user_chars.where('category = ?', "mental_health")
+    @age = @other_user.profile.age
+    @gender = @other_user_chars.where('category = ?', "gender")
+    @religion = @other_user_chars.where('category = ?', "mental_health")
+    @ethnicity = @other_user_chars.where('category = ?', "ethnicity")
+    @academic_focus = @other_user_chars.where('category = ?', "mental_health")
+    return OpenStruct.new(mental_health: @mental_health, 
+                          age: @age, 
+                          gender: @gender, 
+                          religion: @religion, 
+                          ethnicity: @ethnicity,
+                          academic_focus: @academic_focus)
+  end
 
   def toggle_appear_offline
     @user = current_user

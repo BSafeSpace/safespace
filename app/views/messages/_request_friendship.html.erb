@@ -1,4 +1,4 @@
-<% user = User.find(@conversation.recipient_id) %>
+<% user = @conversation.get_other_user(current_user) %>
   <div class="request_screen">
     <div class="request-message">
       <h4>Friend Request</h4>

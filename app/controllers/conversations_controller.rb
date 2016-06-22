@@ -14,14 +14,6 @@ class ConversationsController < ApplicationController
       @messages = @conversation.messages
     end
 
-    @other_user = @conversation.get_other_user(current_user)
-    @other_user_chars = @other_user.profile.characteristics 
-    @mental_health = @other_user_chars.where('category = ?', "mental_health")
-    @age = @other_user.profile.age
-    @gender = @other_user_chars.where('category = ?', "gender")
-    @religion = @other_user_chars.where('category = ?', "mental_health")
-    @ethnicity = @other_user_chars.where('category = ?', "ethnicity")
-    @academic_focus = @other_user_chars.where('category = ?', "mental_health")
   end
 
   def create

@@ -1,5 +1,42 @@
-$('.request_screen').remove();
-if ( $('#messages').length == 0 ) {
-	$('.pre-chat').remove();
-	$('#chat').append('<%= j render("chat") %>');
-}
+$(function() {
+	var $chatBox = $('#messages');
+	var $requestScreen = $('.request_screen');
+	<% @other_user = @conversation.get_other_user(current_user) %>
+	// if user clicked is not a pending friend
+
+	$('.chat-sidebar').remove();
+	<% @pending = current_user.pending_friends.include? @other_user %>
+	<% if !@pending %>
+		$requestScreen.remove();
+		console.log('not pending');
+		if ( $chatBox.length == 0 ) {
+			$('.pre-chat').remove();
+			console.log('append');
+		} else {
+			$('.chat').remove();
+			console.log('removed chat');
+		}
+
+		$('#chat').append('<%= j render("chat") %>');
+		$('.chat-sidebar').remove();
+		$('.row').append('<%= j render("chat_sidebar") %>');
+	<% else %>
+		$('.chat').remove();
+		$('#chat').append('<%= j render("chat") %>');
+		console.log('pending');	
+	<% end %>
+
+	// re-initialize scroll bar
+	$('#messages').mCustomScrollbar({
+	    theme:"minimal-dark",
+	    advanced:{ 
+	    	updateOnContentResize: true,
+	    	updateOnSelectorChange: "div" 
+	    }
+	});
+
+	$('#messages').mCustomScrollbar("scrollTo", 'bottom', {
+		scrollInertia: 0
+	});
+});
+
