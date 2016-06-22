@@ -123,10 +123,12 @@
 
         <div class="char-title">Age: <%= @age %></div>
 
-        <div class="char-title">Gender</div>
-        <% @gender.each do |g| %>
-          <div><%= g.name %></div>
-        <% end %>
+        <div class="char-title">
+          Gender: 
+          <% @gender.each do |g| %>
+            <%= g.name %>
+          <% end %>
+        </div>
 
         <div class="char-title">Ethnicity</div>
         <% @ethnicity.each do |e| %>
