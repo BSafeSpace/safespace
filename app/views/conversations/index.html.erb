@@ -97,7 +97,7 @@
     <% end %>
   </div>
 
-  <% if @conversation %>
+  <% if @conversation && !(current_user.pending_friends.include? @conversation.get_other_user(current_user)) %>
     <div class="col-md-3 chat-sidebar">
       <%= link_to 'Download this chat', download_chat_conversation_path(@conversation)%>
     </div>

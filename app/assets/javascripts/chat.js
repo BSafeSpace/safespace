@@ -21,7 +21,8 @@ $(function() {
 
 	// focus on bottom messages in chat box
 	$chatBox.mCustomScrollbar("scrollTo", 'bottom', {
-		scrollInertia: 0
+		scrollInertia: 0,
+		advanced:{ updateOnSelectorChange: "true" }
 	});
 
 });
