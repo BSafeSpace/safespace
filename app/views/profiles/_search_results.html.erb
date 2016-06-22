@@ -1,50 +1,51 @@
-<div class="results-container search-scroll custom-scroll">
+<div class="results-container">
   <% if @online_only %>
     <p class="status-text"><a href="" id="toggle-online-1">All</a> | Online</p>
   <% else %>
     <p class="status-text">All | <a href="" id="toggle-online-1">Online</a></p>
   <% end %>
-
   <hr>
-  <% @profiles.each do |profile| %>
-    <% if profile.user %>
-      <% @profile_user = User.find(profile.user_id) %>
-      <% if @profile_user != current_user%>
-        <div class="item horizontal-align profile-result">
-          
-          <div class="item">
-              <% if @profile_user.online? %>
-                <div class="horizontal-align">
-                  <div class="online-status-indicator" style="display: inline-block;"></div>
-                  <%= link_to @profile_user.username, profile, :class => "contact-list-name" %>
+  <div class="search-scroll custom-scroll">
+    <% @profiles.each do |profile| %>
+      <% if profile.user %>
+        <% @profile_user = User.find(profile.user_id) %>
+        <% if @profile_user != current_user%>
+          <div class="item horizontal-align profile-result">
+            
+            <div class="item">
+                <% if @profile_user.online? %>
+                  <div class="horizontal-align">
+                    <div class="online-status-indicator" style="display: inline-block;"></div>
+                    <%= link_to @profile_user.username, profile, :class => "contact-list-name" %>
+                  </div>
+                <% else %>
+                  <div class="horizontal-align">
+                    <div class="offline-status-indicator" style="display: inline-block;"></div>
+                    <%= link_to @profile_user.username, profile, :class => "contact-list-name" %>
+                  </div>
+                <% end %>
+                <div class="status-text">Age: <%= profile.age %></div>
+            </div>
+            
+            <% if current_user.requested_friendships.include? @profile_user %>
+                <div class="links-container horizontal-align">
+                  <%= link_to "Accept", friendship_path(:id => @profile_user), :method => "put", :class => "friend-link" %> 
+                  <%= link_to "Decline", friendship_path(:id => @profile_user), :method => :delete, :class => "friend-link" %>
                 </div>
-              <% else %>
-                <div class="horizontal-align">
-                  <div class="offline-status-indicator" style="display: inline-block;"></div>
-                  <%= link_to @profile_user.username, profile, :class => "contact-list-name" %>
+            <% elsif current_user.pending_friends.include? @profile_user %>
+                <div class="links-container horizontal-align">
+                  <div class="friend-link" id="friend-info">Pending request</div>
                 </div>
-              <% end %>
-              <div class="status-text">Age: <%= profile.age %></div>
+            <% elsif !current_user.friends.include? @profile_user %>
+                <div class="links-container horizontal-align add-friend">
+                  <%= link_to "Add Friend", friendships_path(:friend_id => @profile_user), :method => :post, :class => "friend-link", remote: true %>
+                </div>
+            <% end %>
+            
           </div>
-          
-          <% if current_user.requested_friendships.include? @profile_user %>
-              <div class="links-container horizontal-align">
-                <%= link_to "Accept", friendship_path(:id => @profile_user), :method => "put", :class => "friend-link" %> 
-                <%= link_to "Decline", friendship_path(:id => @profile_user), :method => :delete, :class => "friend-link" %>
-              </div>
-          <% elsif current_user.pending_friends.include? @profile_user %>
-              <div class="links-container horizontal-align">
-                <div class="friend-link" id="friend-info">Pending request</div>
-              </div>
-          <% elsif !current_user.friends.include? @profile_user %>
-              <div class="links-container horizontal-align add-friend">
-                <%= link_to "Add Friend", friendships_path(:friend_id => @profile_user), :method => :post, :class => "friend-link", remote: true %>
-              </div>
-          <% end %>
-          
-        </div>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
+  </div>
   
 </div>
