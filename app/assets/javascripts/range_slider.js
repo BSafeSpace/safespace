@@ -1,19 +1,9 @@
-if (!gon.doneTutFilter) {
-	gon.doneTutFilter = true;
-}
-
-$('.search-field').remove();
-$('.filters-container').append('<%= j render("search_form") %>');
-
-$('.results-container').remove();
-$('.profile-results-container').append('<%= j render("search_results") %>');
-
 $(function() {
   $( "#slider-range" ).slider({
     range: true,
     min: 16,
     max: 60,
-    values: [ $('input#q_age_gteq').val(), $('input#q_age_lteq').val() ],
+    values: [ 16, 60 ],
     slide: function(event, ui) {
       $( "#age-range" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
     },
