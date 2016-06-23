@@ -8,13 +8,10 @@
       <%= button_tag "Clear", type: :reset, class: 'btn btn-default' %>
       <%= f.submit "Save Filters", class: 'btn btn-primary' %>
     </div>
-    
+
     <div class="search-scroll custom-scroll">
     
-        <div class="char-section">
-          <%= f.check_box :online_or_all_profiles, :id => "online-check-box" %>
-          <%= f.label "Online only", :class => "char-option" %>
-        </div>
+        <%= f.check_box :online_or_all_profiles, style: 'display: none' %>
     
         <div class="char-section">
           <h5 class="button-header"><strong>Sort by..</strong></h5><br>
