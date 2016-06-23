@@ -69,6 +69,18 @@
 
 .profile-results-container {
     padding-left: 20px;
+    border-left: thin solid #c8ccd0;
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important;
+}
+
+.search-header {
+    border-bottom: thin solid #c8ccd0;
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important;
+    padding-bottom: 10px;
 }
 
 .filter-legend {
