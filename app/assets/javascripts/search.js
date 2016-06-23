@@ -18,6 +18,7 @@ $(function() {
 
   $('#toggle-profiles').click(function() {
     $('input#q_online_or_all_profiles').prop('checked', !$('input#q_online_or_all_profiles').is(':checked'));
-    $('input[name=commit').click()
+    $('input[name=commit').click();
   });
+
 });
