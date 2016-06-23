@@ -1,93 +1,35 @@
 <fieldset class="search-field">
   <%= search_form_for @search, remote: true, url: search_profiles_path, html: { method: :post } do |f| %>
-    <!-- <div class="field">
-      <%= f.label :class_rank_cont, "Class Rank contains" %>
-      <%= f.text_field :class_rank_cont %>
-    </div> -->
     <div class="filter-button">
       <%= button_tag "Clear", type: :reset, class: 'btn btn-default' %>
       <%= f.submit "Save Filters", class: 'btn btn-primary' %>
     </div>
 
     <div class="search-scroll custom-scroll">
-    
-        <%= f.check_box :online_or_all_profiles, style: 'display: none' %>
-    
-        <div class="char-section">
-          <h5 class="button-header"><strong>Sort by..</strong></h5><br>
-          <%= f.sort_fields do |s| %>
-            <%= s.sort_select %>
-          <% end %>
-        </div>
-    
-        <div class="char-section">
-          <h5 class="button-header"><strong>Mental Health</strong></h5>
-          <div class="filter-box-scroll custom-scroll">
-            <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "mental_health"), :id, :name do |b| %>
-              <div class="collection-check-box">
-                <%= b.check_box %>
-                <%= b.label :class => "char-option" %>
-              </div>
-            <% end %>
-          </div>
-        </div>
+
+        <%= f.sort_fields do |s| %>
+          <%= s.sort_select %>
+        <% end %>
+
+        <%= render '/profiles/char_section', name: "Mental Health", category: "mental_health", f: f %>
     
         <div class="char-section">
           <h5 class="button-header"><strong>Age range: <input type="text" id="age-range" readonly style="border:0; font-weight:bold;"></strong></h5><br><br>
           <div id="slider-range"></div>
         </div>
     
-        <%= f.search_field :age_gteq, style: 'display: none' %>
-        <%= f.search_field :age_lteq, style: 'display: none' %>
-    
-        <div class="char-section">
-          <h5><strong>Gender</strong></h5>
-          <div class="filter-box-scroll custom-scroll">
-            <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "gender"), :id, :name do |b| %>
-              <div class="collection-check-box">
-                <%= b.check_box %>
-                <%= b.label :class => "char-option" %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-    
-        <div class="char-section">
-          <h5><strong>Ethnicity</strong></h5>
-          <div class="filter-box-scroll custom-scroll">
-            <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "ethnicity"), :id, :name do |b| %>
-              <div class="collection-check-box">
-                <%= b.check_box %>
-                <%= b.label :class => "char-option" %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-    
-        <div class="char-section">
-          <h5><strong>Academic Focus</strong></h5>
-          <div class="filter-box-scroll custom-scroll">
-            <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "academic_focus"), :id, :name do |b| %>
-              <div class="collection-check-box">
-                <%= b.check_box %>
-                <%= b.label :class => "char-option" %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-    
-        <div class="char-section">
-          <h5><strong>Religion</strong></h5>
-          <div class="filter-box-scroll custom-scroll">
-            <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "religion"), :id, :name do |b| %>
-              <div class="collection-check-box">
-                <%= b.check_box %>
-                <%= b.label :class => "char-option" %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
+        <%= render '/profiles/char_section', name: "Gender", category: "gender", f: f %>
+        <%= render '/profiles/char_section', name: "Ethnicity", category: "ethnicity", f: f %>
+        <%= render '/profiles/char_section', name: "Academic", category: "academic_focus", f: f %>
+        <%= render '/profiles/char_section', name: "Religion", category: "religion", f: f %>
 
+        <div style="display: none">
+
+          <%= f.check_box :online_or_all_profiles %>
+          <%= f.search_field :age_gteq %>
+          <%= f.search_field :age_lteq %>
+        </div>
+
+      </div>
   <% end %>
 </fieldset>

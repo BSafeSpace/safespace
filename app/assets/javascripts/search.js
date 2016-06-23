@@ -16,8 +16,18 @@ $(function() {
   $('input#q_age_gteq').val(16)
   $('input#q_age_lteq').val(60)
 
-  $('#toggle-profiles').click(function() {
+  $('#toggle-online-profiles').click(function() {
     $('input#q_online_or_all_profiles').prop('checked', !$('input#q_online_or_all_profiles').is(':checked'));
+    $('input[name=commit').click()
+  });
+
+  $('#age-sort').click(function() {
+    $('select#q_s_0_name>option:eq(1)').prop('selected', true);
+    $('input[name=commit').click()
+  });
+
+  $('#name-sort').click(function() {
+    $('select#q_s_0_name>option:eq(2)').prop('selected', true);
     $('input[name=commit').click()
   });
 });

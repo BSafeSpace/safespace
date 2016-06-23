@@ -1,10 +1,20 @@
 <div class="results-container">
   <br>
   <% if @online_only %>
-    <p class="status-text"><a href="#" id="toggle-profiles">All</a> | Online</p>
+    <p class="status-text"><a href="#" id="toggle-online-profiles">All</a> | Online</p>
   <% else %>
-    <p class="status-text">All | <a href="#" id="toggle-profiles">Online</a></p>
+    <p class="status-text">All | <a href="#" id="toggle-online-profiles">Online</a></p>
   <% end %>
+
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sort by..
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#" id="age-sort">Age</a></li>
+      <li><a href="#" id="name-sort">Name</a></li>
+    </ul>
+  </div>
+
   <hr>
   <div class="result-names search-scroll custom-scroll">
     <% @profiles.each do |profile| %>

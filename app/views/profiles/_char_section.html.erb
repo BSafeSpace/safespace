@@ -1,0 +1,11 @@
+<div class="char-section">
+  <h5><strong><%= name %></strong></h5>
+  <div class="filter-box-scroll custom-scroll">
+    <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "#{category}"), :id, :name do |b| %>
+      <div class="collection-check-box">
+        <%= b.check_box %>
+        <%= b.label :class => "char-option" %>
+      </div>
+    <% end %>
+  </div>
+</div>
