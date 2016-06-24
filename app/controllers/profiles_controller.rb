@@ -16,6 +16,12 @@ class ProfilesController < ApplicationController
       @online_only = false
     end
 
+    if params[:q] && params[:q][:s]["0"][:name]
+      @sort_type = params[:q][:s]["0"][:name]
+    else
+      @sort_type = ""
+    end
+
     # start tutorial on first sign in
     if user_signed_in?
       @signInCount = current_user.sign_in_count;
@@ -58,6 +64,12 @@ class ProfilesController < ApplicationController
       @online_only = true
     else
       @online_only = false
+    end
+
+    if params[:q] && params[:q][:s]["0"][:name]
+      @sort_type = params[:q][:s]["0"][:name]
+    else
+      @sort_type = ""
     end
 
     # start tutorial on first sign in

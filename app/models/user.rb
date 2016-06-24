@@ -36,6 +36,7 @@ class User < ActiveRecord::Base
     if profile.nil?
       prof = Profile.create()
       prof.user_id = self.id
+      prof.name = self.username
       prof.save
     end
   end
