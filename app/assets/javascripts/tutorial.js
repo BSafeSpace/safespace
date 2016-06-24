@@ -33,11 +33,11 @@ $(function() {
 	});
 
 	function tutorial2() {
-		if ($('.results-container').children().length > 0) {
+		if ($('.result-names').children().length > 0) {
 			$('#overlay').fadeIn(300);
 			$('.profile-results-container.expose').css('z-index','99998');
 
-			var $resultsTooltip = $('.profile-results-container.expose').children('.results-container').children().first();
+			var $resultsTooltip = $('.friend-link').first();
 
 	    	$resultsTooltip.attr('id', 'results-tooltip');
 
