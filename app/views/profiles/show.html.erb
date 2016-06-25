@@ -89,7 +89,7 @@
     <div class="col-md-4 col-sm-offset-1">
       <h4><strong>Characteristics</strong></h4>
       <% @profile.characteristics.each do |characteristic| %>
-        <div class="char-option" style="padding-bottom: 10px"><%= characteristic.name %></div>
+        <li><ul><div class="char-option" style="padding-bottom: 10px"><%= characteristic.name %></div></ul></li>
       <% end %>
 
       <%= link_to "Edit Profile", edit_profile_path(current_user.id), class: 'btn btn-default' %>
