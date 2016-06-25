@@ -7,8 +7,6 @@
 
     <div class="search-scroll custom-scroll">
 
-      <%= f.search_field :age_gteq %>
-        <%= f.search_field :age_lteq %>
       <%= render '/profiles/char_section', name: "Mental Health", category: "mental_health", f: f %>
   
       <div class="char-section">
@@ -26,7 +24,8 @@
           <%= s.sort_select %>
         <% end %>
         <%= f.check_box :online_or_all_profiles %>
-        
+        <%= f.search_field :age_gteq %>
+        <%= f.search_field :age_lteq %>
       </div>
 
       </div>
