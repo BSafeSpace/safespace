@@ -34,13 +34,6 @@
   <% elsif current_user.requested_friendships.include? user %>
     <%= render '/messages/request_friendship' %>
 
-  <% else %>
-    <div class="request_screen">
-      <div class="request-message">
-        Send <%= user.username %> a friend request to chat!
-      </div>
-    </div>
-
   <% end %>
 </div>
 

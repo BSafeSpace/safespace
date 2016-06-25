@@ -1,6 +1,6 @@
 <% if @conversation %>
   <% @other_user = @conversation.get_other_user(current_user) %>
-  <% if !(current_user.pending_friends.include? @other_user) %>
+  <% if current_user.friends.include? @other_user %>
     <div class="col-md-3 chat-sidebar">
       <div class="item">
         <% if @other_user.online? && !@other_user.appear_offline %>
