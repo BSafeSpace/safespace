@@ -4,7 +4,9 @@
 
 .profile-header {
     text-align: center;
-    font-weight: 500;
+    font-weight: 700;
+    font-size: 36px;
+    padding: 10px;
 }
 
 .check-box-scroll {
@@ -102,13 +104,33 @@
 }
 
 .category {
-    width: 150px;
-    text-align: right;
+    width: 300px;
+    text-align: left;
 }
 
 .answer {
-    margin-top: -25px;
-    margin-left: 155px;
+    margin-top: -21px;
+    margin-left: 305px;
     width: 200px;
     text-align: left;
+}
+
+.char-box {
+    width: 325px;
+    padding: 20px;
+    height: 100%;
+    background-color: #f3e6ff;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.profile-box {
+    width: 515px;
+    padding: 20px;
+    height: 100%;
+    background-color: #f9f3ff;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
 }
