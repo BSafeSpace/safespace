@@ -7,27 +7,14 @@
 	<div class="row">
 	  
 	    <div class="col-md-4 filters-container expose">
-	        <h3 class="filter-legend search-header" id="filter-tooltip" data-toggle="tooltip" title="Find a buddy that is like you!" data-placement="right" data-trigger="manual">Filter by</h3>
+	        <legend class="filter-legend search-header" id="filter-tooltip" data-toggle="tooltip" title="Find a buddy that is like you!" data-placement="right" data-trigger="manual">Filter by</legend>
 	        <%= render '/profiles/search_form' %>
 	    </div>
 	    
 	    <div class="col-md-7 profile-results-container expose">
-	        <div class="row search-header">
-				<div class="col-md-9">
-					<h3 style="margin-bottom:-5px;">Results</h3>
-				</div>
-				<div class="col-md-3">
-					<br>
-					<p class="status-text" id="num-users"> <%= @num_profiles %> users found</p>
-				</div>
-
-	        </div>
+	        <legend style="margin-bottom:-5px;" class="search-header">Results</legend>
 	        <%= render '/profiles/search_results' %>
 	    </div>
 	</div>
 </div>
-
-<script type="text/javascript">
-	$('.pagination').insertAfter($('div#sort-dropdown'))
-</script>
 

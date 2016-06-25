@@ -2,7 +2,6 @@ if (!gon.doneTutFilter) {
 	gon.doneTutFilter = true;
 }
 
-$('.pagination').remove()
 $('.search-field').remove();
 $('.filters-container').append('<%= j render("search_form") %>');
 
@@ -16,7 +15,7 @@ $(function() {
     max: 60,
     values: [ $('input#q_age_gteq').val(), $('input#q_age_lteq').val() ],
     slide: function(event, ui) {
-      $( "#age-range" ).val( ui.values[0] + " - " + ui.values[1] );
+      $( "#age-range" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
     },
     change: function(event, ui) {
       $('input#q_age_gteq').val(ui.values[0])
@@ -61,7 +60,3 @@ $('.custom-scroll').mCustomScrollbar({
     $('input[name=commit').click()
   });
 <% end %>
-
-$('.pagination').insertAfter($('div#sort-dropdown'))
-
-$('p#num-users').html("<%= @num_profiles %> users found")
