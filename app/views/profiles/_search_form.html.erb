@@ -7,26 +7,26 @@
 
     <div class="search-scroll custom-scroll">
 
-      <%= render '/profiles/char_section', name: "Mental Health", category: "mental_health", f: f %>
-  
-      <div class="char-section">
-        <h5 class="button-header"><strong>Age range: <input type="text" id="age-range" readonly style="border:0; font-weight:bold;"></strong></h5><br><br>
-        <div id="slider-range"></div>
-      </div>
-  
-      <%= render '/profiles/char_section', name: "Gender", category: "gender", f: f %>
-      <%= render '/profiles/char_section', name: "Ethnicity", category: "ethnicity", f: f %>
-      <%= render '/profiles/char_section', name: "Academic", category: "academic_focus", f: f %>
-      <%= render '/profiles/char_section', name: "Religion", category: "religion", f: f %>
+        <%= render '/profiles/char_section', name: "Mental Health", category: "mental_health", f: f %>
+    
+        <div class="char-section">
+          <h5 class="button-header"><strong>Age range: <input type="text" id="age-range" readonly style="border:0; font-weight:bold;"></strong></h5><br><br>
+          <div id="slider-range"></div>
+        </div>
+    
+        <%= render '/profiles/char_section', name: "Gender", category: "gender", f: f %>
+        <%= render '/profiles/char_section', name: "Ethnicity", category: "ethnicity", f: f %>
+        <%= render '/profiles/char_section', name: "Academic", category: "academic_focus", f: f %>
+        <%= render '/profiles/char_section', name: "Religion", category: "religion", f: f %>
 
-      <div style="display: none">
-        <%= f.sort_fields do |s| %>
-          <%= s.sort_select %>
-        <% end %>
-        <%= f.check_box :online_or_all_profiles %>
-        <%= f.search_field :age_gteq %>
-        <%= f.search_field :age_lteq %>
-      </div>
+        <div style="display: none">
+          <%= f.sort_fields do |s| %>
+            <%= s.sort_select %>
+          <% end %>
+          <%= f.check_box :online_or_all_profiles %>
+          <%= f.search_field :age_gteq %>
+          <%= f.search_field :age_lteq %>
+        </div>
 
       </div>
   <% end %>

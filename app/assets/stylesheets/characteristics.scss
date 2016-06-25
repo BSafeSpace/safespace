@@ -4,6 +4,7 @@
 
 .profile-header {
     text-align: center;
+    font-weight: 500;
 }
 
 .check-box-scroll {
@@ -50,7 +51,9 @@
 
 .char-option {
     font-weight: 400;
-    display: inline;
+    font-size: 85%;
+    display: inline-block;
+    margin-bottom: 1px;
 }
 
 .check-box-container {
@@ -96,4 +99,16 @@
 .profile-result {
     margin-top: 15px;
     margin-bottom: 15px;
+}
+
+.category {
+    width: 150px;
+    text-align: right;
+}
+
+.answer {
+    margin-top: -25px;
+    margin-left: 155px;
+    width: 200px;
+    text-align: left;
 }
