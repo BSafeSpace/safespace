@@ -1,5 +1,6 @@
 require 'csv'
 require 'ostruct'
+require 'will_paginate'
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
