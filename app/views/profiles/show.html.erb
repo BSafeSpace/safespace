@@ -6,90 +6,91 @@
   <div class="row">
     <div class="col-md-4 col-sm-offset-2">
       <p class="char-edit">
-        <strong>Class Rank:</strong>
-        <%= @profile.class_rank %>
+        <div class="category"><strong>Class Rank:</strong></div>
+        <div class="answer"><%= @profile.class_rank %></div>
       </p>
       
       <p class="char-edit">
-        <strong>Socioeconomic Status:</strong>
-        <%= @profile.socioeconomic_status %>
+        <div class="category"><strong>Socioeconomic Status:</strong></div>
+        <div class="answer"><%= @profile.socioeconomic_status %></div>
       </p>
       
       <p class="char-edit">
-        <strong class="char-field-title">Living Situation:</strong>
-        <%= @profile.living_situation %>
+        <div class="category"><strong class="char-field-title">Living Situation:</strong></div>
+        <div class="answer"><%= @profile.living_situation %></div>
       </p>
       
       <p class="char-edit">
-        <strong>Sexual Orientation:</strong>
-        <%= @profile.sexual_orientation %>
+        <div class="category"><strong>Sexual Orientation:</strong></div>
+        <div class="answer"><%= @profile.sexual_orientation %></div>
       </p>
       
       <p class="char-edit">
-        <strong>Comfort With Sexuality:</strong>
-        <%= @profile.comfort_with_sexuality %>
+        <div class="category"><strong>Comfort With Sexuality:</strong></div>
+        <div class="answer"><%= @profile.comfort_with_sexuality %></div>
       </p>
       
       <p class="char-edit">
-        <strong>Age:</strong>
-        <%= @profile.age %>
+        <div class="category"><strong>Age:</strong></div>
+        <div class="answer"><%= @profile.age %></div>
       </p>
       
       <p class="char-edit">
-        <strong>First Generation College Student:</strong>
-        <%= @profile.is_first_generation_college_student %>
+        <div class="category"><strong>First Generation College Student:</strong></div>
+        <div class="answer"><%= @profile.is_first_generation_college_student %></div>
       </p>
       
       <p class="char-edit">
-        <strong>Physically Disabled:</strong>
-        <%= @profile.is_physically_disabled %>
+        <div class="category"><strong>Physically Disabled:</strong></div>
+        <div class="answer"><%= @profile.is_physically_disabled %></div>
       </p>
       
       <p class="char-edit">
-        <strong>Parent:</strong>
-        <%= @profile.is_parent %>
+        <div class="category"><strong>Parent:</strong></div>
+        <div class="answer"><%= @profile.is_parent %></div>
       </p>
       
       <p class="char-edit">
-        <strong>Single Parent:</strong>
-        <%= @profile.is_single_parent %>
+        <div class="category"><strong>Single Parent:</strong></div>
+        <div class="answer"><%= @profile.is_single_parent %></div>
       </p>
       
       <p class="char-edit">
-        <strong>From Foster Care:</strong>
-        <%= @profile.is_from_foster_care %>
+        <div class="category"><strong>From Foster Care:</strong></div>
+        <div class="answer"><%= @profile.is_from_foster_care %></div>
       </p>
       
       <p class="char-edit">
-        <strong>Intercollegiate Athlete:</strong>
-        <%= @profile.is_intercollegiate_athlete %>
+        <div class="category"><strong>Intercollegiate Athlete:</strong></div>
+        <div class="answer"><%= @profile.is_intercollegiate_athlete %></div>
       </p>
       
       <p class="char-edit">
-        <strong>Military:</strong>
-        <%= @profile.is_military %>
+        <div class="category"><strong>Military:</strong></div>
+        <div class="answer"><%= @profile.is_military %></div>
       </p>
       
       <p class="char-edit">
-        <strong>Out Of State Student:</strong>
-        <%= @profile.is_out_of_state_student %>
+        <div class="category"><strong>Out Of State Student:</strong></div>
+        <div class="answer"><%= @profile.is_out_of_state_student %></div>
       </p>
       
       <p class="char-edit">
-        <strong>International Student:</strong>
-        <%= @profile.is_international_student %>
+        <div class="category"><strong>International Student:</strong></div>
+        <div class="answer"><%= @profile.is_international_student %></div>
       </p>
       
       <p class="char-edit">
-        <strong>Is transfer student:</strong>
-        <%= @profile.is_transfer_student %>
+        <div class="category"><strong>Is transfer student:</strong></div>
+        <div class="answer"><%= @profile.is_transfer_student %></div>
       </p>
+      
     </div>
     
     <div class="col-md-4 col-sm-offset-1">
       <h4><strong>Characteristics</strong></h4>
       <% @profile.characteristics.each do |characteristic| %>
-        <div class="char-option" style="padding-bottom: 10px"> <%= characteristic.name %> </div>
+        <li><ul><div class="char-option" style="padding-bottom: 10px"><%= characteristic.name %></div></ul></li>
       <% end %>
 
       <%= link_to "Edit Profile", edit_profile_path(current_user.id), class: 'btn btn-default' %>
