@@ -52,6 +52,8 @@
 
       <div class="download-link"><%= link_to 'Download this chat', download_chat_conversation_path(@conversation)%></div>
 
+      <%= link_to "Block User", friendship_path(:id => @other_user, :block => true), :method => :delete, :class => "friend-link" %>
+
     </div>
   <% end %>
 <% end %>

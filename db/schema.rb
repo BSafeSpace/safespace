@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160623235006) do
+ActiveRecord::Schema.define(version: 20160626091226) do
+
+  create_table "blocks", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "blocker_id"
+    t.integer  "blocked_id"
+  end
 
   create_table "characteristics", force: :cascade do |t|
     t.string   "name"

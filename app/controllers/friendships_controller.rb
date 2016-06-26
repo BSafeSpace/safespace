@@ -25,8 +25,9 @@ class FriendshipsController < ApplicationController
   # POST /friendships
   # POST /friendships.json
   def create
-    @friendship = current_user.friendships.build(:friend_id => params[:friend_id], approved: "false")
-    if @friendship.save
+    if !Block.block?(params[:friend_id], current_user.id)
+      @friendship = current_user.friendships.build(:friend_id => params[:friend_id], approved: "false")
+      @friendship.save
       flash[:notice] = "Friend requested."
     else
       flash[:error] = "Unable to request friendship."
@@ -35,7 +36,7 @@ class FriendshipsController < ApplicationController
     @profiles = @search.result(distinct: true)
     respond_to do |format|
       format.html { redirect_to profiles_path }
-      format.js { flash[:notice] = "Friend requested." }
+      format.js 
     end
   end
 
@@ -60,6 +61,12 @@ class FriendshipsController < ApplicationController
   def destroy
     @friendship = Friendship.where(friend_id: [current_user, params[:id]]).where(user_id: [current_user, params[:id]]).last
     @friendship.destroy
+    if params[:block]
+      @block = Block.new
+      @block.blocker_id = current_user.id
+      @block.blocked_id = params[:id]
+      @block.save 
+    end
     flash[:notice] = "Removed friendship."
     redirect_to :back
   end
