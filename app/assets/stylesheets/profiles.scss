@@ -18,9 +18,17 @@
 
 #sort-dropdown {
 	display: inline-block;
-	margin-left: 33vw;
+	float: right;
 }
 
 .status-text {
 	display: inline;
+}
+
+.users-found {
+	display: inline;
+	float: right;
+	font-size: 16px;
+	color: #373D3F;
+	margin-top: 1vh;
 }
