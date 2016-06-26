@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
@@ -7,8 +9,10 @@ class ProfilesController < ApplicationController
     @search = Profile.search(params[:q])
     @search.build_sort if @search.sorts.empty?
     @profiles = @search.result(distinct: true)
+    @profiles = @profiles.reject { |p| p.user == current_user} if current_user
     gon.profiles = @profiles
-    # @profiles = Profile.all
+    @num_profiles = @profiles.count
+    @profiles = @profiles.paginate(page: params[:page], per_page: 15)
 
     if params[:q] && params[:q][:online_or_all_profiles] == "1"
       @online_only = true
@@ -57,7 +61,11 @@ class ProfilesController < ApplicationController
     @search = Profile.search(params[:q])
     @search.build_sort if @search.sorts.empty?
     @profiles = @search.result(distinct: true)
+    @profiles = @profiles.reject { |p| p.user == current_user} if current_user
     gon.profiles = @profiles
+    @num_profiles = @profiles.count
+    @profiles = @profiles.paginate(page: params[:page], per_page: 12)
+
     # @profiles = Profile.all
 
     if params[:q] && params[:q][:online_or_all_profiles] == "1"

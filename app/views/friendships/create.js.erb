@@ -27,3 +27,31 @@ $('.results-container').remove();
 $('.profile-results-container').append('<%= j render("/profiles/search_results") %>');
 
 $("#flash").html('<%= j render partial: "shared/flash" %>');
+
+<% if @sort_type == "age" %>
+  $('#age-sort').parent().addClass("disabled")
+  $('#name-sort').click(function() {
+    $('select#q_s_0_name>option:eq(2)').prop('selected', true);
+    $('input[name=commit').click()
+  });
+<% elsif @sort_type == "name" %>
+  $('#name-sort').parent().addClass("disabled")
+  $('#age-sort').click(function() {
+    $('select#q_s_0_name>option:eq(1)').prop('selected', true);
+    $('input[name=commit').click()
+  });
+<% else %>
+  $('#age-sort').click(function() {
+    $('select#q_s_0_name>option:eq(1)').prop('selected', true);
+    $('input[name=commit').click()
+  });
+
+  $('#name-sort').click(function() {
+    $('select#q_s_0_name>option:eq(2)').prop('selected', true);
+    $('input[name=commit').click()
+  });
+<% end %>
+
+$('.pagination').insertAfter($('div#sort-dropdown'))
+
+$('p#num-users').html("<%= @num_profiles %> users found")
