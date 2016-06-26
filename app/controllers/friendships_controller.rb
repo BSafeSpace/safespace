@@ -1,4 +1,3 @@
-require 'will_paginate'
 class FriendshipsController < ApplicationController
   before_action :set_friendship, only: [:show, :edit]
   after_filter { flash.discard if request.xhr? }
@@ -32,26 +31,8 @@ class FriendshipsController < ApplicationController
     else
       flash[:error] = "Unable to request friendship."
     end
-    
     @search = Profile.search(params[:q])
-    @search.build_sort if @search.sorts.empty?
     @profiles = @search.result(distinct: true)
-    @profiles = @profiles.reject { |p| p.user == current_user} if current_user
-    @num_profiles = @profiles.count
-    @profiles = @profiles.paginate(page: params[:page], per_page: 15)
-
-    if params[:q] && params[:q][:online_or_all_profiles] == "1"
-      @online_only = true
-    else
-      @online_only = false
-    end
-
-    if params[:q] && params[:q][:s]["0"][:name]
-      @sort_type = params[:q][:s]["0"][:name]
-    else
-      @sort_type = ""
-    end
-
     respond_to do |format|
       format.html { redirect_to profiles_path }
       format.js { flash[:notice] = "Friend requested." }

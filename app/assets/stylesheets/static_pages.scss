@@ -22,32 +22,11 @@ p, ol, ul, td {
 
 .my-header {
 	color: gray;
-	font-size: 72px;
-	width: 400px;
-	height: 200px;
 	font-size: 10vh;
 	font-weight: 600;
 	padding-top: 135px;
-    text-align: center;
-    margin: 0 auto;
-    margin-bottom: 20px;
-}
-
-path {
-	stroke-dasharray: 550;
-	stroke-dashoffset: 550;
-	animation: dash 2s ease-in-out forwards;
-}
-
-@keyframes dash {
-	from {
-		fill-opacity: 0;
-	}
-	to {
-		stroke-dashoffset: 0;
-		opacity: 1;
-		fill-opacity: 1;
-	}
+	padding-bottom: 20px;
+	font-family: "Lato";
 }
 
 .tagline {
@@ -55,16 +34,6 @@ path {
 	font-size: 22px;
 	padding-bottom: 5vh;
 	font-weight: 400;
-	animation: sub 3s ease-in-out forwards;
-}
-
-@keyframes sub {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
 }
 
 .register {
