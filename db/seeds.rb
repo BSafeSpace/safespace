@@ -13,6 +13,15 @@ users = [User.create(email: "annielo@berkeley.edu", password: "password", passwo
          User.create( email: "j-tang@berkeley.edu", password: "password", password_confirmation: "password", username: "Joy Tang"),
          User.create( email: "monica-casanova@berkeley.edu", password: "password", password_confirmation: "password", username: "Monica Casanova")]
 
+for num in 1..50
+	User.create(email: "user#{num}@berkeley.edu", password: "password", password_confirmation: "password", username: "user #{num}")
+end
+
+User.all.each do |u|
+	u.profile.age = rand(16...60)
+	u.profile.save
+end
+
 questions = {mental_health: ["No issue: Seeking out peers", "Depression", "General Anxiety" , "Social Anxiety", "ADHD", "OCD", "Autistic", "Bipolar Disorder", "Post-traumatic Stress Disorder (PTSD)", "Grieving", "Addiction", "Insomnia", "Other"],
 			class_standing: ["Freshman", "Sophomore", "Junior", "Senior", "Other"],
 			gender: ["Male", "Female", "Transgender", "Intersex", "Gender Queer", "Gender Nonconforming", "Questioning", "Other"],
