@@ -31,6 +31,8 @@ $('#toggle-online-profiles').click(function() {
     $('input[name=commit').click();
 });
 
+$('div.users-found').html("<%= @num_profiles %> users found")
+
 //initialize scrollbars
 console.log("clicked toggle");
 $('.custom-scroll').mCustomScrollbar({

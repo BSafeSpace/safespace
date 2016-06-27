@@ -9,6 +9,7 @@ class ProfilesController < ApplicationController
     @profiles = @search.result(distinct: true)
     gon.profiles = @profiles
     # @profiles = Profile.all
+    @num_profiles = @profiles.count
 
     if params[:q] && params[:q][:online_or_all_profiles] == "1"
       @online_only = true
@@ -71,6 +72,8 @@ class ProfilesController < ApplicationController
     else
       @sort_type = ""
     end
+
+    @num_profiles = @profiles.count
 
     # start tutorial on first sign in
     if user_signed_in?
