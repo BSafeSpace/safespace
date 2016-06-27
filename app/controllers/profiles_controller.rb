@@ -7,6 +7,7 @@ class ProfilesController < ApplicationController
     @search = Profile.search(params[:q])
     @search.build_sort if @search.sorts.empty?
     @profiles = @search.result(distinct: true)
+    @profiles = @profiles.reject{ |p| p.user == current_user} if current_user    
     gon.profiles = @profiles
     # @profiles = Profile.all
     @num_profiles = @profiles.count
@@ -58,6 +59,7 @@ class ProfilesController < ApplicationController
     @search = Profile.search(params[:q])
     @search.build_sort if @search.sorts.empty?
     @profiles = @search.result(distinct: true)
+    @profiles = @profiles.reject{ |p| p.user == current_user} if current_user
     gon.profiles = @profiles
     # @profiles = Profile.all
 
