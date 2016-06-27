@@ -67,3 +67,8 @@ $dropDown       : false;
         color: $colHighlight;
         background-color: $bgHighlight; }}}
 }
+
+.highlight-hover > li:hover {
+  color: $colHighlight;
+  background-color: $bgHighlight;
+}
