@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20160628213251_add_block_count_to_users.rb

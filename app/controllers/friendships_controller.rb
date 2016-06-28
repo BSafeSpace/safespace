@@ -68,7 +68,13 @@ class FriendshipsController < ApplicationController
       @block = Block.new
       @block.blocker_id = current_user.id
       @block.blocked_id = params[:id]
-      @block.save 
+      @block.save
+      @blocked_user = User.find params[:id]
+      @blocked_user.blocked_count += 1
+      @blocked_user.save
+      if @blocked_user.blocked_count => 4
+        @blocked_user.destroy
+      end
     end
     flash[:notice] = "Removed friendship."
     redirect_to :back
