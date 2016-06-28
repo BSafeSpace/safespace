@@ -14,6 +14,7 @@
 	}
 <% end %>
 
+// Updates unread count on chat link in nav
 <% publish_to '/messages/new' do %>
 	$('.unread-count').text("<%= @conversation.get_other_user(current_user).unread_count.to_s %>");
 <% end %>

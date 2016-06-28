@@ -22,7 +22,10 @@
 }
 
 .status-text {
-	display: inline;
+	margin-left: 11px;
+	font-size: 0.85em;
+	color: rgba(0, 0, 0, 0.38);
+	display: block;
 }
 
 .users-found {

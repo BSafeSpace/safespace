@@ -31,7 +31,7 @@
                 <% end %>
                 <%= link_to profile.name, profile, :class => "contact-list-name" %>
               </div>
-
+              <div class="status-text">Mental Health: <%= profile.characteristics.where('category = ?', "mental_health").name %></div>
               <div class="status-text">Age: <%= profile.age %></div>
           </div>
           
