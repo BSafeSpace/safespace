@@ -10,7 +10,6 @@ class ConversationsController < ApplicationController
     if !@conversations.empty?
       @conversation = Conversation.order("updated_at").last
       @message = @conversation.messages.new
-      puts @conversation
       @messages = @conversation.messages
     end
     current_user.reset_unread()
@@ -24,6 +23,25 @@ class ConversationsController < ApplicationController
     end
 
     redirect_to conversation_messages_path(@conversation)
+  end
+
+  def mute
+    @conversation = Conversation.find params[:id]
+    @other_user_id = @conversation.get_other_user(current_user).id
+    @is_mute = params[:mute]
+    if @is_mute
+      @mute = @conversation.mutes.new
+      @mute.muter_id = current_user.id
+      @mute.muted_id = @other_user_id
+      @mute.save
+    else
+      @mute = Mute.mute?(current_user.id, @other_user_id)
+      @mute.destroy
+    end
+    respond_to do |format|
+      format.html { redirect_to conversations_path(@conversation) }
+      format.js { render content_type: 'text/javascript' }
+    end
   end
 
   def download_chat

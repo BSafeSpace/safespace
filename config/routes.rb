@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   
   resources :conversations do
     get 'download_chat', on: :member
+    post 'mute', on: :member
     resources :messages
   end
 
