@@ -46,6 +46,22 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def build_query
+    @search = Profile.search(params[:q])
+    @search.build_sort if @search.sorts.empty?
+    @profiles = @search.result(distinct: true)
+    @profiles = @profiles.reject{ |p| p.user == current_user} if current_user
+  end
+
+  def query_online_only?
+    return params[:q][:online_or_all_profiles] == "1" if params[:q]
+  end
+
+  def query_sort_type
+    return params[:q][:s]["0"][:name] if params[:q]
+    return ""
+  end
+
   protected
   
   def configure_permitted_parameters
