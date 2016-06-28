@@ -46,6 +46,7 @@ gem 'jquery-ui-rails'
 gem 'prawn', '~> 2.1'
 
 gem 'will_paginate', github: 'jonatack/will_paginate'
+gem "font-awesome-rails"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
