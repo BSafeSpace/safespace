@@ -13,6 +13,7 @@ class ConversationsController < ApplicationController
       puts @conversation
       @messages = @conversation.messages
     end
+    current_user.reset_unread()
   end
 
   def create

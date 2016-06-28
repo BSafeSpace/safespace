@@ -14,7 +14,7 @@ module ApplicationHelper
 				end
 				if current_user.unread_count > 0
 				    concat(content_tag(:div, class: "unread-count") do 
-			    		current_user.unread_count
+			    		current_user.unread_count.to_s
 			    	end)
 			    end
 		    end
