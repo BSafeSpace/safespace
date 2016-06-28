@@ -307,11 +307,8 @@ DEPENDENCIES
   database_cleaner
   devise (= 3.4.1)
   factory_girl
-<<<<<<< HEAD
   font-awesome-sass
-=======
   font-awesome-rails
->>>>>>> dc04be817b7eba2bc38e334a4c3c6d3a31645f14
   foreman
   gon
   jbuilder (~> 2.0)
