@@ -11,21 +11,25 @@
 	padding-left: 2vh;
 }
 
+.all-online {
+	display: inline;
+}
+
 #slider-range {
     width: 75%;
     margin-left: 1.5vw;
 }
 
 #sort-dropdown {
-	display: inline-block;
+	display: inline;
 	float: right;
+	margin-top: -2vh;
 }
 
 .status-text {
 	margin-left: 11px;
 	font-size: 0.85em;
 	color: rgba(0, 0, 0, 0.38);
-	display: block;
 }
 
 .users-found {
