@@ -21,12 +21,12 @@
       </div>
       <div id="navbar">
         <ul class="nav navbar-nav highlight-hover">
-          <li><%= link_to_in_li "About", home_about_path %></li>
-          <li><%= link_to_in_li 'Contact', home_contact_path %></li>
+          <li><%= link_to_in_li "About", home_about_path, "file-text-o" %></li>
+          <li><%= link_to_in_li 'Contact', home_contact_path, "envelope-o" %></li>
           <% if user_signed_in? %>
-            <li id = "people"><%= link_to_in_li  'People', profiles_path %></li>
+            <li id = "people"><%= link_to_in_li  'People', profiles_path, "users" %></li>
             <li id="chat-link">
-              <%= link_to_in_li 'Chat', conversations_path, id: "chat-tooltip" %>
+              <%= link_to_in_li 'Chat', conversations_path, "comment", id: "chat-tooltip" %>
             </li>
           <% end %>
         </ul>

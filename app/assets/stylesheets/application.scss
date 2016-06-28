@@ -11,6 +11,8 @@
 @import "nav";
 @import "jquery.mCustomScrollbar.min.scss";
 @import "profiles";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 .alert-alert {
   @extend .alert-warning;

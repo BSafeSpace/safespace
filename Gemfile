@@ -46,6 +46,9 @@ gem 'jquery-ui-rails'
 # PDF generator
 gem 'prawn', '~> 2.1'
 
+# Font Awesome icons
+gem 'font-awesome-sass'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
