@@ -13,6 +13,11 @@
 		$("#notif").append("<%= j render 'notif' %>");
 	}
 <% end %>
+
+<% publish_to '/messages/new' do %>
+	$('.unread-count').text("<%= @conversation.get_other_user(current_user).unread_count.to_s %>");
+<% end %>
+
 $("#new_message")[0].reset();
 
 var $chatBox = $('#messages');
