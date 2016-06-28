@@ -61,6 +61,8 @@ class MessagesController < ApplicationController
       if @messages.last
         if @messages.last.user_id != current_user.id
           @messages.last.read = true;
+        else
+          @message.notify_user(@conversation.get_other_user(current_user))
         end
       end
       if !@message.save

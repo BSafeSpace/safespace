@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :pending_friends, -> { where(friendships: { approved: false}) }, :through => :friendships, :source => :friend
   has_many :requested_friendships, -> { where(friendships: { approved: false}) }, :through => :passive_friendships, :source => :user
   has_many :conversations
+  has_many :messages
   has_many :blocks
 
   def friends
@@ -55,6 +56,14 @@ class User < ActiveRecord::Base
     
     profile.save
     profile.online
+  end
+
+  def notify
+    update_attributes(:unread_count => unread_count + 1)
+  end
+
+  def reset_unread
+    update_attributes(:unread_count => 0)
   end
 
 end

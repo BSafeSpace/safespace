@@ -50,9 +50,16 @@
         <div><%= af.name %></div>
       <% end %>
 
-      <div class="sidebar-link"><%= link_to 'Download this chat', download_chat_conversation_path(@conversation)%></div>
-
-      <div class="sidebar-link"><%= link_to "Block User", friendship_path(:id => @other_user, :block => true), :method => :delete %></div>
+      <div class="sidebar-links">
+        <div class="sidebar-link">
+          <%= icon('file') %>
+          <%= link_to 'Download this chat', download_chat_conversation_path(@conversation)%>
+        </div>
+  
+        <div class="sidebar-link">
+          <%= link_to "Block User", friendship_path(:id => @other_user, :block => true), :method => :delete %>
+        </div>
+      </div>
 
     </div>
   <% end %>

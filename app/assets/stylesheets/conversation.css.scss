@@ -29,6 +29,8 @@
 
 .chat-sidebar {
 	margin-top: 4vh;
+	position: relative;
+	height : 75vh;
 }
 
 .char-title {
@@ -39,4 +41,10 @@
 
 .sidebar-link {
 	margin-top: 1em;
+}
+
+.sidebar-links {
+	position: absolute;
+    bottom: 0;
+    text-align: center;
 }

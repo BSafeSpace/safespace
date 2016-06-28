@@ -4,24 +4,11 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @search = Profile.search(params[:q])
-    @search.build_sort if @search.sorts.empty?
-    @profiles = @search.result(distinct: true)
+    @profiles = build_query  
+    @online_only = query_online_only?
+    @sort_type = query_sort_type
+
     gon.profiles = @profiles
-    # @profiles = Profile.all
-    @num_profiles = @profiles.count
-
-    if params[:q] && params[:q][:online_or_all_profiles] == "1"
-      @online_only = true
-    else
-      @online_only = false
-    end
-
-    if params[:q] && params[:q][:s]["0"][:name]
-      @sort_type = params[:q][:s]["0"][:name]
-    else
-      @sort_type = ""
-    end
 
     # start tutorial on first sign in
     if user_signed_in?
@@ -55,25 +42,11 @@ class ProfilesController < ApplicationController
   end
 
   def search
-    @search = Profile.search(params[:q])
-    @search.build_sort if @search.sorts.empty?
-    @profiles = @search.result(distinct: true)
+    @profiles = build_query  
+    @online_only = query_online_only?
+    @sort_type = query_sort_type
+
     gon.profiles = @profiles
-    # @profiles = Profile.all
-
-    if params[:q] && params[:q][:online_or_all_profiles] == "1"
-      @online_only = true
-    else
-      @online_only = false
-    end
-
-    if params[:q] && params[:q][:s]["0"][:name]
-      @sort_type = params[:q][:s]["0"][:name]
-    else
-      @sort_type = ""
-    end
-
-    @num_profiles = @profiles.count
 
     # start tutorial on first sign in
     if user_signed_in?

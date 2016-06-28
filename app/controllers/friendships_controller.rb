@@ -32,8 +32,11 @@ class FriendshipsController < ApplicationController
     else
       flash[:error] = "Unable to request friendship."
     end
-    @search = Profile.search(params[:q])
-    @profiles = @search.result(distinct: true)
+    
+    @profiles = build_query  
+    @online_only = query_online_only?
+    @sort_type = query_sort_type
+    
     respond_to do |format|
       format.html { redirect_to profiles_path }
       format.js 

@@ -14,5 +14,9 @@ class Message < ActiveRecord::Base
     time_diff = ((created_at - last_time)/60).to_i
     return time_diff >= 30
   end
+
+  def notify_user(user)
+    user.notify()
+  end
   
 end

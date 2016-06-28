@@ -72,3 +72,16 @@ $dropDown       : false;
   color: $colHighlight;
   background-color: $bgHighlight;
 }
+
+.unread-count {
+  background-color: #fa3e3e;
+  border-radius: 10px;
+  color: white;
+  
+  padding: 1px 3px;
+  font-size: 10px;
+  
+  position: absolute; /* Position the badge within the relatively positioned button */
+  top: 0;
+  right: 0;
+}
