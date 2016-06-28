@@ -5,7 +5,6 @@ class ProfilesController < ApplicationController
   # GET /profiles.json
   def index
     @profiles = build_query  
-    @num_profiles = @profiles.count
     @online_only = query_online_only?
     @sort_type = query_sort_type
 
@@ -44,7 +43,6 @@ class ProfilesController < ApplicationController
 
   def search
     @profiles = build_query  
-    @num_profiles = @profiles.count
     @online_only = query_online_only?
     @sort_type = query_sort_type
 

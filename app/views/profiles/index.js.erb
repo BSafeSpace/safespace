@@ -5,6 +5,7 @@ if (!gon.doneTutFilter) {
 $('.search-field').remove();
 $('.filters-container').append('<%= j render("search_form") %>');
 
+$('.pagination').remove()
 $('.results-container').remove();
 $('.profile-results-container').append('<%= j render("search_results") %>');
 
@@ -32,6 +33,8 @@ $('#toggle-online-profiles').click(function() {
 });
 
 $('div.users-found').html("<%= @num_profiles %> users found")
+
+
 
 //initialize scrollbars
 console.log("clicked toggle");

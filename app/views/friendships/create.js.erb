@@ -23,6 +23,7 @@ if (gon.doneTutFilter && !gon.doneTutAddFriend) {
 	console.log('clicked add friend');
 }
 
+$('.pagination').remove()
 $('.results-container').remove();
 $('.profile-results-container').append('<%= j render("/profiles/search_results") %>');
 

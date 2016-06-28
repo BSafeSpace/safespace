@@ -34,7 +34,6 @@ class FriendshipsController < ApplicationController
     end
     
     @profiles = build_query  
-    @num_profiles = @profiles.count
     @online_only = query_online_only?
     @sort_type = query_sort_type
     

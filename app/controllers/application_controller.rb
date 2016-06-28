@@ -1,5 +1,6 @@
 require 'csv'
 require 'ostruct'
+require 'will_paginate/array'
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -51,6 +52,8 @@ class ApplicationController < ActionController::Base
     @search.build_sort if @search.sorts.empty?
     @profiles = @search.result(distinct: true)
     @profiles = @profiles.reject{ |p| p.user == current_user} if current_user
+    @num_profiles = @profiles.count
+    @profiles.paginate(page: params[:page], per_page: 15)
   end
 
   def query_online_only?
