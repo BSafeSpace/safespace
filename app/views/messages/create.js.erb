@@ -5,8 +5,11 @@
 
     if (sender_id != current_id) {
     	var convID = $('meta[name=conv-id]').attr("content");
-    	if (convID == '<%= @conversation.id.to_s %>') {
-    		console.log(convID);
+    	console.log('convID: ' + convID);
+    	var rubyConvID = '<%= @conversation.id.to_s %>'
+    	console.log("rubyConvID: " + rubyConvID);
+    	if (convID === rubyConvID) {
+    		console.log("resetting");
     		<% @receiver.reset_unread() %>
     	}
     	console.log("got into logic block");
@@ -22,6 +25,8 @@
 // Updates unread count on chat link in nav	
 <% publish_to '/messages/new' do %>
 	$('.unread-count').text("<%= @conversation.get_other_user(current_user).unread_count.to_s %>");
+	console.log('unread publish');
+	console.log('unread-count: ' + "<%= @conversation.get_other_user(current_user).unread_count.to_s %>");
 <% end %>
 
 $("#new_message")[0].reset();
