@@ -48,6 +48,9 @@ class ConversationsController < ApplicationController
     peer_counselor = User.where(peer_counselor: true).first
     User.create_friendship(user, peer_counselor)
     
+    ConversationMailer.recommend_email(user, peer_counselor).deliver_now
+
+
     respond_to do |format|
       format.html { redirect_to conversations_path(@conversation) }
       format.js { render content_type: 'text/javascript' }
