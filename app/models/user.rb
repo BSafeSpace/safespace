@@ -43,6 +43,13 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.create_friendship(user1, user2)
+    friendship = user1.friendships.build(friend_id: user2.id, approved: "true")
+    friendship.save
+    user1.save
+    user2.save
+  end
+
   def online?
     if current_sign_in_at.present? 
       online_status = last_sign_out_at.present? ? current_sign_in_at > last_sign_out_at : true

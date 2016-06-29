@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160628225003) do
+ActiveRecord::Schema.define(version: 20160629001309) do
 
   create_table "blocks", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 20160628225003) do
     t.boolean  "done_tut_add_friend",    default: false
     t.integer  "unread_count",           default: 0
     t.integer  "block_count",            default: 0
+    t.boolean  "peer_counselor",         default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

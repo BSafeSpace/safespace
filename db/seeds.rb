@@ -6,16 +6,20 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-users = [User.create(email: "annielo@berkeley.edu", password: "password", password_confirmation: "password", username: "Annie Lo"),
+users = [User.create(email: "annielo@berkeley.edu", password: "password", password_confirmation: "password", username: "Annie Lo", sign_in_count: 2, done_tut_filter: true, done_tut_add_friend: true),
          User.create(email: "mnguyen@berkeley.edu", password: "password", password_confirmation: "password", username: "Minh Nguyen"),
          User.create( email: "mscott2757@berkeley.edu", password: "password", password_confirmation: "password", username: "Mason Scott"),
          User.create( email: "swee@berkeley.edu", password: "password", password_confirmation: "password", username: "Sagang Wee"),
          User.create( email: "j-tang@berkeley.edu", password: "password", password_confirmation: "password", username: "Joy Tang"),
-         User.create( email: "monica-casanova@berkeley.edu", password: "password", password_confirmation: "password", username: "Monica Casanova")]
+         User.create( email: "monica-casanova@berkeley.edu", password: "password", password_confirmation: "password", username: "Monica Casanova"),
+         User.create( email: "peer-counselor@berkeley.edu", password: "password", password_confirmation: "password", username: "Monica Casanova", peer_counselor: true)]
 
 for num in 1..50
 	User.create(email: "user#{num}@berkeley.edu", password: "password", password_confirmation: "password", username: "user #{num}")
 end
+
+User.create_friendship(users[0], users[1])
+User.create_friendship(users[0], users[2])
 
 User.all.each do |u|
 	u.profile.age = rand(16...60)
