@@ -1,6 +1,9 @@
+console.log("got to js");
 $(".mute-button > a").remove();
 <% if @is_mute %>
+	console.log("append unmute");
 	$('.mute-button').append('<%= j render("unmute_button") %>');
 <% else %>
+	console.log("append mute");
 	$('.mute-button').append('<%= j render("mute_button") %>');
 <% end %>
