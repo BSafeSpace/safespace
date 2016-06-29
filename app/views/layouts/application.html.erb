@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
+  <meta content='' name='conv-id'/>
   <head>
     <title>SafeSpace</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>

@@ -3,15 +3,12 @@
     var current_id = $('meta[name=user-id]').attr("content");
     <% @receiver = @conversation.get_other_user(current_user) %>
 
-    if(sender_id != current_id){
-    	<% puts request.path %>
-    	<% @conv_path = "/conversations/" + @conversation.id.to_s + "/messages" %>
-    	<% puts @conv_path %>
-    	<% if request.path ==  @conv_path %>
-    		console.log("on chat page");
+    if (sender_id != current_id) {
+    	var convID = $('meta[name=conv-id]').attr("content");
+    	if (convID == '<%= @conversation.id.to_s %>') {
+    		console.log(convID);
     		<% @receiver.reset_unread() %>
-    		console.log("<%=@receiver.username%>");
-    	<% end %>
+    	}
     	console.log("got into logic block");
 		$("#msg").append("<%= j render 'receiver' %>");
 		$("#notif").append("<%= j render 'notif' %>");

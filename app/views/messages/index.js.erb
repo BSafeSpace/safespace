@@ -26,6 +26,9 @@ $(function() {
 		console.log('pending');	
 	<% end %>
 
+	// update conversation id meta tag
+	$('meta[name=conv-id]').attr("content", '<%= @conversation.id.to_s %>');
+
 	// re-initialize scroll bar
 	$('#messages').mCustomScrollbar({
 	    theme:"minimal-dark",
