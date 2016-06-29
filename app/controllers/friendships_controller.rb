@@ -72,7 +72,7 @@ class FriendshipsController < ApplicationController
       @blocked_user = User.find params[:id]
       @blocked_user.blocked_count += 1
       @blocked_user.save
-      if @blocked_user.blocked_count => 4
+      if @blocked_user.blocked_count >= 4
         @blocked_user.destroy
       end
     end

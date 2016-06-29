@@ -51,6 +51,9 @@
       <% end %>
 
       <div class="sidebar-links">
+        <div class="sidebar-link recommend-button">
+          <%= link_to "Recommend to Peer Counselor", recommend_to_peer_counselor_conversation_path(@other_user), method: 'post', :data => {:confirm => 'Are you sure?'}, remote: true %>
+        </div>
         <div class="sidebar-link">
           <%= icon('file') %>
           <%= link_to 'Download this chat', download_chat_conversation_path(@conversation)%>

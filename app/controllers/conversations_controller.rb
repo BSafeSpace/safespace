@@ -5,8 +5,7 @@ class ConversationsController < ApplicationController
   def index
     @user = current_user
     @users = User.all
-    @conversations = Conversation.where(sender: @user)
-    @conversations += Conversation.where(recipient: @user)
+    @conversations = Conversation.where('sender_id = ? OR recipient_id = ?', @user.id, @user.id)
     if !@conversations.empty?
       @conversation = Conversation.order("updated_at").last
       @message = @conversation.messages.new
@@ -38,6 +37,17 @@ class ConversationsController < ApplicationController
       @mute = Mute.mute?(current_user.id, @other_user_id)
       @mute.destroy
     end
+    respond_to do |format|
+      format.html { redirect_to conversations_path(@conversation) }
+      format.js { render content_type: 'text/javascript' }
+    end
+  end
+
+  def recommend_to_peer_counselor
+    user = User.find(params[:id])
+    peer_counselor = User.where(peer_counselor: true).first
+    User.create_friendship(user, peer_counselor)
+    
     respond_to do |format|
       format.html { redirect_to conversations_path(@conversation) }
       format.js { render content_type: 'text/javascript' }
