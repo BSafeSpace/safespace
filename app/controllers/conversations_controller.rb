@@ -28,7 +28,7 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.find params[:id]
     @other_user_id = @conversation.get_other_user(current_user).id
     @is_mute = params[:mute]
-    if @is_mute
+    if to_boolean(@is_mute)
       @mute = @conversation.mutes.new
       @mute.muter_id = current_user.id
       @mute.muted_id = @other_user_id
