@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :conversations do
     get 'download_chat', on: :member
     post 'mute', on: :member
+    post 'recommend_to_peer_counselor', on: :member
     resources :messages
   end
 
