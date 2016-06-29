@@ -1,20 +1,28 @@
 <% publish_to conversation_path(@conversation) do %>
 	var sender_id = "<%= @message.user.id %>";
     var current_id = $('meta[name=user-id]').attr("content");
+    <% @receiver = @conversation.get_other_user(current_user) %>
 
     if(sender_id != current_id){
+    	<% puts request.path %>
+    	<% @conv_path = "/conversations/" + @conversation.id.to_s + "/messages" %>
+    	<% puts @conv_path %>
+    	<% if request.path ==  @conv_path %>
+    		console.log("on chat page");
+    		<% @receiver.reset_unread() %>
+    		console.log("<%=@receiver.username%>");
+    	<% end %>
+    	console.log("got into logic block");
 		$("#msg").append("<%= j render 'receiver' %>");
+		$("#notif").append("<%= j render 'notif' %>");
 	}
 	else{
 		$("#msg").append("<%= j render 'sender' %>");
 	}
 
-	if(sender_id != current_id){
-		$("#notif").append("<%= j render 'notif' %>");
-	}
 <% end %>
 
-// Updates unread count on chat link in nav
+// Updates unread count on chat link in nav	
 <% publish_to '/messages/new' do %>
 	$('.unread-count').text("<%= @conversation.get_other_user(current_user).unread_count.to_s %>");
 <% end %>

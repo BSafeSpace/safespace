@@ -20,6 +20,7 @@ class ConversationsController < ApplicationController
     else
       @conversation = Conversation.create!(conversation_params)
     end
+    cookies[:curr_conv_id] = @conversation.id 
 
     redirect_to conversation_messages_path(@conversation)
   end

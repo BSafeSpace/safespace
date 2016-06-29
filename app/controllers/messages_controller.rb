@@ -59,8 +59,10 @@ class MessagesController < ApplicationController
         @messages = @conversation.messages
       end
       if @messages.last
+        # will always be false when other user sends a message
         if @messages.last.user_id != current_user.id
           @messages.last.read = true;
+          current_user.reset_unread()
         else
           if Mute.mute?(current_user.id, @message.user.id).empty?
             @message.notify_user(@conversation.get_other_user(current_user))

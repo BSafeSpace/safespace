@@ -1,6 +1,6 @@
 <% @messages.each do |message| %>
   <% if message.body %>
-      <% user = User.find(message.user) %>
+      <% user = User.find(message.user.id) %>
         <div style="text-align:left">
             <% if !@last_user.id.eql? user.id %>
               <div style="text-align:center">
