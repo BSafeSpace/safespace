@@ -31,17 +31,19 @@ class ConversationsController < ApplicationController
   def read_messages
     @meta_conv_id = params[:metaConvID]
     @ruby_conv_id = params[:rubyConvID]
+    @sender_id = params[:senderID]
+    @current_id = params[:currentID]
     @conversation = Conversation.find @ruby_conv_id
     @receiver = @conversation.get_other_user(current_user)
-    puts @meta_conv_id
-    puts @ruby_conv_id
-    if @meta_conv_id == @ruby_conv_id
-      @receiver.reset_unread()
+    if @sender_id != @current_id
+      @same_convo = @conversation.same_convo?(@sender_id, @current_id) ? true : false
+      if @meta_conv_id == @ruby_conv_id
+        @receiver.reset_unread()
+      end
     end
+    
+    render json: {:current_id => @current_id, :same_convo => @same_convo}
 
-    respond_to do |format|
-      format.html { redirect_to conversations_path }
-    end
   end
 
   def mute

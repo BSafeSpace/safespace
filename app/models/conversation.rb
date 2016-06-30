@@ -21,4 +21,8 @@ class Conversation < ActiveRecord::Base
   		return User.find self.sender_id
   	end
   end
+
+  def same_convo?(sender_id, recipient_id)
+    self == Conversation.between(sender_id, recipient_id).first
+  end
 end
