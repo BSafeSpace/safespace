@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>User <%= @user.username %> has been recommended to you</h1>
+    <p>
+      Please contact them soon. Additionally you can also contact them by email at <%= @user.email %>.
+    </p>
+    <p>Thank you <%= @peer_counselor.username %> for your role in SafeSpace and have a good day!</p>
+  </body>
+</html>

@@ -12,7 +12,7 @@ users = [User.create(email: "annielo@berkeley.edu", password: "password", passwo
          User.create( email: "swee@berkeley.edu", password: "password", password_confirmation: "password", username: "Sagang Wee"),
          User.create( email: "j-tang@berkeley.edu", password: "password", password_confirmation: "password", username: "Joy Tang"),
          User.create( email: "monica-casanova@berkeley.edu", password: "password", password_confirmation: "password", username: "Monica Casanova"),
-         User.create( email: "peer-counselor@berkeley.edu", password: "password", password_confirmation: "password", username: "Peer Counselor", peer_counselor: true)]
+         User.create( email: "masoncscott@berkeley.edu", password: "password", password_confirmation: "password", username: "Peer Counselor", peer_counselor: true)]
 
 for num in 1..50
 	User.create(email: "user#{num}@berkeley.edu", password: "password", password_confirmation: "password", username: "user #{num}")
