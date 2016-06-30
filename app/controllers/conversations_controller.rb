@@ -12,6 +12,10 @@ class ConversationsController < ApplicationController
       @messages = @conversation.messages
     end
     current_user.reset_unread()
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
@@ -22,6 +26,22 @@ class ConversationsController < ApplicationController
     end
 
     redirect_to conversation_messages_path(@conversation)
+  end
+
+  def read_messages
+    @meta_conv_id = params[:metaConvID]
+    @ruby_conv_id = params[:rubyConvID]
+    @conversation = Conversation.find @ruby_conv_id
+    @receiver = @conversation.get_other_user(current_user)
+    puts @meta_conv_id
+    puts @ruby_conv_id
+    if @meta_conv_id == @ruby_conv_id
+      @receiver.reset_unread()
+    end
+
+    respond_to do |format|
+      format.html { redirect_to conversations_path }
+    end
   end
 
   def mute

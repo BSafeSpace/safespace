@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     post 'mute', on: :member
     delete 'mute', on: :member
     post 'recommend_to_peer_counselor', on: :member
+    get 'read_messages', on: :member
     resources :messages
   end
 

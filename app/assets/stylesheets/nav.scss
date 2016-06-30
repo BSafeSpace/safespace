@@ -85,3 +85,7 @@ $dropDown       : false;
   top: 0;
   right: 0;
 }
+
+div.unread-count:empty {
+   display: none;
+}

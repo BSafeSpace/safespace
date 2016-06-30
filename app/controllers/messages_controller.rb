@@ -27,9 +27,9 @@ class MessagesController < ApplicationController
     end
 
     @message = @conversation.messages.new
-    @redirected_from_messages = true
+ 
     respond_to do |format|
-      format.html { redirect_to conversations_path(@conversation, @message, @messages, @redirected_from_messages) }
+      format.html { redirect_to conversations_path(@conversation, @message, @messages) }
       format.js
     end
 
@@ -58,12 +58,15 @@ class MessagesController < ApplicationController
         @over_ten = false
       end
       if @messages.last
-        # check if message sender is muted; if not then notify receiver
-        @receiver = @conversation.get_other_user(current_user)
-        puts "got into logic of messages.last"
-        if Mute.mute?(@receiver.id, @message.user.id).empty?
-          @message.notify_user(@receiver)
-          puts "no mute"
+        # sender is always the current_user
+        if @messages.last.user_id != current_user.id
+          @messages.last.read = true;
+        else
+          # check if message sender is muted; if not then notify receiver
+          @receiver = @conversation.get_other_user(current_user)
+          if Mute.mute?(@receiver.id, @message.user.id).empty?
+            @message.notify_user(@receiver)
+          end
         end
       end
       if !@message.save

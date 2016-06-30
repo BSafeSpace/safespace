@@ -1,9 +1,14 @@
-$('#messages').remove();
-$('#chat').append('<%= j render("/messages/chat") %>');
-console.log("test");
+// $('#messages').remove();
+// $('#chat').append('<%= j render("/messages/chat") %>');
+// console.log("test");
 
-var $chatBox = $('#messages');
-$chatBox.mCustomScrollbar("update");
-$chatBox.mCustomScrollbar("scrollTo", 'bottom', {
-	scrollInertia: 100
-});
+// var $chatBox = $('#messages');
+// $chatBox.mCustomScrollbar("update");
+// $chatBox.mCustomScrollbar("scrollTo", 'bottom', {
+// 	scrollInertia: 100
+// });
+
+<% if @conversation %>
+	// update conversation id meta tag
+	$('meta[name=conv-id]').attr("content", '<%= @conversation.id.to_s %>');
+<% end %>

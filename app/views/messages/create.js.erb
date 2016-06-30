@@ -1,18 +1,9 @@
 <% publish_to conversation_path(@conversation) do %>
 	var sender_id = "<%= @message.user.id %>";
-    var current_id = $('meta[name=user-id]').attr("content");
-    <% @receiver = @conversation.get_other_user(current_user) %>
+	var current_id = $('meta[name=user-id]').attr("content");
 
     if (sender_id != current_id) {
-    	var convID = $('meta[name=conv-id]').attr("content");
-    	console.log('convID: ' + convID);
-    	var rubyConvID = '<%= @conversation.id.to_s %>'
-    	console.log("rubyConvID: " + rubyConvID);
-    	if (convID === rubyConvID) {
-    		console.log("resetting");
-    		<% @receiver.reset_unread() %>
-    	}
-    	console.log("got into logic block");
+		console.log("got into logic block");
 		$("#msg").append("<%= j render 'receiver' %>");
 		$("#notif").append("<%= j render 'notif' %>");
 	}
@@ -24,8 +15,23 @@
 
 // Updates unread count on chat link in nav	
 <% publish_to '/messages/new' do %>
-	$('.unread-count').text("<%= @conversation.get_other_user(current_user).unread_count.to_s %>");
-	console.log('unread publish');
+	var sender_id = "<%= @message.user.id %>";
+	var current_id = $('meta[name=user-id]').attr("content");
+	var metaConvID = $('meta[name=conv-id]').attr("content");
+	console.log('convID: ' + metaConvID);
+	var rubyConvID = '<%= @conversation.id.to_s %>'
+	console.log("rubyConvID: " + rubyConvID);
+	if (sender_id != current_id) {
+		$.ajax({
+		   method: 'get',
+		   url: '/conversations/' + rubyConvID + '/read_messages',
+		   data: { metaConvID: metaConvID, 
+		   		   rubyConvID: rubyConvID },
+		   complete: function(response) {
+			   	$('.unread-count').text("<%= @conversation.get_other_user(current_user).unread_count.to_s %>");
+			   }
+		});
+	}
 	console.log('unread-count: ' + "<%= @conversation.get_other_user(current_user).unread_count.to_s %>");
 <% end %>
 
