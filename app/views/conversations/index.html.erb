@@ -6,9 +6,9 @@
           <div class="item horizontal-align">
             <div class="item">
               <% if friend.online? && !friend.appear_offline %>
-               <%= render 'contact_name', status: "online", user: friend %>
+               <%= render 'chat_name', status: "online", user: friend %>
               <% else %>
-                <%= render 'contact_name', status: "offline", user: friend %>
+                <%= render 'chat_name', status: "offline", user: friend %>
               <% end %>
             </div>
     

@@ -48,3 +48,10 @@
 	background-color: transparent;
 	border-color: #5bc0de;
 }
+
+.truncate {
+  width: 170px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

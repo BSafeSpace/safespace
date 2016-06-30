@@ -66,6 +66,9 @@ class User < ActiveRecord::Base
   end
 
   def notify
+    if unread_count.nil?
+      unread_count = 0
+    end
     update_attributes(:unread_count => unread_count + 1)
   end
 
