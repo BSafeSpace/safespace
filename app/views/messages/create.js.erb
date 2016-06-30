@@ -11,6 +11,9 @@
 		$("#msg").append("<%= j render 'sender' %>");
 	}
 
+	// update message preview
+	$("div[data-conv-id='<%=@conversation.id.to_s%>'").text("<%= j render '/conversations/message_preview' %>");
+
 <% end %>
 
 // Updates unread count on chat link in nav	

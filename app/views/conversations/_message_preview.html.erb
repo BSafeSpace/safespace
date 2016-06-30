@@ -1,0 +1,7 @@
+<% @last_message = @conversation.messages.last %>
+<% if @last_message %>
+	<% @last_user = User.find @last_message.user_id %>
+	<% @last_username = @last_user.username %>
+	<% (@last_username = "You") if (@last_username == current_user.username) %>
+	<%= @last_username + ": " + @last_message.body %>
+<% end %>
