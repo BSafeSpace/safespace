@@ -1,0 +1,5 @@
+ <div class="horizontal-align">
+  <div class="<%="#{status}"%>-status-indicator" style="display: inline-block;"></div>
+  <%= link_to user.username, conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', :class => "contact-list-name", remote: true %>
+</div>
+<div class="status-text"><%="#{status}".capitalize%></div>

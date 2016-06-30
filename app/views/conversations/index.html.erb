@@ -6,17 +6,9 @@
           <div class="item horizontal-align">
             <div class="item">
               <% if friend.online? && !friend.appear_offline %>
-                <div class="horizontal-align">
-                  <div class="online-status-indicator" style="display: inline-block;"></div>
-                  <%= link_to friend.username, conversations_path(sender_id: current_user.id, recipient_id: friend.id), method: 'post', :class => "contact-list-name", remote: true %>
-                </div>
-                <div class="status-text">Online</div>
+               <%= render 'contact_name', status: "online", user: friend %>
               <% else %>
-                <div class="horizontal-align">
-                  <div class="offline-status-indicator" style="display: inline-block;"></div>
-                  <%= link_to friend.username, conversations_path(sender_id: current_user.id, recipient_id: friend.id), method: 'post', :class => "contact-list-name", remote: true %>
-                </div>
-                <div class="status-text">Offline</div>
+                <%= render 'contact_name', status: "offline", user: friend %>
               <% end %>
             </div>
     
@@ -35,17 +27,9 @@
           <div class="item horizontal-align">
             <div class="item">
               <% if request.online? %>
-                <div class="horizontal-align">
-                  <div class="online-status-indicator" style="display: inline-block;"></div>
-                  <%= link_to request.username, conversations_path(sender_id: current_user.id, recipient_id: request.id), method: 'post', :class => "contact-list-name", remote: true %>
-                </div>
-                <div class="status-text">Online</div>
+                <%= render 'contact_name', status: "online", user: request %>
               <% else %>
-                <div class="horizontal-align">
-                  <div class="offline-status-indicator" style="display: inline-block;"></div>
-                  <%= link_to request.username, conversations_path(sender_id: current_user.id, recipient_id: request.id), method: 'post', :class => "contact-list-name", remote: true %>
-                </div>
-                <div class="status-text">Offline</div>
+                <%= render 'contact_name', status: "offline", user: request %>
               <% end %>
             </div>
             
@@ -67,17 +51,9 @@
           <div class="item horizontal-align">
             <div class="item">
               <% if pending.online? %>
-                <div class="horizontal-align">
-                  <div class="online-status-indicator" style="display: inline-block;"></div>
-                  <%= link_to pending.username, conversations_path(sender_id: current_user.id, recipient_id: pending.id), method: 'post', :class => "contact-list-name", remote: true %>
-                </div>
-                <div class="status-text">Online</div>
+                <%= render 'contact_name', status: "online", user: pending %>
               <% else %>
-                <div class="horizontal-align">
-                  <div class="offline-status-indicator" style="display: inline-block;"></div>
-                  <%= link_to pending.username, conversations_path(sender_id: current_user.id, recipient_id: pending.id), method: 'post', :class => "contact-list-name", remote: true %>
-                </div>
-                <div class="status-text">Offline</div>
+                <%= render 'contact_name', status: "offline", user: pending %>
               <% end %>
             </div>
             
