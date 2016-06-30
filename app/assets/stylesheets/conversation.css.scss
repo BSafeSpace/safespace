@@ -3,7 +3,7 @@
 }
 
 .links-container {
-    padding-left: 15px;
+	cursor: pointer;
 }
 
 .friend-link {
@@ -59,6 +59,10 @@
 .active-conversation {
 	background: #ececec;
 	border-radius: 3px;
+}
+
+.item {
+	padding-left: 0.5vw;
 }
 
 // border-top: 3px solid rgba(0, 0, 0, .10);

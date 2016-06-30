@@ -28,7 +28,7 @@ $(function() {
 
 	// add active class to current conversation
 	$('.active-conversation').removeClass('active-conversation');
-	$("div[data-conv-id='<%=@conversation.id.to_s%>'").parent().addClass("active-conversation");
+	$("div[data-conv-id='<%=@conversation.id.to_s%>'").parent().parent().addClass("active-conversation");
 
 	// update conversation id meta tag
 	$('meta[name=conv-id]').attr("content", '<%= @conversation.id.to_s %>');
