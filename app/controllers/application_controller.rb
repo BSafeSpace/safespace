@@ -2,6 +2,8 @@ require 'csv'
 require 'ostruct'
 require 'will_paginate/array'
 class ApplicationController < ActionController::Base
+  include CharacteristicsHelper
+  include FriendshipsHelper
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
