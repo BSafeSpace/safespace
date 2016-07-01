@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   
   before_action :configure_permitted_parameters, if: :devise_controller?
   # before_filter :toggle_appear_offline
+  before_filter :confirm_current_user
 
   after_filter :user_activity
 
@@ -30,6 +31,13 @@ class ApplicationController < ActionController::Base
                           religion: @religion, 
                           ethnicity: @ethnicity,
                           academic_focus: @academic_focus)
+  end
+
+  def confirm_current_user
+    not_accessible = ["conversations", "profiles", "characteristics", "messages", "friendships"]
+    if !current_user && not_accessible.include?(controller_name)
+      redirect_to root_path
+    end
   end
 
   def toggle_appear_offline
