@@ -51,6 +51,7 @@
 	console.log('unread-count: ' + "<%= @conversation.get_other_user(current_user).unread_count.to_s %>");
 <% end %>
 
+// clear the submit box
 $("#new_message")[0].reset();
 
 var $chatBox = $('#messages');
