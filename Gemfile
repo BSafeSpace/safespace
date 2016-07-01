@@ -50,6 +50,8 @@ gem 'font-awesome-sass'
 gem 'will_paginate', github: 'jonatack/will_paginate'
 gem "font-awesome-rails"
 
+gem 'whenever', :require => false
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
