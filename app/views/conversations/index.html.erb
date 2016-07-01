@@ -67,11 +67,15 @@
 
   <div class="col-md-6" id="chat">
     <% if @conversation %>
+      <% puts "convo1:" %>
+      <% puts @conversation %>
       <%= render '/messages/chat' %>
     <% else %>
       <div class="pre-chat center-text">Pick a friend and start chatting!</div>
     <% end %>
   </div>
-
-  <%= render '/messages/chat_sidebar' %>
+  <% puts "convo2:" %>
+  <% puts @conversation.sender_id %>
+  <% puts @conversation.recipient_id %>
+  <%= render '/messages/chat_sidebar', conversation: @conversation %>
 </div>

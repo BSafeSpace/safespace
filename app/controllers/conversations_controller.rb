@@ -28,6 +28,13 @@ class ConversationsController < ApplicationController
     redirect_to conversation_messages_path(@conversation)
   end
 
+  def update_convo_id
+    @conversations = Conversation.where('sender_id = ? OR recipient_id = ?', @user.id, @user.id)
+    @conversation = !@conversations.empty? ? @conversations.order("updated_at").last : nil
+    @convo_id = @conversation ? @conversation.id : ""
+    render json: { :convo_id => @convo_id }
+  end
+
   def read_messages
     @meta_conv_id = params[:metaConvID]
     @ruby_conv_id = params[:rubyConvID]

@@ -1,5 +1,5 @@
-<% if @conversation %>
-  <% @other_user = @conversation.get_other_user(current_user) %>
+<% if conversation %>
+  <% @other_user = conversation.get_other_user(current_user) %>
   <% if current_user.friends.include? @other_user %>
     <div class="col-md-3 chat-sidebar">
       <div class="item">
@@ -18,7 +18,7 @@
         <% end %>
       </div>    
 
-      <% @chars = get_chars(@conversation) %>
+      <% @chars = get_chars(conversation) %>
       <% @mental_health = @chars.mental_health %>
       <% @age = @chars.age %>
       <% @gender = @chars.gender %>
@@ -57,7 +57,7 @@
 
         <div class="sidebar-link">
           <%= icon('file') %>
-          <%= link_to 'Download this chat', download_chat_conversation_path(@conversation)%>
+          <%= link_to 'Download this chat', download_chat_conversation_path(conversation)%>
         </div>
 
         <div class="sidebar-link mute-button">

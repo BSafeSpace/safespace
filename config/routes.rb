@@ -16,11 +16,14 @@ Rails.application.routes.draw do
   get '/toggle_appear_offline', to: 'application#toggle_appear_offline', as: :toggle_appear_offline
   
   resources :conversations do
-    get 'download_chat', on: :member
-    post 'mute', on: :member
-    delete 'mute', on: :member
-    post 'recommend_to_peer_counselor', on: :member
-    get 'read_messages', on: :member
+    member do
+      get 'download_chat'
+      post 'mute'
+      delete 'mute'
+      post 'recommend_to_peer_counselor'
+      get 'read_messages'
+    end
+    get 'update_convo_id', on: :collection
     resources :messages
   end
 
