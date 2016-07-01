@@ -9,6 +9,8 @@ $dropDown       : false;
   border-color: $bgHighlight;
   
   .navbar-brand {
+    font-weight: 600;
+    font-size: 1.3em;
     color: #fff;
     
     &:hover, &:focus {
