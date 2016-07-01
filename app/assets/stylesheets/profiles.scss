@@ -2,7 +2,39 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.filter-legend {
+    margin-bottom: 10px;
+    width: 300px;
+}
+
+.results-container {
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.profile-result {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.category {
+    width: 300px;
+    text-align: left;
+}
+
+.answer {
+    margin-top: -21px;
+    margin-left: 305px;
+    width: 200px;
+    text-align: left;
+}
+
 .search-scroll {
+	height: 90vh;
+	overflow: auto;
+}
+
+.results-scroll {
 	height: 82vh;
 	overflow: auto;
 }
@@ -42,27 +74,53 @@
 
 .pagination {
 	padding: 3px; 
-	margin: 3px;
+	width: 100%;
+	margin: 0 auto;
 	font-size: 85%;
+	text-align: center;
+	position: relative;
 	/*border: 1px solid rgba(0, 0, 0, 0.38);*/
 } 
 
-.pagination a {
-	padding: 2px 5px 2px 5px; 
-	text-decoration: none; 
+.pagination a, 
+.pagination span, 
+.pagination em {
+	text-decoration: none;
+	color: #4e4e4e;
+    background: #fcd68a;
+    margin-right: 5px;
+    display: inline-block;
+    padding: 8px 20px;
+    font-weight: 900;
+    font-size: 15px;
+    letter-spacing: -0.02em;
+    text-shadow: none;
+    border: none;
+    -webkit-transition: all 200ms ease-in;
+    line-height: 28px;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
 }
 
 .pagination a:hover, .pagination a:active {
-	/*color: #000;*/
+	background-color: #4e4e4e;
+    color: #fcd68a;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: all 100ms ease-in;
 } 
 
-.pagination span.current { 
+.pagination .current { 
 	font-weight: bold;
-	background-color: #000099;
-	color: #FFF;
+	background: #fff;
+    color: #333333;
+    border: 1px solid #CCCCCC;
+    cursor: default;
 } 
 
-.pagination span.disabled { padding: 2px 5px 2px 5px;
+.pagination span.disabled {
 	color: rgba(0, 0, 0, 0.38);
 }
 

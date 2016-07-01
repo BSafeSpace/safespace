@@ -16,7 +16,7 @@
   </div>
 
   <hr>
-  <div class="result-names search-scroll custom-scroll">
+  <div class="result-names results-scroll custom-scroll">
     <% @profiles.each do |profile| %>
       <% if profile.user %>
         <% @profile_user = User.find(profile.user_id) %>
@@ -60,6 +60,6 @@
     <% end %>
   </div>
   
+  <%= will_paginate @profiles, previous_label: "<", next_label: ">" %>
 </div>
 
-<%= will_paginate @profiles, previous_label: "←", next_label: "→" %>
