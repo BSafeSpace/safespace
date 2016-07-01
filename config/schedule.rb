@@ -19,4 +19,4 @@
 
 # Learn more: http://github.com/javan/whenever
 every :sunday, at: '11:59pm' do
-	runner "Messages.destroy_all"
+	runner "Message.destroy_all"
