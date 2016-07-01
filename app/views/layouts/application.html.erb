@@ -13,59 +13,59 @@
     <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
     <link href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' rel='stylesheet' type='text/css'>
   </head>
-  <body>
+  <body class="<%= controller_name %> <%= action_name %>">
     
-  <nav class="navbar navbar-default homepage-nav">
-    <div class="container">
-      <div class="navbar-header">
-        <%= link_to 'SafeSpace', root_path, class: 'navbar-brand' %>
-      </div>
-      <div id="navbar">
-        <ul class="nav navbar-nav highlight-hover">
-          <li><%= link_to_in_li "About", home_about_path, "file-text-o" %></li>
-          <li><%= link_to_in_li 'Contact', home_contact_path, "envelope-o" %></li>
-          <% if user_signed_in? %>
-            <li id = "people"><%= link_to_in_li  'People', profiles_path, "users" %></li>
-            <li id="chat-link">
-              <%= link_to_in_li 'Chat', conversations_path, "comment", id: "chat-tooltip" %>
-            </li>
-          <% end %>
-        </ul>
-        <ul class="nav navbar-nav pull-right">
-          <% if user_signed_in? %>
-            <li>
-              <% if !current_user.appear_offline %>
-                <div class="online-status-indicator" id="online-navbar"></div>
-              <% else %>
-                <div class="offline-status-indicator" id="offline-navbar"></div>
-              <% end %>
-            </li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <%= current_user.username %>
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu" role="menu">
+    <nav class="navbar navbar-default homepage-nav">
+      <div class="container">
+        <div class="navbar-header">
+          <%= link_to 'SafeSpace', root_path, class: 'navbar-brand' %>
+        </div>
+        <div id="navbar">
+          <ul class="nav navbar-nav highlight-hover">
+            <li><%= link_to_in_li "About", home_about_path, "file-text-o" %></li>
+            <li><%= link_to_in_li 'Contact', home_contact_path, "envelope-o" %></li>
+            <% if user_signed_in? %>
+              <li id = "people"><%= link_to_in_li  'People', profiles_path, "users" %></li>
+              <li id="chat-link">
+                <%= link_to_in_li 'Chat', conversations_path, "comment", id: "chat-tooltip" %>
+              </li>
+            <% end %>
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+            <% if user_signed_in? %>
+              <li>
                 <% if !current_user.appear_offline %>
-                   <li id="appear_offline"><%= link_to 'Appear Offline', toggle_appear_offline_path, method: :get%></li>
-                <% elsif current_user.appear_offline %>
-                   <li id="appear_offline"><%= link_to 'Appear Online', toggle_appear_offline_path, method: :get%></li>
+                  <div class="online-status-indicator" id="online-navbar"></div>
+                <% else %>
+                  <div class="offline-status-indicator" id="offline-navbar"></div>
                 <% end %>
-                <li><%= link_to 'Profile', profile_path(current_user.id) %></li>
-                <li><%= link_to 'Account', edit_user_registration_path %></li>
-                <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
-              </ul>
-            </li>
-          <% else %>
-            <li><%= link_to 'Log In', new_user_session_path %></li>
-            <!--<li><#%= link_to 'Sign Up', new_user_registration_path %></li>-->
-          <% end %>
-        </ul>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <%= current_user.username %>
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <% if !current_user.appear_offline %>
+                     <li id="appear_offline"><%= link_to 'Appear Offline', toggle_appear_offline_path, method: :get%></li>
+                  <% elsif current_user.appear_offline %>
+                     <li id="appear_offline"><%= link_to 'Appear Online', toggle_appear_offline_path, method: :get%></li>
+                  <% end %>
+                  <li><%= link_to 'Profile', profile_path(current_user.id) %></li>
+                  <li><%= link_to 'Account', edit_user_registration_path %></li>
+                  <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+                </ul>
+              </li>
+            <% else %>
+              <li><%= link_to 'Log In', new_user_session_path %></li>
+              <!--<li><#%= link_to 'Sign Up', new_user_registration_path %></li>-->
+            <% end %>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-  
-  <div class="media-list" id="notif"></div>
+    </nav>
+    
+    <div class="media-list" id="notif"></div>
 
     <div id="flash">
       <% if notice.present? %>

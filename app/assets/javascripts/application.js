@@ -16,4 +16,5 @@
 //= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require private_pub
+//= require jquery-readyselector
 //= require_tree .

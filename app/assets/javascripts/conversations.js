@@ -1,4 +1,4 @@
-$('#chat-tooltip').click(function() {
+$('.conversations.index').ready(function() {
 	$.ajax({
 	   method: 'get',
 	   url: '/conversations/update_convo_id',
@@ -11,5 +11,4 @@ $('#chat-tooltip').click(function() {
 	   }
 	});
 
-	console.log("clicked");
 });
