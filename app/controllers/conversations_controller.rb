@@ -7,7 +7,7 @@ class ConversationsController < ApplicationController
     @users = User.all
     @conversations = Conversation.where('sender_id = ? OR recipient_id = ?', @user.id, @user.id)
     if !@conversations.empty?
-      @conversation = Conversation.order("updated_at").last
+      @conversation = @conversations.order("updated_at").last
       @message = @conversation.messages.new
       @messages = @conversation.messages
     end
@@ -40,10 +40,10 @@ class ConversationsController < ApplicationController
     @ruby_conv_id = params[:rubyConvID]
     @sender_id = params[:senderID]
     @current_id = params[:currentID]
-    @conversation = Conversation.find @ruby_conv_id
-    @receiver = @conversation.get_other_user(current_user)
+    @convo = Conversation.find @ruby_conv_id
+    @receiver = @convo.get_other_user(current_user)
     if @sender_id != @current_id
-      @same_convo = @conversation.same_convo?(@sender_id, @current_id) ? true : false
+      @same_convo = @convo.same_convo?(@sender_id, @current_id) ? true : false
       if @meta_conv_id == @ruby_conv_id
         @receiver.reset_unread()
       end

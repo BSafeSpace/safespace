@@ -3,6 +3,9 @@
     <%= link_to 'Show Previous', '?m=all' %>
   <% end %>
 
+  <% puts "convo in messages chat:" %>
+  <% puts @conversation %>
+
   <% user = @conversation.get_other_user(current_user) %>
 
   <% if current_user.friends.include? user %>

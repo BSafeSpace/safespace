@@ -26,28 +26,27 @@
 	console.log('convID: ' + metaConvID);
 	var rubyConvID = '<%= @conversation.id.to_s %>'
 	console.log("rubyConvID: " + rubyConvID);
-	$.ajax({
-	   method: 'get',
-	   url: '/conversations/' + rubyConvID + '/read_messages',
-	   dataType: 'json',
-	   data: { 
-	   	metaConvID: metaConvID, 
-	   	rubyConvID: rubyConvID,
-	   	senderID: sender_id,
-	   	currentID: current_id 
-	   },
-	   success: function(response) {
-	   	// var parsedResponse = $.parseJSON(response);
-	   	console.log("response: " + response);
-   		console.log("json id: " + response.current_id);
-   		console.log("same_convo: " + response.same_convo);
-   		if (response.same_convo && (sender_id != current_id)) {
-   			$('.unread-count').text("<%= @conversation.get_other_user(current_user).unread_count.to_s %>");
-   		}
-	   }
-	});
 	if (sender_id != current_id) {
-		
+		$.ajax({
+		   method: 'get',
+		   url: '/conversations/' + rubyConvID + '/read_messages',
+		   dataType: 'json',
+		   data: { 
+		   	metaConvID: metaConvID, 
+		   	rubyConvID: rubyConvID,
+		   	senderID: sender_id,
+		   	currentID: current_id 
+		   },
+		   success: function(response) {
+		   	// var parsedResponse = $.parseJSON(response);
+		   	console.log("response: " + response);
+	   		console.log("json current id: " + response.current_id);
+	   		console.log("same_convo: " + response.same_convo);
+	   		if (response.same_convo) {
+	   			$('.unread-count').text("<%= @conversation.get_other_user(current_user).unread_count.to_s %>");
+	   		}
+		   }
+		});
 	}
 	console.log('unread-count: ' + "<%= @conversation.get_other_user(current_user).unread_count.to_s %>");
 <% end %>
