@@ -61,9 +61,21 @@ class ApplicationController < ActionController::Base
     @search = Profile.search(params[:q])
     @search.build_sort if @search.sorts.empty?
     @profiles = @search.result(distinct: true)
-    @profiles = @profiles.reject{ |p| p.user == current_user} if current_user
+    @profiles = @profiles.reject{ |p| p.user == current_user}
     @num_profiles = @profiles.count
+    @profiles = put_peer_counselor_first(@profiles)
     @profiles.paginate(page: params[:page], per_page: 15)
+  end
+
+  def put_peer_counselor_first(search_query)
+    peer_counselor_prof = User.where("peer_counselor = ?", true).first.profile
+    search_query = search_query.reject{ |p| p == peer_counselor_prof }
+
+    for i in 0..search_query.count
+      search_query.insert(i, peer_counselor_prof) if i % 15 == 0
+    end
+    
+    return search_query
   end
 
   def query_online_only?
