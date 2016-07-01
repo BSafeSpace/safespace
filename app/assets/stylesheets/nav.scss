@@ -1,8 +1,10 @@
 // TBWS Color
-$bgDefault      : #492345;
-$bgHighlight    : #492345;
-$colDefault     : rgba(204,204,204,.9);
-$colHighlight   : #fff;
+// #673AB7
+// rgba(204,204,204,.9);
+$bgDefault      : #fcd68a;
+$bgHighlight    : #fcd68a;
+$colDefault     : #4e4e4e;
+$colHighlight   : #ed704e;
 $dropDown       : false;
 .navbar-default {
   background-color: $bgDefault;
@@ -11,7 +13,7 @@ $dropDown       : false;
   .navbar-brand {
     font-weight: 600;
     font-size: 1.3em;
-    color: #fff;
+    color: #000;
     
     &:hover, &:focus {
       color: $colHighlight; 
