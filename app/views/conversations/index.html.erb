@@ -3,7 +3,7 @@
     <h3>Friends</h3>
     <div class="ui list">
       <% current_user.friends.each do |friend| %>
-        <div class="item horizontal-align <%= "active-conversation" if @conversation.same_convo?(current_user.id, friend.id) %>">
+        <div class="item horizontal-align <%= "active-conversation" if @conversation && @conversation.same_convo?(current_user.id, friend.id) %>">
           <div class="item">
             <% if friend.online? && !friend.appear_offline %>
              <%= render 'chat_name', status: "online", user: friend %>
@@ -75,7 +75,7 @@
     <% end %>
   </div>
   <% puts "convo2:" %>
-  <% puts @conversation.sender_id %>
-  <% puts @conversation.recipient_id %>
+  <% puts @conversation.sender_id if @conversation %>
+  <% puts @conversation.recipient_id if @conversation %>
   <%= render '/messages/chat_sidebar', conversation: @conversation %>
 </div>
