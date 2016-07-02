@@ -68,9 +68,7 @@
     <div class="media-list" id="notif"></div>
 
     <div id="flash">
-      <% if notice.present? %>
-        <%= render partial: "shared/flash" %>
-      <% end %>
+      <%= render partial: "shared/flash" %>
     </div>
     
     <%= yield :top_content %>

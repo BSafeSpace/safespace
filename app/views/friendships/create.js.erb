@@ -27,6 +27,7 @@ $('.pagination').remove()
 $('.results-container').remove();
 $('.profile-results-container').append('<%= j render("/profiles/search_results") %>');
 
+// dynamically add flash message
 $("#flash").html('<%= j render partial: "shared/flash" %>');
 
 <% if @sort_type == "age" %>
