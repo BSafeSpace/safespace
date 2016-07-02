@@ -12,7 +12,7 @@ var ready = function () {
         var sender_id = $(this).data('sid');
         var recipient_id = $(this).data('rip');
 
-        $.post("/conversations", { sender_id: sender_id, recipient_id: recipient_id }, function (data) {
+        $.post("/conversations/create_peer_chat", { sender_id: sender_id, recipient_id: recipient_id }, function (data) {
             chatBox.chatWith(data.conversation_id);
         });
     });

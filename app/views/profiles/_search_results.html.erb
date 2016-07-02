@@ -53,8 +53,8 @@
             <% else %>
               <% if @profile_user.peer_counselor %>
                 <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
-                    "data-sid" => current_user.id, "data-rip" => @profile.user.id %>
-                <% end %>
+                    "data-sid" => current_user.id, "data-rip" => @profile_user.id %>
+              <% end %>
               <div class="friend-link" id="friend-info">already friends</div>
             <% end %>
           </div>

@@ -3,7 +3,7 @@ $(function() {
 	// initialize Bootstrap Tooltips
 	var $filterTooltip = $('#filter-tooltip');
 
-	if (!gon.doneTutFilter) {
+	if (gon.doneTutFilter == false) {
 		$(".filters-container.expose").css('z-index','99999');
     	$('#overlay').fadeIn(300);
     	$filterTooltip.tooltip('show');

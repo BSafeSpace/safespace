@@ -1,8 +1,6 @@
 require "prawn"
 class ConversationsController < ApplicationController
   # before_action :authenticate_user
-  layout false
-  layout 'application', :except => :show
 
   def index
     @user = current_user
@@ -14,10 +12,7 @@ class ConversationsController < ApplicationController
       @messages = @conversation.messages
     end
     current_user.reset_unread()
-    respond_to do |format|
-      format.html
-      format.js
-    end
+    
   end
 
   def create
@@ -45,6 +40,7 @@ class ConversationsController < ApplicationController
     @reciever = interlocutor(@conversation)
     @messages = @conversation.messages
     @message = Message.new
+    render layout: false
   end
 
   def update_convo_id

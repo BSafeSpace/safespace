@@ -22,13 +22,15 @@ Rails.application.routes.draw do
       delete 'mute'
       post 'recommend_to_peer_counselor'
       get 'read_messages'
+    end
+
+    collection do
+      get 'update_convo_id'
       post 'create_peer_chat'
     end
-    get 'update_convo_id', on: :collection
+
     resources :messages do
-      member do
-        post 'create_peer_message'
-      end
+      post 'create_peer_message', on: :collection
     end
   end
 
