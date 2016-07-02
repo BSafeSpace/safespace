@@ -1,6 +1,8 @@
 require "prawn"
 class ConversationsController < ApplicationController
   # before_action :authenticate_user
+  layout false
+  layout 'application', :except => :show
 
   def index
     @user = current_user
@@ -19,13 +21,30 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    if Conversation.between(params[:sender_id],params[:recipient_id]).present?
+    if Conversation.between(params[:sender_id], params[:recipient_id]).present?
       @conversation = Conversation.between(params[:sender_id], params[:recipient_id]).first
     else
       @conversation = Conversation.create!(conversation_params)
     end
 
     redirect_to conversation_messages_path(@conversation)
+  end
+
+  def create_peer_chat
+    if Conversation.between(params[:sender_id],params[:recipient_id]).present?
+      @conversation = Conversation.between(params[:sender_id],params[:recipient_id]).first
+    else
+      @conversation = Conversation.create!(conversation_params)
+    end
+
+    render json: { conversation_id: @conversation.id }
+  end
+
+  def show
+    @conversation = Conversation.find(params[:id])
+    @reciever = interlocutor(@conversation)
+    @messages = @conversation.messages
+    @message = Message.new
   end
 
   def update_convo_id
@@ -95,8 +114,13 @@ class ConversationsController < ApplicationController
   end
 
 private
+
   def conversation_params
     params.permit(:sender_id, :recipient_id)
+  end
+
+  def interlocutor(conversation)
+    current_user == conversation.recipient ? conversation.sender : conversation.recipient
   end
 
   def generate_pdf(user, conversation)

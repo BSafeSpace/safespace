@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require peer-chat
+//= require users
 //= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require private_pub
