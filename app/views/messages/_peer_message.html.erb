@@ -1,11 +1,11 @@
-<li class="<%=  self_or_other(message) %>">
+<li class="<%= self_or_other(peer_message) %>">
   <div class="avatar">
     <img src="http://placehold.it/50x50" />
   </div>
   <div class="chatboxmessagecontent">
-    <p><%= message.body %></p>
-    <time datetime="<%= message.created_at %>" title="<%= message.created_at.strftime("%d %b  %Y at %I:%M%p") %>">
-      <%= message_interlocutor(message).username %> • <%= message.created_at.strftime("%H:%M %p") %>
+    <p><%= peer_message.body %></p>
+    <time datetime="<%= peer_message.created_at %>" title="<%= peer_message.created_at.strftime("%d %b  %Y at %I:%M%p") %>">
+      <%= message_interlocutor(peer_message).username %> • <%= peer_message.created_at.strftime("%H:%M %p") %>
     </time>
   </div>
 </li>

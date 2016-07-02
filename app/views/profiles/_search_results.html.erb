@@ -36,7 +36,10 @@
           </div>
           
           <div class="col-md-3 links-container horizontal-align">
-            <% if current_user.requested_friendships.include? @profile_user %>
+            <% if @profile_user.peer_counselor %>
+              <%= link_to "Start a Chat", "#", class: "btn btn-success start-conversation",
+                  "data-sid" => current_user.id, "data-rip" => @profile_user.id %>
+            <% elsif current_user.requested_friendships.include? @profile_user %>
               <%= link_to friendship_path(:id => @profile_user), :method => "put", :class => "friend-link" do %>
                 <i class="fa fa-check fa-2x icon-cog" aria-hidden="true"></i>
               <% end %> 
@@ -51,10 +54,6 @@
                 <i class="fa fa-plus fa-2x icon-cog" aria-hidden="true"></i>
               <% end %>
             <% else %>
-              <% if @profile_user.peer_counselor %>
-                <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
-                    "data-sid" => current_user.id, "data-rip" => @profile_user.id %>
-              <% end %>
               <div class="friend-link" id="friend-info">already friends</div>
             <% end %>
           </div>
