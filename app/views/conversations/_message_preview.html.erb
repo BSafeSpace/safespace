@@ -1,4 +1,4 @@
-<% @last_message = @chat_convo ? @chat_convo.messages.last : @conversation.messages.last if @chat_convo %>
+<% @last_message = @chat_convo ? @chat_convo.messages.last : @conversation.messages.last %>
 <% if @last_message %>
 	<% @last_user = User.find @last_message.user_id %>
 	<% @last_username = @last_user.username %>
