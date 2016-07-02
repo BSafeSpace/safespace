@@ -76,6 +76,8 @@
 	padding: 3px; 
 	width: 100%;
 	margin: 0 auto;
+	margin-top: 2vh;
+	margin-bottom: 2vh;
 	font-size: 85%;
 	text-align: center;
 	position: relative;
@@ -86,7 +88,7 @@
 .pagination span, 
 .pagination em {
 	text-decoration: none;
-	color: #4e4e4e;
+	color: #003262;
     background: #fcd68a;
     margin-right: 5px;
     display: inline-block;
@@ -104,7 +106,7 @@
 }
 
 .pagination a:hover, .pagination a:active {
-	background-color: #4e4e4e;
+	background-color: #003262;
     color: #fcd68a;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
