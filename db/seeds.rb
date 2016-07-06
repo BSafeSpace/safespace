@@ -19,8 +19,8 @@ for num in 1..50
 	User.create(email: "user#{num}@berkeley.edu", password: "password", password_confirmation: "password", username: "user #{num}")
 end
 
-User.create_friendship(users[0], users[1])
-User.create_friendship(users[0], users[2])
+User.create_friendship(users[1], users[2])
+User.create_friendship(users[1], users[3])
 
 User.all.each do |u|
 	u.profile.age = rand(16...60)
