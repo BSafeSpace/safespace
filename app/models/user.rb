@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
          # add :confirmable when ready to email
   validate :berkeley_email
   before_save :create_profile
+  after_create :create_peer_counselor_friendships
   validates_uniqueness_of :username
 
   has_one :profile
@@ -40,6 +41,14 @@ class User < ActiveRecord::Base
       prof.user_id = self.id
       prof.name = self.username
       prof.save
+    end
+  end
+
+  def create_peer_counselor_friendships
+    if !peer_counselor
+      User.where('peer_counselor = ?', true).each do |user|
+        User.create_friendship(self, user)
+      end
     end
   end
 
