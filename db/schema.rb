@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160629001309) do
+ActiveRecord::Schema.define(version: 20160706234315) do
 
   create_table "blocks", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -92,6 +92,16 @@ ActiveRecord::Schema.define(version: 20160629001309) do
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
+
+  create_table "recommendations", force: :cascade do |t|
+    t.string   "reason"
+    t.text     "additional_info"
+    t.boolean  "opened"
+    t.integer  "user_id"
+    t.integer  "peer_counselor_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
