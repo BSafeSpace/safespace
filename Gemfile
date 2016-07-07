@@ -45,9 +45,6 @@ gem 'jquery-ui-rails'
 # PDF generator
 gem 'prawn', '~> 2.1'
 
-# Authorization using CanCanCan
-gem 'cancancan', '~> 1.10'
-
 # Font Awesome icons
 gem 'font-awesome-sass'
 gem 'will_paginate', github: 'jonatack/will_paginate'
