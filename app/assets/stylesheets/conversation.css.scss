@@ -33,6 +33,7 @@
 	font-family: Lato;
 }
 
+// Chat Sidebar
 .sidebar-link {
 	margin-top: 1em;
 }
@@ -49,6 +50,7 @@
 	border-color: #5bc0de;
 }
 
+// Message Preview
 .truncate {
   width: 170px;
   white-space: nowrap;
@@ -63,6 +65,57 @@
 
 .item {
 	padding-left: 0.5vw;
+}
+
+// Recommend Modal
+#recommend-modal-title {
+    border-radius: 10px 10px 0 0;
+    font-weight: 600;
+    text-align: center;
+}
+
+.modal-header {
+	background-color: #FEFFED;
+}
+
+.modal {
+  text-align: center;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px; /* Adjusts for spacing */
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.recommend-button {
+	text-align: left;
+}
+
+.btn-yellow {
+	color: #003262;
+    background-color: #fcd68a;
+}
+
+.btn-yellow:hover {
+	background-color: #003262;
+    color: #fcd68a;
+}
+
+.form-radio {
+	margin-left: 1.5vw;
+}
+
+label {
+	font-weight: normal;
 }
 
 // border-top: 3px solid rgba(0, 0, 0, .10);
