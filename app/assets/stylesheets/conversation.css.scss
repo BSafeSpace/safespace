@@ -63,7 +63,7 @@
 	border-radius: 3px;
 }
 
-.item {
+.chat-item {
 	padding-left: 0.5vw;
 }
 
@@ -76,6 +76,7 @@
 
 .modal-header {
 	background-color: #FEFFED;
+	color: #4e4e4e;
 }
 
 .modal {
@@ -101,12 +102,12 @@
 }
 
 .btn-yellow {
-	color: #003262;
+	color: #31708f;
     background-color: #fcd68a;
 }
 
 .btn-yellow:hover {
-	background-color: #003262;
+	background-color: #31708f;
     color: #fcd68a;
 }
 

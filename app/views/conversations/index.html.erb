@@ -3,8 +3,8 @@
     <h3>Friends</h3>
     <div class="ui list">
       <% current_user.friends.each do |friend| %>
-        <div class="item horizontal-align <%= "active-conversation" if @conversation && @conversation.same_convo?(current_user.id, friend.id) %>">
-          <div class="item">
+        <div class="chat-item horizontal-align <%= "active-conversation" if @conversation && @conversation.same_convo?(current_user.id, friend.id) %>">
+          <div class="chat-item">
             <% if friend.online? && !friend.appear_offline %>
              <%= render 'chat_name', status: "online", user: friend %>
             <% else %>
@@ -21,11 +21,11 @@
     
    <div class="ui list">
       <h5>Friend Requests</h5>
-      <div class="item">
+      <div class="chat-item">
         <% current_user.requested_friendships.each do |request| %>
           
-          <div class="item horizontal-align">
-            <div class="item">
+          <div class="chat-item horizontal-align">
+            <div class="chat-item">
               <% if request.online? %>
                 <%= render 'contact_name', status: "online", user: request %>
               <% else %>
@@ -45,11 +45,11 @@
     
     <div class="ui list">
       <h5>Pending Requests</h5>
-      <div class="item">
+      <div class="chat-item">
         <% current_user.pending_friends.each do |pending| %>
           
-          <div class="item horizontal-align">
-            <div class="item">
+          <div class="chat-item horizontal-align">
+            <div class="chat-item">
               <% if pending.online? %>
                 <%= render 'contact_name', status: "online", user: pending %>
               <% else %>

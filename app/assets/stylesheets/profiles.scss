@@ -58,6 +58,10 @@
 	margin-top: -2vh;
 }
 
+.profile-item {
+    padding-left: 1vw;
+}
+
 .status-text {
 	margin-left: 11px;
 	font-size: 0.85em;
@@ -89,7 +93,7 @@
 .pagination span, 
 .pagination em {
 	text-decoration: none;
-	color: #003262;
+	color: #31708f;
     background: #fcd68a;
     margin-right: 5px;
     display: inline-block;
@@ -107,7 +111,7 @@
 }
 
 .pagination a:hover, .pagination a:active {
-	background-color: #003262;
+	background-color: #31708f;
     color: #fcd68a;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
