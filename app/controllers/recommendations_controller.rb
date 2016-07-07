@@ -12,7 +12,7 @@ class RecommendationsController < ApplicationController
 
 	end
 
-	def destory
+	def destroy
 
 	end
 
