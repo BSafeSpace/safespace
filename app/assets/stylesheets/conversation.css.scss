@@ -39,7 +39,8 @@
 }
 
 .sidebar-links {
-    margin-top: 17vh;
+	position: absolute;
+    bottom: 0;
     margin-right: 3vw;
     text-align: center;
 }
@@ -99,6 +100,10 @@
 
 #new_recommendation {
 	text-align: left;
+}
+
+.rec-msg {
+	color: #5cb85c;
 }
 
 .btn-yellow {
