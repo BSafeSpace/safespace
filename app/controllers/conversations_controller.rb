@@ -87,20 +87,6 @@ class ConversationsController < ApplicationController
     end
   end
 
-  def recommend_to_peer_counselor
-    user = User.find(params[:id])
-    peer_counselor = User.where(peer_counselor: true).first
-    User.create_friendship(user, peer_counselor)
-    
-    ConversationMailer.recommend_email(user, peer_counselor).deliver_now
-
-
-    respond_to do |format|
-      format.html { redirect_to conversations_path(@conversation) }
-      format.js { render content_type: 'text/javascript' }
-    end
-  end
-
   def download_chat
     @user = current_user
     @conversation = Conversation.find params[:id]

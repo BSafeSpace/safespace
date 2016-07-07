@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   
   get '/toggle_appear_offline', to: 'application#toggle_appear_offline', as: :toggle_appear_offline
   
+  resources :recommendations
+
   resources :conversations do
     member do
       get 'download_chat'

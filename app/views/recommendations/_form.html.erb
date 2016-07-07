@@ -1,0 +1,13 @@
+<div class="recommend-form" style="display: none">
+	<%= form_for :recommendation, url: {controller: 'recommendations', action: 'create'}, remote: true do |f| %>
+		<%= f.label :reason, "Reason: " %>
+		<%= f.text_field :reason %>
+
+		<%= f.label :additional_info, "Additional Information: " %>
+		<%= f.text_field :additional_info %>
+
+		<%= f.hidden_field :user_id, value: other_user_id %>
+
+		<%= f.submit "Submit recommendation" %>
+	<% end %>
+</div>
