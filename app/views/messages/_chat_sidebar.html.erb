@@ -52,8 +52,11 @@
 
       <div class="sidebar-links">
         <div class="sidebar-link recommend-button">
-          <a href="#">Recommend to Peer Counselor</a>
           <%= render("recommendations/form", other_user_id: @other_user.id) %>
+          <!-- Button trigger modal -->
+          <button class="btn btn-success" data-toggle="modal" data-target="#recommendModal">
+            Recommend to Peer Counselor
+          </button>
         </div>
 
         <div class="sidebar-link">
@@ -79,9 +82,3 @@
   <% end %>
 <% end %>
 
-<script>
-$('div.recommend-button').click(function () {
-  $('div.recommend-form').show()
-  $('div.recommend-button a').remove()
-});
-</script>
