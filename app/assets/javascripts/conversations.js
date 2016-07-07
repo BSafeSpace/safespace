@@ -11,4 +11,8 @@ $('.conversations.index').ready(function() {
 	   }
 	});
 
+	$('#rec-btn').click(function() {
+		$('#new_recommendation').submit();
+	});
+
 });

@@ -1,46 +1,48 @@
+<% @recommendation = Recommendation.new %>
 <!-- Modal -->
 <div class="modal fade" id="recommendModal" tabindex="-1" role="dialog" aria-labelledby="recommendModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h3 class="modal-title" id="recommend-modal-title">Recommend to Peer Counselor</h3>
-      </div>
-      <div class="modal-body">
-        <%= form_for :recommendation, url: {controller: 'recommendations', action: 'create'}, remote: true do |f| %>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<%= form_for @recommendation, remote: true do |f| %>
+			  	<div class="modal-header">
+				    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				    <h3 class="modal-title" id="recommend-modal-title">Recommend to Peer Counselor</h3>
+			  	</div>
 
-        	<h4 style="margin-bottom: 3vh;">Recommending because: </h4>
-			<div class="form-group form-radio">
-				<%= radio_button_tag(:reason, "harm") %>
-				<%= label_tag(:reason_harm, "Self-harm") %>
-			</div>
+				<div class="modal-body">
+				    
+					<h4 style="margin-bottom: 3vh;">Recommending because: </h4>
+					<div class="form-group form-radio">
+						<%= radio_button_tag(:reason, "harm") %>
+						<%= label_tag(:reason_harm, "Self-harm") %>
+					</div>
 
-			<div class="form-group form-radio">
-				<%= radio_button_tag(:reason, "dependent") %>
-				<%= label_tag(:reason_harm, "Too dependent") %>
-			</div>
+					<div class="form-group form-radio">
+						<%= radio_button_tag(:reason, "dependent") %>
+						<%= label_tag(:reason_dependent, "Too dependent") %>
+					</div>
 
-			<div class="form-group form-radio">
-				<%= radio_button_tag(:reason, "advice") %>
-				<%= label_tag(:reason_harm, "Help with advice") %>
-			</div>
+					<div class="form-group form-radio">
+						<%= radio_button_tag(:reason, "advice") %>
+						<%= label_tag(:reason_advice, "Help with advice") %>
+					</div>
 
-			<div class="form-group form-radio">
-				<%= radio_button_tag(:reason, "other") %>
-				<%= label_tag(:reason_harm, "Other") %>
-			</div>
+					<div class="form-group form-radio">
+						<%= radio_button_tag(:reason, "other") %>
+						<%= label_tag(:reason_other, "Other") %>
+					</div>
 
-			<%= f.label :additional_info, "Additional Information (200 characters) " %>
-			<%= f.text_area :additional_info, rows:"4", maxlength: "200", :class => "form-control" %>
+					<%= f.label :additional_info, "Additional Information (200 characters) " %>
+					<%= f.text_area :additional_info, rows:"4", maxlength: "200", :class => "form-control" %>
 
-			<%= f.hidden_field :user_id, value: other_user_id %>
-      </div>
-      <div class="modal-footer", data-dismiss="modal">
-           <%= f.submit "Submit recommendation", class: "btn btn-yellow btn-block" %>
-        <% end %>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
+					<%= f.hidden_field :user_id, value: other_user_id %>
+				</div>
+
+			    <div class="modal-footer", data-dismiss="modal">
+			        <%= f.submit "Submit recommendation", id: "rec-btn", class: "btn btn-yellow btn-block" %>
+			    </div>
+		    <% end %>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
 

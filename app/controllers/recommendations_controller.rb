@@ -1,6 +1,12 @@
 class RecommendationsController < ApplicationController
+
+	def new
+		@recommendation = Recommendation.new
+	end
+
 	def create
-		Recommendation.create(recommendation_params)
+		Recommendation.create!(recommendation_params)
+		puts 'create'
 
 		respond_to do |format|
 			format.js
@@ -15,6 +21,8 @@ class RecommendationsController < ApplicationController
 	def destroy
 
 	end
+
+	private 
 
 	def recommendation_params
 		params.require(:recommendation).permit(:user_id, :reason, :additional_info)
