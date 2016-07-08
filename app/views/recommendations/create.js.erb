@@ -3,3 +3,7 @@ $('div.recommend-button').append("<h4> Recommendation Request Sent. </h4>");
 $('.recommend-button > h4').addClass('rec-msg');
 $('div.recommend-button').append("<p> A counselor will contact your referral as soon as possible. </p>");
 console.log("created rec");
+
+<% publish_to '/recommendations/new' do %>
+
+<% end %>

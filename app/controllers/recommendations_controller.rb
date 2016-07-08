@@ -1,5 +1,9 @@
 class RecommendationsController < ApplicationController
 
+	def index
+		@recommendations = Recommendation.all
+	end
+
 	def new
 		@recommendation = Recommendation.new
 	end
@@ -7,7 +11,6 @@ class RecommendationsController < ApplicationController
 	def create
 		puts "**************************************"
 		Recommendation.create(recommendation_params)
-		puts 'create'
 
 		respond_to do |format|
 			format.js

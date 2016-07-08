@@ -4,4 +4,8 @@ class Recommendation < ActiveRecord::Base
 	def default_values
 		self.opened ||= false
 	end
+
+	def get_user 
+		return User.find self.user_id
+	end
 end

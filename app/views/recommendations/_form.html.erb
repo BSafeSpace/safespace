@@ -13,22 +13,22 @@
 				    
 					<h4 style="margin-bottom: 3vh;">Why are you recommending this user?</h4>
 					<div class="form-group form-radio">
-						<%= f.radio_button(:reason, "harm") %>
+						<%= f.radio_button(:reason, "Self-harm") %>
 						<%= f.label(:reason_harm, "Self-harm") %>
 					</div>
 
 					<div class="form-group form-radio">
-						<%= f.radio_button(:reason, "dependent") %>
+						<%= f.radio_button(:reason, "Too dependent") %>
 						<%= f.label(:reason_dependent, "Too dependent") %>
 					</div>
 
 					<div class="form-group form-radio">
-						<%= f.radio_button(:reason, "advice") %>
+						<%= f.radio_button(:reason, "Help with advice") %>
 						<%= f.label(:reason_advice, "Help with advice") %>
 					</div>
 
 					<div class="form-group form-radio">
-						<%= f.radio_button(:reason, "other") %>
+						<%= f.radio_button(:reason, "Other") %>
 						<%= label_tag(:reason_other, "Other") %>
 					</div>
 
