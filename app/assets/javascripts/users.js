@@ -15,6 +15,10 @@ var ready = function () {
         $.post("/conversations/create_peer_chat", { sender_id: sender_id, recipient_id: recipient_id }, function (data) {
             chatBox.chatWith(data.conversation_id);
         });
+
+        // Remove the recommendation from the table.
+        $(this).closest('tr').remove();
+
     });
 
     /**

@@ -8,4 +8,8 @@ class Recommendation < ActiveRecord::Base
 	def get_user 
 		return User.find self.user_id
 	end
+
+	def self.get_unopened 
+		return Recommendation.where("opened = ?", false)
+	end
 end

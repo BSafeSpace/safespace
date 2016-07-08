@@ -5,5 +5,5 @@ $('div.recommend-button').append("<p> A counselor will contact your referral as 
 console.log("created rec");
 
 <% publish_to '/recommendations/new' do %>
-
+	$('#rec-table > tbody:last').append('<tr><td>column 1 value</td><td>column 2 value</td></tr>');
 <% end %>

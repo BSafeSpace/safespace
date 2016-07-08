@@ -1,21 +1,22 @@
-<table class="table table-striped table-bordered table-condensed">
+<br>
+<table id="rec-table" class="table table-striped table-bordered table-condensed">
     <thead>
         <th>Username</th>
         <th>Reason</th>
         <th>Additional Information</th>
     </thead>
+
     <tbody>
-	<% @recommendations.each do |rec| %>
-    <tr>
-    	<% @rec_user = rec.get_user %>
-        <td><%= @rec_user.username %></td>
-        <td><%= rec.reason %></td>
-        <td><%= rec.additional_info %></td>
-        <td><%= link_to "Unlock Request", "#", class: "btn btn-success btn-block start-conversation",
-            "data-sid" => current_user.id, "data-rip" => @rec_user.id %>
-        </td>
-    </tr>
-	<% end %>
+		<% @recommendations.each do |rec| %>
+	    <tr>
+	    	<% @rec_user = rec.get_user %>
+	        <td><%= @rec_user.username %></td>
+	        <td><%= rec.reason %></td>
+	        <td><%= rec.additional_info %></td>
+	        <td><%= link_to "Unlock Request", recommendation_path(rec.id, peer_id: current_user.id), method: 'put', remote: true, class: "btn btn-success btn-block start-conversation", "data-sid" => current_user.id, "data-rip" => @rec_user.id %>
+	        </td>
+	    </tr>
+		<% end %>
     </tbody>
 </table>
 

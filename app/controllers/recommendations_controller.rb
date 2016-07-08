@@ -1,7 +1,7 @@
 class RecommendationsController < ApplicationController
 
 	def index
-		@recommendations = Recommendation.all
+		@recommendations = Recommendation.get_unopened
 	end
 
 	def new
@@ -15,6 +15,15 @@ class RecommendationsController < ApplicationController
 		respond_to do |format|
 			format.js
 			format.html
+		end
+	end
+
+	# Open a request and update the recommendation for other peer counselors
+	def update
+		@recommendation = Recommendation.find params[:id]
+		@recommendation.update(peer_counselor_id: params[:peer_id], opened: true)
+		respond_to do |format|
+			format.js 
 		end
 	end
 

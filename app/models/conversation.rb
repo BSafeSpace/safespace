@@ -9,9 +9,10 @@ class Conversation < ActiveRecord::Base
 
   # helps to retrieve all conversations of the currently logged-in user
   scope :involving, -> (user) do
-    where("conversations.sender_id =? OR conversations.recipient_id =?",user.id,user.id)
+    where("conversations.sender_id =? OR conversations.recipient_id =?",user.id, user.id)
   end
 
+  # check if a conversation exists between any given two users 
   scope :between, -> (sender_id, recipient_id) { where("(conversations.sender_id = ? AND conversations.recipient_id =?) OR (conversations.sender_id = ? AND conversations.recipient_id =?)", sender_id, recipient_id, recipient_id, sender_id) }
 
   def update_time
