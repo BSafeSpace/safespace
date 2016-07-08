@@ -86,6 +86,13 @@
     
   </body>
 
-  <%= subscribe_to "/messages/new" %>
+  <% if user_signed_in? %>
+    <% if current_user.peer_counselor %>
+      <%= subscribe_to "/recommendations/new" %>
+      <%= subscribe_to "/recommendations/update" %>
+    <% else %>
+      <%= subscribe_to "/messages/new" %>
+    <% end %>
+  <% end %>
 
 </html>

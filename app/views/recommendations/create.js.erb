@@ -5,6 +5,9 @@ $('div.recommend-button').append("<p> A counselor will contact your referral as 
 console.log("created rec");
 
 <% publish_to '/recommendations/new' do %>
-	$('#rec-table > tbody:last').append("<%= j render( 'rec_row', recommendation: @recommendation ) %>");
-	console.log("got into publish block");
+	if ( !$("tr[data-rec-id='<%= @recommendation.id.to_s %>']").length ) {
+		$('#rec-table > tbody:last').append("<%= j render( 'rec_row', recommendation: @recommendation ) %>");
+		$('.unread-count').text("<%= Recommendation.unopened_count.to_s %>");
+		console.log("got into publish block");
+	}
 <% end %>

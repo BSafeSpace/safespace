@@ -21,6 +21,15 @@ module ApplicationHelper
 			    	concat(content_tag(:div, "", class: "unread-count"))
 			    end
 		    end
+		    if body == "Requests"
+		    	if Recommendation.unopened_count > 0
+		    		concat(content_tag(:div, class: "unread-count") do 
+			    		Recommendation.unopened_count.to_s
+			    	end)
+			    else
+			    	concat(content_tag(:div, "", class: "unread-count"))
+			    end
+			end
 	    	concat body
 	    end
 	  end

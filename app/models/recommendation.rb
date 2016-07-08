@@ -12,4 +12,8 @@ class Recommendation < ActiveRecord::Base
 	def self.get_unopened 
 		return Recommendation.where("opened = ?", false)
 	end
+
+	def self.unopened_count
+		return get_unopened.count 
+	end
 end
