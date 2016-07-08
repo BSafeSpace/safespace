@@ -6,7 +6,7 @@ class RecommendationsController < ApplicationController
 
 	def create
 		puts "**************************************"
-		Recommendation.create!(recommendation_params)
+		Recommendation.create(recommendation_params)
 		puts 'create'
 
 		respond_to do |format|
