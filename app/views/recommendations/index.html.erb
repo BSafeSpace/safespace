@@ -8,14 +8,8 @@
 
     <tbody>
 		<% @recommendations.each do |rec| %>
-	    <tr>
-	    	<% @rec_user = rec.get_user %>
-	        <td><%= @rec_user.username %></td>
-	        <td><%= rec.reason %></td>
-	        <td><%= rec.additional_info %></td>
-	        <td><%= link_to "Unlock Request", recommendation_path(rec.id, peer_id: current_user.id), method: 'put', remote: true, class: "btn btn-success btn-block start-conversation", "data-sid" => current_user.id, "data-rip" => @rec_user.id %>
-	        </td>
-	    </tr>
+			<% @rec_user = rec.get_user %>
+	    	<%= render partial: "rec_row", recommendation: rec, rec_user: @rec_user %>
 		<% end %>
     </tbody>
 </table>

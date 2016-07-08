@@ -1,0 +1,8 @@
+<tr>
+	<td> <%= rec_user.username %> </td>
+	<td> <%= recommendation.reason %> </td>
+	<td> <%= recommendation.additional_info %> </td> 
+	<td> <%= link_to "Accept Request", recommendation_path(recommendation.id, peer_id: current_user.id), 
+		method: 'put', remote: true, class: "btn btn-success btn-block start-conversation", 
+		"data-sid" => current_user.id, "data-rip" => rec_user.id %> </td>
+</tr>

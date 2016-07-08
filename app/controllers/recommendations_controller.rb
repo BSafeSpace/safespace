@@ -10,7 +10,8 @@ class RecommendationsController < ApplicationController
 
 	def create
 		puts "**************************************"
-		Recommendation.create(recommendation_params)
+		@recommendation = Recommendation.create(recommendation_params)
+		@rec_user = @recommendation.get_user
 
 		respond_to do |format|
 			format.js
