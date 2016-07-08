@@ -1,5 +1,5 @@
 <% @rec_user = recommendation.get_user %>
-<tr>
+<tr data-rec-id="<%= recommendation.id.to_s %>">
 	<td> <%= @rec_user.username %> </td>
 	<td> <%= recommendation.reason %> </td>
 	<td> <%= recommendation.additional_info %> </td> 

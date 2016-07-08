@@ -1,1 +1,5 @@
 console.log("update");
+// Remove the recommendation from the table.
+<% publish_to '/recommendations/update' do %>
+	$("tr[data-rec-id='<%= @recommendation.id.to_s %>']").remove();
+<% end %>

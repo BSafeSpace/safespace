@@ -16,9 +16,6 @@ var ready = function () {
             chatBox.chatWith(data.conversation_id);
         });
 
-        // Remove the recommendation from the table.
-        $(this).closest('tr').remove();
-
     });
 
     /**
