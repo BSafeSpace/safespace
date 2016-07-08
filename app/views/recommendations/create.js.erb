@@ -5,6 +5,6 @@ $('div.recommend-button').append("<p> A counselor will contact your referral as 
 console.log("created rec");
 
 <% publish_to '/recommendations/new' do %>
-	$('#rec-table > tbody:last').append('<%= j render partial: "rec_row", recommendation: @recommendation, rec_user: @rec_user %>');
+	$('#rec-table > tbody:last').append("<%= j render( 'rec_row', recommendation: @recommendation ) %>");
 	console.log("got into publish block");
 <% end %>

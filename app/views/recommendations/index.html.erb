@@ -7,10 +7,9 @@
     </thead>
 
     <tbody>
-		<% @recommendations.each do |rec| %>
-			<% @rec_user = rec.get_user %>
-	    	<%= render partial: "rec_row", recommendation: rec, rec_user: @rec_user %>
-		<% end %>
+    	<% if @recommendations.any? %>
+	      	<%= render partial: 'rec_row', collection: @recommendations, as: :recommendation %>
+	  	<% end %>
     </tbody>
 </table>
 
