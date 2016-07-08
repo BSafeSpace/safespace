@@ -5,6 +5,7 @@ class RecommendationsController < ApplicationController
 	end
 
 	def create
+		puts "**************************************"
 		Recommendation.create!(recommendation_params)
 		puts 'create'
 
