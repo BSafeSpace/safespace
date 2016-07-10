@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'quizzes/new'
+
+  get 'quizzes/create'
+
   resources :friendships
   resources :characteristics
   
