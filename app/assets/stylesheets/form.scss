@@ -36,6 +36,7 @@
     margin-top: 3vh;
     margin-bottom: 3vh;
     display: block;
+    width: 90%;
 }
 
 .form_input {
@@ -61,7 +62,7 @@
 }
 
 div.boolean, .simple_form input[type='submit'] {
-  margin-left: 120px;
+  margin: 0 auto;
 }
 
 div.boolean label, label.collection_radio_buttons {

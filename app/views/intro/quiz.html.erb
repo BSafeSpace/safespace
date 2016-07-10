@@ -1,3 +1,5 @@
+<h3>Protocol Quiz</h3>
+
 <div class="form">
 	<%= simple_form_for @quiz do |f| %>
 	  <%= f.input :answer1, label: "Question 1", collection: ["wrong Lorem dim sum Jin deui Chicken feet Potstickers stir fried radish cake Steamed Bun with Butter Cream hot", "correct Lorem dim sum Jin deui Chicken feet Potstickers stir fried radish cake Steamed Bun with Butter Cream hot", "wrong Lorem dim sum Jin deui Chicken feet Potstickers stir fried radish cake Steamed Bun with Butter Cream hot", "wrong Lorem dim sum Jin deui Chicken feet Potstickers stir fried radish cake Steamed Bun with Butter Cream hot"], as: :radio_buttons %>
@@ -5,6 +7,6 @@
 	  <%= f.input :answer3, label: "Question 3", collection: ["wrong", "wrong", "right", "wrong"], as: :radio_buttons %>
 	  <%= f.input :answer4, label: "Question 4", collection: ["wrong", "wrong", "right", "wrong"], as: :radio_buttons %>
 	  <%= f.input :answer5, label: "Question 5", collection: ["wrong", "wrong", "right", "wrong"], as: :radio_buttons %>
-	  <%= f.button :submit, "Submit Quiz" %>
+	  <%= f.button :submit, "Submit Quiz", class: 'center-block' %>
 	<% end %>
 </div>
