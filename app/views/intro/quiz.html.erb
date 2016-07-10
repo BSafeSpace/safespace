@@ -1,0 +1,8 @@
+<%= simple_form_for @quiz do |f| %>
+  <%= f.input :answer1, collection: ["wrong", "wrong", "right", "wrong"], as: :radio_buttons, class: "form-group form-radio" %>
+  <%= f.input :answer2 %>
+  <%= f.input :answer3 %>
+  <%= f.input :answer4 %>
+  <%= f.input :answer5 %>
+  <%= f.button :submit, "Submit Quiz" %>
+<% end %>

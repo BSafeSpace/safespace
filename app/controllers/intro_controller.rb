@@ -4,6 +4,7 @@ class IntroController < ApplicationController
 	end
 
 	def quiz
+		@quiz = Quiz.new
 	    render "quiz"
 	end
 
