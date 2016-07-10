@@ -7,6 +7,10 @@ class Profile < ActiveRecord::Base
   	self.user_id = self.id 
   end
 
+  def add_characteristic(characteristic)
+    self.characteristics << characteristic
+  end
+
   def self.online_or_all_profiles(online)
   	if online
   		return Profile.where('online = ?', true)

@@ -5,6 +5,13 @@ class ConversationsController < ApplicationController
   def index
     @user = current_user
     @users = User.all
+    @friends = current_user.friends
+    @recommendation = Recommendation.new
+    
+    if current_user.peer_counselor
+      @friends = @friends.reject{ |f| f.peer_counselor }
+    end
+    
     @conversations = Conversation.where('sender_id = ? OR recipient_id = ?', @user.id, @user.id)
     if !@conversations.empty?
       @conversation = @conversations.order("updated_at").last

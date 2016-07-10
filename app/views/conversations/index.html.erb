@@ -2,7 +2,7 @@
   <div class="ui segment col-md-3">
     <h3>Friends</h3>
     <div class="ui list">
-      <% current_user.friends.each do |friend| %>
+      <% @friends.each do |friend| %>
         <div class="chat-item horizontal-align <%= "active-conversation" if @conversation && @conversation.same_convo?(current_user.id, friend.id) %>">
           <div class="chat-item">
             <% if friend.online? && !friend.appear_offline %>

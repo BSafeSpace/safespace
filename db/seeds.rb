@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-users = [User.create( email: "masoncscott@berkeley.edu", password: "password", password_confirmation: "password", username: "Peer Counselor", peer_counselor: true), 
+users = [User.create( email: "masoncscott@berkeley.edu", password: "password", password_confirmation: "password", username: "Peer Counselor", peer_counselor: true, sign_in_count: 2, done_tut_filter: true, done_tut_add_friend: true), 
 		 User.create(email: "annielo@berkeley.edu", password: "password", password_confirmation: "password", username: "Annie Lo", sign_in_count: 2, done_tut_filter: true, done_tut_add_friend: true),
          User.create(email: "mnguyen@berkeley.edu", password: "password", password_confirmation: "password", username: "Minh Nguyen"),
          User.create( email: "mscott2757@berkeley.edu", password: "password", password_confirmation: "password", username: "Mason Scott"),
@@ -21,11 +21,6 @@ end
 
 User.create_friendship(users[1], users[2])
 User.create_friendship(users[1], users[3])
-
-User.all.each do |u|
-	u.profile.age = rand(16...60)
-	u.profile.save
-end
 
 questions = {mental_health: ["No issue: Seeking out peers", "Depression", "General Anxiety" , "Social Anxiety", "ADHD", "OCD", "Autistic", "Bipolar Disorder", "Post-traumatic Stress Disorder (PTSD)", "Grieving", "Addiction", "Insomnia", "Other"],
 			class_standing: ["Freshman", "Sophomore", "Junior", "Senior", "Other"],
@@ -42,6 +37,23 @@ questions.each do |category, names|
 	end
 end
 
+User.all.each do |u|
+	u.profile.age = rand(16...60)
+	u.profile.save
+end
 
+User.all.reject { |u| u.peer_counselor }.each do |u|
+	rand_characterictic = Characteristic.find(rand(1..Characteristic.all.count))
+	u.profile.add_characteristic(rand_characterictic)
+
+	rand_characterictic = Characteristic.find(rand(1..Characteristic.all.count))
+	u.profile.add_characteristic(rand_characterictic)
+
+	rand_user = User.find(rand(2..User.all.count))
+	User.create_friendship(u, rand_user)
+
+	rand_user = User.find(rand(2..User.all.count))
+	User.create_friendship(u, rand_user)
+end
 
 

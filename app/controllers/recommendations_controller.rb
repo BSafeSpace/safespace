@@ -9,7 +9,6 @@ class RecommendationsController < ApplicationController
 	end
 
 	def create
-		puts "**************************************"
 		@recommendation = Recommendation.create(recommendation_params)
 
 		respond_to do |format|
