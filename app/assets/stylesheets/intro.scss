@@ -9,3 +9,9 @@
 	margin-top: 4vh;
 	height: 80vh;
 }
+
+.carousel-caption {
+	position: absolute;
+  	top: 50%;
+  	transform: translateY(-50%);
+}
