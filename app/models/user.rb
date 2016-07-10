@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_many :conversations
   has_many :messages
   has_many :blocks
+  has_one :quiz
 
   def friends
     active_friends | passive_friends
