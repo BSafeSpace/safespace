@@ -52,6 +52,8 @@ gem "font-awesome-rails"
 
 gem 'whenever', :require => false
 
+gem 'simple_form'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
