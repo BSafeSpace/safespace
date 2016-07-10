@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username
 
   has_one :profile
-  
+
   def berkeley_email
     if email.present? and not email.match(/.*@berkeley.edu$/)
       errors.add :email, "Must use berkeley.edu email"

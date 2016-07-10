@@ -63,7 +63,9 @@ class ApplicationController < ActionController::Base
     @profiles = @search.result(distinct: true)
     @profiles = @profiles.reject{ |p| p.user == current_user}
     @num_profiles = @profiles.count
-    @profiles = put_peer_counselor_first(@profiles)
+    if !current_user.peer_counselor
+      @profiles = put_peer_counselor_first(@profiles)
+    end
     @profiles.paginate(page: params[:page], per_page: 15)
   end
 
