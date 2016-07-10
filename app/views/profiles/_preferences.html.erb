@@ -1,0 +1,23 @@
+<div class="char_section"%>
+	<h5><strong>Preferences</strong></h5>
+	<%= fields_for :preferences do |p| %>
+		<table>
+			<tr>
+				<td><%= p.label :first, "1. " %></td>
+				<td><%= p.text_field :first %></td>
+			</tr>
+			<tr>
+				<td><%= p.label :second, "2. " %></td>
+				<td><%= p.text_field :second %></td>
+			</tr>
+			<tr>
+				<td><%= p.label :third, "3. " %></td>
+				<td><%= p.text_field :third %></td>
+			</tr>
+			<tr>
+				<td><%= p.label :fourth, "4. " %></td>
+				<td><%= p.text_field :fourth %></td>
+			</tr>
+		</table>
+	<% end %>
+</div>
