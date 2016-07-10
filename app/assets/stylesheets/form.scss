@@ -50,7 +50,7 @@
   clear: both; /* Required for Webkit, but not for Gecko */
 }
 
-.simple_form div.input.radio_buttons {
+.simple_form div.input.radio_buttons:not(:first-of-type) {
   border-top: thin solid #c8ccd0;
   margin-top: 4vh;
   padding-top: 2vh;

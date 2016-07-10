@@ -1,4 +1,5 @@
 <h3>Protocol Quiz</h3>
+<hr style="margin-top: 10px;">
 
 <div class="form">
 	<%= simple_form_for @quiz do |f| %>
@@ -7,6 +8,6 @@
 	  <%= f.input :answer3, label: "Question 3", collection: ["wrong", "wrong", "right", "wrong"], as: :radio_buttons %>
 	  <%= f.input :answer4, label: "Question 4", collection: ["wrong", "wrong", "right", "wrong"], as: :radio_buttons %>
 	  <%= f.input :answer5, label: "Question 5", collection: ["wrong", "wrong", "right", "wrong"], as: :radio_buttons %>
-	  <%= f.button :submit, "Submit Quiz", class: 'center-block' %>
+	  <%= f.button :submit, "Submit Quiz", class: 'btn-yellow btn-lg center-block' %>
 	<% end %>
 </div>
