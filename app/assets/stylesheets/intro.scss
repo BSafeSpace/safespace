@@ -1,3 +1,11 @@
-// Place all the styles related to the intro controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// Slider Styles
+#slide2, #slide3, #slide4, #slide5 {
+	background-color: gray;
+	width: 1490px;
+	height: 80vh;
+}
+
+.carousel {
+	margin-top: 4vh;
+	height: 80vh;
+}
