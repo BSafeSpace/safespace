@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get 'about' => 'static_pages#about', :as => :home_about
   get 'contact' => 'static_pages#contact', :as => :home_contact
   get 'info' => 'intro#info', :as => :intro_info
+  get 'quiz' => 'intro#quiz', :as => :intro_quiz
+  get 'liability' => 'intro#liability', :as => :intro_liability
   
   get '/toggle_appear_offline', to: 'application#toggle_appear_offline', as: :toggle_appear_offline
   
