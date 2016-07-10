@@ -1,20 +1,17 @@
 #error_explanation {
-  width: 400px;
-  border: 2px solid red;
+  width: 35vw;
   padding: 7px;
   padding-bottom: 12px;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
+  margin: 0 auto;
+  margin-bottom: -40px;
 }
 
 #error_explanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: -7px;
-  background-color: #c00;
-  color: #fff;
+  @extend .alert;
+  @extend .alert-danger;
+  font-size: 15px;
+  line-height: 1.5;
+  font-family: Verdana, sans-serif;
 }
 
 #error_explanation p {
@@ -25,5 +22,10 @@
 
 #error_explanation ul li {
   font-size: 12px;
-  list-style: square;
+}
+
+#error_explanation {
+  color: #f00;
+  ul {
+  }
 }
