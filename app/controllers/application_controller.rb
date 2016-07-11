@@ -94,11 +94,11 @@ class ApplicationController < ActionController::Base
   end
 
   def put_peer_counselor_first(search_query)
-    peer_counselor_prof = User.where("peer_counselor = ?", true).first.profile
-    search_query = search_query.reject{ |p| p == peer_counselor_prof }
+    peer_counselors = User.where("peer_counselor = ?", true)
+    search_query = search_query.reject{ |p| peer_counselors.include? p.user }
 
     for i in 0..search_query.count
-      search_query.insert(i, peer_counselor_prof) if i % 15 == 0
+      search_query.insert(i, peer_counselors.sample.profile) if i % 15 == 0
     end
     
     return search_query

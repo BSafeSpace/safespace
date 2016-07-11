@@ -6,7 +6,6 @@ class ConversationsController < ApplicationController
     @user = current_user
     @users = User.all
     @friends = current_user.friends
-    @recommendation = Recommendation.new
     
     if current_user.peer_counselor
       @friends = @friends.reject{ |f| f.peer_counselor }
