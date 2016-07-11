@@ -50,6 +50,11 @@
   }
 }
 
+// Remove BootStrap elipses under required asterisk
+abbr[title] {
+  display: none;
+}
+
 /* ----- SimpleForm Styles ----- */
 
 .simple_form div.input {
@@ -120,3 +125,4 @@ label.collection_check_boxes {
 span.radio {
   margin-left: 2vw;
 }
+
