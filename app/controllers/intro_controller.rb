@@ -5,7 +5,7 @@ class IntroController < ApplicationController
 
 	def quiz
 		@quiz = Quiz.new
-	    render "quiz"
+	    redirect_to new_quiz_path
 	end
 
 	def liability

@@ -5,7 +5,12 @@ class QuizzesController < ApplicationController
 
   def create
   	@quiz = Quiz.new(quiz_params)
-  	
+  	if @quiz.save
+  		flash[:notice] = "Successfully passed quiz."
+  		redirect_to intro_liability_path
+  	else 
+  		render 'new'
+  	end
   end
 
   private

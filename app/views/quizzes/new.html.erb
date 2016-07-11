@@ -1,2 +1,14 @@
-<h1>Quizzes#new</h1>
-<p>Find me in app/views/quizzes/new.html.erb</p>
+<h3>Protocol Quiz</h3>
+<hr style="margin-top: 10px;">
+
+<div class="form">
+	<%= simple_form_for @quiz do |f| %>
+		
+		<%= f.input :answer1, label: "Question 1", collection: ["wrong Lorem dim sum Jin deui Chicken feet Potstickers stir fried radish cake Steamed Bun with Butter Cream hot", "wrong Lorem dim sum Jin deui Chicken feet Potstickers stir fried radish cake Steamed Bun with Butter Cream hot", "wrong Lorem dim sum Jin deui Chicken feet Potstickers stir fried radish cake Steamed Bun with Butter Cream hot", "wrong Lorem dim sum Jin deui Chicken feet Potstickers stir fried radish cake Steamed Bun with Butter Cream hot", "correct"], as: :radio_buttons, required: false %>
+		<%= f.input :answer2, label: "Question 2", collection: ["wrong", "wrong", "correct", "wrong"], as: :radio_buttons, required: false %>
+		<%= f.input :answer3, label: "Question 3", collection: ["wrong", "wrong", "correct", "wrong"], as: :radio_buttons, required: false %>
+		<%= f.input :answer4, label: "Question 4", collection: ["wrong", "wrong", "correct", "wrong"], as: :radio_buttons, required: false %>
+		<%= f.input :answer5, label: "Question 5", collection: ["wrong", "wrong", "correct", "wrong"], as: :radio_buttons, required: false %>
+		<%= f.button :submit, "Submit Quiz", class: 'btn-yellow btn-lg center-block' %>
+	<% end %>
+</div>

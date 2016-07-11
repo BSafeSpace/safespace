@@ -43,6 +43,13 @@
     width: 100%;
 }
 
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
 /* ----- SimpleForm Styles ----- */
 
 .simple_form div.input {
@@ -77,15 +84,12 @@ label.collection_radio_buttons {
   margin-left: 5vw;
 }
 
-.field_with_errors {
-  background-color: #ff3333;
-}
-
 .simple_form .error {
   clear: left;
-  color: black;
+  margin-left: 5vw;
+  font-size: 12px;
+  color: #D00;
   display: block;
-  margin-left: 120px;
 }
 
 .simple_form .hint {
