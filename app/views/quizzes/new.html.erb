@@ -9,6 +9,13 @@
 		<%= f.input :answer3, label: "Question 3", collection: ["wrong", "wrong", "correct", "wrong"], as: :radio_buttons %>
 		<%= f.input :answer4, label: "Question 4", collection: ["wrong", "wrong", "correct", "wrong"], as: :radio_buttons %>
 		<%= f.input :answer5, label: "Question 5", collection: ["wrong", "wrong", "correct", "wrong"], as: :radio_buttons %>
-		<%= f.button :submit, "Submit Quiz", class: 'btn-yellow btn-lg center-block' %>
+		<div class="text-center">
+			<% if @quiz.errors.any? %>
+				<%= link_to "Back", intro_info_path, id: 'back-btn', class: 'btn btn-default' %>
+			<% end %>
+			<%= f.button :submit, "Submit Quiz", class: 'btn-yellow btn-lg' %>
+		</div>
 	<% end %>
+
 </div>
+

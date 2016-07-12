@@ -50,6 +50,18 @@
   }
 }
 
+// Back button in quiz form
+#back-btn {
+  float: left;
+  display: block;
+  position: absolute;
+  bottom: 0;
+}
+
+.text-center {
+  position: relative;
+}
+
 // Remove BootStrap elipses under required asterisk
 abbr[title] {
   display: none;
