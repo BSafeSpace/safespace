@@ -82,6 +82,10 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+    respond_to do |format|
+      format.js {render template: 'profiles/show'}
+      format.html
+    end
   end
 
   # GET /profiles/new

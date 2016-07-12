@@ -1,0 +1,21 @@
+<div class="char-title">Mental Health</div>
+<% profile.characteristics.select { |char| char.category == "mental_health" }.each do |char| %>
+	<div><%= char.name %></div>
+<% end %>
+
+<div class="char-title">Age: <%= profile.age %></div>
+
+<div class="char-title">Gender</div> 
+<% profile.characteristics.select { |char| char.category == "gender" }.each do |char| %>
+	<div><%= char.name %></div>
+<% end %>
+
+<div class="char-title">Ethnicity</div>
+<% profile.characteristics.select { |char| char.category == "ethnicity" }.each do |char| %>
+	<div><%= char.name %></div>
+<% end %>
+
+<div class="char-title">Academic Focus</div>
+<% profile.characteristics.select { |char| char.category == "academic_focus" }.each do |char| %>
+	<div><%= char.name %></div>
+<% end %>
