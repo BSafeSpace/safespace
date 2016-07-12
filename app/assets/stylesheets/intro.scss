@@ -16,8 +16,6 @@
   	transform: translateY(-50%);
 }
 
-
-
 // Quiz ready button
 #ready-btn {
 	overflow: hidden;
@@ -39,6 +37,7 @@
 	top: -3.4rem;
 	transition: top 0.2s;
 	width: 160px;
+	margin-bottom: 5em;
 }
 
 #ready-btn :hover {
