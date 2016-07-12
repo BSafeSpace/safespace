@@ -25,6 +25,8 @@ if (gon.doneTutFilter && !gon.doneTutAddFriend) {
 
 $('.pagination').remove()
 $('.results-container').remove();
+$('.modal').remove()
+$('.modal-backdrop').remove()
 $('.profile-results-container').append('<%= j render("/profiles/search_results") %>');
 
 // dynamically add flash message

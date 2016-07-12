@@ -36,12 +36,10 @@ class User < ActiveRecord::Base
   end
 
   def create_profile
-    if profile.nil?
-      prof = Profile.create()
-      prof.user_id = self.id
-      prof.name = self.username
-      prof.save
-    end
+    prof = Profile.create(user_id: self.id, name: self.username)
+    prof.user_id = self.id
+    prof.name = self.username
+    prof.save
   end
 
   def create_initial_friendships
