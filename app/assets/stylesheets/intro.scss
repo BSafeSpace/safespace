@@ -16,6 +16,10 @@
   	transform: translateY(-50%);
 }
 
+.carousel-inner {
+	border: none !important;
+}
+
 // Quiz ready button
 #ready-btn {
 	overflow: hidden;
