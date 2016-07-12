@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
   def index
     @messages = @conversation.messages
 
-    if @messages.length==0
+    if @messages.length == 0
       @last_user = nil
     else
       @last_user = @messages[@messages.length-1].user
@@ -16,10 +16,12 @@ class MessagesController < ApplicationController
       @over_ten = true
       @messages = @messages[-10..-1]
     end
+    
     if params[:m]
       @over_ten = false
       @messages = @conversation.messages
     end
+    
     if @messages.last
       if @messages.last.user_id != current_user.id
         @messages.last.read = true;
