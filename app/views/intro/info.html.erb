@@ -6,6 +6,7 @@
     <li data-target="#info-slides" data-slide-to="2"></li>
     <li data-target="#info-slides" data-slide-to="3"></li>
     <li data-target="#info-slides" data-slide-to="4"></li>
+    <li data-target="#info-slides" data-slide-to="5"></li>
   </ol>
 
   <!-- Wrapper for slides -->
@@ -43,6 +44,19 @@
         <div class="carousel-caption">
         	<h1>Slide 5 Information</h1>
         	<p>Lorem dim sum hot raw fish slices porridge traditional steamed glutinous rice with zhu hao sauce crispy yam puff crispy dragon roll honeydew puree with sago deep fried garlicky fish ball chee cheong fun with barbecued pork steamed radish cake steamed bun with premium lotus paste cabbage roll paekuat quail egg shomai pancit canton guisado fookien style humba pao</p>
+        </div>
+    </div>
+    <div class="item">
+    	<img id="slide6">
+        <div class="carousel-caption">
+        	<h1>Quiz time!</h1>
+        	<p>Are you ready to take a short quiz to verify that you've been paying attention?</p>
+        	<%= link_to intro_quiz_path, id: 'ready-btn', class: 'btn btn-success btn-lg' do %>
+        		<ul>
+        			<li><span><%= icon('check', class: 'fa-lg') %></span></li>
+        			<li><span>Ready!</span></li>
+        		</ul>
+        	<% end %>
         </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 // Slider Styles
-#slide2, #slide3, #slide4, #slide5 {
+#slide2, #slide3, #slide4, #slide5, #slide6 {
 	background-color: gray;
 	width: 1490px;
 	height: 80vh;
@@ -14,4 +14,38 @@
 	position: absolute;
   	top: 50%;
   	transform: translateY(-50%);
+}
+
+
+
+// Quiz ready button
+#ready-btn {
+	overflow: hidden;
+	text-align: center;
+	height: 46px;
+	line-height: 50px;
+	font-size: 18px;
+	padding-left: 0;
+	padding-right: 0;
+	border-radius: 3rem;
+	width: 160px;
+	margin-top: 2vh;
+}
+
+#ready-btn ul {
+	position: relative;
+	list-style: none;
+	padding-left: 0;
+	top: -3.4rem;
+	transition: top 0.2s;
+	width: 160px;
+}
+
+#ready-btn :hover {
+	top: -0.25rem;
+}
+
+#ready-btn ul {
+	line-height: 3rem;
+	left: 0;
 }
