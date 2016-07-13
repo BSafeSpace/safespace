@@ -1,6 +1,15 @@
 console.log("update");
 // Remove the recommendation from the table.
 <% publish_to '/recommendations/update' do %>
-	$("tr[data-rec-id='<%= @recommendation.id.to_s %>']").remove();
-	$('.unread-count').text("<%= Recommendation.unopened_count.to_s %>");
+	var opener_id = "<%= @recommendation.peer_counselor_id.to_s %>";
+	var current_id = $('meta[name=user-id]').attr("content");
+	console.log("peer_id: " + "<%= @peer_id.to_s %>");
+	console.log("opener_id: " + opener_id);
+	console.log("current_id: " + current_id);
+	var $rec_btn = $("span[data-rec-id='<%= @recommendation.id.to_s %>']");
+	if (opener_id == current_id) {
+		$rec_btn.html("<%= j render 'resolve_request' %>");
+	} else {
+		$rec_btn.html("Resolution in Progress");
+	}
 <% end %>

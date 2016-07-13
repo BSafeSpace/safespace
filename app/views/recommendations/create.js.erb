@@ -8,6 +8,5 @@ console.log("created rec");
 	if ( !$("tr[data-rec-id='<%= @recommendation.id.to_s %>']").length ) {
 		$('#rec-table > tbody:last').append("<%= j render( 'rec_row', recommendation: @recommendation ) %>");
 		$('.unread-count').text("<%= Recommendation.unopened_count.to_s %>");
-		console.log("got into publish block");
 	}
 <% end %>

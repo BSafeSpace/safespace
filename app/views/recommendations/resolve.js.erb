@@ -1,0 +1,4 @@
+<% publish_to '/recommendations/resolve' do %>	
+	$("tr[data-rec-id='<%= @recommendation.id.to_s %>']").remove();
+	$('.unread-count').text("<%= Recommendation.unopened_count.to_s %>");
+<% end %>

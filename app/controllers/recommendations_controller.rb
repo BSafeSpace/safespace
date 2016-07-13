@@ -17,10 +17,18 @@ class RecommendationsController < ApplicationController
 		end
 	end
 
-	# Open a request and update the recommendation for other peer counselors
+	# Open a request and mark as pending for other peer counselors
 	def update
 		@recommendation = Recommendation.find params[:id]
+		@peer_id = params[:peer_id]
 		@recommendation.update(peer_counselor_id: params[:peer_id], opened: true)
+		respond_to do |format|
+			format.js 
+		end
+	end
+
+	def resolve
+		@recommendation = Recommendation.find params[:id]
 		respond_to do |format|
 			format.js 
 		end

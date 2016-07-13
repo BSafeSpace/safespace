@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get '/toggle_appear_offline', to: 'application#toggle_appear_offline', as: :toggle_appear_offline
   
   resources :recommendations do
-    put 'unlock_request', on: :member
+    get 'resolve', on: :member
   end
 
   resources :conversations do
