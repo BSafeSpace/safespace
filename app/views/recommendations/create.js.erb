@@ -6,7 +6,7 @@ console.log("created rec");
 
 <% publish_to '/recommendations/new' do %>
 	if ( !$("tr[data-rec-id='<%= @recommendation.id.to_s %>']").length ) {
-		$('#rec-table > tbody:last').append("<%= j render( 'rec_row', recommendation: @recommendation ) %>");
+		$('#rec-table > tbody:last').append("<%= j render( 'rec_row', recommendation: @recommendation, counselor_id:  ) %>");
 		$('.unread-count').text("<%= Recommendation.unopened_count.to_s %>");
 	}
 <% end %>

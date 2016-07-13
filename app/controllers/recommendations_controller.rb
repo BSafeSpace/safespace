@@ -21,7 +21,7 @@ class RecommendationsController < ApplicationController
 	def update
 		@recommendation = Recommendation.find params[:id]
 		@peer_id = params[:peer_id]
-		@recommendation.update(peer_counselor_id: params[:peer_id], opened: true)
+		@recommendation.update(peer_counselor_id: current_user.id, opened: true)
 		respond_to do |format|
 			format.js 
 		end
