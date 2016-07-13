@@ -51,13 +51,15 @@
       <% end %>
 
       <div class="sidebar-links">
-        <div class="sidebar-link recommend-button">
-          <%= render("recommendations/form", other_user_id: @other_user.id) %>
-          <!-- Button trigger modal -->
-          <button class="btn btn-success" data-toggle="modal" data-target="#recommendModal">
-            Recommend to Peer Counselor
-          </button>
-        </div>
+        <% if !current_user.peer_counselor %>
+          <div class="sidebar-link recommend-button">
+            <%= render("recommendations/form", other_user_id: @other_user.id) %>
+            <!-- Button trigger modal -->
+            <button class="btn btn-success" data-toggle="modal" data-target="#recommendModal">
+              Recommend to Peer Counselor
+            </button>
+          </div>
+        <% end %>
 
         <div class="sidebar-link">
           <%= icon('file') %>
