@@ -54,6 +54,12 @@ gem 'whenever', :require => false
 
 gem 'simple_form'
 
+# Typeform
+gem 'ask_awesomely'
+
+# For Making HTTP Requests. It's a party!
+gem 'httparty', '~> 0.13.7'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
