@@ -18,7 +18,7 @@
         <% end %>
       </div>    
 
-      <% @chars = get_chars(conversation) %>
+      <% @chars = conversation.get_chars(current_user) %>
       <% @mental_health = @chars.mental_health %>
       <% @age = @chars.age %>
       <% @gender = @chars.gender %>

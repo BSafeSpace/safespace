@@ -4,9 +4,9 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = build_query  
-    @online_only = query_online_only?
-    @sort_type = query_sort_type
+    @profiles = Profile.build_query  
+    @online_only = Profile.query_online_only?
+    @sort_type = Profile.query_sort_type
 
     gon.profiles = @profiles
 
@@ -42,9 +42,9 @@ class ProfilesController < ApplicationController
   end
 
   def search
-    @profiles = build_query  
-    @online_only = query_online_only?
-    @sort_type = query_sort_type
+    @profiles = Profile.build_query  
+    @online_only = Profile.query_online_only?
+    @sort_type = Profile.query_sort_type
 
     gon.profiles = @profiles
 
