@@ -28,6 +28,12 @@ $(function() {
     $('input[name=commit').click();
   });
 
+  $('#recommend-sort').click(function() {
+    $('select#q_s_0_name>option:eq(3)').prop('selected', true);
+    $('select#q_s_0_dir>option:eq(2)').prop('selected', true);
+    $('input[name=commit').click()
+  });
+
   $('#age-sort').click(function() {
     $('select#q_s_0_name>option:eq(1)').prop('selected', true);
     $('input[name=commit').click()

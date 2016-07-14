@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160710111849) do
+ActiveRecord::Schema.define(version: 20160714094706) do
 
   create_table "blocks", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -85,10 +85,11 @@ ActiveRecord::Schema.define(version: 20160710111849) do
     t.boolean  "is_international_student"
     t.boolean  "is_transfer_student"
     t.integer  "user_id"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
     t.boolean  "online"
     t.string   "name"
+    t.integer  "recommend_count",                     default: 0
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
