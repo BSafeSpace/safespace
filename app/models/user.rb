@@ -35,6 +35,11 @@ class User < ActiveRecord::Base
     end
   end
 
+  def toggle_appear_offline
+    self.appear_offline = !self.appear_offline
+    self.save
+  end
+
   def create_profile
     prof = Profile.create(user_id: self.id, name: self.username)
     prof.user_id = self.id
