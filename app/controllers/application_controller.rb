@@ -23,7 +23,10 @@ class ApplicationController < ActionController::Base
       current_user.save!
     end
 
-    redirect_to :back
+    respond_to do |format|
+      format.js { render :template => 'layouts/toggle_appear_offline' }
+      format.html { redirect_to :back }
+    end
   end
   
   private

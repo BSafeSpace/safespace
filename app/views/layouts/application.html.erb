@@ -51,9 +51,9 @@
                 </a>
                 <ul class="dropdown-menu" role="menu">
                   <% if !current_user.appear_offline %>
-                     <li id="appear_offline"><%= link_to 'Appear Offline', toggle_appear_offline_path, method: :get%></li>
+                     <li id="appear_offline"><%= link_to 'Appear Offline', toggle_appear_offline_path, method: :get, remote: true%></li>
                   <% elsif current_user.appear_offline %>
-                     <li id="appear_offline"><%= link_to 'Appear Online', toggle_appear_offline_path, method: :get%></li>
+                     <li id="appear_offline"><%= link_to 'Appear Online', toggle_appear_offline_path, method: :get, remote: true%></li>
                   <% end %>
                   <% if !current_user.peer_counselor %>
                     <li><%= link_to 'Profile', profile_path(current_user.id) %></li>

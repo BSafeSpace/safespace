@@ -1,0 +1,7 @@
+<% if current_user.appear_offline %>
+	$('nav div.online-status-indicator').replaceWith("<div class='offline-status-indicator' id='offline-navbar'></div>");
+	$('nav li#appear_offline a').html('Appear Online');
+<% else %>
+	$('nav div.offline-status-indicator').replaceWith("<div class='online-status-indicator' id='online-navbar'></div>");
+	$('nav li#appear_offline a').html('Appear Offline');
+<% end %>
