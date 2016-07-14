@@ -49,14 +49,13 @@ class ApplicationController < ActionController::Base
     @search = Profile.search(params[:q])
     @search.build_sort if @search.sorts.empty?
     @profiles = order_preferences(@search.result(distinct: true).reject{ |p| p.user == current_user})
-    @num_profiles = @profiles.count
     @profiles = put_peer_counselor_first(@profiles) if !current_user.peer_counselor
+    @num_profiles = @profiles.count
     @profiles.paginate(page: params[:page], per_page: 15)
   end
 
   def order_preferences(search_query)
     if params[:preferences]
-      puts params[:preferences]
       @sorted_preferences = Hash[params[:preferences].sort_by{|k, v| v}.reverse]
       @sorted_preferences.each do |category, rank|
         search_query = put_preference_first(search_query, category)
