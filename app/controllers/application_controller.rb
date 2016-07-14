@@ -55,23 +55,27 @@ class ApplicationController < ActionController::Base
   end
 
   def order_preferences(search_query)
+    puts "yooooooooo"
     if params[:preferences]
-      search_query = put_preference_first(search_query, params[:preferences][:fourth])
-      search_query = put_preference_first(search_query, params[:preferences][:third])
-      search_query = put_preference_first(search_query, params[:preferences][:second])
-      search_query = put_preference_first(search_query, params[:preferences][:first])
+      puts "Helloooooooooooooooo"
+      puts params[:preferences]
+      @sorted_preferences = Hash[params[:preferences].sort_by{|k, v| v}.reverse]
+      @sorted_preferences.each do |category, rank|
+        search_query = put_preference_first(search_query, category)
+      end
     end
 
     return search_query
   end
 
   def put_preference_first(search_query, name)
-    characteristic = Characteristic.where('name = ?', name).first
+    characteristic = Characteristic.where('category = ?', name).first
     
     if characteristic
+      puts "penisssssssssssssssssssssss"
       matching_profiles = search_query.select { |profile| profile.characteristics.include? characteristic }
       search_query = search_query.reject!{ |profile| profile.characteristics.include? characteristic }
-      search_query = matching_profiles + search_query
+      search_query = matching_profiles ? matching_profiles + search_query : search_query
     end
 
     return search_query
