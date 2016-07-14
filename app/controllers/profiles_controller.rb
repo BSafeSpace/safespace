@@ -102,17 +102,18 @@ class ProfilesController < ApplicationController
   # POST /profiles
   # POST /profiles.json
   def create
-    @profile = Profile.new(profile_params)
+    # @profile = Profile.new(profile_params)
+    puts params
 
-    respond_to do |format|
-      if @profile.save
-        format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
-        format.json { render :show, status: :created, location: @profile }
-      else
-        format.html { render :new }
-        format.json { render json: @profile.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @profile.save
+    #     format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
+    #     format.json { render :show, status: :created, location: @profile }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @profile.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /profiles/1

@@ -20,6 +20,7 @@ class IntroController < ApplicationController
 		url = 'https://api.typeform.io/latest/forms'
 		response = HTTParty.post(url, 
 			:body => { "title": "My first typeform",
+					   "webhook_submit_url": "http://localhost:3000/profiles.json",
   					   "fields": [
     					{
 					      "type": "short_text",
@@ -32,7 +33,9 @@ class IntroController < ApplicationController
 		body = JSON.parse(response.body)
 		@typeform.instance_variable_set(:@id, body["id"])
 		@typeform.instance_variable_set(:@links, body["_links"])
-		@typeform.instance_variable_set(:@public_url, 'https://sagangwee.typeform.com/to/uOcIgm')
+		@typeform.instance_variable_set(:@public_url, body["_links"][1]["href"])
+		# body["_links"][1]["href"]
+		# 'https://sagangwee.typeform.com/to/uOcIgm'
 		render "create_bio", typeform: @typeform
 	end
 end

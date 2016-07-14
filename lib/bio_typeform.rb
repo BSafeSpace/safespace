@@ -23,6 +23,6 @@ class BioTypeform
     can_specify_other
   end
 
-  send_responses_to "https://localhost:3000/profiles"
+  send_responses_to "http://localhost:3000/profiles.json"
 
 end

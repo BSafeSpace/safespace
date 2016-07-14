@@ -6,10 +6,10 @@ class ApplicationController < ActionController::Base
   include FriendshipsHelper
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session, only: Proc.new { |c| c.request.format.json? }
   
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_filter :confirm_current_user
+  # before_filter :confirm_current_user
   after_filter :user_activity
 
   helper_method :get_chars
