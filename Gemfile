@@ -71,6 +71,8 @@ gem 'httparty', '~> 0.13.7'
 
 group :production do
   gem 'pg'
+  # Better error logs on Heroku
+  gem 'rails_12factor'
 end
 
 group :development, :test do
