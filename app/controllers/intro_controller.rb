@@ -28,6 +28,7 @@ class IntroController < ApplicationController
 		@typeform.instance_variable_set(:@public_url, body["_links"][1]["href"])
 		# body["_links"][1]["href"]
 		# 'https://sagangwee.typeform.com/to/uOcIgm'
+		# 'https://forms.typeform.io/to/6B9dQxKUq9'
 		# respond_to do |format| 
 		# 	format.json { render json: @typeform.to_json }
 		# end
