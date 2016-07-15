@@ -9,30 +9,7 @@ class ProfilesController < ApplicationController
     @sort_type = query_sort_type
 
     gon.profiles = @profiles
-
-    # start tutorial on first sign in
-    if user_signed_in?
-      @signInCount = current_user.sign_in_count;
-      if @signInCount == 1
-        gon.firstSignIn = true
-      else
-        gon.firstSignIn = false
-      end
-
-      @doneTutFilter = params[:doneTutFilter]
-      if @doneTutFilter
-        current_user.done_tut_filter = @doneTutFilter
-        current_user.save
-      end
-      gon.doneTutFilter = current_user.done_tut_filter
-
-      @doneTutAddFriend = params[:doneTutAddFriend]
-      if @doneTutAddFriend
-        current_user.done_tut_add_friend = @doneTutAddFriend
-        current_user.save
-      end
-      gon.doneTutAddFriend = current_user.done_tut_add_friend
-    end
+    setup_tutorial
 
     respond_to do |format|
       format.html 
@@ -47,8 +24,16 @@ class ProfilesController < ApplicationController
     @sort_type = query_sort_type
 
     gon.profiles = @profiles
+    setup_tutorial
 
-    # start tutorial on first sign in
+    respond_to do |format|
+      format.html { render :template => 'profiles/index' }
+      format.js { render :template => 'profiles/index' }
+    end
+    
+  end
+
+  def setup_tutorial
     if user_signed_in?
       @signInCount = current_user.sign_in_count;
       if @signInCount == 1
@@ -71,12 +56,6 @@ class ProfilesController < ApplicationController
       end
       gon.doneTutAddFriend = current_user.done_tut_add_friend
     end
-
-    respond_to do |format|
-      format.html { render :template => 'profiles/index' }
-      format.js { render :template => 'profiles/index' }
-    end
-    
   end
 
   # GET /profiles/1

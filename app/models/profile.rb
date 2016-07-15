@@ -20,7 +20,7 @@ class Profile < ActiveRecord::Base
   end
 
   def self.ransortable_attributes(auth_object = nil)
-  	return ["age", "name"]
+  	return ["age", "name", "recommend_count"]
   end
 
   def self.ransackable_scopes(auth_object = nil)

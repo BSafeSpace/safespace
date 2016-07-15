@@ -35,6 +35,11 @@ class User < ActiveRecord::Base
     end
   end
 
+  def toggle_appear_offline
+    self.appear_offline = !self.appear_offline
+    self.save
+  end
+
   def create_profile
     prof = Profile.create(user_id: self.id, name: self.username)
     prof.user_id = self.id
@@ -52,6 +57,10 @@ class User < ActiveRecord::Base
         User.create_friendship(self, user)
       end
     end
+  end
+
+  def self.peer_counselors
+    User.where("peer_counselor = ?", true)
   end
 
   def self.create_friendship(user1, user2)

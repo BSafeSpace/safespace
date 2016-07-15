@@ -10,8 +10,12 @@
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sort by..
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
-      <li><a href="#" id="age-sort">Age</a></li>
-      <li><a href="#" id="name-sort">Name</a></li>
+      <% if current_user.peer_counselor %>
+        <li><a href="#" id="recommend-sort">Most Demand</a></li>
+      <% else %>
+        <li><a href="#" id="age-sort">Age</a></li>
+        <li><a href="#" id="name-sort">Name</a></li>
+      <% end %>
     </ul>
   </div>
   <hr>
