@@ -23,6 +23,6 @@ class BioTypeform
     can_specify_other
   end
 
-  send_responses_to "http://safespace-dev.herokuapp.com/profiles"
+  send_responses_to "http://safespace-dev.herokuapp.com/profiles.json"
 
 end
