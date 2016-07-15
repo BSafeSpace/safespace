@@ -19,22 +19,18 @@ class IntroController < ApplicationController
 		@typeform = BioTypeform.build(current_user)
 		url = 'https://api.typeform.io/latest/forms'
 		response = HTTParty.post(url, 
-			:body => { "title": "My first typeform",
-					   "webhook_submit_url": "http://safespace-dev.herokuapp.com/profiles.json",
-  					   "fields": [
-    					{
-					      "type": "short_text",
-					      "question": "What is your name?"
-					    }
-  						] 
-  					 }.to_json, 
+			:body => @typeform.to_json, 
 			:headers => { 'Content-Type' => 'application/json', 'X-API-TOKEN' => TYPEFORM_IO_API_KEY } )
 		body = JSON.parse(response.body)
+		puts body
 		@typeform.instance_variable_set(:@id, body["id"])
 		@typeform.instance_variable_set(:@links, body["_links"])
 		@typeform.instance_variable_set(:@public_url, body["_links"][1]["href"])
 		# body["_links"][1]["href"]
 		# 'https://sagangwee.typeform.com/to/uOcIgm'
+		# respond_to do |format| 
+		# 	format.json { render json: @typeform.to_json }
+		# end
 		render "create_bio", typeform: @typeform
 	end
 end

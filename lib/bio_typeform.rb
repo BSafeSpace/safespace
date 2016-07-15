@@ -3,14 +3,13 @@ class BioTypeform
 
   include AskAwesomely::DSL
 
-  title "Profile Typeform"
+  title "Anonymous Bio"
 
   tags "awesome", "hehe"
 
   field :statement do
     say "what you want to say"
     button_text "Okay, next question"
-    show_quotation_marks
   end
 
   field :multiple_choice do
@@ -21,6 +20,15 @@ class BioTypeform
     choice "COBOL"
 
     can_specify_other
+  end
+
+  design do
+    question_color "#000000"
+    button_color "#000000"
+    answer_color "#4E4E4E"
+    background_color "#FCD68A"
+
+    font "Oswald"
   end
 
   send_responses_to "http://safespace-dev.herokuapp.com/profiles.json"
