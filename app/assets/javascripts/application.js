@@ -20,6 +20,3 @@
 //= require private_pub
 //= require jquery-readyselector
 //= require_tree .
-$('.click-me').click(function() {
-	console.log("got clicked");
-})

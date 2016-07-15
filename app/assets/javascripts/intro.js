@@ -1,3 +1,17 @@
-$('iframe').load(function(){
-    $(this).contents().find('body').html('Hey, i`ve changed content of <body>! Yay!!!');
+$(function() {
+
+	$('.typeform-share').click(function() {
+		console.log("launch button clicked");
+		$('iframe').load(function(){
+		    $(this).attr('id', 'something');
+		    console.log("iframe loaded");
+		});
+	});
+
+	$('iframe').load(function(){
+	    $(this).attr('id', 'something');
+	    console.log("iframe loaded");
+	});
+
 });
+

@@ -20,7 +20,7 @@ class IntroController < ApplicationController
 		url = 'https://api.typeform.io/latest/forms'
 		response = HTTParty.post(url, 
 			:body => { "title": "My first typeform",
-					   "webhook_submit_url": "http://safespace-dev.herokuapp.com/profiles.json",
+					   "webhook_submit_url": "http://safespace-dev.herokuapp.com/profiles",
   					   "fields": [
     					{
 					      "type": "short_text",

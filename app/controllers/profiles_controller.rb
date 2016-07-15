@@ -78,6 +78,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     puts "Hello"
+    puts "All Answers: " + params[:answers]
     puts "weepee: " + params[:answers][0][:value]
 
     respond_to do |format|
