@@ -59,6 +59,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.peer_counselors
+    User.where("peer_counselor = ?", true)
+  end
+
   def self.create_friendship(user1, user2)
     friendship = user1.friendships.build(friend_id: user2.id, approved: "true")
     friendship.save

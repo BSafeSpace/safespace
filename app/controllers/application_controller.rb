@@ -73,7 +73,7 @@ class ApplicationController < ActionController::Base
   end
 
   def put_peer_counselor_first(search_query)
-    peer_counselors = User.where("peer_counselor = ?", true)
+    peer_counselors = User.peer_counselors
     search_query = search_query.reject{ |p| peer_counselors.include? p.user }
 
     for i in 0..search_query.count
