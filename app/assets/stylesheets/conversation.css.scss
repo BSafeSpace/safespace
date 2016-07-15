@@ -128,4 +128,11 @@ label {
 	margin-top: 2vh;
 }
 
+// Liability Dialog
+.ui-dialog {
+	z-index: 1;
+	display: inline-block;
+  	vertical-align: middle;
+}
+
 // border-top: 3px solid rgba(0, 0, 0, .10);
