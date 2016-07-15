@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
-  before_filter :fix_json_params
+  # before_filter :fix_json_params
 
   # GET /profiles
   # GET /profiles.json
