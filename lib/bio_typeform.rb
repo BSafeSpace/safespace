@@ -25,6 +25,4 @@ class BioTypeform
 
   send_responses_to "http://safespace-dev.herokuapp.com/profiles"
 
-  design uOcIgm
-
 end
