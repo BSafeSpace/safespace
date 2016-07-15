@@ -24,8 +24,9 @@ $('.conversations.index').ready(function() {
 			}
 		},
 		closeOnEscape: false,
+		dialogClass: "liability-dialog",
 		draggable: false,
-		height: ($(window).height()) * 0.8,
+		height: ($(window).height()) * 0.7,
 		modal: true,
 		open: function(event, ui) {
 			// Set opacity of parent window
@@ -36,6 +37,11 @@ $('.conversations.index').ready(function() {
 		},
 		resizable: false,
 		width: ($(window).width()) * 0.7
-		});
+	});
+
+	$('.ui-dialog-titlebar').css("background","#FFF2D8");
+
+	$(".ui-dialog-buttonset button:contains('I agree')").addClass('btn').addClass('btn-success');
+	$(".ui-dialog-buttonset button:contains('Cancel')").addClass('btn').addClass('btn-default');
 
 });

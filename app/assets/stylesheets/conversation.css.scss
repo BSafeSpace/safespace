@@ -135,4 +135,19 @@ label {
   	vertical-align: middle;
 }
 
+.liability-dialog .ui-dialog-titlebar {
+	background: #FFF2D8;
+	font-family: Lato;
+	font-size: 1.3em;
+	color: #484848;
+}
+
+.ui-front.ui-widget-overlay {
+	background: rgba(0,0,0,0.75);
+}
+
+#dialog-confirm > p {
+	margin-top: 2vh;
+}
+
 // border-top: 3px solid rgba(0, 0, 0, .10);
