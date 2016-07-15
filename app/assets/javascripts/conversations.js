@@ -6,7 +6,6 @@ $('.conversations.index').ready(function() {
 	   data: { },
 	   success: function(response) {
 		// update conversation id meta tag
-		console.log(response.convo_id);
 		$('meta[name=conv-id]').attr("content", response.convo_id);
 	   }
 	});
