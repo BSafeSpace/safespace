@@ -29,7 +29,6 @@ class IntroController < ApplicationController
   						] 
   					 }.to_json, 
 			:headers => { 'Content-Type' => 'application/json', 'X-API-TOKEN' => TYPEFORM_IO_API_KEY } )
-		puts "id: " + response.parsed_response.to_s
 		body = JSON.parse(response.body)
 		@typeform.instance_variable_set(:@id, body["id"])
 		@typeform.instance_variable_set(:@links, body["_links"])
