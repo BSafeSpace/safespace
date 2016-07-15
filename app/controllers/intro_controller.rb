@@ -32,7 +32,7 @@ class IntroController < ApplicationController
 		body = JSON.parse(response.body)
 		@typeform.instance_variable_set(:@id, body["id"])
 		@typeform.instance_variable_set(:@links, body["_links"])
-		@typeform.instance_variable_set(:@public_url, body["_links"][1]["href")
+		@typeform.instance_variable_set(:@public_url, body["_links"][1]["href"])
 		# body["_links"][1]["href"]
 		# 'https://sagangwee.typeform.com/to/uOcIgm'
 		render "create_bio", typeform: @typeform
