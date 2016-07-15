@@ -78,8 +78,6 @@ class ProfilesController < ApplicationController
   # POST /profiles.json
   def create
     @profile = Profile.new(profile_params)
-    puts "Hello"
-    puts "All Answers: "
     puts params[:answers]
     # puts "weepee: " + params[:answers][0][:value]
 
@@ -120,7 +118,7 @@ class ProfilesController < ApplicationController
   end
 
   protected
-  
+
   def fix_json_params
     params[:answers] ||= []
   end
