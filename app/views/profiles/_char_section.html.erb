@@ -1,12 +1,10 @@
 <div class="char-section">
-  <h5>
+  <h5 style="display: inline-block">
   	<strong><%= name %></strong>
-  	<div class="pref-dropdown">
-  		<%= fields_for :preferences do |p| %>
-  		  	<%= p.select :"#{category}", ['0', '1', '2', '3', '4'] %>
-  		<% end %>
-  	</div>
   </h5>
+  <%= fields_for :preferences do |p| %>
+  	<%= p.select :"#{category}", ['0', '1', '2', '3', '4'], {}, { :class => 'btn btn-default dropdown-toggle dropdown-pref' } %>
+  <% end %>
 
   <div class="filter-box-scroll custom-scroll">
     <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.where('category = ?', "#{category}"), :id, :name do |b| %>
