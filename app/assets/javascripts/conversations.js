@@ -20,7 +20,7 @@ $('.conversations.index').ready(function() {
 				$( this ).dialog( "close" );
 			},
 			Cancel: function() {
-				window.location.replace("http://www.webtechnologyinc.com");
+				window.location.replace("http://safespace-dev.herokuapp.com/");
 			}
 		},
 		closeOnEscape: false,
