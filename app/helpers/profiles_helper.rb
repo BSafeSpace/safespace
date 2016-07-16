@@ -5,11 +5,13 @@ module ProfilesHelper
 			if @tags[0] == "characteristic"
 				if @tags[1] == "single"
 					@label = field[:value][:label]
-					push_char_id(@label)
+					@category = @tags[2]
+					push_char_id(@label, @category)
 				else
 					@labels = field[:value][:labels]
+					@category = @tags[2]
 					@labels.each do |label|
-						push_char_id(label)
+						push_char_id(label, @category)
 					end
 				end
 			elsif @tags[0] == "profile_string"
@@ -25,8 +27,8 @@ module ProfilesHelper
 		end
 	end
 
-	def push_char_id(label)
-		@char_id = Characteristic.find_name(label).id 
+	def push_char_id(label, category)
+		@char_id = Characteristic.find_name_and_category(label, category).id 
 		params[:characteristic_ids] ||= []
 		params[:characteristic_ids].push @char_id
 	end
