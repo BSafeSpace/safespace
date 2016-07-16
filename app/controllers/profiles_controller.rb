@@ -77,9 +77,9 @@ class ProfilesController < ApplicationController
   # POST /profiles
   # POST /profiles.json
   def create
+    parse_answers(params[:answers])
     @profile = Profile.new(profile_params)
     puts params[:answers]
-    # puts "weepee: " + params[:answers][0][:value]
 
     respond_to do |format|
       format.json { render :show, status: :created, location: @profile }
