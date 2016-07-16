@@ -81,7 +81,7 @@ class ProfilesController < ApplicationController
     profile_params
     parse_answers(params[:answers])
     @profile = Profile.new(profile_params)
-    puts params[:answers]
+    puts @profile
 
     respond_to do |format|
       format.json { render :show, status: :created, location: @profile }

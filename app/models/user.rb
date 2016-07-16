@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :lockable #, :confirmable
          # add :confirmable when ready to email
   validate :berkeley_email
-  after_create :create_initial_friendships, :create_profile
+  after_create :create_initial_friendships
   validates_uniqueness_of :username
 
   has_one :profile
