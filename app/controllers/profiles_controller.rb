@@ -80,11 +80,9 @@ class ProfilesController < ApplicationController
   def create
     parse_answers(params[:answers])
     params[:user_id] = params[:tags][0].to_i
-    @profile = Profile.new(profile_params)
     @user = User.find params[:user_id]
-    @profile.name = @user.username
-    @profile.user_id = params[:user_id]
-    @profile.save
+    @profile = @user.profile
+    @profile.update(profile_params)
 
     respond_to do |format|
       format.json { render :show, status: :created, location: @profile }
