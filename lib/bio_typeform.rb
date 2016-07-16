@@ -3,9 +3,9 @@ class BioTypeform
 
   include AskAwesomely::DSL
 
-  title "Anonymous Bio"
+  title -> (user) { "#{user.id.to_s}" }
 
-  tags -> (user) { "#{user.id}" }
+  tags "hehe"
 
   field :multiple_choice do
     ask "Mental Wellness: Which of these best describe you?"
