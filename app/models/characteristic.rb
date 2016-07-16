@@ -6,7 +6,7 @@ class Characteristic < ActiveRecord::Base
 	end
 
 	def self.find_name_and_category(name, category)
-		Characteristic.where("name = ? AND category =?", name, category)
+		Characteristic.where("name = ? AND category =?", name, category).first
 	end
 
 end
