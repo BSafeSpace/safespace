@@ -16,6 +16,10 @@
   <div class="row">
     <div class="col-md-4 col-sm-offset-2">
       <div class="char-edit">
+        <%= f.label :age, :class => "char-field-title" %><br>
+        <%= f.number_field :age, class: "form-control age-field" %>
+      </div>
+      <div class="char-edit">
         <div><%= f.label :class_rank, :class => "char-field-title" %></div>
         <%= f.select :class_rank, @arr_class_rank , {}, { :class => 'btn btn-default dropdown-toggle' } %>
       </div>
@@ -34,10 +38,6 @@
       <div class="char-edit">
         <%= f.label :comfort_with_sexuality, :class => "char-field-title" %><br>
         <%= f.select :comfort_with_sexuality , @arr_comfort_with_sexuality, {}, { :class => 'btn btn-default dropdown-toggle' } %>
-      </div>
-      <div class="char-edit">
-        <%= f.label :age, :class => "char-field-title" %><br>
-        <%= f.number_field :age, class: "form-control" %>
       </div> 
     </div>
 
