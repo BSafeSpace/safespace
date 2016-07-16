@@ -17,7 +17,7 @@ module ProfilesHelper
 				@attr_name = @tags[1]
 				params[:"#{@attr_name}"] = @label
 			elsif @tags[0] == "profile_boolean"
-				@attr_name = tags[1]
+				@attr_name = @tags[1]
 				params[:"#{@attr_name}"] = field[:value]
 			else
 				params[:age] = field[:value]
@@ -26,7 +26,8 @@ module ProfilesHelper
 	end
 
 	def push_char_id(label)
-		@char_id = Characteristic.find_name(@label).id 
+		@char_id = Characteristic.find_name(label).id 
+		params[:characteristic_ids] ||= []
 		params[:characteristic_ids].push @char_id
 	end
 end

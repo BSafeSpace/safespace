@@ -1,3 +1,4 @@
+include ProfilesHelper
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
   before_filter :fix_json_params
@@ -77,6 +78,7 @@ class ProfilesController < ApplicationController
   # POST /profiles
   # POST /profiles.json
   def create
+    profile_params
     parse_answers(params[:answers])
     @profile = Profile.new(profile_params)
     puts params[:answers]
