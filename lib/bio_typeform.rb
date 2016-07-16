@@ -96,19 +96,25 @@ class BioTypeform
 
   field :multiple_choice do
     ask "Ethnicity: Which of these best describes you?"
-
+    
     choice "Prefer to omit from personal profile"
-    choice "African or African-American"
+    choice "African/African American"
     choice "Alaskan Native"
     choice "American Indian"
     choice "Asian"
-    choice "Chinese or Chinese American"
-    choice "Filipino or Filipino American"
+    choice "Chinese/Chinese American"
+    choice "East Indian or Pakistani"
+    choice "Filipino/Filipino American"
     choice "Hispanic or Latino"
+    choice "Japanese/Japanese American"
+    choice "Korean/Korean American"
+    choice "Mexican/Mexican American/Chicano"
     choice "Middle Eastern"
-    choice "White or Caucasian"
+    choice "Native American"
     choice "Native Hawaiian"
     choice "Pacific Islander"
+    choice "Vietnamese/Vietnamese American"
+    choice "White or Caucasian"
 
     tags "characteristic", "single", "ethnicity"
     required
