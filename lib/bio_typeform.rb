@@ -25,12 +25,15 @@ class BioTypeform
     choice "Insomnia"
     choice "Other"
 
+    tags "characteristic", "multiple", "mental_health"
     required
     allow_multiple_selections
   end
 
   field :number do
     ask "How old are you?"
+
+    tags "age"
     required
   end
 
@@ -54,6 +57,7 @@ class BioTypeform
     choice "Pre-Law"
     choice "Social Sciences"
 
+    tags "characteristic", "single", "academic_focus"
     required
     can_specify_other
   end
@@ -67,6 +71,7 @@ class BioTypeform
     choice "Junior"
     choice "Senior"
 
+    tags "profile_string", "class_rank"
     required
     can_specify_other
   end
@@ -83,6 +88,7 @@ class BioTypeform
     choice "Gender nonconforming"
     choice "Questioning"
 
+    tags "characteristic", "multiple", "gender"
     required
     allow_multiple_selections
     can_specify_other
@@ -104,6 +110,7 @@ class BioTypeform
     choice "Native Hawaiian"
     choice "Pacific Islander"
 
+    tags "characteristic", "single", "ethnicity"
     required
     can_specify_other
   end
@@ -120,6 +127,7 @@ class BioTypeform
     choice "Queer"
     choice "Asexual"
 
+    tags "characteristic", "single", "sexual_orientation"
     can_specify_other
   end
 
@@ -131,6 +139,7 @@ class BioTypeform
     choice "I am of middle socioeconomic status"
     choice "I am of high socioeconomic status"
 
+    tags "profile_string", "socioeconomic_status"
     can_specify_other
   end
 
@@ -151,6 +160,7 @@ class BioTypeform
     choice "Atheist"
     choice "Agnostic"
     
+    tags "characteristic", "single", "religion"
     can_specify_other
   end
 
@@ -163,6 +173,7 @@ class BioTypeform
     choice "Co-op"
     choice "Greek Housing"
 
+    tags "profile_string", "living_situation"
     can_specify_other
   end
 
@@ -173,46 +184,52 @@ class BioTypeform
 
   field :yes_no do
     ask "Are you a transfer student"
+    tags "profile_boolean", "is_transfer_student"
   end
 
   field :yes_no do
     ask "Are you a first generation college student?"
+    tags "profile_boolean", "is_first_generation_college_student"
   end
 
   field :yes_no do
     ask "Are you physically disabled?"
+    tags "profile_boolean", "is_physically_disabled"
   end
 
   field :yes_no do
     ask "Are you a parent?"
+    tags "profile_boolean", "is_parent"
   end
 
   field :yes_no do
     ask "Are you a single parent?"
-  end
-
-  field :yes_no do
-    ask "Will you marry me?"
+    tags "profile_boolean", "is_single_parent"
   end
 
   field :yes_no do
     ask "Have you ever been in foster care?"
+    tags "profile_boolean", "from_foster_care"
   end
 
   field :yes_no do
     ask "Are you an intercollegiate athlete?"
+    tags "profile_boolean", "is_intercollegiate_athlete"
   end
 
   field :yes_no do
     ask "Have you ever served in the military?"
+    tags "profile_boolean", "is_military"
   end
 
   field :yes_no do
     ask "Are you an out-of-state student?"
+    tags "profile_boolean", "is_out_of_state_student"
   end
 
   field :yes_no do
     ask "Are you an international student?"
+    tags "profile_boolean", "is_international_student"
   end
 
   design do
