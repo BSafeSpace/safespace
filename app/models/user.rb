@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
     prof.save
   end
 
-  def create_initial_friendshipsprofi
+  def create_initial_friendships
     if !peer_counselor
       User.where('peer_counselor = ?', true).each do |user|
         User.create_friendship(self, user)
