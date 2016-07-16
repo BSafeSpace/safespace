@@ -23,7 +23,7 @@ User.create_friendship(users[1], users[2])
 User.create_friendship(users[1], users[3])
 
 omit_message = "Prefer to omit from personal profile"
-questions = {mental_health: [omit_message, "No issue: Seeking out peers", "Depression", "General Anxiety" , "Social Anxiety", "ADHD", "OCD", "Autistic", "Bipolar Disorder", "Post-Traumatic Stress Disorder (PTSD)", "Grieving", "Addiction", "Insomnia", "Other"],
+questions = {mental_health: [omit_message, "No specifics: seeking out peers", "Depression", "General Anxiety" , "Social Anxiety", "ADHD", "OCD", "Autistic", "Bipolar Disorder", "Post-Traumatic Stress Disorder (PTSD)", "Grieving", "Addiction", "Insomnia", "Other"],
 			class_standing: [omit_message, "Freshman", "Sophomore", "Junior", "Senior", "Other"],
 			gender: [omit_message, "Male", "Female", "Transgender", "Intersex", "Gender Queer", "Gender Nonconforming", "Questioning", "Other"],
 			ethnicity: [omit_message, "African/African American", "Alaskan Native", "Asian", "Chinese/Chinese American", "Filipino/Filipino American", "Vietnamese/Vietnamese American", "Mexican/Mexican American/Chicano", "Native American", "East Indian or Pakistani","Japanese/Japanese American", "Korean/Korean American","Pacific Islander","Middle Eastern","White/Caucasian", "Hispanic/Latino", "Other"],
