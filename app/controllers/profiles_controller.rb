@@ -82,6 +82,8 @@ class ProfilesController < ApplicationController
     parse_answers(params[:answers])
     params[:user_id] = params[:tags][0].to_i
     @profile = Profile.new(profile_params)
+    @user = User.find params[:user_id]
+    @profile.name = @user.username
     @profile.save
 
     respond_to do |format|
