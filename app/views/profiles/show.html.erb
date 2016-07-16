@@ -17,7 +17,7 @@
         </p>
         
         <p class="char-edit">
-          <div class="category"><strong class="char-field-title">Living Situation:</strong></div>
+          <div class="category"><strong>Living Situation:</strong></div>
           <div class="answer"><%= @profile.living_situation %></div>
         </p>
         
@@ -95,8 +95,9 @@
           <li><ul><div class="char-option" style="padding-bottom: 10px"><%= characteristic.name %></div></ul></li>
         <% end %>
 
-        <%= link_to "Edit Profile", edit_profile_path(current_user.id), class: 'btn btn-default' %>
       </div>
+
+      <%= link_to "Edit Profile", edit_profile_path(current_user.id), class: 'btn btn-default' %>
     </div>
 
   </div>
