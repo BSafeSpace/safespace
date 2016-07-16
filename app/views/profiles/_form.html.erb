@@ -1,4 +1,4 @@
-<%= form_for(@profile) do |f| %>
+<%= form_for @profile do |f| %>
   <% if @profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
@@ -17,27 +17,27 @@
     <div class="col-md-4 col-sm-offset-2">
       <div class="char-edit">
         <div><%= f.label :class_rank, :class => "char-field-title" %></div>
-        <%= f.select :class_rank, @arr_class_rank , class: "form-control col-md-6 "%>
+        <%= f.select :class_rank, @arr_class_rank , {}, { :class => 'btn btn-default dropdown-toggle' } %>
       </div>
       <div class="char-edit">
         <%= f.label :socioeconomic_status, :class => "char-field-title" %><br>
-        <%= f.select :socioeconomic_status, @arr_socioeconomic_status , class: "form-control col-md-6 "%>
+        <%= f.select :socioeconomic_status, @arr_socioeconomic_status , {}, { :class => 'btn btn-default dropdown-toggle' } %>
       </div>
       <div class="char-edit">
         <%= f.label :living_situation, :class => "char-field-title" %><br>
-        <%= f.select :living_situation, @arr_living_situation , class: "form-control col-md-6 "%>
+        <%= f.select :living_situation, @arr_living_situation , {}, { :class => 'btn btn-default dropdown-toggle' } %>
       </div>
       <div class="char-edit">
         <%= f.label :sexual_orientation, :class => "char-field-title" %><br>
-        <%= f.select :sexual_orientation , @arr_sexual_orientation , class: "form-control col-md-6 "%>
+        <%= f.select :sexual_orientation , @arr_sexual_orientation , {}, { :class => 'btn btn-default dropdown-toggle' } %>
       </div>
       <div class="char-edit">
         <%= f.label :comfort_with_sexuality, :class => "char-field-title" %><br>
-        <%= f.select :comfort_with_sexuality , @arr_comfort_with_sexuality, class: "form-control col-md-6 "%>
+        <%= f.select :comfort_with_sexuality , @arr_comfort_with_sexuality, {}, { :class => 'btn btn-default dropdown-toggle' } %>
       </div>
       <div class="char-edit">
         <%= f.label :age, :class => "char-field-title" %><br>
-        <%= f.number_field :age %>
+        <%= f.number_field :age, class: "form-control" %>
       </div> 
     </div>
 

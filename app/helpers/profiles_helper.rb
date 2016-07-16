@@ -17,19 +17,19 @@ module ProfilesHelper
 			elsif @tags[0] == "profile_string"
 				@label = field[:value][:label]
 				@attr_name = @tags[1]
-				params[:"#{@attr_name}"] = @label
+				params[:profile][:"#{@attr_name}"] = @label
 			elsif @tags[0] == "profile_boolean"
 				@attr_name = @tags[1]
-				params[:"#{@attr_name}"] = field[:value]
+				params[:profile][:"#{@attr_name}"] = field[:value]
 			else
-				params[:age] = field[:value]
+				params[:profile][:age] = field[:value]
 			end
 		end
 	end
 
 	def push_char_id(label, category)
 		@char_id = Characteristic.find_name_and_category(label, category).id 
-		params[:characteristic_ids] ||= []
-		params[:characteristic_ids].push @char_id
+		params[:profile][:characteristic_ids] ||= []
+		params[:profile][:characteristic_ids].push @char_id
 	end
 end
