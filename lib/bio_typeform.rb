@@ -5,7 +5,7 @@ class BioTypeform
 
   title "Anonymous Bio"
 
-  tags "awesome", "hehe"
+  tags -> (user) { "#{user.id}" }
 
   field :multiple_choice do
     ask "Mental Wellness: Which of these best describe you?"
