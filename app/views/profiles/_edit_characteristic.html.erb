@@ -1,0 +1,20 @@
+<div class="char-title"><%= title %></div>
+<% @profile.characteristics.select { |char| char.category == name }.each do |char| %>
+  <div><%= char.name %></div>
+<% end %>
+
+<p><a class="btn btn-primary" data-toggle="collapse" href="#<%= id %>" aria-expanded="false" aria-controls="<%= id %>">
+  Edit <%= title %>
+</a></p>
+<div class="collapse" id="<%= id %>">
+  <div class="card card-block">
+    <div class="check-box-scroll">
+      <%= f.collection_check_boxes :characteristic_ids, Characteristic.where('category = ?', name), :id, :name do |b| %>
+        <div class="collection-check-box check-box-container">
+          <%= b.check_box %>
+          <%= b.label :class => "char-option" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

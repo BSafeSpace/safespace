@@ -26,28 +26,30 @@
       <% @ethnicity = @chars.ethnicity %>
       <% @academic_focus = @chars.academic_focus %>    
 
-      <div class="char-title">Mental Health</div>
-      <% @mental_health.each do |mh| %>
-        <div><%= mh.name %></div>
-      <% end %>
-
-      <div class="char-title">Age: <%= @age %></div>
-
-      <div class="char-title">
-        Gender: 
-        <% @gender.each do |g| %>
-          <%= g.name %>
+      <% if !@other_user.peer_counselor %>
+        <div class="char-title">Mental Health</div>
+        <% @mental_health.each do |mh| %>
+          <div><%= mh.name %></div>
         <% end %>
-      </div>
 
-      <div class="char-title">Ethnicity</div>
-      <% @ethnicity.each do |e| %>
-        <div><%= e.name %></div>
-      <% end %>
+        <div class="char-title">Age: <%= @age %></div>
 
-      <div class="char-title">Academic Focus</div>
-      <% @academic_focus.each do |af| %>
-        <div><%= af.name %></div>
+        <div class="char-title">
+          Gender: 
+          <% @gender.each do |g| %>
+            <%= g.name %>
+          <% end %>
+        </div>
+
+        <div class="char-title">Ethnicity</div>
+        <% @ethnicity.each do |e| %>
+          <div><%= e.name %></div>
+        <% end %>
+
+        <div class="char-title">Academic Focus</div>
+        <% @academic_focus.each do |af| %>
+          <div><%= af.name %></div>
+        <% end %>
       <% end %>
 
       <div class="sidebar-links">
