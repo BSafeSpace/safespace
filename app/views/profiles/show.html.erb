@@ -84,12 +84,10 @@
     <div class="col-md-4 col-sm-offset-1">
       <div class="char-box">
         <h4><strong>Characteristics</strong></h4>
-        <% @profile.characteristics.each do |characteristic| %>
-          <ul style="padding-left: 2vw;">
-            <div class="char-option" style="padding-bottom: 5px"><%= characteristic.name %></div>
-          </ul>
-        <% end %>
-
+        <%= render 'profiles/show_characteristic', name: "mental_health", title: "Mental Health" %>
+        <%= render 'profiles/show_characteristic', name: "gender", title: "Gender" %>
+        <%= render 'profiles/show_characteristic', name: "ethnicity", title: "Ethnicity" %>
+        <%= render 'profiles/show_characteristic', name: "academic_focus", title: "Academic Focus" %>
       </div>
 
       <div class="edit-profile-btn">
