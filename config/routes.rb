@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'quiz' => 'intro#quiz', :as => :intro_quiz
   get 'liability' => 'intro#liability', :as => :intro_liability
   get 'create_bio' => 'intro#create_bio', :as => :intro_create_bio
+  put 'sign_liability' => 'intro#sign_liability', :as => :intro_sign_liability
   
   get '/toggle_appear_offline', to: 'application#toggle_appear_offline', as: :toggle_appear_offline
   

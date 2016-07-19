@@ -23,7 +23,7 @@
         <div id="navbar">
           <ul class="nav navbar-nav highlight-hover">
             <% if user_signed_in? %>
-              <li id = "people"><%= link_to_in_li  'People', profiles_path, "users" %></li>
+              <li id = "people"><%= link_to_in_li  'People', profiles_path, "users", id: "people-tooltip" %></li>
               <li id="chat-link">
                 <% if current_user.peer_counselor %>
                   <%= link_to_in_li 'Requests', recommendations_path, "inbox" %>

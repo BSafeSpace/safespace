@@ -4,7 +4,7 @@ $(function() {
 	var $filterTooltip = $('#filter-tooltip');
 
 	if (gon.doneTutFilter == false) {
-		$(".filters-container.expose").css('z-index','99999');
+		$(".filters-container.expose").css('z-index','9998');
     	$('#overlay').fadeIn(300);
     	$filterTooltip.tooltip('show');
 
@@ -35,7 +35,7 @@ $(function() {
 	function tutorial2() {
 		if ($('.result-names').children().length > 0) {
 			$('#overlay').fadeIn(300);
-			$('.profile-results-container.expose').css('z-index','99998');
+			$('.profile-results-container.expose').css('z-index','9998');
 
 			var $resultsTooltip = $('.friend-link').first();
 

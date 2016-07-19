@@ -15,6 +15,12 @@ class IntroController < ApplicationController
 	    render "liability"
 	end
 
+	def sign_liability
+		@user = User.find params[:user_id]
+		@user.update(signed_liability: true)
+		redirect_to intro_create_bio_path
+	end
+
 	def create_bio
 		@typeform = BioTypeform.build(current_user)
 		@typeform.instance_variable_get(:@structure).instance_variable_get(:@state)[:tags][0] = current_user.id.to_s
@@ -23,7 +29,6 @@ class IntroController < ApplicationController
 			:body => @typeform.to_json, 
 			:headers => { 'Content-Type' => 'application/json', 'X-API-TOKEN' => TYPEFORM_IO_API_KEY } )
 		body = JSON.parse(response.body)
-		puts body
 		@typeform.instance_variable_set(:@id, body["id"])
 		@typeform.instance_variable_set(:@links, body["_links"])
 		@typeform.instance_variable_set(:@public_url, body["_links"][1]["href"])
