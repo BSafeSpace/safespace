@@ -3,12 +3,16 @@
 
 <div class="form">
 	<%= simple_form_for @quiz do |f| %>
-		
-		<%= f.input :answer1, label: "Question 1", collection: ["wrong Lorem dim sum Jin deui Chicken feet Potstickers stir fried radish cake Steamed Bun with Butter Cream hot", "wrong Lorem dim sum Jin deui Chicken feet Potstickers stir fried radish cake Steamed Bun with Butter Cream hot", "wrong Lorem dim sum Jin deui Chicken feet Potstickers stir fried radish cake Steamed Bun with Butter Cream hot", "wrong Lorem dim sum Jin deui Chicken feet Potstickers stir fried radish cake Steamed Bun with Butter Cream hot", "correct"], as: :radio_buttons %>
-		<%= f.input :answer2, label: "Question 2", collection: ["wrong", "wrong", "correct", "wrong"], as: :radio_buttons %>
-		<%= f.input :answer3, label: "Question 3", collection: ["wrong", "wrong", "correct", "wrong"], as: :radio_buttons %>
-		<%= f.input :answer4, label: "Question 4", collection: ["wrong", "wrong", "correct", "wrong"], as: :radio_buttons %>
-		<%= f.input :answer5, label: "Question 5", collection: ["wrong", "wrong", "correct", "wrong"], as: :radio_buttons %>
+		<%= f.label "Question 1"%>
+		<%= f.input :answer1, label: "Which of the following are one of SafeSpace’s supportive techniques?", collection: ["Comfort and Listen", "Help and Validate", "Correct and Support", "Brainstorm Solutions and Don’t Judge", "Criticize Problems and Assess Situation"], as: :radio_buttons %>
+
+		<%= f.label "Question 2"%>
+		<%= f.input :answer2, label: "Which of the following can I do to protect myself from ill-intentioned users? ", collection: ["Notify an Online Peer Counselor: Send them the username and inappropriate comments made.", "Block a student: If a student is blocked 3 times, they are permanently deleted from SafeSpace.", "Report to UCPD: SafeSpace is associated with University of California Police Department, Berkeley "], as: :radio_buttons %>
+
+		<%= f.label "Question 3"%>
+		<%= f.input :answer3, label: "True or False? Discussion of suicidal ideation and anything pertaining to it is prohibited.
+			", collection: ["True", "False"], as: :radio_buttons %>
+
 		<div class="text-center">
 			<% if @quiz.errors.any? %>
 				<%= link_to "Back", intro_info_path, id: 'back-btn', class: 'btn btn-default' %>
