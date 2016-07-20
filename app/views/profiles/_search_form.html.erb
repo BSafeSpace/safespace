@@ -22,7 +22,7 @@
         <%= render '/profiles/char_section', name: "Academic", category: "academic_focus", f: f %>
         <%= render '/profiles/char_section', name: "Religion", category: "religion", f: f %>
 
-        <div style="">
+        <div style="display: none">
           <%= f.sort_fields do |s| %>
             <%= s.sort_select %>
           <% end %>

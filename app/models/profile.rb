@@ -19,6 +19,10 @@ class Profile < ActiveRecord::Base
   	end
   end
 
+  def self.matching_or_all_profiles()
+    
+  end
+
   def self.ransortable_attributes(auth_object = nil)
   	return ["age", "name", "recommend_count"]
   end

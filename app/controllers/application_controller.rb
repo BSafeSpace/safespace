@@ -43,7 +43,6 @@ class ApplicationController < ActionController::Base
     @search = Profile.search(params[:q])
     @search.build_sort if @search.sorts.empty?
     @profiles = order_preferences(@search.result(distinct: true).reject{ |p| p.user == current_user})
-    # @profiles = @search.result(distinct: true).reject{ |p| p.user == current_user}
     @profiles = put_peer_counselor_first(@profiles) if !current_user.peer_counselor
     @num_profiles = @profiles.count
     @profiles.paginate(page: params[:page], per_page: 15)
