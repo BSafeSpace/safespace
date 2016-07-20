@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :lockable #, :confirmable
          # add :confirmable when ready to email
   validate :berkeley_email
-  after_create :create_initial_friendships, :create_profile
+  after_create :create_initial_friendships, :create_initial_profile
   validates_uniqueness_of :username
 
   has_one :profile
@@ -40,11 +40,8 @@ class User < ActiveRecord::Base
     self.save
   end
 
-  def create_profile
-    prof = Profile.create(user_id: self.id, name: self.username)
-    prof.user_id = self.id
-    prof.name = self.username
-    prof.save
+  def create_initial_profile
+    create_profile(user_id: self.id, name: self.username)
   end
 
   def create_initial_friendships

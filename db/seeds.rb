@@ -39,7 +39,6 @@ questions.each do |category, names|
 end
 
 User.all.each do |u|
-	u.create_profile
 	u.profile.age = rand(16...60)
 	u.profile.save
 end
