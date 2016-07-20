@@ -1,7 +1,13 @@
- <div class="horizontal-align">
-  <div class="<%="#{status}"%>-status-indicator" style="display: inline-block;"></div>
-  <%= link_to user.username, conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', :class => "contact-list-name", remote: true %>
+ <div class="chat-item">
+	 <div class="horizontal-align">
+	  <div class="<%="#{user.online_status_css}"%>-status-indicator" style="display: inline-block;"></div>
+	  <%= link_to user.username, conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', :class => "contact-list-name", remote: true %>
+	</div>
+	<div class="status-text truncate" data-conv-id="<%=@chat_convo.id.to_s if @chat_convo %>">
+		<%= render 'message_preview', chat_convo: Conversation.between(current_user.id, user.id).first %>
+	</div>
 </div>
-<div class="status-text truncate" data-conv-id="<%=@chat_convo.id.to_s if @chat_convo %>">
-	<%= render 'message_preview', chat_convo: Conversation.between(current_user.id, user.id).first %>
+
+<div class="links-container horizontal-align">
+  <%= link_to "Remove", friendship_path(:id => user), :method => :delete, :class => "friend-link" %>
 </div>

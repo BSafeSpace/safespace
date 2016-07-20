@@ -82,6 +82,26 @@ class User < ActiveRecord::Base
     profile.online
   end
 
+  def all_friends
+    if self.peer_counselor
+      return self.friends.reject{ |f| f.peer_counselor }
+    end
+
+    return self.friends
+  end
+
+  def online_friends
+    self.all_friends.select { |friend| friend.online? }
+  end
+
+  def online_status_css
+    if self.online? && !self.appear_offline
+      return "online"
+    else
+      return "offline"
+    end
+  end
+
   def notify
     if unread_count.nil?
       update_attributes(:unread_count => 0)
