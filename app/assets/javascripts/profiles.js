@@ -1,11 +1,19 @@
-//initialize scrollbars
 $(function() {
-	$('.custom-scroll').mCustomScrollbar({
-    	theme: "minimal-dark"
-	});
-});
+  //initialize scrollbars
+  $('.custom-scroll').mCustomScrollbar({
+      theme: "minimal-dark"
+  });
 
-$(function() {
+  // initialize dropdown preference tooltips
+  $('.dropdown-pref').tooltip({
+      container: 'body',
+      html: true,
+      trigger: 'hover',
+      template: '<div class="tooltip dropdown-tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
+      title: 'Rate from 1 to 4 how much this category means to you. Leave 0 if it does not matter.',
+      placement: 'right'
+  });
+
   $( "#slider-range" ).slider({
     range: true,
     min: 16,

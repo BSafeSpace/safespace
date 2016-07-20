@@ -31,6 +31,14 @@
     margin-top: 0.5vh;
 }
 
+.tooltip.dropdown-tooltip {
+    z-index: 999999;
+}
+
+.tooltip.right > .tooltip-arrow {
+    border-right-color: #31708f;
+}
+
 .basic-info {
     padding-left: 1vw;
 }
