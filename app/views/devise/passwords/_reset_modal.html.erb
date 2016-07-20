@@ -1,0 +1,28 @@
+<div class="modal fade" id="recommendModal" tabindex="-1" role="dialog" aria-labelledby="recommendModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-admin">
+		<div class="modal-content">
+			<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+			  	<div class="modal-header">
+				    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				    <h3 id="recommend-modal-title">Reset Password</h3>
+			  	</div>
+
+				<div class="modal-body">
+				    
+					<p>Enter the email address associated with your account, and we’ll email you a link to reset your password.</p>
+					
+					<%= devise_error_messages! %>
+
+					 <div class="field form-margin-top">
+					    <%= f.email_field :email, placeholder: "Email", autofocus: true, class: "form-control" %>
+					</div>
+
+				</div>
+
+			    <div class="modal-footer", data-dismiss="modal">
+			        <%= f.submit "Send Reset Link", class: "btn btn-yellow btn-block" %>
+			    </div>
+		    <% end %>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
