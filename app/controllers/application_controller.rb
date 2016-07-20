@@ -43,6 +43,7 @@ class ApplicationController < ActionController::Base
     @search = Profile.search(params[:q])
     @search.build_sort if @search.sorts.empty?
     @profiles = order_preferences(@search.result(distinct: true).reject{ |p| p.user == current_user})
+    # @profiles = @search.result(distinct: true).reject{ |p| p.user == current_user}
     @profiles = put_peer_counselor_first(@profiles) if !current_user.peer_counselor
     @num_profiles = @profiles.count
     @profiles.paginate(page: params[:page], per_page: 15)
@@ -59,14 +60,20 @@ class ApplicationController < ActionController::Base
     return search_query
   end
 
-  def put_preference_first(search_query, name)
-    characteristic = Characteristic.where('category = ?', name).first
+  def put_preference_first(search_query, category)
+    matching_characteristics = Characteristic.where('category = ?', category)
     
-    if characteristic
-      matching_profiles = search_query.select { |profile| profile.characteristics.include? characteristic }
-      search_query = search_query.reject!{ |profile| profile.characteristics.include? characteristic }
-      search_query = matching_profiles ? matching_profiles + search_query : search_query
+    if matching_characteristics
+      matching_profiles = search_query.select { |profile| !(profile.characteristics & matching_characteristics).empty? }
+      search_query = search_query.reject{ |profile| matching_profiles.include? profile }
+      search_query = matching_profiles + search_query
     end
+
+    # if matching_characteristic
+    #   matching_profiles = search_query.select { |profile| profile.characteristics.include? characteristic }
+    #   search_query = search_query.reject!{ |profile| profile.characteristics.include? characteristic }
+    #   search_query = matching_profiles ? matching_profiles + search_query : search_query
+    # end
 
     return search_query
   end
