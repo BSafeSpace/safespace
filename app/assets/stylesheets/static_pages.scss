@@ -12,7 +12,10 @@ body {
 
 h1, h2, h3, legend, .navbar, {
   font-family: "Lato";
-  margin-top: 10px;
+}
+
+h1, h2, h3 {
+	margin-top: 10px;
 }
 
 p, ol, ul, td {
