@@ -1,0 +1,11 @@
+$(function() {
+	// initialize dropdown preference tooltips
+	$('#email-tooltip').tooltip({
+	  container: 'body',
+	  html: true,
+	  trigger: 'hover',
+	  template: '<div class="tooltip dropdown-tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
+	  title: 'Why are we asking you for your email on an anonymous site? We want to make sure that only Berkeley students are allowed to join.',
+	  placement: 'right'
+	});
+});
