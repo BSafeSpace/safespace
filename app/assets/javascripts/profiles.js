@@ -10,7 +10,7 @@ $(function() {
       html: true,
       trigger: 'hover',
       template: '<div class="tooltip dropdown-tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
-      title: 'Rate from 1 to 4 how much this category means to you. Leave 0 if it does not matter.',
+      title: 'If you want to see this category higher in the results, select 1 to 4, 1 being the highest. Leave at 0 if you have no preference. ',
       placement: 'right'
   });
 

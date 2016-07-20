@@ -31,6 +31,15 @@
     margin-top: 0.5vh;
 }
 
+.dropdown-tooltip .tooltip-inner { 
+    color: #FFFFFF; 
+    border: 1px solid;
+    padding: 10px;
+    font-size: 16px;
+    width: 400px;
+    background-color: #31708f;
+}
+
 .tooltip.dropdown-tooltip {
     z-index: 999999;
 }
