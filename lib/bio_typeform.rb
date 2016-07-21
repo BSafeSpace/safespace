@@ -189,7 +189,7 @@ class BioTypeform
   end
 
   field :yes_no do
-    ask "Are you a transfer student"
+    ask "Are you a transfer student?"
     tags "profile_boolean", "is_transfer_student"
   end
 
