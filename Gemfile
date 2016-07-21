@@ -36,7 +36,6 @@ gem 'private_pub'
 gem 'taps'
 # gem 'faye-rails', '~> 2.0'
 gem 'thin'
-gem 'foreman'
 
 # Pass Ruby Variables to JavaScript
 gem 'gon'
@@ -85,6 +84,7 @@ group :development, :test do
   gem 'factory_girl'
   # gem 'pg'
   gem 'sqlite3'
+  gem 'foreman' # allow us to use our .env file by accessing the local variables before starting the application.
 end
 
 group :development do

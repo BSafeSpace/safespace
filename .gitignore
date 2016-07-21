@@ -23,6 +23,8 @@ log/*.log
 tmp/**/*
 /log
 
+Procfile
+
 Down to Split.sublime-project
 Down to Split.sublime-workspace
 old suff.rhtml
