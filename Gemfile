@@ -74,7 +74,6 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'foreman' # allow us to use our .env file by accessing the local variables before starting the application.
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -85,6 +84,7 @@ group :development, :test do
   gem 'factory_girl'
   # gem 'pg'
   gem 'sqlite3'
+  gem 'foreman' # allow us to use our .env file by accessing the local variables before starting the application.
 end
 
 group :development do
