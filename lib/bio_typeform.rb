@@ -142,6 +142,11 @@ class BioTypeform
     can_specify_other
   end
 
+  field :yes_no do
+    ask "Are you a transfer student?"
+    tags "profile_boolean", "is_transfer_student"
+  end
+
   field :multiple_choice do
     ask "Socioeconomic Status: Which of these best describe you?"
 
@@ -189,13 +194,8 @@ class BioTypeform
   end
 
   field :statement do
-    say "You're almost done! Please *bear* with us and answer some quick yes/no questions."
+    say "Additional Information: You're almost done! Please *bear* with us and answer some quick yes/no questions."
     button_text "Okay, let's do this."
-  end
-
-  field :yes_no do
-    ask "Are you a transfer student?"
-    tags "profile_boolean", "is_transfer_student"
   end
 
   field :yes_no do

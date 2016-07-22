@@ -7,12 +7,19 @@ $(function() {
 		    console.log("iframe loaded");
 		});
 
-		$('#people-tooltip').tooltip({
+		var delay=3000; // 3 seconds
+
+		setTimeout(function() {
+		  // show tooltip after 3 seconds (after typeform is loaded)
+		  $('#people-tooltip').tooltip({
             html: true,
             trigger: 'manual',
             title: "Done with your bio? Let's go to the People page to connect with peers!",
             placement: 'bottom'
-        }).tooltip('show');
+          }).tooltip('show');
+
+		}, delay);
+
 	});
 
 	$('iframe').load(function(){

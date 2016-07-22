@@ -10,7 +10,7 @@ class ResourcesController < ApplicationController
   def create
   	@resource = Resource.create! resource_params
   	respond_to do |format|
-  		format.html
+  		format.html { redirect_to resources_url }
   		format.js
   	end
   end

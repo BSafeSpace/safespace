@@ -13,6 +13,10 @@
 		<%= f.input :answer3, label: "True or False? Discussion of suicidal ideation and anything pertaining to it is prohibited.
 			", collection: ["True", "False"], as: :radio_buttons %>
 
+		<%= f.label "Question 4"%>
+		<%= f.input :answer4, label: "True or False? I am here to act as myself, a peer, a friend. Not as a counselor or therapist.
+			", collection: ["True", "False"], as: :radio_buttons %>
+
 		<div class="text-center">
 			<% if @quiz.errors.any? %>
 				<%= link_to "Back", intro_info_path, id: 'back-btn', class: 'btn btn-default' %>
