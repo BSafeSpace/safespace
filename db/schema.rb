@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160719044318) do
+ActiveRecord::Schema.define(version: 20160722120344) do
 
   create_table "blocks", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -112,6 +112,14 @@ ActiveRecord::Schema.define(version: 20160719044318) do
     t.integer  "peer_counselor_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "resources", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "url"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

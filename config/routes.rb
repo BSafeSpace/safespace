@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  resources :resources
   resources :quizzes
   resources :friendships
   resources :characteristics
