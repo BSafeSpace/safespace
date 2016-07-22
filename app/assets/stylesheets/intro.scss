@@ -1,23 +1,89 @@
 // Slider Styles
-#slide1, #slide2, #slide3, #slide4, #slide5, #slide6 {
-	background-color: gray;
+.carousel-inner > .item > img {
+	background-color: #FFD98C;
 	width: 1490px;
 	height: 80vh;
 }
 
-.carousel {
+#slide1 img {
+	width: auto;
+	margin: 0 auto;
+	background: rgba(0, 0, 0, .6);
+}
+
+#slide2 h1 {
+	font-size: 48px;
 	margin-top: 4vh;
-	height: 80vh;
+	margin-bottom: 8vh;
+}
+
+#slide2 p,
+#slide2 li {
+	font-size: 24px;
+}
+
+#slide5 h1 {
+	margin-top: 4vh;
+	margin-bottom: 6vh;	
+}
+
+#slide5 p {
+	margin-bottom: 4vh;
+}
+
+#info-slides {
+	width: 68%;
+	margin: 0 auto;
+	margin-top: 4vh;
+	border: 15px #3E6CB2 solid;
+	border-radius: 5px;
+}
+
+.carousel {
 }
 
 .carousel-caption {
 	position: absolute;
-  	top: 50%;
-  	transform: translateY(-50%);
+  	top: 0;
+  	color: #484848;
+  	text-shadow: none;
+  	left: 10%;
+  	right: 10%;
 }
 
 .carousel-inner {
 	border: none !important;
+}
+
+.center-caption {
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.carousel-indicators {
+	bottom: 0;
+}
+
+.carousel-indicators li {
+	bottom: 0;
+	border: 2px #B29250 solid;
+	width: 12px;
+	height: 12px;
+}
+
+.carousel-indicators .active {
+	background-color: #B29250;
+	width: 16px;
+	height: 16px;
+}
+
+.carousel-control {
+	width: 10%;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+	background-image: none;
 }
 
 #intro-caption {
@@ -27,20 +93,11 @@
 }
 
 #intro-header {
-	color: #31708f;
-	font-size: 48px;
+	font-size: 64px;
 	font-weight: 700;
 	text-shadow: none;
-	margin-top: 0;
 }
 
-.center-caption {
-	top: 40%;
-}
-
-.center-caption37 {
-	top: 37%;
-}
 
 .item ol {
 }
