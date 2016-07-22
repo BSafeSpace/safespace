@@ -1,2 +1,7 @@
-<h1>Resources#index</h1>
-<p>Find me in app/views/resources/index.html.erb</p>
+<h1>Resources List</h1>
+<%= link_to "New Resource", new_resource_path, id: "new_link", remote: true %>
+<% @resources.each do |r| %>
+	<h3><%= link_to r.name, url_with_protocol(r.url), :target => '_blank' %></h3>
+	<p><%= r.description %></p>
+<% end %>
+
