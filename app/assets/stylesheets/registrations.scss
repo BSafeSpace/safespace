@@ -21,9 +21,21 @@
 	cursor: pointer;
 }
 
+.form-group {
+	position: relative;
+}
+
+#email-tooltip {
+	position: absolute;
+	float: right;
+	top: 36%;
+	right: 2vw;
+	font-size: 16px;
+}
+
 /* User sign in and sign forms. */
 .border-form-div {
-    max-width: 300px;
+    max-width: 387px;
     padding: 19px 29px 29px;
     margin: 0 auto 20px;
     margin-top: 50px;
@@ -36,6 +48,12 @@
     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
     box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
+
+.border-big {
+	position: relative;
+	padding: 39px 50px 39px;
+}
+
 .border-form-div input[type="text"],
 .border-form-div input[type="email"],
 .border-form-div input[type="password"],
