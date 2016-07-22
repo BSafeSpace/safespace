@@ -7,6 +7,11 @@ class BioTypeform
 
   tags "hehe"
 
+  field :statement do
+    say "Only the first 6 questions are required to create a basic profile, but we encourage you to answer as many as you can
+         so that you can connect to others in more ways."
+  end
+
   field :multiple_choice do
     ask "Mental Wellness: Which of these best describe you?"
 
@@ -236,6 +241,10 @@ class BioTypeform
   field :yes_no do
     ask "Are you an international student?"
     tags "profile_boolean", "is_international_student"
+  end
+
+  field :statement do
+    say "Yay! That's all the questions. Please submit, close the form, and go back to the tutorial page to proceed."
   end
 
   design do

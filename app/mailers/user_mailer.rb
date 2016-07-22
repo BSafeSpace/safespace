@@ -14,5 +14,4 @@ class UserMailer < Devise::Mailer
 		super
 	end
 
-
 end
