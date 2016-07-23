@@ -102,6 +102,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def get_characteristics
+    self.profile.characteristics
+  end
+
   def notify
     if unread_count.nil?
       update_attributes(:unread_count => 0)
