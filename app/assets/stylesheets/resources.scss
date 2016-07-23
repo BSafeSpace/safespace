@@ -1,3 +1,37 @@
-// Place all the styles related to the Resources controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.resource {
+	margin-top: 2vh;
+}
+
+.resource-item h3 {
+	display: inline;
+}
+
+.resource-item p {
+	border-top: thin solid #c8ccd0;
+	padding-top: 1vh;
+}
+
+// .resource-links {
+// 	display: none;
+// }
+
+// .resource:hover .resource-links {
+// 	display: inline-block;
+// }
+
+.resource-links {
+	float: right;
+}
+
+.resource-links,
+.resource-remove-link,
+.resource-edit-link {
+	font-size: 16px;
+	display: inline;
+	cursor: pointer;
+}
+
+.new_resource,
+.edit_resource {
+	
+}
