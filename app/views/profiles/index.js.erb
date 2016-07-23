@@ -75,3 +75,9 @@ $('.custom-scroll').mCustomScrollbar({
     });
   <% end %>
 <% end %>
+
+$('#default-search').click(function() {
+  <% current_user.get_characteristics.each do |char| %>
+    $('input#q_characteristics_id_in_any_<%= char.id %>').prop('checked', true);
+  <% end %>
+});
