@@ -33,5 +33,13 @@
 
 .new_resource,
 .edit_resource {
-	
+	margin: 0 auto;
+}
+
+.simple_form.new_resource,
+.simple_form.edit_resource {
+	border-top: thin solid #c8ccd0;
+	padding-top: 1vh;
+    float: none;
+    text-align : center;
 }

@@ -1,4 +1,9 @@
 <%= simple_form_for @resource do |f| %>
+	<% if button_name == 'Create Resource' %>
+		<h3>Creating New Resource</h3>
+	<% else %>
+		<h3>Editing Resource</h3>
+	<% end %>
 	<%= f.input :name %>
 	<%= f.input :description %>
 	<%= f.input :url %>
