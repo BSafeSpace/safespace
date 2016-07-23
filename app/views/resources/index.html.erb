@@ -1,7 +1,21 @@
 <h1>Resources List</h1>
 <%= link_to "New Resource", new_resource_path, id: "new_link", remote: true %>
 <% @resources.each do |r| %>
-	<h3><%= link_to r.name, url_with_protocol(r.url), :target => '_blank' %></h3>
-	<p><%= r.description %></p>
+	<div class="resource" id="resource_<%= r.id %>">
+		<div class="resource-item">
+			<h3><%= link_to r.name, url_with_protocol(r.url), :target => '_blank' %></h3>
+			<p><%= r.description %></p>
+		</div>
+		<% if user_signed_in? && current_user.peer_counselor %>
+			<div class="resource_links">
+				<div class="resource_remove_link">
+					<%= link_to "Remove", r, method: :delete, data: {confirm: "Are you sure?"}, remote: true %>	
+				</div>
+				<div class="resource_edit_link">
+					<%= link_to_icon " Edit", edit_resource_path(r.id), "pencil" %>
+				</div>
+			</div>
+		<% end %>
+	</div>
 <% end %>
 

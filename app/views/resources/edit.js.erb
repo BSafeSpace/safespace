@@ -1,0 +1,7 @@
+$('#resource_<%= @resource.id %> .resource-item').hide().after("<%= j render partial: 'form', locals: {button_name: 'Save Changes'} %>");
+// $('resource_<%= @resource.id %>').prepend()
+
+$('#cancel-btn').click(function() {
+	$('.edit_resource').hide();
+	$('#resource_<%= @resource.id %> .resource-item').show();
+});

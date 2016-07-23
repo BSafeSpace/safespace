@@ -11,114 +11,114 @@
     </div>
   <% end %>
 
-<%= render '/profiles/new_vars' %>
+  <%= render '/profiles/new_vars' %>
 
-<div style="margin-top: 15px; margin-bottom: 20px">
-  <div class="row">
-    <div class="col-md-5 col-sm-offset-1">
-      <div class="profile-box">
-        <h4><strong>Basic Information</strong></h4>
-        <div class="basic-info char-option">
-          <p class="char-edit">
-            <%= f.label :class_rank, :class => "char-field-title" %><br>
-            <%= f.select :class_rank, @arr_class_rank , {}, { :class => 'btn btn-default dropdown-toggle' } %>
-          </p>
-          
-          <p class="char-edit">
-            <%= f.label :socioeconomic_status, :class => "char-field-title" %><br>
-            <%= f.select :socioeconomic_status, @arr_socioeconomic_status , {}, { :class => 'btn btn-default dropdown-toggle' } %>
-          </p>
-          
-          <p class="char-edit">
-            <%= f.label :living_situation, :class => "char-field-title" %><br>
-            <%= f.select :living_situation, @arr_living_situation , {}, { :class => 'btn btn-default dropdown-toggle' } %>
-          </p>
-          
-          <p class="char-edit">
-            <%= f.label :age, :class => "char-field-title" %>
-            <%= f.number_field :age, class: "form-control age-field" %>
-          </p>
+  <div style="margin-top: 15px; margin-bottom: 20px">
+    <div class="row">
+      <div class="col-md-5 col-sm-offset-1">
+        <div class="profile-box">
+          <h4><strong>Basic Information</strong></h4>
+          <div class="basic-info char-option">
+            <p class="char-edit">
+              <%= f.label :class_rank, :class => "char-field-title" %><br>
+              <%= f.select :class_rank, @arr_class_rank , {}, { :class => 'btn btn-default dropdown-toggle' } %>
+            </p>
+            
+            <p class="char-edit">
+              <%= f.label :socioeconomic_status, :class => "char-field-title" %><br>
+              <%= f.select :socioeconomic_status, @arr_socioeconomic_status , {}, { :class => 'btn btn-default dropdown-toggle' } %>
+            </p>
+            
+            <p class="char-edit">
+              <%= f.label :living_situation, :class => "char-field-title" %><br>
+              <%= f.select :living_situation, @arr_living_situation , {}, { :class => 'btn btn-default dropdown-toggle' } %>
+            </p>
+            
+            <p class="char-edit">
+              <%= f.label :age, :class => "char-field-title" %>
+              <%= f.number_field :age, class: "form-control age-field" %>
+            </p>
 
-          <p class="char-edit">
-            <%= f.label :sexual_orientation, :class => "char-field-title" %><br>
-            <%= f.select :sexual_orientation , @arr_sexual_orientation , {}, { :class => 'btn btn-default dropdown-toggle' } %>
-          </p>
+            <p class="char-edit">
+              <%= f.label :sexual_orientation, :class => "char-field-title" %><br>
+              <%= f.select :sexual_orientation , @arr_sexual_orientation , {}, { :class => 'btn btn-default dropdown-toggle' } %>
+            </p>
 
-          <p class="char-edit">
-            <%= f.label :comfort_with_sexuality, :class => "char-field-title" %><br>
-            <%= f.select :comfort_with_sexuality , @arr_comfort_with_sexuality, {}, { :class => 'btn btn-default dropdown-toggle' } %>
-          </p>
-        </div>
-        <h5><strong>More Information</strong></h5>
-        <div class="basic-info char-option"> 
-          <p class="char-edit">
-              <%= f.check_box :is_first_generation_college_student %>
-              <%= f.label "First generation college student", :class => "char-field-title" %>
-          </p>
+            <p class="char-edit">
+              <%= f.label :comfort_with_sexuality, :class => "char-field-title" %><br>
+              <%= f.select :comfort_with_sexuality , @arr_comfort_with_sexuality, {}, { :class => 'btn btn-default dropdown-toggle' } %>
+            </p>
+          </div>
+          <h5><strong>More Information</strong></h5>
+          <div class="basic-info char-option"> 
+            <p class="char-edit">
+                <%= f.check_box :is_first_generation_college_student %>
+                <%= f.label "First generation college student", :class => "char-field-title" %>
+            </p>
+            
+            <p class="char-edit">
+              <%= f.check_box :is_physically_disabled %>
+              <%= f.label "Physically disabled", :class => "char-field-title" %>
+            </p>
+            
+            <p class="char-edit">
+              <%= f.check_box :is_parent %>
+              <%= f.label "Parent", :class => "char-field-title" %>
+            </p>
+            
+            <p class="char-edit">
+              <%= f.check_box :is_single_parent %>
+              <%= f.label "Single Parent", :class => "char-field-title" %>
+            </p>
+            
+            <p class="char-edit">
+              <%= f.check_box :is_from_foster_care %>
+              <%= f.label "From foster care", :class => "char-field-title" %>
+            </p>
+            
+            <p class="char-edit">
+              <%= f.check_box :is_intercollegiate_athlete %>
+              <%= f.label "Intercollegiate athlete", :class => "char-field-title" %><br>
+            </p>
+            
+            <p class="char-edit">
+              <%= f.check_box :is_military %>
+              <%= f.label "Military", :class => "char-field-title" %>
+            </p>
+            
+            <p class="char-edit">
+              <%= f.check_box :is_out_of_state_student %>
+              <%= f.label "Out of state student", :class => "char-field-title" %>
+            </p>
           
-          <p class="char-edit">
-            <%= f.check_box :is_physically_disabled %>
-            <%= f.label "Physically disabled", :class => "char-field-title" %>
-          </p>
-          
-          <p class="char-edit">
-            <%= f.check_box :is_parent %>
-            <%= f.label "Parent", :class => "char-field-title" %>
-          </p>
-          
-          <p class="char-edit">
-            <%= f.check_box :is_single_parent %>
-            <%= f.label "Single Parent", :class => "char-field-title" %>
-          </p>
-          
-          <p class="char-edit">
-            <%= f.check_box :is_from_foster_care %>
-            <%= f.label "From foster care", :class => "char-field-title" %>
-          </p>
-          
-          <p class="char-edit">
-            <%= f.check_box :is_intercollegiate_athlete %>
-            <%= f.label "Intercollegiate athlete", :class => "char-field-title" %><br>
-          </p>
-          
-          <p class="char-edit">
-            <%= f.check_box :is_military %>
-            <%= f.label "Military", :class => "char-field-title" %>
-          </p>
-          
-          <p class="char-edit">
-            <%= f.check_box :is_out_of_state_student %>
-            <%= f.label "Out of state student", :class => "char-field-title" %>
-          </p>
-        
-          <p class="char-edit">
-            <%= f.check_box :is_international_student %>
-            <%= f.label "International Student", :class => "char-field-title" %>
-          </p>
-          
-          <p class="char-edit">
-            <%= f.check_box :is_transfer_student %>
-            <%= f.label "Transfer student", :class => "char-field-title" %>
-          </p>
+            <p class="char-edit">
+              <%= f.check_box :is_international_student %>
+              <%= f.label "International Student", :class => "char-field-title" %>
+            </p>
+            
+            <p class="char-edit">
+              <%= f.check_box :is_transfer_student %>
+              <%= f.label "Transfer student", :class => "char-field-title" %>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-md-5 col-sm-offset-1">
-      <div class="char-box">
-        <h4><strong>Characteristics</strong></h4>
-        <%= render 'profiles/edit_characteristic', title: "Mental Health", name: "mental_health", f: f, id: "edit-mental-health" %>
-        <%= render 'profiles/edit_characteristic', title: "Gender", name: "gender", f: f, id: "edit-gender" %>
-        <%= render 'profiles/edit_characteristic', title: "Ethnicity", name: "ethnicity", f: f, id: "edit-ethnicity" %>
-        <%= render 'profiles/edit_characteristic', title: "Academic Focus", name: "academic_focus", f: f, id: "edit-academic-focus" %>
-      </div><br>
-      <div class="actions">
-        <%= f.submit "Update", class: 'btn btn-primary' %>
-        <%= link_to 'Profile', @profile , class: 'btn btn-default' %>
+      <div class="col-md-5 col-sm-offset-1">
+        <div class="char-box">
+          <h4><strong>Characteristics</strong></h4>
+          <%= render 'profiles/edit_characteristic', title: "Mental Health", name: "mental_health", f: f, id: "edit-mental-health" %>
+          <%= render 'profiles/edit_characteristic', title: "Gender", name: "gender", f: f, id: "edit-gender" %>
+          <%= render 'profiles/edit_characteristic', title: "Ethnicity", name: "ethnicity", f: f, id: "edit-ethnicity" %>
+          <%= render 'profiles/edit_characteristic', title: "Academic Focus", name: "academic_focus", f: f, id: "edit-academic-focus" %>
+        </div><br>
+        <div class="actions">
+          <%= f.submit "Update", class: 'btn btn-primary' %>
+          <%= link_to 'Profile', @profile , class: 'btn btn-default' %>
+        </div>
       </div>
     </div>
   </div>
-</div>
 <% end %>
 
 

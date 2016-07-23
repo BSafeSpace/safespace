@@ -2,5 +2,6 @@
 	<%= f.input :name %>
 	<%= f.input :description %>
 	<%= f.input :url %>
-	<%= f.submit %>
+	<%= f.button :submit, button_name, class: 'btn btn-success' %>
+	<%= link_to "Cancel", 'javascript:;', class: 'btn btn-default', id: 'cancel-btn' %>
 <% end %>

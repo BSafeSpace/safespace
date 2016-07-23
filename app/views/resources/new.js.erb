@@ -1,1 +1,6 @@
-$('#new_link').hide().after('<%= j render("form") %>');
+$('#new_link').hide().after("<%= j render partial: 'form', locals: {button_name: 'Create Resource'} %>");
+
+$('#cancel-btn').click(function() {
+	$('.new_resource').hide();
+	$('#new_link').show();
+});
