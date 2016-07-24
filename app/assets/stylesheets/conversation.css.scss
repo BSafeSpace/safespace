@@ -78,6 +78,17 @@
 	padding-left: 0.5vw;
 }
 
+.chat-box {
+	padding-top: 25px;
+	padding-bottom: 25px;
+	border: thin solid #c8ccd0;
+	border-top: 0;
+}
+
+.tab-pane {
+	padding-top: 0px;
+}
+
 // Recommend Modal
 #recommend-modal-title {
     border-radius: 10px 10px 0 0;
