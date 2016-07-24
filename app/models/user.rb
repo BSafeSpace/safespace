@@ -82,6 +82,10 @@ class User < ActiveRecord::Base
     profile.online
   end
 
+  def block_exists?(user)
+    Block.block?(self.id, user.id)
+  end
+
   def all_friends
     if self.peer_counselor
       return self.friends.reject{ |f| f.peer_counselor }
