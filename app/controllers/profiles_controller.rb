@@ -9,7 +9,6 @@ class ProfilesController < ApplicationController
     @profiles = build_query  
     @online_only = query_online_only?
     @sort_type = query_sort_type
-    @current_characteristics = current_user.profile.characteristics
 
     gon.profiles = @profiles
     setup_tutorial
@@ -25,7 +24,6 @@ class ProfilesController < ApplicationController
     @profiles = build_query  
     @online_only = query_online_only?
     @sort_type = query_sort_type
-    @current_characteristics = current_user.profile.characteristics
 
     gon.profiles = @profiles
     setup_tutorial
