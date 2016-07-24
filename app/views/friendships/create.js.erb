@@ -31,32 +31,16 @@ $('.profile-results-container').append('<%= j render("/profiles/search_results")
 $("#flash").html('<%= j render partial: "shared/flash" %>');
 
 <% if @sort_type == "age" %>
-  $('#age-sort').parent().addClass("disabled")
-  $('#name-sort').click(function() {
-    $('select#q_s_0_name>option:eq(2)').prop('selected', true);
-    $('input[name=commit').click()
-  });
+  disableSort('#age-sort');
+  bindSort('#name-sort', '2');
 <% elsif @sort_type == "name" %>
-  $('#name-sort').parent().addClass("disabled")
-  $('#age-sort').click(function() {
-    $('select#q_s_0_name>option:eq(1)').prop('selected', true);
-    $('input[name=commit').click()
-  });
+  disabledSort('#name-sort');
+  bindSort('#age-sort', '1');
 <% else %>
-  $('#age-sort').click(function() {
-    $('select#q_s_0_name>option:eq(1)').prop('selected', true);
-    $('input[name=commit').click()
-  });
-
-  $('#name-sort').click(function() {
-    $('select#q_s_0_name>option:eq(2)').prop('selected', true);
-    $('input[name=commit').click()
-  });
+  bindSort('#age-sort', '1');
+  bindSort('#name-sort', '2');
 <% end %>
 
-$('#toggle-online-profiles').click(function() {
-    $('input#q_online_or_all_profiles').prop('checked', !$('input#q_online_or_all_profiles').is(':checked'));
-    $('input[name=commit').click();
-});
+bindOnlineToggle();
 
 $('div.users-found').html("<%= @num_profiles %> users found")

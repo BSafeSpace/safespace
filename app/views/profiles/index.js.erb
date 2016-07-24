@@ -2,36 +2,9 @@ if (!gon.doneTutFilter) {
 	gon.doneTutFilter = true;
 }
 
-$('.search-field').remove();
-$('.filters-container').append('<%= j render("search_form") %>');
-
-$('.pagination').remove()
-$('.results-container').remove();
-$('.profile-results-container').append('<%= j render("search_results") %>');
-
-$(function() {
-  $( "#slider-range" ).slider({
-    range: true,
-    min: 16,
-    max: 60,
-    values: [ $('input#q_age_gteq').val(), $('input#q_age_lteq').val() ],
-    slide: function(event, ui) {
-      $( "#age-range" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
-    },
-    change: function(event, ui) {
-      $('input#q_age_gteq').val(ui.values[0])
-      $('input#q_age_lteq').val(ui.values[1])
-    }
-  });
-  $( "#age-range" ).val( $( "#slider-range" ).slider( "values", 0 ) + " - " + $( "#slider-range" ).slider( "values", 1 ) );
-  
-});
-
-$('#toggle-online-profiles').click(function() {
-    $('input#q_online_or_all_profiles').prop('checked', !$('input#q_online_or_all_profiles').is(':checked'));
-    $('input[name=commit').click();
-});
-
+updateSearchContent('<%= j render("search_form") %>', '<%= j render("search_results") %>');
+bindAgeSlider();
+bindOnlineToggle();
 $('div.users-found').html("<%= @num_profiles %> users found")
 
 //initialize scrollbars
@@ -42,42 +15,19 @@ $('.custom-scroll').mCustomScrollbar({
 
 <% if current_user.peer_counselor %>
   <% if @sort_type == "recommend_count" %>
-    $('#recommend-sort').parent().addClass("disabled")
+    disableSort('#recommend-sort');
   <% else %>
-    $('#recommend-sort').click(function() {
-      $('select#q_s_0_name>option:eq(3)').prop('selected', true);
-      $('select#q_s_0_dir>option:eq(2)').prop('selected', true);
-      $('input[name=commit').click()
-    });
+    bindRecommendSort();
   <% end %>
 <% else %>
   <% if @sort_type == "age" %>
-    $('#age-sort').parent().addClass("disabled")
-    $('#name-sort').click(function() {
-      $('select#q_s_0_name>option:eq(2)').prop('selected', true);
-      $('input[name=commit').click()
-    });
+    disableSort('#age-sort');
+    bindSort('#name-sort', '2');
   <% elsif @sort_type == "name" %>
-    $('#name-sort').parent().addClass("disabled")
-    $('#age-sort').click(function() {
-      $('select#q_s_0_name>option:eq(1)').prop('selected', true);
-      $('input[name=commit').click()
-    });
+    disableSort('#name-sort');
+    bindSort('#age-sort', '1');
   <% else %>
-    $('#age-sort').click(function() {
-      $('select#q_s_0_name>option:eq(1)').prop('selected', true);
-      $('input[name=commit').click()
-    });
-
-    $('#name-sort').click(function() {
-      $('select#q_s_0_name>option:eq(2)').prop('selected', true);
-      $('input[name=commit').click()
-    });
+    bindSort('#name-sort', '2');
+    bindSort('#age-sort', '1');
   <% end %>
 <% end %>
-
-$('#default-search').click(function() {
-  <% current_user.get_characteristics.each do |char| %>
-    $('input#q_characteristics_id_in_any_<%= char.id %>').prop('checked', true);
-  <% end %>
-});
