@@ -1,11 +1,11 @@
 <fieldset class="search-field">
   <%= search_form_for @search, remote: true, url: search_profiles_path, html: { method: :post } do |f| %>
     <div class="filter-button">
+      <%= link_to "Default", "#", id: "default-search", class: "btn btn-default" %>
       <%= button_tag "Clear", type: :reset, class: 'btn btn-default' %>
-      <%= f.submit "Save Filters", class: 'btn btn-primary' %>
+      <%= f.submit "Save Filters", id: 'save-filters', class: 'btn btn-primary' %>
     </div>
     <br>
-    <a href="#" id="default-search">Default</a>
 
     <div class="search-scroll custom-scroll">
 

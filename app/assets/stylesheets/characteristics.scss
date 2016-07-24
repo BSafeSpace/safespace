@@ -2,13 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.profile-header {
-    text-align: center;
-    font-weight: 700;
-    font-size: 36px;
-    padding: 10px;
-}
-
 .check-box-scroll {
     height: 200px;
     overflow: auto;
@@ -26,12 +19,6 @@
 
 .button-header {
     display: inline;
-}
-
-.filter-button {
-    display: inline-block;
-    margin-left: 5vw;
-    margin-bottom: 1vh;
 }
 
 .col-centered{

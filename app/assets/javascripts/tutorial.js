@@ -2,16 +2,33 @@ $(function() {
 
 	// initialize Bootstrap Tooltips
 	var $filterTooltip = $('#filter-tooltip');
+	var $defaultTooltip = $('#default-tooltip');
 
 	if (gon.doneTutFilter == false) {
 		$(".filters-container.expose").css('z-index','9998');
     	$('#overlay').fadeIn(300);
-    	$filterTooltip.tooltip('show');
 
-    	$('.filter-button').click(function(){
+    	$filterTooltip.tooltip({
+    		container: 'body',
+            html: true,
+            trigger: 'manual',
+            title: 'Click Default to set the filters to your profile characteristics',
+            placement: 'right'
+    	}).tooltip('show');
+
+    	$defaultTooltip.tooltip({
+    		container: 'body',
+            html: true,
+            trigger: 'manual',
+            title: 'Search for peers based on their characteristics',
+            placement: 'right'
+    	}).tooltip('show');
+
+    	$('.save-filters').click(function(){
 		    $('#overlay').fadeOut(300, function(){
 		        $('.filters-container.expose').css('z-index','1');
 		        $filterTooltip.tooltip('hide');
+		        $defaultTooltip.tooltip('hide');
 		    });
 
 		    $.ajax({
@@ -45,7 +62,7 @@ $(function() {
                 container: 'body',
                 html: true,
                 trigger: 'manual',
-                title: 'Add a buddy as a friend!',
+                title: 'Add a buddy as a friend',
                 placement: 'right'
             }).tooltip('show');
 
