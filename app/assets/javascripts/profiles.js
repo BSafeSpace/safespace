@@ -53,5 +53,58 @@ $(function() {
   });
 });
 
+var bindOnlineToggle = function() {
+  $('#toggle-online-profiles').click(function() {
+    $('input#q_online_or_all_profiles').prop('checked', !$('input#q_online_or_all_profiles').is(':checked'));
+    $('input[name=commit').click();
+  });
+}
+
+var bindRecommendSort = function() {
+  $('#recommend-sort').click(function() {
+    $('select#q_s_0_name>option:eq(3)').prop('selected', true);
+    $('select#q_s_0_dir>option:eq(2)').prop('selected', true);
+    $('input[name=commit').click()
+  });
+}
+
+var bindSort = function(sortId, checkPos) {
+  $(sortId).click(function() {
+    var selectId = 'select#q_s_0_name>option:eq(' + checkPos + ')'
+    $(selectId).prop('selected', true);
+    $('input[name=commit').click()
+  });
+}
+
+var updateSearchContent = function(searchFormContent, searchResultsContent) {
+  $('.search-field').remove();
+  $('.filters-container').append(searchFormContent);
+
+  $('.pagination').remove()
+  $('.results-container').remove();
+  $('.profile-results-container').append(searchResultsContent);
+}
+
+var bindAgeSlider = function() {
+  $( "#slider-range" ).slider({
+    range: true,
+    min: 16,
+    max: 60,
+    values: [ $('input#q_age_gteq').val(), $('input#q_age_lteq').val() ],
+    slide: function(event, ui) {
+      $( "#age-range" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+    },
+    change: function(event, ui) {
+      $('input#q_age_gteq').val(ui.values[0])
+      $('input#q_age_lteq').val(ui.values[1])
+    }
+  });
+  $( "#age-range" ).val( $( "#slider-range" ).slider( "values", 0 ) + " - " + $( "#slider-range" ).slider( "values", 1 ) );
+}
+
+var disableSort = function(sortId) {
+  $(sortId).parent().addClass("disabled")
+}
+
 
 

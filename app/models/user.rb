@@ -106,6 +106,10 @@ class User < ActiveRecord::Base
     self.profile.characteristics
   end
 
+  def get_characteristic_ids
+    self.get_characteristics.map { |char| char.id.to_s }
+  end
+
   def notify
     if unread_count.nil?
       update_attributes(:unread_count => 0)
