@@ -20,7 +20,7 @@ $(function() {
     		container: 'body',
             html: true,
             trigger: 'manual',
-            title: 'Search for peers based on their characteristics',
+            title: 'Search for peers based on certain characteristics',
             placement: 'right'
     	}).tooltip('show');
 
