@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
-  resources :resources
+  resources :resources do
+    post 'sort', on: :collection
+  end
   resources :quizzes
   resources :friendships
   resources :characteristics

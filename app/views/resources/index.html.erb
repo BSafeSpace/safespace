@@ -3,9 +3,11 @@
 	<% if user_signed_in? && current_user.peer_counselor %>
 		<%= link_to "Add Resource", new_resource_path, id: "new_link", remote: true %>
 	<% end %>
-	<div class="resources <%= 'resources-sortable' if user_signed_in? && current_user.peer_counselor %>">
+	<div class="resources <%= 'resources-sortable' if user_signed_in? && current_user.peer_counselor %>"
+		 data-update-url="<%= sort_resources_url %>">
 		<% @resources.each do |r| %>
 			<div class="resource" id="resource_<%= r.id %>">
+				<span class="handle">[drag]</span>
 				<div class="resource-item">
 					<h3>
 						<%= link_to r.name, url_with_protocol(r.url), :target => '_blank' %>

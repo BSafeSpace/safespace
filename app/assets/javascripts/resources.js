@@ -9,6 +9,7 @@ $(function() {
 	$(".resources-sortable").sortable({
 	    placeholder: 'resource-placeholder',
 	    axis: "y",
+	    handle: '.handle',
 	    revert: 150,
 	    start: function(e, ui){
 	        
@@ -33,6 +34,9 @@ $(function() {
 	            $('<div class="resource-placeholder-animator" data-height="' + placeholderHeight + '"></div>').insertAfter(ui.placeholder);
 	        });
 	        
+	    },
+	    update: function(event, ui) {
+	    	$.post($(this).data('update-url'), $(this).sortable('serialize'));
 	    },
 	    stop: function(e, ui) {
 	        

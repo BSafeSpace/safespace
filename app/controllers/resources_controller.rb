@@ -1,6 +1,6 @@
 class ResourcesController < ApplicationController
   def index
-  	@resources = Resource.all
+  	@resources = Resource.order("position")
   end
 
   def new
@@ -42,6 +42,13 @@ class ResourcesController < ApplicationController
   		format.html { redirect_to resources_url }
   		format.js
   	end
+  end
+
+  def sort
+    params[:resource].each_with_index do |id, index|
+      Resource.where(id: id).update_all({position: index+1})
+    end
+    render nothing: true
   end
 
   private
