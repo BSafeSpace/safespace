@@ -3,7 +3,7 @@
 	<% if user_signed_in? && current_user.peer_counselor %>
 		<%= link_to "Add Resource", new_resource_path, id: "new_link", remote: true %>
 	<% end %>
-	<div class="resources">
+	<div class="resources <%= 'resources-sortable' if user_signed_in? && current_user.peer_counselor %>">
 		<% @resources.each do |r| %>
 			<div class="resource" id="resource_<%= r.id %>">
 				<div class="resource-item">

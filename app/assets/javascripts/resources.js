@@ -6,7 +6,7 @@ $(function() {
 		console.log('clicked');
 	});
 
-	$(".resources").sortable({
+	$(".resources-sortable").sortable({
 	    placeholder: 'resource-placeholder',
 	    axis: "y",
 	    revert: 150,
