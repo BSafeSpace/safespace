@@ -47,6 +47,8 @@ class MessagesController < ApplicationController
       @conversation.update_time 
       @message.user.try(:touch)
       @messages = @conversation.messages
+      @sender = current_user
+      @receiver = @conversation.get_other_user(@sender)
 
       if @messages.length == 0
         @last_user = nil
@@ -65,7 +67,6 @@ class MessagesController < ApplicationController
           @messages.last.read = true;
         else
           # check if message sender is muted; if not then notify receiver
-          @receiver = @conversation.get_other_user(current_user)
           if Mute.mute?(@receiver.id, @message.user.id).empty?
             @message.notify_user(@receiver)
           end

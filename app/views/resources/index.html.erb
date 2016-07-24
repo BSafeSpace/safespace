@@ -1,7 +1,7 @@
 <div class="text-container">
 	<h2>Resources List</h2>
 	<% if user_signed_in? && current_user.peer_counselor %>
-		<%= link_to "New Resource", new_resource_path, id: "new_link", remote: true %>
+		<%= link_to "Add Resource", new_resource_path, id: "new_link", remote: true %>
 	<% end %>
 	<% @resources.each do |r| %>
 		<div class="resource" id="resource_<%= r.id %>">

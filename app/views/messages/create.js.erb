@@ -10,9 +10,24 @@
 	else{
 		$("#msg").append("<%= j render 'sender' %>");
 	}
+	
+	var $previewText = $("div[data-conv-id='<%=@conversation.id.to_s%>']")
+	if ( !$previewText.length ) {
+		// add data-conv-id to status-text
+		var $senderText = $("a[data-method='post']:contains('<%= @sender.username %>')").parent().next('.status-text');
+		var $receiverText = $("a[data-method='post']:contains('<%= @receiver.username %>')").parent().next('.status-text');
 
-	// update message preview
-	$("div[data-conv-id='<%=@conversation.id.to_s%>'").text("<%= j render '/conversations/message_preview' %>");
+		//update message preview for new conversations
+		$senderText.text("<%= j render '/conversations/message_preview' %>");
+		$receiverText.text("<%= j render '/conversations/message_preview' %>");
+		console.log($receiverText.data('conv-id'));
+		console.log($receiverText.length);
+		console.log($receiverText.text());
+		console.log('no preview text');
+	}
+
+	// update message preview for existing conversations
+	$("div[data-conv-id='<%=@conversation.id.to_s%>']").text("<%= j render '/conversations/message_preview' %>");
 
 <% end %>
 
