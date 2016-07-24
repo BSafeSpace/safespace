@@ -105,6 +105,3 @@ var bindAgeSlider = function() {
 var disableSort = function(sortId) {
   $(sortId).parent().addClass("disabled")
 }
-
-
-

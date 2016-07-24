@@ -14,7 +14,7 @@ $(function() {
 		  $('#people-tooltip').tooltip({
             html: true,
             trigger: 'manual',
-            title: "Done with your bio? Let's go to the People page to connect with peers!",
+            title: "Done with your bio? Click People to connect with peers",
             placement: 'bottom'
           }).tooltip('show');
 

@@ -46,9 +46,6 @@
               <%= link_to "Start a Chat", "#", class: "btn btn-success start-conversation",
                   "data-sid" => current_user.id, "data-rip" => @profile_user.id %>
             <% elsif current_user.requested_friendships.include? @profile_user %>
-              <%= link_to friendship_path(:id => @profile_user), :method => "put", :class => "friend-link" do %>
-                <i class="fa fa-check fa-2x icon-cog" aria-hidden="true"></i>
-              <% end %> 
               <%= link_to friendship_path(:id => @profile_user), :method => :delete, :class => "friend-link" do %>
                 <i class="fa fa-times fa-2x icon-cog" aria-hidden="true"></i>
               <% end %>
@@ -60,7 +57,7 @@
                 <i class="fa fa-plus fa-2x icon-cog" aria-hidden="true"></i>
               <% end %>
             <% else %>
-              <div class="friend-link" id="friend-info">already friends</div>
+              <i class="fa fa-check fa-2x icon-cog friend-link" aria-hidden="true"></i>
             <% end %>
           </div>
             
