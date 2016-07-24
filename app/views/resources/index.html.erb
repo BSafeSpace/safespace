@@ -7,12 +7,13 @@
 		 data-update-url="<%= sort_resources_url %>">
 		<% @resources.each do |r| %>
 			<div class="resource" id="resource_<%= r.id %>">
-				<span class="handle">[drag]</span>
 				<div class="resource-item">
 					<h3>
 						<%= link_to r.name, url_with_protocol(r.url), :target => '_blank' %>
 						<% if user_signed_in? && current_user.peer_counselor %>
 							<div class="resource-links">
+								<%= icon('arrows', class: 'handle') %>
+								|
 								<div class="resource-edit-link">
 									<%= link_to_icon " Edit", edit_resource_path(r.id), "pencil" %>
 								</div>
