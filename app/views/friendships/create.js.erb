@@ -25,7 +25,7 @@ if (gon.doneTutFilter && !gon.doneTutAddFriend) {
 
 $('.pagination').remove()
 $('.results-container').remove();
-$('.profile-results-container').append('<%= j render("/profiles/search_results") %>');
+$('.profile-results-container').append('<%= j render("/profiles/search_partials/search_results") %>');
 
 // dynamically add flash message
 $("#flash").html('<%= j render partial: "shared/flash" %>');

@@ -9,7 +9,7 @@
 
     <div class="search-scroll custom-scroll">
 
-        <%= render '/profiles/char_section', name: "Mental Health", category: "mental_health", f: f %>
+        <%= render '/profiles/search_partials/char_section', name: "Mental Health", category: "mental_health", f: f %>
     
         <div class="char-section">
           <h5 class="button-header">
@@ -18,11 +18,11 @@
           <div id="slider-range"></div>
         </div>
     
-        <%= render '/profiles/char_section', name: "Gender", category: "gender", f: f %>
-        <%= render '/profiles/char_section', name: "Ethnicity", category: "ethnicity", f: f %>
-        <%= render '/profiles/char_section', name: "Academic", category: "academic_focus", f: f %>
-        <%= render '/profiles/char_section', name: "Religion", category: "religion", f: f %>
-        <%= render '/profiles/basic_info_section', f: f %>
+        <%= render '/profiles/search_partials/char_section', name: "Gender", category: "gender", f: f %>
+        <%= render '/profiles/search_partials/char_section', name: "Ethnicity", category: "ethnicity", f: f %>
+        <%= render '/profiles/search_partials/char_section', name: "Academic", category: "academic_focus", f: f %>
+        <%= render '/profiles/search_partials/char_section', name: "Religion", category: "religion", f: f %>
+        <%= render '/profiles/search_partials/basic_info_section', f: f %>
 
         <div style="display: none">
           <%= f.sort_fields do |s| %>
