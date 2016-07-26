@@ -1,7 +1,7 @@
 $(function() {
 	$('.resource').on('click', '#cancel-btn', function() {
 		var $resourceItem = $(this).parent().siblings('.resource-item');
-	    $('.edit_resource').hide();
+	    $('.edit_resource').remove();
 		$resourceItem.show();
 		console.log('clicked');
 	});
@@ -45,9 +45,22 @@ $(function() {
 	    },
 	});
 
-	$('body').on('renderCkeditor', function( event, formID ) {
-		console.log('rendercke')
+	$('body').on('renderCkeditor', function( event, formID, formType ) {
+		console.log('rendercke');
+		console.log(formType);
+        if (formType == 'new') {
+        	console.log('formtype');
+        	cancelNew();
+        }
         CKEDITOR.replace( formID );
     });
+
+    function cancelNew() {
+    	$('#cancel-btn').click(function() {
+			console.log('cancel for new');
+			$('.new_resource').remove();
+			$('#new_link').show();
+		});
+    };
 	
 });

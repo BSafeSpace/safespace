@@ -1,6 +1,6 @@
 $('#resource_<%= @resource.id %> .resource-item').hide()
 												 .after("<%= j render partial: 'form', locals: {button_name: 'Save Changes'} %>")
-												 .trigger('renderCkeditor', ['resource_description']);
+												 .trigger('renderCkeditor', ['resource_description', 'edit']);
 
 // $('resource_<%= @resource.id %>').prepend()
 
