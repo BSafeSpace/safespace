@@ -2,7 +2,7 @@ if (!gon.doneTutFilter) {
 	gon.doneTutFilter = true;
 }
 
-updateSearchContent('<%= j render("search_form") %>', '<%= j render("search_results") %>');
+updateSearchContent('<%= j render("/profiles/search_partials/search_form") %>', '<%= j render("/profiles/search_partials/search_results") %>');
 bindAgeSlider();
 bindOnlineToggle();
 $('div.users-found').html("<%= @num_profiles %> users found")

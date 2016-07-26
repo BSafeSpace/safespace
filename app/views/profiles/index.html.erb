@@ -8,7 +8,7 @@
 	  
 	    <div id="default-tooltip" class="col-md-4 filters-container expose">
 	        <legend class="filter-legend search-header" id="filter-tooltip">Filter by</legend>
-	        <%= render '/profiles/search_form' %>
+	        <%= render '/profiles/search_partials/search_form' %>
 	    </div>
 	    
 	    <div class="col-md-8 profile-results-container expose">
@@ -16,10 +16,10 @@
 	        	Results
 	        	<div class="users-found"><%= @num_profiles %> users found</div>
 	        </legend>
-	        <%= render '/profiles/search_results' %>
+	        <%= render '/profiles/search_partials/search_results' %>
 	    </div>
 	</div>
 </div>
 
-<%= render 'profiles/profile_modal' %>
+<%= render 'profiles/show_partials/profile_modal' %>
 
