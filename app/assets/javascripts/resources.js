@@ -44,4 +44,10 @@ $(function() {
 	        
 	    },
 	});
+
+	$('body').on('renderCkeditor', function( event, formID ) {
+		console.log('rendercke')
+        CKEDITOR.replace( formID );
+    });
+	
 });

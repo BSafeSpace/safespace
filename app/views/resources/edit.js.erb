@@ -1,4 +1,7 @@
-$('#resource_<%= @resource.id %> .resource-item').hide().after("<%= j render partial: 'form', locals: {button_name: 'Save Changes'} %>");
+$('#resource_<%= @resource.id %> .resource-item').hide()
+												 .after("<%= j render partial: 'form', locals: {button_name: 'Save Changes'} %>")
+												 .trigger('renderCkeditor', ['resource_description']);
+
 // $('resource_<%= @resource.id %>').prepend()
 
 // $('#cancel-btn').click(function() {
