@@ -19,4 +19,5 @@
 //= require bootstrap-sprockets
 //= require private_pub
 //= require jquery-readyselector
+//= require ckeditor/init
 //= require_tree .

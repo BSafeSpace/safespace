@@ -62,6 +62,9 @@ gem 'httparty', '~> 0.13.7'
 # For updating the position attribute of resources
 gem 'acts_as_list'
 
+# For web content creation (tools for Peer Counselors creating resources)
+gem 'ckeditor'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

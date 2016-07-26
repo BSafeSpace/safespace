@@ -1,0 +1,24 @@
+<div class="resource" id="resource_<%= resource.id %>">
+	<div class="resource-item">
+		<div class="resource-header">
+			<h3>
+				<%= link_to resource.name, url_with_protocol(resource.url), :target => '_blank' %>
+			</h3>
+			<% if user_signed_in? && current_user.peer_counselor %>
+				<div class="resource-links">
+					<%= icon('arrows', class: 'handle') %>
+					|
+					<div class="resource-edit-link">
+						<%= link_to_icon " Edit", edit_resource_path(resource.id), "pencil" %>
+					</div>
+					<div class="resource-remove-link">
+						|
+						<%= link_to "Remove", resource, method: :delete, data: {confirm: "Are you sure?"}, remote: true %>	
+					</div>
+				</div>
+			<% end %>
+		</div>
+		<p><%= simple_format(resource.description) %></p>
+
+	</div>
+</div>
