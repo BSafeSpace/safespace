@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   
   resources :profiles do
     collection do 
+      get 'default_search'
       match 'search' => 'profiles#search', via: [:get, :post], as: :search
     end
   end

@@ -120,6 +120,16 @@ class ProfilesController < ApplicationController
     end
   end
 
+  # GET /profiles/default_search
+  def default_search
+    @user_chars = current_user.get_characteristics
+    @char_ids = []
+    @user_chars.each do |char|
+      @char_ids.push(char.id)
+    end
+    render json: { char_ids: @char_ids }
+  end
+
   protected
 
   def fix_json_params
