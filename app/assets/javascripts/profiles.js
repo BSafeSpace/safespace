@@ -153,7 +153,6 @@ $(function() {
   });
 
   // default functionality
-  defaultSearch();
   $('#default-search').click(function() {
     defaultSearch();
   });
@@ -192,3 +191,7 @@ $(function() {
   
   bindPrefrenceSelectors();
 });
+
+$('.profiles.index').ready(function() {
+  defaultSearch();
+}
