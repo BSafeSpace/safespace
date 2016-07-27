@@ -21,6 +21,10 @@ class ApplicationController < ActionController::Base
     redirect_to root_path if (!current_user && not_accessible.include?(controller_name))
   end
 
+  def liability_required
+    redirect_to('/') if current_user.signed_liability.blank?
+  end
+
   def toggle_appear_offline
     current_user.toggle_appear_offline if current_user
 

@@ -1,6 +1,7 @@
 require "prawn"
 class ConversationsController < ApplicationController
   # before_action :authenticate_user
+  before_filter :liability_required
 
   def index
     @user = current_user
