@@ -194,4 +194,4 @@ $(function() {
 
 $('.profiles.index').ready(function() {
   defaultSearch();
-}
+});
