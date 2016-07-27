@@ -11,7 +11,6 @@ var bindPrefrenceSelectors = function() {
       $('select#preferences_ethnicity option:eq(' + optionIndex + ')').attr('disabled', 'disabled');
       $('select#preferences_academic_focus option:eq(' + optionIndex + ')').attr('disabled', 'disabled');
       $('select#preferences_religion option:eq(' + optionIndex + ')').attr('disabled', 'disabled');
->>>>>>> made it so different preferences cannot have the same ranking
     }
     $('select#preferences_gender option:eq(' + previousIndex + ')').removeAttr('disabled');
     $('select#preferences_ethnicity option:eq(' + previousIndex + ')').removeAttr('disabled');
