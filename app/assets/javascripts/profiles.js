@@ -152,20 +152,6 @@ $(function() {
       placement: 'right'
   });
 
-  // default functionality
-  $('#default-search').click(function() {
-    defaultSearch();
-  });
-
-  function defaultSearch() {
-    $.get("/profiles/default_search", { }, function (data) {
-      var char_ids = data.char_ids;
-      for (var i = 0; i < char_ids.length; i++) {
-        $('input#q_characteristics_id_in_any_' + char_ids[i]).prop('checked', true);
-      }
-    });
-  }
-
   $( "#slider-range" ).slider({
     range: true,
     min: 16,
@@ -193,5 +179,19 @@ $(function() {
 });
 
 $('.profiles.index').ready(function() {
+  // default functionality
+  $('#default-search').click(function() {
+    defaultSearch();
+  });
+
+  function defaultSearch() {
+    $.get("/profiles/default_search", { }, function (data) {
+      var char_ids = data.char_ids;
+      for (var i = 0; i < char_ids.length; i++) {
+        $('input#q_characteristics_id_in_any_' + char_ids[i]).prop('checked', true);
+      }
+    });
+  }
+  
   defaultSearch();
 });
