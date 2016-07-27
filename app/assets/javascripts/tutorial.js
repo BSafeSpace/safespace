@@ -24,7 +24,7 @@ $(function() {
             placement: 'right'
     	}).tooltip('show');
 
-    	$('.save-filters').click(function(){
+    	$('#save-filters').click(function(){
 		    $('#overlay').fadeOut(300, function(){
 		        $('.filters-container.expose').css('z-index','1');
 		        $filterTooltip.tooltip('hide');
@@ -43,7 +43,7 @@ $(function() {
 		});
 	}
 
-	$('.filter-button').click(function() {
+	$('#save-filters').click(function() {
 		if (gon.doneTutFilter && !gon.doneTutAddFriend) {
 	    	tutorial2();
 		}
