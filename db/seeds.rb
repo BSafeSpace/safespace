@@ -22,6 +22,7 @@ end
 
 User.create_friendship(users[1], users[2])
 User.create_friendship(users[1], users[3])
+User.create_friendship(users[3], users[7])
 
 omit_message = "Prefer to omit from personal profile"
 questions = {mental_health: [omit_message, "No specifics: seeking out peers", "Depression", "General Anxiety" , "Social Anxiety", "ADHD", "OCD", "Autistic", "Bipolar Disorder", "Post-Traumatic Stress Disorder (PTSD)", "Grieving", "Addiction", "Insomnia", "Other"],

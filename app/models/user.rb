@@ -133,10 +133,12 @@ class User < ActiveRecord::Base
     self.signed_liability = false
     self.done_tut_filter = false
     self.done_tut_add_friend = false
-    # self.non_counselor_friends.each do |friend|
-    #   @friendship = Friendship.friendship_between(self, friend)
-    #   @friendship.destroy
-    # end
+    self.non_counselor_friends.each do |friend|
+      if friend.username != 'Mason Scott'
+        @friendship = Friendship.friendship_between(self, friend)
+        @friendship.destroy
+      end
+    end
     self.save
   end
 
