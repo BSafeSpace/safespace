@@ -1,5 +1,5 @@
 $(function() {
-  //initialize scrollbars
+  // initialize scrollbars
   $('.custom-scroll').mCustomScrollbar({
       theme: "minimal-dark"
   });
@@ -14,8 +14,9 @@ $(function() {
       placement: 'right'
   });
 
-  // default functionality
+  // Profile search defaults to user characteristics
   defaultSearch();
+
   $('#default-search').click(function() {
     defaultSearch();
   });
