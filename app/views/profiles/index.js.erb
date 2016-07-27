@@ -5,6 +5,7 @@ if (!gon.doneTutFilter) {
 updateSearchContent('<%= j render("/profiles/search_partials/search_form") %>', '<%= j render("/profiles/search_partials/search_results") %>');
 bindAgeSlider();
 bindOnlineToggle();
+bindPrefrenceSelectors();
 $('div.users-found').html("<%= @num_profiles %> users found")
 
 //initialize scrollbars
