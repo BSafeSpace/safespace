@@ -130,6 +130,12 @@ class ProfilesController < ApplicationController
     render json: { char_ids: @char_ids }
   end
 
+  # PATCH/PUT /profiles/1/showcase_reset
+  def showcase_reset
+    current_user.showcase_reset
+    redirect_to intro_info_path
+  end
+
   protected
 
   def fix_json_params

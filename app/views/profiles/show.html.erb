@@ -15,6 +15,9 @@
 
       <div class="edit-profile-btn">
         <%= link_to "Edit Profile", edit_profile_path(current_user.id), class: 'btn btn-default' %>
+        <% if current_user.showcase %>
+          <%= link_to "Reset Profile", showcase_reset_profile_path(current_user.profile.id), method: :put, class: 'btn btn-danger' %>
+        <% end %>
       </div>
     </div>
 

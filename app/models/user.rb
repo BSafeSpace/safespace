@@ -94,6 +94,10 @@ class User < ActiveRecord::Base
     return self.friends
   end
 
+  def non_counselor_friends
+    self.friends.select { |friend| friend.peer_counselor == false }
+  end
+
   def online_friends
     self.all_friends.select { |friend| friend.online? }
   end
@@ -123,6 +127,17 @@ class User < ActiveRecord::Base
 
   def reset_unread
     update_attributes(:unread_count => 0)
+  end
+
+  def showcase_reset
+    self.signed_liability = false
+    self.done_tut_filter = false
+    self.done_tut_add_friend = false
+    # self.non_counselor_friends.each do |friend|
+    #   @friendship = Friendship.friendship_between(self, friend)
+    #   @friendship.destroy
+    # end
+    self.save
   end
 
 end

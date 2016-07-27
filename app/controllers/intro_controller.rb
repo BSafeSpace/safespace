@@ -40,4 +40,5 @@ class IntroController < ApplicationController
 		# end
 		render "create_bio", typeform: @typeform
 	end
+
 end
