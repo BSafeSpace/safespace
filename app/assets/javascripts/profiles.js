@@ -135,7 +135,6 @@ var disableSort = function(sortId) {
   $(sortId).parent().addClass("disabled")
 }
 
-
 $(function() {
   //initialize scrollbars
   $('.custom-scroll').mCustomScrollbar({
@@ -192,6 +191,6 @@ $('.profiles.index').ready(function() {
       }
     });
   }
-  
+
   defaultSearch();
 });
