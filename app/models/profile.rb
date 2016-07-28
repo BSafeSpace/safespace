@@ -11,6 +11,10 @@ class Profile < ActiveRecord::Base
     self.characteristics << characteristic
   end
 
+  def online_status_css
+    self.user.online_status_css
+  end
+
   def self.online_or_all_profiles(online)
   	if online
   		return Profile.where('online = ?', true)

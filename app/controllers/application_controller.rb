@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def liability_required
-    redirect_to('/') if current_user.signed_liability.blank?
+    redirect_to('/') if current_user && current_user.signed_liability.blank?
   end
 
   def toggle_appear_offline
