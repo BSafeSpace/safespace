@@ -192,6 +192,34 @@ body {
           box-shadow: none;
 }
 
+.input-form-url {
+	display: block;
+    width: 461px;
+    float: left;
+    font-size: 20px;
+    padding: 9px;
+}
+
+.input[type="text"] {
+	margin-top: 3px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #333;
+    cursor: text;
+    border: 1px solid #cccccc;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    font-family: "Avenir Next W01", Arial, "sans-serif";
+    font-size: 1em;
+    background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    padding: 8px;
+    margin-left: 0;
+}
+
 .protocol-container {
 	float: right;
 	top: 60%;
@@ -218,6 +246,18 @@ body {
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
+    position: relative;
+}
+
+.protocol-menu > h4,
+.protocol-menu > input {
+	position: absolute;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.protocol-menu > h4 {
+	top: 30%;
 }
 
 .margin-negative {
@@ -226,6 +266,14 @@ body {
 
 .margin-zero {
 	margin-right: 0;
+}
+
+.copy-container {
+	position: absolute;
+	top: 50%;
+	left: 47%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
 }
 
 .vertical-text {
