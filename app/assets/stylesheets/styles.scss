@@ -54,9 +54,48 @@
 	margin-right: 1vh;
 }
 
+// Flash message styles
+.alert-info {
+	background-color: #5DAC58;
+	border-color: transparent;
+    color: #fff;
+    font-weight: 500;
+}
+
 .flash {
     // background-color: rgba(192, 192, 192, 0.5);
     text-align: center;
-    font-style: italic;
-    font-size: 120%;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+
+    animation: signup-response 0.5s 1;
+    -webkit-animation: signup-response 0.5s 1;
+    animation-fill-mode: forwards;
+
+    animation-delay: 1s;
+    -webkit-animation-delay: 1s; /* Safari and Chrome */
+    -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes signup-response{
+    from {
+    	opacity :1;
+    }
+    to {
+    	transform: translateY(-100%);
+    	opacity :0;
+    }
+}
+
+@-webkit-keyframes signup-response{
+    from {opacity :1;}
+    to {
+    	opacity :0;
+    	transform: translateY(-100%);
+    }
+}
+
+.fade {
+	transition: all 0.4s ease-in-out;
 }

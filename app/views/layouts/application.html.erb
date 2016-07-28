@@ -16,6 +16,10 @@
   </head>
   <body class="<%= controller_name %> <%= action_name %>">
     
+    <div class="flash">
+      <%= render partial: "shared/flash" %>
+    </div>
+
     <nav class="navbar navbar-default homepage-nav">
       <div class="container">
         <div class="navbar-header">
@@ -74,10 +78,6 @@
     </nav>
     
     <div class="media-list" id="notif"></div>
-
-    <div class="flash">
-      <%= render partial: "shared/flash" %>
-    </div>
     
     <%= yield :top_content %>
 
