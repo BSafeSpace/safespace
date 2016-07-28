@@ -193,7 +193,7 @@ label {
 
 // border-top: 3px solid rgba(0, 0, 0, .10);
 
-// Protocol Button
+// Protocol Styles
 html, body {
     overflow-x: hidden;
 }
@@ -214,14 +214,13 @@ body {
 
 .input-form-url {
 	display: block;
-    width: 461px;
+    width: 400px;
     float: left;
     font-size: 20px;
     padding: 9px;
 }
 
-.input[type="text"] {
-	margin-top: 3px;
+input[type="text"] {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -231,13 +230,20 @@ body {
     border: 1px solid #cccccc;
     -moz-border-radius: 2px;
     border-radius: 2px;
-    font-family: "Avenir Next W01", Arial, "sans-serif";
     font-size: 1em;
     background-clip: padding-box;
     -moz-background-clip: padding-box;
     -webkit-background-clip: padding-box;
     padding: 8px;
     margin-left: 0;
+}
+
+#suicide-input {
+	margin-bottom: 2vh;
+}
+
+#suicide-input:hover {
+	background: rgba(255, 255, 235, 0.8);
 }
 
 .protocol-container {
@@ -278,6 +284,7 @@ body {
 
 .protocol-menu > h4 {
 	top: 30%;
+	left: 2vw;
 }
 
 .margin-negative {
@@ -288,9 +295,13 @@ body {
 	margin-right: 0;
 }
 
+.copy-button {
+	position: relative;
+}
+
 .copy-container {
 	position: absolute;
-	top: 50%;
+	top: 45%;
 	left: 47%;
 	-webkit-transform: translateX(-50%);
 	transform: translateX(-50%);
@@ -299,4 +310,10 @@ body {
 .vertical-text {
 	transform: rotate(270deg);
 	transform-origin: left top 0;
+}
+
+.center-absolute {
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
 }

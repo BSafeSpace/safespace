@@ -54,7 +54,7 @@ $('.conversations.index').ready(function() {
 	$protocolMenu.html('<h4>You are not here to counsel. Please send your peer this link.</h4>\
 						<div class="copy-container input-group">\
 							<input class="input-form-url" id="suicide-input" type="text" value="http://www.suicidepreventionlifeline.org/" />\
-							<div class="copy-button btn btn-success btn-lg">Copy</div>\
+							<div class="copy-btn-container"><div class="copy-button center-absolute btn btn-success btn-lg">Copy</div></div>\
 						</div>'
 						);
 
@@ -87,14 +87,15 @@ $('.conversations.index').ready(function() {
 	        msg = "Copy not supported or blocked.  Press Ctrl+c to copy."
 	    } else {
 	        msg = "Text copied to the clipboard."
+	        $('.copy-button').text('Copied!');
 	    }
 	    if (typeof msgElem === "string") {
 	        msgElem = document.getElementById(msgElem);
 	    }
-	    msgElem.innerHTML = msg;
-	    setTimeout(function() {
-	        msgElem.innerHTML = "";
-	    }, 2000);
+	    // msgElem.innerHTML = msg;
+	    // setTimeout(function() {
+	    //     msgElem.innerHTML = "";
+	    // }, 2000);
 	}
 
 	function copyToClipboard(elem) {
