@@ -47,7 +47,20 @@ $('.conversations.index').ready(function() {
 	// Add Protocol button
 	var $protocolContainer = $('<div class="protocol-container"></div>');
 	$protocolContainer.appendTo($("body"));
-	var $protocolButton = $('<input class="vertical-text btn btn-danger" type="button" value="PROTOCOL" />');
+	var $protocolButton = $('<div class="protocol-button vertical-text btn btn-danger">PROTOCOL</div>');
 	$protocolButton.appendTo($('.protocol-container'));
+	var $protocolMenu =  $('<div class="protocol-menu margin-negative"></div>');
+	$protocolMenu.appendTo($('.protocol-container'));
+
+	$protocolButton.click(function() {
+		$protocolMenu = $('.protocol-menu');
+		if ($protocolMenu.hasClass('margin-zero')) {
+			$protocolMenu.removeClass('margin-zero');
+			console.log('first toggle');
+		} else {
+			$protocolMenu.addClass('margin-zero');
+			console.log('second toggle');
+		}
+	});
 
 });

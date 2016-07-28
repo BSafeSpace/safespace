@@ -183,12 +183,49 @@ body {
     position: relative;
 }
 
+.btn:active,
+.btn:focus,
+.btn.active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .protocol-container {
 	float: right;
-	top: 65%;
+	top: 60%;
   	transform: translateY(-50%);
-  	right: -5.2vw;
+  	right: -5.4vw;
   	position: absolute;
+}
+
+.protocol-button {
+	margin-bottom: 25vh;
+	border-bottom: none;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.protocol-menu {
+	width: 50vw;
+	height: 50vh;
+	display: inline-block;
+	background-color: #d9534f;
+	margin-left: -5.4vw;
+	border-radius: 10px;
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.margin-negative {
+	margin-right: -50vw;
+}
+
+.margin-zero {
+	margin-right: 0;
 }
 
 .vertical-text {
