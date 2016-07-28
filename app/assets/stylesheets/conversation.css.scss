@@ -174,11 +174,20 @@ label {
 // border-top: 3px solid rgba(0, 0, 0, .10);
 
 // Protocol Button
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    position: relative;
+}
+
 .protocol-container {
 	float: right;
-	top: 50%;
+	top: 65%;
   	transform: translateY(-50%);
-  	right: 0;
+  	right: -5.2vw;
   	position: absolute;
 }
 

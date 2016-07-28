@@ -1,0 +1,85 @@
+$tooltip-border-color: #31708f;
+$tooltip-border-width: 1px;
+$tooltip-arrow-width: 5px;
+$tooltip-arrow-border-width: $tooltip-arrow-width + $tooltip-border-width;
+
+.tooltip-inner { 
+    color: #FFFFFF; 
+    padding: 15px;
+    font-size: 20px;
+    width: 400px;
+    max-width: 300px;
+    background-color: #31708f;
+}
+
+.tooltip.bottom > .tooltip-arrow {
+    border-bottom-color: #31708f;
+}
+
+.tooltip {
+    z-index: 9999;
+}
+
+.tooltip {
+    &.top    { padding: $tooltip-arrow-border-width 0; }
+    &.right  { padding: 0 $tooltip-arrow-border-width; }
+    &.bottom { padding: $tooltip-arrow-border-width 0; }
+    &.left   { padding: 0 $tooltip-arrow-border-width; }
+}
+
+.tooltip-inner {
+    border: $tooltip-border-width solid $tooltip-border-color;
+}
+
+.tooltip-arrow:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    z-index: -1;
+}
+
+.tooltip {
+    &.top .tooltip-arrow {
+        bottom: 2 * $tooltip-border-width;
+        &:after {
+            bottom: -2 * $tooltip-border-width;
+            left: 50%;
+            margin-left: -$tooltip-arrow-border-width;
+            border-width: $tooltip-arrow-border-width $tooltip-arrow-border-width 0;
+            border-top-color: $tooltip-border-color;
+        }
+    }
+    &.bottom .tooltip-arrow {
+        top: 2 * $tooltip-border-width;
+        &:after {
+            top: -2 * $tooltip-border-width;
+            left: 50%;
+            margin-left: -$tooltip-arrow-border-width;
+            border-width: 0 $tooltip-arrow-border-width $tooltip-arrow-border-width;
+            border-bottom-color: $tooltip-border-color;
+        }
+    }
+    &.left .tooltip-arrow {
+        right: 2 * $tooltip-border-width;
+        &:after {
+            right: -2 * $tooltip-border-width;
+            top: 50%;
+            margin-top: -$tooltip-arrow-border-width;
+            border-width: $tooltip-arrow-border-width 0 $tooltip-arrow-border-width $tooltip-arrow-border-width;
+            border-left-color: $tooltip-border-color;
+        }
+    }
+    &.right .tooltip-arrow {
+        left: 2 * $tooltip-border-width;
+        &:after {
+            left: -2 * $tooltip-border-width;
+            top: 50%;
+            margin-top: -$tooltip-arrow-border-width;
+            border-width: $tooltip-arrow-border-width $tooltip-arrow-border-width $tooltip-arrow-border-width 0;
+            border-right-color: $tooltip-border-color;
+        }
+    }
+}
