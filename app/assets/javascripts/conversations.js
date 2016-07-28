@@ -44,4 +44,10 @@ $('.conversations.index').ready(function() {
 	$(".ui-dialog-buttonset button:contains('I agree')").addClass('btn').addClass('btn-success');
 	$(".ui-dialog-buttonset button:contains('Cancel')").addClass('btn').addClass('btn-default');
 
+	// Add Protocol button
+	var $protocolContainer = $('<div class="protocol-container"></div>');
+	$protocolContainer.appendTo($("body"));
+	var $protocolButton = $('<input class="vertical-text btn btn-danger" type="button" value="new button" />');
+	$protocolButton.appendTo($('.protocol-container'));
+
 });
