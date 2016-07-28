@@ -1,88 +1,86 @@
 <% if conversation %>
   <% @other_user = conversation.get_other_user(current_user) %>
   <% if current_user.friends.include? @other_user %>
-    <div class="col-md-3 chat-sidebar">
-      <div class="item">
-        <% if @other_user.online? && !@other_user.appear_offline %>
-          <div class="horizontal-align">
-            <div class="online-status-indicator" style="display: inline-block;"></div>
-            <%= link_to @other_user.username, profile_path(@other_user.id), :class => "contact-list-name" %>
-          </div>
-          <div class="status-text">Online</div>
-        <% else %>
-          <div class="horizontal-align">
-            <div class="offline-status-indicator" style="display: inline-block;"></div>
-            <%= link_to @other_user.username, profile_path(@other_user.id), :class => "contact-list-name" %>
-          </div>
-          <div class="status-text">Offline</div>
-        <% end %>
-      </div>    
-
-      <% @chars = conversation.get_chars(current_user) %>
-      <% @mental_health = @chars.mental_health %>
-      <% @age = @chars.age %>
-      <% @gender = @chars.gender %>
-      <% @religion = @chars.religion %>
-      <% @ethnicity = @chars.ethnicity %>
-      <% @academic_focus = @chars.academic_focus %>    
-
-      <% if !@other_user.peer_counselor %>
-        <div class="char-title">Mental Health</div>
-        <% @mental_health.each do |mh| %>
-          <div><%= mh.name %></div>
-        <% end %>
-
-        <div class="char-title">Age: <%= @age %></div>
-
-        <div class="char-title">
-          Gender: 
-          <% @gender.each do |g| %>
-            <%= g.name %>
-          <% end %>
+    <div class="item">
+      <% if @other_user.online? && !@other_user.appear_offline %>
+        <div class="horizontal-align">
+          <div class="online-status-indicator" style="display: inline-block;"></div>
+          <%= link_to @other_user.username, profile_path(@other_user.id), :class => "contact-list-name" %>
         </div>
+        <div class="status-text">Online</div>
+      <% else %>
+        <div class="horizontal-align">
+          <div class="offline-status-indicator" style="display: inline-block;"></div>
+          <%= link_to @other_user.username, profile_path(@other_user.id), :class => "contact-list-name" %>
+        </div>
+        <div class="status-text">Offline</div>
+      <% end %>
+    </div>    
 
-        <div class="char-title">Ethnicity</div>
-        <% @ethnicity.each do |e| %>
-          <div><%= e.name %></div>
-        <% end %>
+    <% @chars = conversation.get_chars(current_user) %>
+    <% @mental_health = @chars.mental_health %>
+    <% @age = @chars.age %>
+    <% @gender = @chars.gender %>
+    <% @religion = @chars.religion %>
+    <% @ethnicity = @chars.ethnicity %>
+    <% @academic_focus = @chars.academic_focus %>    
 
-        <div class="char-title">Academic Focus</div>
-        <% @academic_focus.each do |af| %>
-          <div><%= af.name %></div>
-        <% end %>
+    <% if !@other_user.peer_counselor %>
+      <div class="char-title">Mental Health</div>
+      <% @mental_health.each do |mh| %>
+        <div><%= mh.name %></div>
       <% end %>
 
-      <div class="sidebar-links">
-        <% if !@other_user.peer_counselor %>
-          <div class="sidebar-link recommend-button">
-            <%= render("recommendations/form", other_user_id: @other_user.id) %>
-            <!-- Button trigger modal -->
-            <button class="btn btn-success" data-toggle="modal" data-target="#recommendModal">
-              Recommend to Peer Counselor
-            </button>
-          </div>
+      <div class="char-title">Age: <%= @age %></div>
+
+      <div class="char-title">
+        Gender: 
+        <% @gender.each do |g| %>
+          <%= g.name %>
         <% end %>
-
-        <div class="sidebar-link">
-          <%= icon('file') %>
-          <%= link_to 'Download this chat', download_chat_conversation_path(conversation)%>
-        </div>
-
-        <div class="sidebar-link mute-button">
-          <% if !Mute.mute?(current_user.id, @other_user.id).empty? %>
-          <% puts Mute.mute?(current_user.id, @other_user.id) %>
-            <%= render("/conversations/unmute_button") %>
-          <% else %>
-            <%= render("/conversations/mute_button") %>
-          <% end %>
-        </div>
-  
-        <div class="sidebar-link">
-          <%= link_to "Block User", friendship_path(:id => @other_user, :block => true), :method => :delete %>
-        </div>
       </div>
 
+      <div class="char-title">Ethnicity</div>
+      <% @ethnicity.each do |e| %>
+        <div><%= e.name %></div>
+      <% end %>
+
+      <div class="char-title">Academic Focus</div>
+      <% @academic_focus.each do |af| %>
+        <div><%= af.name %></div>
+      <% end %>
+    <% end %>
+
+    <div class="sidebar-links">
+      <% if !@other_user.peer_counselor %>
+        <div class="sidebar-link recommend-button">
+          <%= render("recommendations/form", other_user_id: @other_user.id) %>
+          <!-- Button trigger modal -->
+          <button class="btn btn-success" data-toggle="modal" data-target="#recommendModal">
+            Recommend to Peer Counselor
+          </button>
+        </div>
+      <% end %>
+
+      <div class="sidebar-link">
+        <%= icon('file') %>
+        <%= link_to 'Download this chat', download_chat_conversation_path(conversation)%>
+      </div>
+
+      <div class="sidebar-link mute-button">
+        <% if !Mute.mute?(current_user.id, @other_user.id).empty? %>
+        <% puts Mute.mute?(current_user.id, @other_user.id) %>
+          <%= render("/conversations/unmute_button") %>
+        <% else %>
+          <%= render("/conversations/mute_button") %>
+        <% end %>
+      </div>
+
+      <div class="sidebar-link">
+        <%= link_to "Block User", friendship_path(:id => @other_user, :block => true), :method => :delete %>
+      </div>
     </div>
+
   <% end %>
 <% end %>
 

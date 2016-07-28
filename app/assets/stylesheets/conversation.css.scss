@@ -22,6 +22,12 @@
 	padding-right: 5px;
 }
 
+.friend-list {
+	border-right-width: 1px;
+	padding-right: 0px;
+	padding-left: 20px;
+}
+
 #friend-info {
     color: rgba(0, 0, 0, 0.38);
 }
@@ -35,12 +41,26 @@
 	margin-top: 4vh;
 	position: relative;
 	height : 75vh;
+	padding-left: 20px;
+	padding-right: 0px;
 }
 
 .char-title {
 	margin-top: 0.5em;
 	font-size: 1.1em;
 	font-family: Lato;
+}
+
+.chat-container {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.chat-body {
+	padding-left: 20px;
+	padding-right: 20px;
+	border-left: thin solid #c8ccd0;
+	border-right: thin solid #c8ccd0;
 }
 
 // Chat Sidebar
@@ -81,8 +101,7 @@
 .chat-box {
 	padding-top: 25px;
 	padding-bottom: 25px;
-	border: thin solid #c8ccd0;
-	border-top: 0;
+	border-bottom: thin solid #c8ccd0;
 }
 
 .tab-pane {

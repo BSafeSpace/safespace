@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="ui segment col-md-3" style="border-right-width: 1px">
+  <div class="ui segment col-md-3 friend-list">
     <h3>Friends</h3>
     <div class="friend-tabs">
       <ul class="nav nav-tabs">
@@ -60,7 +60,7 @@
     </div>
   </div>
 
-  <div class="col-md-6" id="chat">
+  <div class="col-md-6 chat-body" id="chat">
     <% if @conversation %>
       <% puts "convo1:" %>
       <% puts @conversation %>
@@ -72,7 +72,9 @@
   <% puts "convo2:" %>
   <% puts @conversation.sender_id if @conversation %>
   <% puts @conversation.recipient_id if @conversation %>
-  <%= render '/messages/chat_sidebar', conversation: @conversation %>
+  <div class="col-md-3 chat-sidebar">
+    <%= render '/messages/chat_sidebar', conversation: @conversation %>
+  </div>
 </div>
 
 
