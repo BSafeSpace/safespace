@@ -1,6 +1,11 @@
 <div class="char-section">
 	<h5><strong>Additional Information</strong></h5>
 	<div class="filter-box-scroll custom-scroll">
+		
+		<div class="collection-check-box">
+			<%= f.check_box :is_transfer_student_true, include_hidden: false %>
+			<%= f.label "Transfer student", :class => "char-option" %><br>
+		</div>
 	    <div class="collection-check-box">
 			<%= f.check_box :is_first_generation_college_student_true, include_hidden: false %>
 			<%= f.label "First generation college student", :class => "char-option" %><br>
@@ -10,12 +15,12 @@
 			<%= f.label "Physically disabled", :class => "char-option" %><br>
 		</div>
 		<div class="collection-check-box">
-			<%= f.check_box :is_parent_true, include_hidden: false %>
-			<%= f.label "Parent", :class => "char-option" %><br>
+			<%= f.check_box :is_out_of_state_student_true, include_hidden: false %>
+			<%= f.label "Out of state student", :class => "char-option" %><br>
 		</div>
 		<div class="collection-check-box">
-			<%= f.check_box :is_single_parent_true, include_hidden: false %>
-			<%= f.label "Single Parent", :class => "char-option" %><br>
+			<%= f.check_box :is_international_student_true, include_hidden: false %>
+			<%= f.label "International Student", :class => "char-option" %><br>
 		</div>
 		<div class="collection-check-box">
 			<%= f.check_box :is_from_foster_care_true, include_hidden: false %>
@@ -30,16 +35,13 @@
 			<%= f.label "Military", :class => "char-option" %><br>
 		</div>
 		<div class="collection-check-box">
-			<%= f.check_box :is_out_of_state_student_true, include_hidden: false %>
-			<%= f.label "Out of state student", :class => "char-option" %><br>
+			<%= f.check_box :is_parent_true, include_hidden: false %>
+			<%= f.label "Parent", :class => "char-option" %><br>
 		</div>
 		<div class="collection-check-box">
-			<%= f.check_box :is_international_student_true, include_hidden: false %>
-			<%= f.label "International Student", :class => "char-option" %><br>
+			<%= f.check_box :is_single_parent_true, include_hidden: false %>
+			<%= f.label "Single Parent", :class => "char-option" %><br>
 		</div>
-		<div class="collection-check-box">
-			<%= f.check_box :is_transfer_student_true, include_hidden: false %>
-			<%= f.label "Transfer student", :class => "char-option" %><br>
-		</div>
+		
 	</div>
-</div>
+</div
