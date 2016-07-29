@@ -14,30 +14,44 @@ $('.conversations.index').ready(function() {
 		$('#new_recommendation').submit();
 	});
 
-	$( "#dialog-confirm" ).dialog({
-		buttons: {
-			"I agree": function() {
-				$( this ).dialog( "close" );
+	if (Cookies.get('agree_chat_liability') == null) {
+		console.log('hello');
+		var $dialog = $('<div id="dialog-confirm" title="Chat Liability">\
+						  <p>By clicking <em>I agree,</em> you agree to the following:</p>\
+						  <ul>\
+						    <li>I am not homicidal or suicidal. (If you are, we strongly urge you to speak with a professional).</li>\
+						    <li>I understand that no action can be taken towards any users who make inappropriate or hurtful comments as all users are anonymous.</li>\
+						    <li>I am a UC-Berkeley student.</li>\
+						    <li>I understand that the chat is intended for peer to peer support and not for diagnosis or therapy.</li>\
+						    <li>I understand that I am here as a peer to listen and share experiences. I will help others connect to resources/professionals if need be. </li>\
+						  </ul>\
+						</div>');
+		$dialog.dialog({
+			buttons: {
+				"I agree": function() {
+					$( this ).dialog( "close" );
+					Cookies.set('agree_chat_liability', 'true');
+				},
+				Cancel: function() {
+					window.location.replace("http://safespace-dev.herokuapp.com/");
+				}
 			},
-			Cancel: function() {
-				window.location.replace("http://safespace-dev.herokuapp.com/");
-			}
-		},
-		closeOnEscape: false,
-		dialogClass: "liability-dialog",
-		draggable: false,
-		height: ($(window).height()) * 0.7,
-		modal: true,
-		open: function(event, ui) {
-			// Set opacity of parent window
-			$( ".ui-widget-overlay" ).css( "opacity", 0.90 );
-			$( ".ui-widget-overlay" ).css( "z-index", 0 );
-			// Hide close button on modal dialog
-			$( ".ui-dialog-titlebar-close" ).css( "display", 'none' );
-		},
-		resizable: false,
-		width: ($(window).width()) * 0.7
-	});
+			closeOnEscape: false,
+			dialogClass: "liability-dialog",
+			draggable: false,
+			height: ($(window).height()) * 0.7,
+			modal: true,
+			open: function(event, ui) {
+				// Set opacity of parent window
+				$( ".ui-widget-overlay" ).css( "opacity", 0.90 );
+				$( ".ui-widget-overlay" ).css( "z-index", 0 );
+				// Hide close button on modal dialog
+				$( ".ui-dialog-titlebar-close" ).css( "display", 'none' );
+			},
+			resizable: false,
+			width: ($(window).width()) * 0.7
+		});
+	}
 
 	$('.ui-dialog-titlebar').css("background","#FFF2D8");
 
