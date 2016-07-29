@@ -21,6 +21,11 @@ Devise.setup do |config|
   # available as additional gems.
   require 'devise/orm/active_record'
 
+  # Delete Cookies upon Logout
+  Warden::Manager.before_logout do |user,auth,opts|
+    auth.cookies.delete :agree_chat_liability
+  end
+
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
