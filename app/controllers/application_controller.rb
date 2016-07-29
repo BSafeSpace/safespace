@@ -40,6 +40,10 @@ class ApplicationController < ActionController::Base
   	 @current_user.try(:touch) if @current_user
   end
 
+  def after_sign_in_path_for(resource)
+    session["user_return_to"] || conversations_path
+  end
+
   protected
   
   def configure_permitted_parameters
