@@ -28,7 +28,7 @@
 #email-tooltip {
 	position: absolute;
 	float: right;
-	top: 34%;
+	top: 20.5vh;
 	right: 1vw;
 	font-size: 36px;
 }
@@ -71,4 +71,14 @@ body .modal-admin {
 
 .form-margin-top {
 	margin-top: 3vh;
+}
+
+// Peer Counselor Passcode Styling
+#counselor-link {
+  margin-top: 1vh;
+}
+#counselor-passcode {
+  display: none;
+  margin-top: 10px;
+  margin-bottom: 0;
 }

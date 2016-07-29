@@ -8,4 +8,9 @@ $(function() {
 	  title: 'Why are we asking for your email on an anonymous site? We want to make sure that only Berkeley students are allowed to join.',
 	  placement: 'right'
 	});
+
+	// Reveal Passcode for Peer Counselor Sign Up
+	$('#counselor-link').click(function() {
+		$('#counselor-passcode').show();
+	});
 });

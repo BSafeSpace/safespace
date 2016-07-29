@@ -9,6 +9,7 @@
 
 # Ignore the secrets.yml file for storing keys
 /config/secrets.yml
+config/environment_variables.yml
 
 # Ignore the default SQLite database.
 /db/*.sqlite3

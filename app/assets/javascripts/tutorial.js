@@ -12,7 +12,7 @@ $(function() {
     		container: 'body',
             html: true,
             trigger: 'manual',
-            title: 'Filters are automatically set to your profile characteristics, and you can click Default to reset them',
+            title: 'Filters are automatically set to your profile characteristics. Click Default to reset them.',
             placement: 'right'
     	}).tooltip('show');
 

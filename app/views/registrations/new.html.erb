@@ -34,10 +34,13 @@
     </div>
 
     <div class="submit-button"><%= f.submit "Sign up", class: 'btn btn-primary btn-block' %></div>
-  <% end %>
 
   <div class="links">
     <%= render "devise/shared/links" %>
+    <div class="counselor-sign-up">
+      <%= link_to "Peer Counselor? Click here", 'javascript:;', id: 'counselor-link' %>
+      <%= f.text_field :passcode, placeholder: 'enter passcode', class: 'form-control', id: 'counselor-passcode' %>
+    </div>
   </div>
-
+  <% end %>
 </div>

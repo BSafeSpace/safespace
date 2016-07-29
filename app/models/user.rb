@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
   validate :berkeley_email
   after_create :create_initial_friendships, :create_initial_profile
   validates_uniqueness_of :username
+  attr_accessor :passcode
 
   has_one :profile
 
