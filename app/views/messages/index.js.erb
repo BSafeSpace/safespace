@@ -19,7 +19,10 @@ $(function() {
 
 		$('#chat').append('<%= j render("chat") %>');
 		$('.chat-sidebar').remove();
-		$('.row').append('<%= j render("chat_sidebar", conversation: @conversation) %>');
+
+		var $chatSidebar =  $('<div class="col-md-3 chat-sidebar"></div>');
+		$chatSidebar.appendTo($('.row'));
+		$chatSidebar.append('<%= j render("chat_sidebar", conversation: @conversation) %>');
 	<% else %>
 		$('.chat').remove();
 		$('#chat').append('<%= j render("chat") %>');
