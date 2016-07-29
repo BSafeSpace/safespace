@@ -51,9 +51,9 @@ $('.conversations.index').ready(function() {
 	$protocolButton.appendTo($protocolContainer);
 	var $protocolMenu =  $('<div class="protocol-menu margin-negative"></div>');
 	$protocolMenu.appendTo($('.protocol-container'));
-	$protocolMenu.html('<h4>You are not here to counsel. Please send your peer this link.</h4>\
+	$protocolMenu.html('<h4>You are not here to counsel. Please send your peer the\ Alameda County 24 Hour Crisis Line.</h4>\
 						<div class="copy-container input-group">\
-							<input class="input-form-url" id="suicide-input" type="text" value="http://www.suicidepreventionlifeline.org/" />\
+							<input class="input-form-url" id="suicide-input" type="text" value="1-800-309-2131" />\
 							<div class="copy-btn-container"><div class="copy-button center-absolute btn btn-success btn-lg">Copy</div></div>\
 						</div>'
 						);
