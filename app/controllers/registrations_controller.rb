@@ -2,8 +2,10 @@ class RegistrationsController < Devise::RegistrationsController
 
 	def create
 		super
-		if params[:user][:passcode] == 
+		puts 'create action'
+		if params[:user][:passcode] == ENV['COUNSELOR_PASSCODE']
 			resource.update(peer_counselor: true)
+			puts 'updated boolean'
 		end
 	end
 
