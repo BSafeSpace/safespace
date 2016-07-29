@@ -62,6 +62,7 @@ $(function() {
                 container: 'body',
                 html: true,
                 trigger: 'manual',
+                template: '<div class="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner tooltip-slim"></div></div>',
                 title: 'Add a buddy as a friend',
                 placement: 'right'
             }).tooltip('show');

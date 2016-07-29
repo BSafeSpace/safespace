@@ -20,6 +20,10 @@ $tooltip-arrow-border-width: $tooltip-arrow-width + $tooltip-border-width;
     z-index: 9999;
 }
 
+.tooltip-slim {
+    max-width: 200px;
+}
+
 .tooltip {
     &.top    { padding: $tooltip-arrow-border-width 0; }
     &.right  { padding: 0 $tooltip-arrow-border-width; }

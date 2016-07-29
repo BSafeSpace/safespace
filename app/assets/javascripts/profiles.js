@@ -178,6 +178,9 @@ $(function() {
 });
 
 $('.profiles.index').ready(function() {
+  // Make (PTSD) text smaller
+  // $("label[for='q_characteristics_id_in_any_10']").html('Post-Traumatic Stress Disorder <span class="mini-descriptor">(PTSD)</span>');
+
   // default functionality
   $('#default-search').click(function() {
     defaultSearch();
