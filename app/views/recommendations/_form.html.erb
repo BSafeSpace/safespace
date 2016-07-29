@@ -13,19 +13,15 @@
 				<div class="modal-body">
 				    
 					<h4 style="margin-bottom: 3vh;">Why are you recommending this user?</h4>
+
 					<div class="form-group form-radio">
-						<%= f.radio_button(:reason, "Self-harm") %>
-						<%= f.label(:reason_harm, "Self-harm") %>
+						<%= f.radio_button(:reason, "Too dependent on me") %>
+						<%= f.label(:reason_dependent, "Too dependent on me") %>
 					</div>
 
 					<div class="form-group form-radio">
-						<%= f.radio_button(:reason, "Too dependent") %>
-						<%= f.label(:reason_dependent, "Too dependent") %>
-					</div>
-
-					<div class="form-group form-radio">
-						<%= f.radio_button(:reason, "Help with advice") %>
-						<%= f.label(:reason_advice, "Help with advice") %>
+						<%= f.radio_button(:reason, "Don’t know how to help them") %>
+						<%= f.label(:reason_advice, "Don’t know how to help them") %>
 					</div>
 
 					<div class="form-group form-radio">
@@ -33,8 +29,8 @@
 						<%= label_tag(:reason_other, "Other") %>
 					</div>
 
-					<%= f.label :additional_info, "Additional Information (200 characters) " %>
-					<%= f.text_area :additional_info, rows:"4", maxlength: "200", :class => "form-control" %>
+					<%= f.label :additional_info, "Additional Information (300 characters) " %>
+					<%= f.text_area :additional_info, rows:"4", maxlength: "300", :class => "form-control" %>
 
 					<%= f.hidden_field :user_id, value: other_user_id %>
 				</div>
