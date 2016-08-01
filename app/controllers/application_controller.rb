@@ -37,9 +37,14 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    current_user.showcase ? intro_info_path : request.env['omniauth.origin'] || stored_location_for(resource) || conversations_path
-    recommendations_path if current_user.peer_counselor
-    # session["user_return_to"] 
+    if current_user.showcase
+      intro_info_path
+    elsif current_user.peer_counselor
+      recommendations_path
+    else
+      session["user_return_to"] || conversations_path
+    end
+    # session["user_return_to"] request.env['omniauth.origin'] || stored_location_for(resource)
   end
 
   protected

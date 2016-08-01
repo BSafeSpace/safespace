@@ -4,7 +4,7 @@ class RegistrationsController < Devise::RegistrationsController
 		super
 		puts 'create action'
 		if params[:user][:passcode] == ENV['COUNSELOR_PASSCODE']
-			resource.update(peer_counselor: true)
+			resource.update(peer_counselor: true, signed_liability: true)
 			puts 'updated boolean'
 		end
 	end
