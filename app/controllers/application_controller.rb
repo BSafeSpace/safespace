@@ -12,10 +12,6 @@ class ApplicationController < ActionController::Base
   # before_filter :confirm_current_user
   after_filter :user_activity
 
-  def after_sign_in_path_for(resource)
-    current_user.showcase ? intro_info_path : request.env['omniauth.origin'] || stored_location_for(resource) || root_path
-  end
-
   def confirm_current_user
     not_accessible = ["conversations", "profiles", "characteristics", "messages", "friendships"]
     redirect_to root_path if (!current_user && not_accessible.include?(controller_name))
@@ -41,7 +37,9 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    session["user_return_to"] || conversations_path
+    current_user.showcase ? intro_info_path : request.env['omniauth.origin'] || stored_location_for(resource) || conversations_path
+    recommendations_path if current_user.peer_counselor
+    # session["user_return_to"] 
   end
 
   protected
