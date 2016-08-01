@@ -14,10 +14,18 @@
   font-family: Verdana, sans-serif;
 }
 
+.alert, #error_explanation h2 {
+  margin-bottom: 0;
+}
+
 #error_explanation p {
   color: #333;
   margin-bottom: 0;
   padding: 5px;
+}
+
+#error_explanation > ul {
+  margin-top: 20px;
 }
 
 #error_explanation ul li {

@@ -60,10 +60,7 @@
 	border-color: transparent;
     color: #fff;
     font-weight: 500;
-}
 
-.flash {
-    // background-color: rgba(192, 192, 192, 0.5);
     text-align: center;
     position: fixed;
     width: 100%;
@@ -77,6 +74,15 @@
     -webkit-animation: signup-response 0.5s 1;
     -webkit-animation-delay: 1s; /* Safari and Chrome */
     -webkit-animation-fill-mode: forwards;
+}
+
+.alert, #error_explanation h2 {
+	margin-bottom: 0;
+}
+
+.flash {
+    // background-color: rgba(192, 192, 192, 0.5);
+    text-align: center;
 }
 
 @keyframes signup-response{
