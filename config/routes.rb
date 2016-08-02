@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :quizzes
   resources :friendships
   resources :characteristics
-  match '/contacts', to: 'contacts#new', via: 'get'
+  # match '/contacts', to: 'contacts#new', via: 'get'
   resources "contacts", only: [:new, :create]
   
   resources :profiles do
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { destroy: "destroy", registrations: "registrations" }
   root 'static_pages#home'
   get 'about' => 'static_pages#about', :as => :home_about
-  get 'contact' => 'static_pages#contact', :as => :home_contact
+  get 'contact' => 'contacts#new', :as => :contact
   get 'info' => 'intro#info', :as => :intro_info
   get 'quiz' => 'intro#quiz', :as => :intro_quiz
   get 'liability' => 'intro#liability', :as => :intro_liability

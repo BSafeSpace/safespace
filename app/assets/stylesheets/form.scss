@@ -47,8 +47,23 @@
     width: 90%;
 }
 
+.form-input {
+  background: #FFF;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  height: 54px;
+  width: 100%;
+  font-size: 1em;
+  padding: 15px;
+  color: #777;
+}
+
 .form_input {
     width: 100%;
+}
+
+.form-title {
+  margin-bottom: 20px; 
 }
 
 .field_with_errors {
@@ -58,6 +73,9 @@
   }
 }
 
+textarea.form-input {
+  height: auto;
+}
 
 // Back button in quiz form
 #back-btn {

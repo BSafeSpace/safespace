@@ -1,16 +1,24 @@
-<div align="center">
-  <h3>Send A message to Us</h3>
+<div class="row form">
 
-  <%= simple_form_for @contact, :html => {:class => 'form-horizontal' } do |f| %>
-    <%= f.input :name, :required => true %>
-    <%= f.input :email, :required => true %>
-    <%= f.input :message, :as => :text, :required => true, :input_html => {:rows => 10} %>
-    <div class= "hidden">
-      <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+  <%= simple_form_for @contact do |f| %>
+    
+    <div class="col-md-8 col-md-offset-2">
+      <h3 class="form-title" align="center">Send a message to us</h3>
+      <div class="col-md-6">
+        <%= f.input_field :name, label: false, :required => true, placeholder: "Name", class: 'form-input' %>
+      </div>
+      <div class="col-md-6">
+        <%= f.input_field :email, label: false, :required => true, placeholder: "Email", class: 'form-input col-md-6' %>
+      </div>
+      <div class="col-md-12">
+        <%= f.input_field :message, label: false, :as => :text, :required => true, placeholder: "Message", class: 'form-input', rows: 8 %>
+        <div class="form-group"></div>
+        <%= f.button :submit, 'Send message', :class=> "btn btn-primary" %>
+      </div>
+      <div class= "hidden">
+        <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+      </div>
     </div>
-    <div>
-      </br>
-      <%= f.button :submit, 'Send message', :class=> "btn btn-primary" %>
-    </div>
+    
   <% end %>
 </div>

@@ -15,7 +15,7 @@
     <link href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' rel='stylesheet' type='text/css'>
   </head>
   <body class="<%= controller_name %> <%= action_name %>">
-    
+
     <div class="flash">
       <%= render partial: "shared/flash" %>
     </div>
@@ -39,7 +39,7 @@
             <% end %>
             <li><%= link_to_in_li "Resources", resources_path, "list-alt" %></li>
             <li><%= link_to_in_li "About", home_about_path, "file-text-o" %></li>
-            <li><%= link_to_in_li 'Contact', home_contact_path, "envelope-o" %></li>
+            <li><%= link_to_in_li 'Contact', contact_path, "envelope-o" %></li>
           </ul>
           <ul class="nav navbar-nav pull-right">
             <% if user_signed_in? %>
