@@ -73,6 +73,6 @@
   <% puts @conversation.sender_id if @conversation %>
   <% puts @conversation.recipient_id if @conversation %>
   <div class="col-md-3 chat-sidebar">
-    <%= render '/messages/chat_sidebar', conversation: @conversation %>
+    <%= render '/messages/chat_sidebar', conversation: @conversation if @conversation %>
   </div>
 </div>

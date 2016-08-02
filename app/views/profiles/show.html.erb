@@ -8,9 +8,9 @@
       <div class="char-box">
         <h4><strong>Characteristics</strong></h4>
         <%= render 'profiles/show_partials/show_characteristic', name: "mental_health", title: "Mental Health" %>
+        <div class="char-title" style="padding-left: 0.5vw;">Age: <%= @profile.age %></div>
         <%= render 'profiles/show_partials/show_characteristic', name: "gender", title: "Gender" %>
         <%= render 'profiles/show_partials/show_characteristic', name: "ethnicity", title: "Ethnicity" %>
-        <%= render 'profiles/show_partials/show_characteristic', name: "academic_focus", title: "Academic Focus" %>
       </div>
 
       <div class="edit-profile-btn">
@@ -23,7 +23,7 @@
 
     <div class="col-md-4">
       <div class="profile-box">
-        <h4><strong>Basic Information</strong></h4>
+        <h4><strong>Information</strong></h4>
         <div class="basic-info char-option">
           <p class="char-edit">
             <div class="category"><strong>Class Rank:</strong></div>
@@ -38,11 +38,6 @@
           <p class="char-edit">
             <div class="category"><strong>Living Situation:</strong></div>
             <div class="answer"><%= @profile.living_situation %></div>
-          </p>
-          
-          <p class="char-edit">
-            <div class="category"><strong>Age:</strong></div>
-            <div class="answer"><%= @profile.age %></div>
           </p>
           
           <p class="char-edit">

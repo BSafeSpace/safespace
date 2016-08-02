@@ -57,7 +57,7 @@ class ApplicationController < ActionController::Base
   def build_query
     @search = Profile.search(params[:q])
     @search.build_sort if @search.sorts.empty?
-    # @profiles = @search.result(distinct: true).reject{ |p| p.user == current_user}.select { |p| !current_user.block_exists?(p.user) }
+    @profiles = @search.result(distinct: true).reject{ |p| p.user == current_user}.select { |p| !current_user.block_exists?(p.user) }
     @profiles = order_preferences(@search.result(distinct: true).reject{ |p| p.user == current_user}).select { |p| !current_user.block_exists?(p.user) }
     @profiles = put_peer_counselor_first(@profiles) if !current_user.peer_counselor
     @num_profiles = @profiles.count

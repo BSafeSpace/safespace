@@ -19,9 +19,12 @@
         <div class="char-box">
           <h4><strong>Characteristics</strong></h4>
           <%= render 'profiles/show_partials/edit_characteristic', title: "Mental Health", name: "mental_health", f: f, id: "edit-mental-health" %>
+          <p class="char-edit">
+              <%= f.label :age, :class => "char-title", :style => "padding-left: 0.5vw;" %>
+              <%= f.number_field :age, class: "form-control age-field" %>
+            </p>
           <%= render 'profiles/show_partials/edit_characteristic', title: "Gender", name: "gender", f: f, id: "edit-gender" %>
           <%= render 'profiles/show_partials/edit_characteristic', title: "Ethnicity", name: "ethnicity", f: f, id: "edit-ethnicity" %>
-          <%= render 'profiles/show_partials/edit_characteristic', title: "Academic Focus", name: "academic_focus", f: f, id: "edit-academic-focus" %>
         </div><br>
         <div class="actions">
           <%= f.submit "Update", class: 'btn btn-primary' %>
@@ -46,11 +49,6 @@
             <p class="char-edit">
               <%= f.label :living_situation, :class => "char-field-title" %><br>
               <%= f.select :living_situation, @arr_living_situation , {}, { :class => 'btn btn-default dropdown-toggle' } %>
-            </p>
-            
-            <p class="char-edit">
-              <%= f.label :age, :class => "char-field-title" %>
-              <%= f.number_field :age, class: "form-control age-field" %>
             </p>
 
             <p class="char-edit">
