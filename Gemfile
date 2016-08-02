@@ -65,6 +65,9 @@ gem 'acts_as_list'
 # For web content creation (tools for Peer Counselors creating resources)
 gem 'ckeditor'
 
+# For contact page
+gem 'mail_form'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

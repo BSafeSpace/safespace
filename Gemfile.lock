@@ -185,6 +185,9 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    mail_form (1.5.1)
+      actionmailer (>= 3.2, < 5)
+      activemodel (>= 3.2, < 5)
     mime-types (1.25.1)
     mini_portile2 (2.1.0)
     minitest (5.9.0)
@@ -359,6 +362,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   jquery-ui-rails
+  mail_form
   pg
   prawn (~> 2.1)
   private_pub

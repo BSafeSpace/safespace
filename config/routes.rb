@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :quizzes
   resources :friendships
   resources :characteristics
+  match '/contacts', to: 'contacts#new', via: 'get'
+  resources "contacts", only: [:new, :create]
   
   resources :profiles do
     collection do 

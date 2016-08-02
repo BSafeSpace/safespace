@@ -18,5 +18,7 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+require File.expand_path(File.dirname(__FILE__) + "/environment")
+set :environment, Rails.env 
 every :sunday, at: '11:59pm' do
 	runner "Message.destroy_all"
