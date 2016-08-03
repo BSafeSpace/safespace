@@ -65,10 +65,14 @@ $('.conversations.index').ready(function() {
 	$protocolButton.appendTo($protocolContainer);
 	var $protocolMenu =  $('<div class="protocol-menu margin-negative"></div>');
 	$protocolMenu.appendTo($('.protocol-container'));
-	$protocolMenu.html('<h4>You are not here to counsel. Please send your peer the\ Alameda County 24 Hour Crisis Line.</h4>\
+	$protocolMenu.html('<h3>Mention of suicide? Please send your peer these resources.</h3>\
 						<div class="copy-container input-group">\
-							<input class="input-form-url" id="suicide-input" type="text" value="1-800-309-2131" />\
-							<div class="copy-btn-container"><div class="copy-button center-absolute btn btn-success btn-lg">Copy</div></div>\
+							<h4>Crisis Support Services of Alameda County. 24/7</h4>\
+							<input class="input-number suicide-input" id="alameda-number" type="text" value="1-800-309-2131" />\
+							<div class="copy-button btn btn-success btn-lg" id="alameda-copy">Copy</div>\
+							<h4>Crisis Text Line. Free, 24/7, confidential.</h4>\
+							<input class="input-number suicide-input" id="crisis-text-number" type="text" value="Text “GO” to 741741" />\
+							<div class="copy-button btn btn-success btn-lg" id="crisis-text-copy">Copy</div>\
 						</div>'
 						);
 
@@ -85,23 +89,28 @@ $('.conversations.index').ready(function() {
 	});
 
 	// Select input on click
-	$("#suicide-input").click(function () {
+	$(".suicide-input").click(function () {
 	   $(this).select();
 	});
 
 	// Copy link on copy button click
-	$('.copy-button').click(function() {
-	    copyToClipboardMsg(document.getElementById("suicide-input"), "msg");
+	$('#alameda-copy').click(function() {
+	    copyToClipboardMsg($(this), document.getElementById("alameda-number"), "msg");
 	});
 
-	function copyToClipboardMsg(elem, msgElem) {
+	// Copy link on copy button click
+	$('#crisis-text-copy').click(function() {
+	    copyToClipboardMsg($(this), document.getElementById("crisis-text-number"), "msg");
+	});
+
+	function copyToClipboardMsg(copyButton, elem, msgElem) {
 		var succeed = copyToClipboard(elem);
 	    var msg;
 	    if (!succeed) {
 	        msg = "Copy not supported or blocked.  Press Ctrl+c to copy."
 	    } else {
 	        msg = "Text copied to the clipboard."
-	        $('.copy-button').text('Copied!');
+	        copyButton.text('Copied!');$('.copy-button')
 	    }
 	    if (typeof msgElem === "string") {
 	        msgElem = document.getElementById(msgElem);

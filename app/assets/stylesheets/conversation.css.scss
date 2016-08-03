@@ -212,9 +212,9 @@ body {
           box-shadow: none;
 }
 
-.input-form-url {
+.input-phone {
 	display: block;
-    width: 400px;
+    width: 170px;
     float: left;
     font-size: 20px;
     padding: 9px;
@@ -238,11 +238,12 @@ input[type="text"] {
     margin-left: 0;
 }
 
-#suicide-input {
+.suicide-input {
 	margin-bottom: 2vh;
+	margin-left: 3vw;
 }
 
-#suicide-input:hover {
+.suicide-input:hover {
 	background: rgba(255, 255, 235, 0.8);
 }
 
@@ -275,19 +276,18 @@ input[type="text"] {
     position: relative;
 }
 
-.protocol-menu > h4,
+.protocol-menu > h3,
 .protocol-menu > input {
 	position: absolute;
 	margin: 0 auto;
-	text-align: center;
+	
 }
 
-.protocol-menu > h4 {
-	top: 20%;
+.protocol-menu > h3 {
+	top: 10%;
 	left: 2vw;
 	color: rgba(255, 255, 255, .70); // Secondary Text
 	right: 5.4vw;
-	line-height: 1.7em;
 }
 
 .margin-negative {
@@ -300,12 +300,14 @@ input[type="text"] {
 
 .copy-button {
 	position: relative;
+	margin-bottom: 0.5vh;
+    margin-left: 2vw;
 }
 
 .copy-container {
 	position: absolute;
-	top: 45%;
-	left: 47%;
+	top: 27%;
+	left: 40%;
 	-webkit-transform: translateX(-50%);
 	transform: translateX(-50%);
 }
