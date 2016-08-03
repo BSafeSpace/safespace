@@ -84,7 +84,7 @@ class User < ActiveRecord::Base
   end
 
   def block_exists?(user)
-    Block.block?(self.id, user.id)
+    Block.block?(self.id, user.id) if user
   end
 
   def all_friends
