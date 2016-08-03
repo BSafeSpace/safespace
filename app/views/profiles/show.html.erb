@@ -25,70 +25,20 @@
       <div class="profile-box">
         <h4><strong>Information</strong></h4>
         <div class="basic-info char-option">
-          <p class="char-edit">
-            <div class="category"><strong>Class Rank:</strong></div>
-            <div class="answer"><%= @profile.class_rank %></div>
-          </p>
+          <%= render "profiles/show_partials/char_answer", title: "Class Rank", answer: @profile.format_answer(:class_rank) %>
+          <%= render "profiles/show_partials/char_answer", title: "Socioeconomic Status", answer: @profile.format_answer(:socioeconomic_status) %>
+          <%= render "profiles/show_partials/char_answer", title: "Living Situation", answer: @profile.format_answer(:living_situation) %>
           
-          <p class="char-edit">
-            <div class="category"><strong>Socioeconomic Status:</strong></div>
-            <div class="answer"><%= @profile.socioeconomic_status %></div>
-          </p>
-          
-          <p class="char-edit">
-            <div class="category"><strong>Living Situation:</strong></div>
-            <div class="answer"><%= @profile.living_situation %></div>
-          </p>
-          
-          <p class="char-edit">
-            <div class="category"><strong>First Generation College Student:</strong></div>
-            <div class="answer"><%= @profile.is_first_generation_college_student %></div>
-          </p>
-          
-          <p class="char-edit">
-            <div class="category"><strong>Physically Disabled:</strong></div>
-            <div class="answer"><%= @profile.is_physically_disabled %></div>
-          </p>
-          
-          <p class="char-edit">
-            <div class="category"><strong>Parent:</strong></div>
-            <div class="answer"><%= @profile.is_parent %></div>
-          </p>
-          
-          <p class="char-edit">
-            <div class="category"><strong>Single Parent:</strong></div>
-            <div class="answer"><%= @profile.is_single_parent %></div>
-          </p>
-          
-          <p class="char-edit">
-            <div class="category"><strong>From Foster Care:</strong></div>
-            <div class="answer"><%= @profile.is_from_foster_care %></div>
-          </p>
-          
-          <p class="char-edit">
-            <div class="category"><strong>Intercollegiate Athlete:</strong></div>
-            <div class="answer"><%= @profile.is_intercollegiate_athlete %></div>
-          </p>
-          
-          <p class="char-edit">
-            <div class="category"><strong>Military:</strong></div>
-            <div class="answer"><%= @profile.is_military %></div>
-          </p>
-          
-          <p class="char-edit">
-            <div class="category"><strong>Out Of State Student:</strong></div>
-            <div class="answer"><%= @profile.is_out_of_state_student %></div>
-          </p>
-        
-          <p class="char-edit">
-            <div class="category"><strong>International Student:</strong></div>
-            <div class="answer"><%= @profile.is_international_student %></div>
-          </p>
-          
-          <p class="char-edit">
-            <div class="category"><strong>Transfer student:</strong></div>
-            <div class="answer"><%= @profile.is_transfer_student %></div>
-          </p>
+          <%= render "profiles/show_partials/char_answer", title: "First Generation College Student", answer: @profile.format_answer(:is_first_generation_college_student) %>
+          <%= render "profiles/show_partials/char_answer", title: "Physically Disabled", answer: @profile.format_answer(:is_physically_disabled) %>
+          <%= render "profiles/show_partials/char_answer", title: "Parent", answer: @profile.format_answer(:is_single_parent) %>
+          <%= render "profiles/show_partials/char_answer", title: "Single Parent", answer: @profile.format_answer(:is_single_parent) %>
+          <%= render "profiles/show_partials/char_answer", title: "From Foster Care", answer: @profile.format_answer(:is_from_foster_care) %>
+          <%= render "profiles/show_partials/char_answer", title: "Intercollegiate Athlete", answer: @profile.format_answer(:is_intercollegiate_athlete) %>
+          <%= render "profiles/show_partials/char_answer", title: "Military", answer: @profile.format_answer(:is_military) %>
+          <%= render "profiles/show_partials/char_answer", title: "Out of State Student", answer: @profile.format_answer(:is_out_of_state_student) %>
+          <%= render "profiles/show_partials/char_answer", title: "International Student", answer: @profile.format_answer(:is_international_student) %>
+          <%= render "profiles/show_partials/char_answer", title: "Transfer Student", answer: @profile.format_answer(:is_transfer_student) %>
         </div>
       </div>
     </div>

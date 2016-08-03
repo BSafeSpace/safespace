@@ -23,6 +23,16 @@ class Profile < ActiveRecord::Base
   	end
   end
 
+  def format_answer(field)
+    answer = self.send(field)
+    if !answer
+      return ""
+    elsif answer == true
+      return "Yes"
+    end
+    answer
+  end
+
   def self.ransortable_attributes(auth_object = nil)
   	return ["age", "name", "recommend_count"]
   end
