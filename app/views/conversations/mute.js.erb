@@ -3,6 +3,7 @@ $(".mute-button > a").remove();
 <% if to_boolean(@is_mute) %>
 	console.log("append unmute");
 	console.log("<%= @is_mute %>");
+	$('#message_body').prop('disabled', true);
 	$('.mute-button').append('<%= j render("unmute_button") %>');
 <% else %>
 	console.log("append mute");

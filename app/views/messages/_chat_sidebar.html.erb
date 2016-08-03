@@ -63,8 +63,8 @@
     </div>
 
     <div class="sidebar-link mute-button">
-      <% if !Mute.mute?(current_user.id, @other_user.id).empty? %>
-      <% puts Mute.mute?(current_user.id, @other_user.id) %>
+      <% if Mute.mute?(current_user.id, @other_user.id) %>
+        <% puts Mute.mute?(current_user.id, @other_user.id) %>
         <%= render("/conversations/unmute_button") %>
       <% else %>
         <%= render("/conversations/mute_button") %>

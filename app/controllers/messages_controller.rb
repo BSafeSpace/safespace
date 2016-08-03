@@ -67,7 +67,7 @@ class MessagesController < ApplicationController
           @messages.last.read = true;
         else
           # check if message sender is muted; if not then notify receiver
-          if Mute.mute?(@receiver.id, @message.user.id).empty?
+          if !Mute.mute?(@receiver.id, @message.user.id)
             @message.notify_user(@receiver)
           end
         end

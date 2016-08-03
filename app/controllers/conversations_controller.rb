@@ -1,4 +1,5 @@
 require "prawn"
+include ApplicationHelper
 class ConversationsController < ApplicationController
   # before_action :authenticate_user
   before_filter :liability_required
@@ -81,6 +82,7 @@ class ConversationsController < ApplicationController
       @mute.save
     else
       @mute = Mute.mute?(current_user.id, @other_user_id)
+      puts @mute
       @mute.destroy
     end
     respond_to do |format|
