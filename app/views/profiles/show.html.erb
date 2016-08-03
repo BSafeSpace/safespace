@@ -8,9 +8,10 @@
       <div class="char-box">
         <h4><strong>Characteristics</strong></h4>
         <%= render 'profiles/show_partials/show_characteristic', name: "mental_health", title: "Mental Health" %>
-        <div class="char-title edit-field-title">Age: <%= @profile.age %></div>
         <%= render 'profiles/show_partials/show_characteristic', name: "gender", title: "Gender" %>
         <%= render 'profiles/show_partials/show_characteristic', name: "ethnicity", title: "Ethnicity" %>
+        <%= render 'profiles/show_partials/show_characteristic', name: "academic_focus", title: "Major" %>
+
       </div>
 
       <div class="edit-profile-btn">
@@ -28,7 +29,8 @@
           <%= render "profiles/show_partials/char_answer", title: "Class Rank", answer: @profile.format_answer(:class_rank) %>
           <%= render "profiles/show_partials/char_answer", title: "Socioeconomic Status", answer: @profile.format_answer(:socioeconomic_status) %>
           <%= render "profiles/show_partials/char_answer", title: "Living Situation", answer: @profile.format_answer(:living_situation) %>
-          
+          <%= render "profiles/show_partials/char_answer", title: "Age", answer: @profile.format_answer(:age) %>
+
           <%= render "profiles/show_partials/char_answer", title: "First Generation College Student", answer: @profile.format_answer(:is_first_generation_college_student) %>
           <%= render "profiles/show_partials/char_answer", title: "Physically Disabled", answer: @profile.format_answer(:is_physically_disabled) %>
           <%= render "profiles/show_partials/char_answer", title: "Parent", answer: @profile.format_answer(:is_single_parent) %>
