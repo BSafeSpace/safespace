@@ -70,13 +70,16 @@ class FriendshipsController < ApplicationController
       @block.blocked_id = params[:id]
       @block.save
       @blocked_user = User.find params[:id]
-      @blocked_user.blocked_count += 1
+      @blocked_user.block_count += 1
       @blocked_user.save
-      if @blocked_user.blocked_count >= 3
+      if @blocked_user.block_count >= 3
         @blocked_user.destroy
       end
+      flash[:notice] = "Blocked user"
+    else
+      flash[:notice] = "Removed friend"
     end
-    flash[:notice] = "Removed friendship."
+    
     conversations = Conversation.where('sender_id = ? OR recipient_id = ?', current_user.id, current_user.id)
     @conversation = conversations.order("updated_at").last
 
