@@ -77,7 +77,13 @@ class FriendshipsController < ApplicationController
       end
     end
     flash[:notice] = "Removed friendship."
-    redirect_to :back
+    conversations = Conversation.where('sender_id = ? OR recipient_id = ?', current_user.id, current_user.id)
+    @conversation = conversations.order("updated_at").last
+
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
   end
 
   private

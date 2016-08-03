@@ -1,63 +1,6 @@
 <div class="row">
   <div class="ui segment col-md-3 friend-list">
-    <h3>Friends</h3>
-    <div class="friend-tabs">
-      <ul class="nav nav-tabs">
-        <li class="active">
-          <a href="#all-friends" data-toggle="tab">All</a>
-        </li>
-        <li><a href="#online-friends" data-toggle="tab">Online</a></li>
-        <li><a href="#pending-friends" data-toggle="tab">Pending</a></li>
-        <li><a href="#friend-requests" data-toggle="tab">Requests</a></li>
-      </ul>
-      <div class="tab-content">
-        <div class="tab-pane active" id="all-friends">
-          <div class="ui list">
-            <% current_user.all_friends.each do |friend| %>
-              <div class="chat-box chat-item horizontal-align <%= "active-conversation" if @conversation && @conversation.same_convo?(current_user.id, friend.id) %>">
-                <%= render 'chat_name', user: friend %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-        <div class="tab-pane" id="online-friends">
-          <div class="ui list">
-            <% current_user.online_friends.each do |friend| %>
-              <div class="chat-box chat-item horizontal-align <%= "active-conversation" if @conversation && @conversation.same_convo?(current_user.id, friend.id) %>">
-                <%= render 'chat_name', user: friend %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-        <div class="tab-pane" id="pending-friends">
-          <div class="ui list">
-            <div class="chat-item">
-              <% current_user.pending_friends.each do |pending| %>
-                <div class="chat-box chat-item horizontal-align">
-                  <%= render 'contact_name', user: pending %>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-        <div class="tab-pane" id="friend-requests">
-          <div class="ui list">
-            <div class="chat-item">
-              <% current_user.requested_friendships.each do |request| %>
-                <div class="chat-box chat-item horizontal-align">
-                  <%= render 'contact_name', user: request %>
-                  <div class="links-container horizontal-align">
-                    <%= link_to "Accept", friendship_path(:id => request), :method => "put", :class => "friend-link" %> 
-                    <%= link_to "Decline", friendship_path(:id => request), :method => :delete, :class => "friend-link" %>
-                  </div>
-                </div>
-                
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <%= render "friend_list" %>    
   </div>
 
   <div class="col-md-6 chat-body" id="chat">
