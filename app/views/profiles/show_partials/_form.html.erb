@@ -20,7 +20,7 @@
           <h4><strong>Characteristics</strong></h4>
           <%= render 'profiles/show_partials/edit_characteristic', title: "Mental Health", name: "mental_health", f: f, id: "edit-mental-health" %>
           <p class="char-edit">
-              <%= f.label :age, :class => "char-title", :style => "padding-left: 0.5vw;" %>
+              <%= f.label :age, :class => "char-title edit-field-title" %>
               <%= f.number_field :age, class: "form-control age-field" %>
             </p>
           <%= render 'profiles/show_partials/edit_characteristic', title: "Gender", name: "gender", f: f, id: "edit-gender" %>

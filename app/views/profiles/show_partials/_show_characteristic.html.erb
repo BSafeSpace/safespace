@@ -1,6 +1,6 @@
-<div class="char-title" style="padding-left: 0.5vw;"><%= title %></div>
+<div class="char-title edit-field-title"><%= title %></div>
 <% @profile.characteristics.select { |char| char.category == name }.each do |char| %>
-  <ul style="padding-left: 0.5vw;">
-    <div class="char-option" style="padding-bottom: 5px"><%= char.name %></div>
+  <ul class="edit-field-body">
+    <div class="char-option"><%= char.name %></div>
   </ul>
 <% end %>
