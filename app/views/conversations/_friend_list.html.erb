@@ -21,6 +21,12 @@
       </div>
       <div class="tab-pane" id="online-friends">
         <div class="ui list">
+          <% if current_user.online_friends.empty? %>
+            <div class="chat-box status-text chat-item horizontal-align">
+              No friends are currently online
+            </div>
+          <% end %>
+
           <% current_user.online_friends.each do |friend| %>
             <div class="chat-box chat-item horizontal-align <%= "active-conversation" if @conversation && @conversation.same_convo?(current_user.id, friend.id) %>">
               <%= render 'chat_name', user: friend %>
@@ -31,6 +37,12 @@
       <div class="tab-pane" id="pending-friends">
         <div class="ui list">
           <div class="chat-item">
+            <% if current_user.pending_friends.empty? %>
+              <div class="chat-box status-text chat-item horizontal-align">
+                You have no pending requests
+              </div>
+            <% end %>
+
             <% current_user.pending_friends.each do |pending| %>
               <div class="chat-box chat-item horizontal-align">
                 <%= render 'contact_name', user: pending %>
@@ -42,6 +54,12 @@
       <div class="tab-pane" id="friend-requests">
         <div class="ui list">
           <div class="chat-item">
+            <% if current_user.requested_friendships.empty? %>
+              <div class="chat-box status-text chat-item horizontal-align">
+                You have no friend requests
+              </div>
+            <% end %>
+
             <% current_user.requested_friendships.each do |request| %>
               <div class="chat-box chat-item horizontal-align">
                 <%= render 'contact_name', user: request %>
