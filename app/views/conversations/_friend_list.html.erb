@@ -1,7 +1,7 @@
 <div class="friend-sidebar">
-  <h3>Friends</h3>
+  <h3 align="center">Friends</h3>
   <div class="friend-tabs">
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs friend-nav">
       <li class="active">
         <a href="#all-friends" data-toggle="tab">All</a>
       </li>
@@ -10,58 +10,58 @@
       <li><a href="#friend-requests" data-toggle="tab">Requests</a></li>
     </ul>
     <div class="tab-content">
-      <div class="tab-pane active" id="all-friends">
+      <div class="tab-pane custom-scroll search-scroll active" id="all-friends">
         <div class="ui list">
           <% current_user.all_friends.each do |friend| %>
-            <div class="chat-box chat-item horizontal-align <%= "active-conversation" if @conversation && @conversation.same_convo?(current_user.id, friend.id) %>">
+            <div class="chat-box horizontal-align <%= "active-conversation" if @conversation && @conversation.same_convo?(current_user.id, friend.id) %>">
               <%= render 'chat_name', user: friend %>
             </div>
           <% end %>
         </div>
       </div>
-      <div class="tab-pane" id="online-friends">
+      <div class="tab-pane custom-scroll search-scroll" id="online-friends">
         <div class="ui list">
           <% if current_user.online_friends.empty? %>
-            <div class="chat-box status-text chat-item horizontal-align">
+            <div class="chat-box status-text horizontal-align" style="margin-left: 0px">
               No friends are currently online
             </div>
           <% end %>
 
           <% current_user.online_friends.each do |friend| %>
-            <div class="chat-box chat-item horizontal-align <%= "active-conversation" if @conversation && @conversation.same_convo?(current_user.id, friend.id) %>">
+            <div class="chat-box horizontal-align <%= "active-conversation" if @conversation && @conversation.same_convo?(current_user.id, friend.id) %>">
               <%= render 'chat_name', user: friend %>
             </div>
           <% end %>
         </div>
       </div>
-      <div class="tab-pane" id="pending-friends">
+      <div class="tab-pane search-scroll custom-scroll" id="pending-friends">
         <div class="ui list">
-          <div class="chat-item">
+          <div>
             <% if current_user.pending_friends.empty? %>
-              <div class="chat-box status-text chat-item horizontal-align">
+              <div class="chat-box status-text horizontal-align" style="margin-left: 0px;">
                 You have no pending requests
               </div>
             <% end %>
 
             <% current_user.pending_friends.each do |pending| %>
-              <div class="chat-box chat-item horizontal-align">
+              <div class="chat-box horizontal-align">
                 <%= render 'contact_name', user: pending %>
               </div>
             <% end %>
           </div>
         </div>
       </div>
-      <div class="tab-pane" id="friend-requests">
+      <div class="tab-pane custom-scroll search-scroll" id="friend-requests">
         <div class="ui list">
-          <div class="chat-item">
+          <div>
             <% if current_user.requested_friendships.empty? %>
-              <div class="chat-box status-text chat-item horizontal-align">
+              <div class="chat-box status-text horizontal-align" style="margin-left: 0px">
                 You have no friend requests
               </div>
             <% end %>
 
             <% current_user.requested_friendships.each do |request| %>
-              <div class="chat-box chat-item horizontal-align">
+              <div class="chat-box  horizontal-align">
                 <%= render 'contact_name', user: request %>
                 <div class="links-container horizontal-align">
                   <%= link_to "Accept", friendship_path(:id => request), :method => "put", :class => "friend-link" %> 

@@ -6,6 +6,8 @@
 
 .tab-pane {
 	padding-top: 10px;
+	max-height: 772px; 
+	border-bottom: thin solid #c8ccd0;
 }
 
 .contact-list-name {
@@ -16,6 +18,10 @@
 	cursor: pointer;
 }
 
+.friend-nav {
+	padding-left: 16px;
+}
+
 .friend-link {
     font-size: 0.85em;
     padding-left: 5px;
@@ -23,9 +29,10 @@
 }
 
 .friend-list {
-	border-right-width: 1px;
+	border-right: thin solid #c8ccd0;
+	border-left: thin solid #c8ccd0;
 	padding-right: 0px;
-	padding-left: 20px;
+	padding-left: 0px;
 }
 
 #friend-info {
@@ -59,7 +66,6 @@
 .chat-body {
 	padding-left: 20px;
 	padding-right: 20px;
-	border-left: thin solid #c8ccd0;
 	border-right: thin solid #c8ccd0;
 }
 
@@ -99,6 +105,7 @@
 }
 
 .chat-box {
+	padding-left: 10px;
 	padding-top: 25px;
 	padding-bottom: 25px;
 	border-bottom: thin solid #c8ccd0;

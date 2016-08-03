@@ -1,6 +1,6 @@
 <!-- <p id="notice"><%= notice %></p> -->
 
-<h3 class="profile-header"><%= @profile.name %>'s Profile</h3>
+<h3 class="profile-header"><%= @profile.name %>'s Profile</h3><br>
 <div class="edit-profile-btn" align="center">
         <% if current_user.id == @profile.user.id %>
           <%= link_to "Edit Profile", edit_profile_path(current_user.id), class: 'btn btn-default btn-lg' %>
@@ -9,7 +9,7 @@
         <% end %>
       </div>
 
-<div style="margin-top: 15px; margin-bottom: 20px">
+<div class="profile-container">
   <div class="row">
     <div class="col-md-4 col-sm-offset-2">
       <div class="char-box">
