@@ -42,6 +42,33 @@ class BioTypeform
   end
 
   field :multiple_choice do
+    ask "Ethnicity: Which of these best describes you?"
+    
+    choice "Prefer to omit from personal profile"
+    choice "African/African American"
+    choice "Alaskan Native"
+    choice "American Indian"
+    choice "Asian"
+    choice "Chinese/Chinese American"
+    choice "East Indian or Pakistani"
+    choice "Filipino/Filipino American"
+    choice "Hispanic or Latino"
+    choice "Japanese/Japanese American"
+    choice "Korean/Korean American"
+    choice "Mexican/Mexican American/Chicano"
+    choice "Middle Eastern"
+    choice "Native American"
+    choice "Native Hawaiian"
+    choice "Pacific Islander"
+    choice "Vietnamese/Vietnamese American"
+    choice "White or Caucasian"
+
+    tags "characteristic", "single", "ethnicity"
+    required
+    can_specify_other
+  end
+
+  field :multiple_choice do
     ask "Academic Focus: Which of these best describe you?"
 
     choice "Prefer to omit from personal profile"
@@ -67,20 +94,6 @@ class BioTypeform
   end
 
   field :multiple_choice do
-    ask "What is your class standing?"
-
-    choice "Prefer to omit from personal profile"
-    choice "Freshman"
-    choice "Sophomore"
-    choice "Junior"
-    choice "Senior"
-
-    tags "profile_string", "class_rank"
-    required
-    can_specify_other
-  end
-
-  field :multiple_choice do
     ask "Gender: Which of these best describes you?"
 
     choice "Prefer to omit from personal profile"
@@ -99,28 +112,15 @@ class BioTypeform
   end
 
   field :multiple_choice do
-    ask "Ethnicity: Which of these best describes you?"
-    
-    choice "Prefer to omit from personal profile"
-    choice "African/African American"
-    choice "Alaskan Native"
-    choice "American Indian"
-    choice "Asian"
-    choice "Chinese/Chinese American"
-    choice "East Indian or Pakistani"
-    choice "Filipino/Filipino American"
-    choice "Hispanic or Latino"
-    choice "Japanese/Japanese American"
-    choice "Korean/Korean American"
-    choice "Mexican/Mexican American/Chicano"
-    choice "Middle Eastern"
-    choice "Native American"
-    choice "Native Hawaiian"
-    choice "Pacific Islander"
-    choice "Vietnamese/Vietnamese American"
-    choice "White or Caucasian"
+    ask "What is your class standing?"
 
-    tags "characteristic", "single", "ethnicity"
+    choice "Prefer to omit from personal profile"
+    choice "Freshman"
+    choice "Sophomore"
+    choice "Junior"
+    choice "Senior"
+
+    tags "profile_string", "class_rank"
     required
     can_specify_other
   end
