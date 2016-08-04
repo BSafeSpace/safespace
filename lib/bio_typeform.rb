@@ -8,8 +8,7 @@ class BioTypeform
   tags "hehe"
 
   field :statement do
-    say "Only the first 6 questions are required to create a basic profile, but we encourage you to answer as many as you can
-         so that you can connect to others in more ways."
+    say "Only the first 6 questions are required, but finish the survey if you’re looking for more specific traits."
   end
 
   field :multiple_choice do

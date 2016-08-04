@@ -31,7 +31,7 @@
               <li id = "people"><%= link_to_in_li  'People', profiles_path, "users", id: "people-tooltip" %></li>
               <li id="chat-link">
                 <% if current_user.peer_counselor %>
-                  <%= link_to_in_li 'Requests', recommendations_path, "inbox" %>
+                  <%= link_to_in_li 'Recommendations', recommendations_path, "inbox" %>
                 <% else %>
                   <%= link_to_in_li 'Chat', conversations_path, "comment", id: "chat-tooltip" %>
                 <% end %>
