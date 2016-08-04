@@ -138,7 +138,8 @@ var disableSort = function(sortId) {
 $(function() {
   //initialize scrollbars
   $('.custom-scroll').mCustomScrollbar({
-      theme: "minimal-dark"
+      theme: "minimal-dark",
+      advanced: { autoScrollOnFocus: false }
   });
 
   // initialize dropdown preference tooltips
