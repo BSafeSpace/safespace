@@ -63,7 +63,7 @@ $(function() {
                 html: true,
                 trigger: 'manual',
                 template: '<div class="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner tooltip-slim"></div></div>',
-                title: 'Add a buddy as a friend',
+                title: 'Add a buddy to begin chatting',
                 placement: 'right'
             }).tooltip('show');
 

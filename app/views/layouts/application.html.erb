@@ -62,7 +62,7 @@
                      <li id="appear_offline"><%= link_to 'Appear Online', toggle_appear_offline_path, method: :get, remote: true%></li>
                   <% end %>
                   <% if !current_user.peer_counselor %>
-                    <li><%= link_to 'Profile', profile_path(current_user.profile.id) %></li>
+                    <li><%= link_to 'Edit Profile', profile_path(current_user.profile.id) %></li>
                   <% end %>
                   <li><%= link_to 'Account', edit_user_registration_path %></li>
                   <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>

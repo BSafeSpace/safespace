@@ -267,6 +267,12 @@ input[type="text"] {
   	position: absolute;
 }
 
+@-moz-document url-prefix() { 
+  .protocol-container {
+    right: 0;
+  }
+}
+
 .protocol-button {
 	margin-bottom: 25vh;
 	border-bottom: none;
