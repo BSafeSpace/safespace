@@ -69,10 +69,10 @@ $('.conversations.index').ready(function() {
 						<div class="copy-container input-group">\
 							<h4>Crisis Support Services of Alameda County. 24/7</h4>\
 							<input class="input-number suicide-input" id="alameda-number" type="text" value="1-800-309-2131" />\
-							<div class="copy-button btn btn-success btn-lg" id="alameda-copy">Copy</div>\
+							<div class="copy-button btn btn-success btn-lg" id="alameda-copy">Paste as Message</div>\
 							<h4>Crisis Text Line. Free, 24/7, confidential.</h4>\
 							<input class="input-number suicide-input" id="crisis-text-number" type="text" value="Text “GO” to 741741" />\
-							<div class="copy-button btn btn-success btn-lg" id="crisis-text-copy">Copy</div>\
+							<div class="copy-button btn btn-success btn-lg" id="crisis-text-copy">Paste as Message</div>\
 						</div>'
 						);
 
@@ -93,14 +93,16 @@ $('.conversations.index').ready(function() {
 	   $(this).select();
 	});
 
-	// Copy link on copy button click
+	// Copy number into message input on copy button click
 	$('#alameda-copy').click(function() {
-	    copyToClipboardMsg($(this), document.getElementById("alameda-number"), "msg");
+	    // copyToClipboardMsg($(this), document.getElementById("alameda-number"), "msg");
+	    $('#message_body').val($('#alameda-number').val());
 	});
 
-	// Copy link on copy button click
+	// Copy number into message input on copy button click
 	$('#crisis-text-copy').click(function() {
-	    copyToClipboardMsg($(this), document.getElementById("crisis-text-number"), "msg");
+	    // copyToClipboardMsg($(this), document.getElementById("crisis-text-number"), "msg");
+	    $('#message_body').val($('#crisis-text-number').val());
 	});
 
 	function copyToClipboardMsg(copyButton, elem, msgElem) {
@@ -110,7 +112,7 @@ $('.conversations.index').ready(function() {
 	        msg = "Copy not supported or blocked.  Press Ctrl+c to copy."
 	    } else {
 	        msg = "Text copied to the clipboard."
-	        copyButton.text('Copied!');$('.copy-button')
+	        copyButton.text('Copied!');
 	    }
 	    if (typeof msgElem === "string") {
 	        msgElem = document.getElementById(msgElem);
