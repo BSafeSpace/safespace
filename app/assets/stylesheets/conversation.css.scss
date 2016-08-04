@@ -198,10 +198,15 @@ label {
 	margin-top: 2vh;
 }
 
+#message_body {
+	height: auto;
+}
+
 // border-top: 3px solid rgba(0, 0, 0, .10);
 
 // Protocol Styles
 html, body {
+	max-width: 100%;
     overflow-x: hidden;
 }
 
