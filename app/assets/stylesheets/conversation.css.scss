@@ -29,8 +29,6 @@
 }
 
 .friend-list {
-	border-right: thin solid #c8ccd0;
-	border-left: thin solid #c8ccd0;
 	padding-right: 0px;
 	padding-left: 0px;
 }
@@ -66,6 +64,7 @@
 .chat-body {
 	padding-left: 20px;
 	padding-right: 20px;
+	border-left: thin solid #c8ccd0;
 	border-right: thin solid #c8ccd0;
 }
 
