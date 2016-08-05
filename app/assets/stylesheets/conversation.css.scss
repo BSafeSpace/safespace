@@ -31,6 +31,7 @@
 .friend-list {
 	padding-right: 0px;
 	padding-left: 0px;
+	border-right: thin solid #c8ccd0;
 }
 
 #friend-info {
@@ -43,11 +44,13 @@
 }
 
 .chat-sidebar {
-	margin-top: 4vh;
 	position: relative;
 	height : 86.5vh;
+	padding-top: 4vh;
 	padding-left: 20px;
 	padding-right: 0px;
+	border-left: thin solid #c8ccd0;
+	border-bottom: thin solid #c8ccd0;
 }
 
 .char-title {
@@ -64,8 +67,6 @@
 .chat-body {
 	padding-left: 20px;
 	padding-right: 20px;
-	border-left: thin solid #c8ccd0;
-	border-right: thin solid #c8ccd0;
 }
 
 // Chat Sidebar
@@ -77,6 +78,7 @@
 	position: absolute;
     bottom: 0;
     margin-right: 3vw;
+    margin-bottom: 4vh;
     text-align: center;
 }
 
