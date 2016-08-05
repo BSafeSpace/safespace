@@ -19,3 +19,7 @@ $(".mute").tooltip({
 	title: 'You can Mute and Unmute a user whenever you want. You won’t be able to contact each other if they are muted.',
 	placement: 'left'
 });
+
+$(".mute").on('click', function() {
+	$(this).tooltip('hide')
+})
