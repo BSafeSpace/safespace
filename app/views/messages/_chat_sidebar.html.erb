@@ -59,7 +59,7 @@
 
     <div class="sidebar-link">
       <%= icon('file') %>
-      <%= link_to 'Download this chat', download_chat_conversation_path(conversation)%>
+      <%= link_to 'Download this chat', download_chat_conversation_path(conversation), class: "download-chat" %>
     </div>
 
     <div class="sidebar-link mute-button">
@@ -72,7 +72,7 @@
     </div>
 
     <div class="sidebar-link">
-      <%= link_to "Block User", friendship_path(:id => @other_user, :block => true), :method => :delete %>
+      <%= link_to "Block User", friendship_path(:id => @other_user, :block => true), :method => :delete, class: "block-button" %>
     </div>
   </div>
 

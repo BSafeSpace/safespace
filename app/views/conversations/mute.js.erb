@@ -10,3 +10,12 @@ $(".mute-button > a").remove();
 	$('#message_body').prop('disabled', false);
 	$('.mute-button').append('<%= j render("mute_button") %>');
 <% end %>
+
+$(".mute").tooltip({
+	container: 'body',
+	html: true,
+	trigger: 'hover',
+	template: '<div class="tooltip dropdown-tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
+	title: 'You can Mute and Unmute a user whenever you want. You won’t be able to contact each other if they are muted.',
+	placement: 'left'
+});

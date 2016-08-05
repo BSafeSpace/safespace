@@ -88,6 +88,40 @@ $('.conversations.index').ready(function() {
 		}
 	});
 
+	// Download Chat tutorial
+	$(".download-chat").tooltip({
+      container: 'body',
+      html: true,
+      trigger: 'hover',
+      template: '<div class="tooltip dropdown-tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
+      title: 'Your chat will be deleted every seven days to protect your privacy, so you have the option to save the current week’s chat.',
+      placement: 'left'
+  	});
+
+  	// Mute Button tutorial
+  	$(".mute").tooltip({
+      container: 'body',
+      html: true,
+      trigger: 'hover',
+      template: '<div class="tooltip dropdown-tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
+      title: 'You can Mute and Unmute a user whenever you want. You won’t be able to contact each other if they are muted.',
+      placement: 'left'
+  	});
+
+  	$(".mute").on('click', function() {
+  		$(this).tooltip('hide')
+  	})
+
+  	// Block tutorial
+  	$(".block-button").tooltip({
+      container: 'body',
+      html: true,
+      trigger: 'hover',
+      template: '<div class="tooltip dropdown-tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
+      title: 'If this person deserves to be deleted off SafeSpace permanently for inappropriate or hurtful language, BLOCK them.',
+      placement: 'left'
+  	});
+
 	// Select input on click
 	$(".suicide-input").click(function () {
 	   $(this).select();

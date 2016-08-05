@@ -1,4 +1,4 @@
-<%= link_to mute_conversation_path(@conversation, :mute => true), method: 'post', class: "btn btn-info info-outline", remote: true do %>
+<%= link_to mute_conversation_path(@conversation, :mute => true), method: 'post', class: "btn btn-info info-outline mute", remote: true do %>
 	<%= icon('volume-off') %>
 	<%= 'Mute' %>
 <% end %>
