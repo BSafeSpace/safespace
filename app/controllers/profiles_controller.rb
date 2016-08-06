@@ -65,10 +65,6 @@ class ProfilesController < ApplicationController
   end
 
   def create_bio
-    @completedBio = params[:completedBio]
-    if @completedBio
-      current_user.update(completed_bio: @completedBio)
-    end
     gon.completedBio = current_user.completed_bio
 
     if !current_user.completed_bio 

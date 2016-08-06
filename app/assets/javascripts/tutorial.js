@@ -7,17 +7,15 @@ $(function() {
 
 		$('.typeform-share').click(function() {
 			console.log("launch button clicked");
-			$('#bio-overlay').fadeOut(300, function(){
-		        $('.filters-container.expose').css('z-index','1');
-		        $filterTooltip.tooltip('hide');
-		        $defaultTooltip.tooltip('hide');
-		    });
+			$('#bio-overlay').remove();
+	        $('#tutorial-wrapper').remove();
 
-		    $.ajax({
-			   method: 'get',
-			   url: '/profiles',
-			   data: { completedBio: true }
-			});
+	        var delay = 5000; // 5 seconds
+			setTimeout(function() {
+			  // start filter tutorial after 5 seconds (typeform should be fully loaded)
+			  tutorial1();
+			}, delay);
+	        
 		});
 	}
 
@@ -25,7 +23,11 @@ $(function() {
 	var $filterTooltip = $('#filter-tooltip');
 	var $defaultTooltip = $('#default-tooltip');
 
-	if (gon.doneTutFilter == false) {
+	if (gon.completedBio && !gon.doneTutFilter) {
+		tutorial1();
+	}
+
+	function tutorial1() {
 		$(".filters-container.expose").css('z-index','9998');
     	$('.overlay').fadeIn(300);
 

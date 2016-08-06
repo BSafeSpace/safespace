@@ -3,6 +3,14 @@
 	z-index: 10002;
 }
 
+#typeform-overlay {
+	z-index: 10004;
+}
+
+#typeform-wrapper {
+	z-index: 10005;
+}
+
 // Typeform
 a[href="/signup?utm_campaign=uOcIgm&utm_source=typeform.com-3793316-Basic&utm_medium=typeform&utm_content=typeform-footer&utm_term=EN"] {
 	display: none;
