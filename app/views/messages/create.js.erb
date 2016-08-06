@@ -27,7 +27,7 @@
 	}
 
 	// update message preview for existing conversations
-	$("div[data-conv-id='<%=@conversation.id.to_s%>']").text("<%= j render '/conversations/message_preview' %>");
+	$(".status-text[data-conv-id='<%=@conversation.id.to_s%>']").text("<%= j render '/conversations/message_preview' %>");
 
 <% end %>
 
