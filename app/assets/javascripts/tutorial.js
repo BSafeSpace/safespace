@@ -1,12 +1,15 @@
 $(function() {
 
+	// Create Bio Modal
+	$('#tutorial-wrapper').css('z-index', '10003');
+
 	// initialize Bootstrap Tooltips
 	var $filterTooltip = $('#filter-tooltip');
 	var $defaultTooltip = $('#default-tooltip');
 
 	if (gon.doneTutFilter == false) {
 		$(".filters-container.expose").css('z-index','9998');
-    	$('#overlay').fadeIn(300);
+    	$('.overlay').fadeIn(300);
 
     	$filterTooltip.tooltip({
     		container: 'body',
@@ -25,7 +28,7 @@ $(function() {
     	}).tooltip('show');
 
     	$('#save-filters').click(function(){
-		    $('#overlay').fadeOut(300, function(){
+		    $('.overlay').fadeOut(300, function(){
 		        $('.filters-container.expose').css('z-index','1');
 		        $filterTooltip.tooltip('hide');
 		        $defaultTooltip.tooltip('hide');
@@ -51,7 +54,7 @@ $(function() {
 
 	function tutorial2() {
 		if ($('.result-names').children().length > 0) {
-			$('#overlay').fadeIn(300);
+			$('.overlay').fadeIn(300);
 			$('.profile-results-container.expose').css('z-index','9998');
 
 			var $resultsTooltip = $('.friend-link').first();

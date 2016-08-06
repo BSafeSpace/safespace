@@ -45,6 +45,17 @@ class ProfilesController < ApplicationController
         gon.firstSignIn = false
       end
 
+      @typeform = BioTypeform.build(current_user)
+      @typeform.instance_variable_get(:@structure).instance_variable_get(:@state)[:tags][0] = current_user.id.to_s
+      url = 'https://api.typeform.io/latest/forms'
+      response = HTTParty.post(url, 
+        :body => @typeform.to_json, 
+        :headers => { 'Content-Type' => 'application/json', 'X-API-TOKEN' => TYPEFORM_IO_API_KEY } )
+      body = JSON.parse(response.body)
+      @typeform.instance_variable_set(:@id, body["id"])
+      @typeform.instance_variable_set(:@links, body["_links"])
+      @typeform.instance_variable_set(:@public_url, body["_links"][1]["href"])
+
       @doneTutFilter = params[:doneTutFilter]
       if @doneTutFilter
         current_user.done_tut_filter = @doneTutFilter
