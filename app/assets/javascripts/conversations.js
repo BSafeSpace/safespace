@@ -10,10 +10,43 @@ $('.conversations.index').ready(function() {
 	   }
 	});
 
+	// Listen to dynamic message clicks
+	$('body').on('click', '.message', function() {
+	    console.log("clicked message");
+	    var conv_id = $('.chat').data('conv-id');
+	    var message_id = $(this).data('message-id');
+	    var $message_container = $(this).parent();
+	    $.get("/conversations/" + conv_id + "/messages/get_message_time", { message_id: message_id }, function (data) {
+	    	var message_time = data.message_time;
+	    	var $message_time = $('<div class="message-time curr-message-time">\
+						             <small class="text-muted message-date">' + message_time + '</small>\
+						          	</div>');
+	    	var $message = $message_container.children().first();
+
+	    	// Check if message time is already displayed or if the message clicked is the first message. 
+	    	if ( $('.curr-message-time').length == 0 && !$message_container.parent().prev().hasClass('message-time') ) {
+	    		if ($('.message-time-active').length > 0) {
+	    			$('.message-time-active').removeClass('message-time-active');
+	    		} else {
+	    			$message_container.parent().before($message_time);
+	    			$message.addClass('message-time-active');
+	    		}
+	    	}
+            console.log($message_container.text());
+        });
+	});
+
+	// Remove message time if user clicks away.
+	$('.chat').click(function(event) {
+		$('.curr-message-time').remove();
+	})
+
+	// Submit recommendation form on button click
 	$('#rec-btn').click(function() {
 		$('#new_recommendation').submit();
 	});
 
+	// Show liability dialog if new session
 	if (Cookies.get('agree_chat_liability') == null) {
 		console.log('hello');
 		var $dialog = $('<div id="dialog-confirm" title="Chat Liability">\

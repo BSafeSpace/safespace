@@ -49,7 +49,10 @@ Rails.application.routes.draw do
     end
 
     resources :messages do
-      post 'create_peer_message', on: :collection
+      collection do
+        post 'create_peer_message'
+        get 'get_message_time'
+      end
     end
   end
 

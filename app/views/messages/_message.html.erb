@@ -5,7 +5,7 @@
         <% user = User.find(message.user_id) %>
 
         <% if message.show_time(last_time) %>  
-          <div style="text-align:center">
+          <div class="message-time">
              <small class="text-muted message-date"><%= message.message_time %></small> 
           </div>
         <% end %>
@@ -17,7 +17,7 @@
                   <% last_user = user.username %>
                 <% end %>
                 <div class="message-container" id="message-right">
-                    <div class="message" id="curr-message"><%= message.body %></div>
+                    <div class="message" id="curr-message" data-message-id="<%= message.id.to_s %>"><%= message.body %></div>
                 </div>
             </div>
             
@@ -28,7 +28,7 @@
                   <% last_user = user.username %>
                 <% end %>
                 <div class="message-container">
-                    <div class="message" id="other-message"><%= message.body %></div>
+                    <div class="message" id="other-message" data-message-id="<%= message.id.to_s %>"><%= message.body %></div>
                 </div>
             </div>
         <% end %>

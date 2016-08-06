@@ -93,6 +93,12 @@ class MessagesController < ApplicationController
     @path = conversation_path(@conversation)
   end
 
+  def get_message_time
+    @message = Message.find(params[:message_id])
+    @message_time = @message.message_time
+    render json: { message_time: @message_time }
+  end
+
 private
   def message_params
     params.require(:message).permit(:body, :user_id)
