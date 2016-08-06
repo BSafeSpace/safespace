@@ -10,7 +10,7 @@
       <li><a href="#friend-requests" data-toggle="tab">Requests</a></li>
     </ul>
     <div class="tab-content">
-      <div class="tab-pane custom-scroll search-scroll active" id="all-friends">
+      <div class="tab-pane custom-scroll active" id="all-friends">
         <div class="ui list">
           <% current_user.all_friends.each do |friend| %>
             <div class="chat-box horizontal-align <%= "active-conversation" if @conversation && @conversation.same_convo?(current_user.id, friend.id) %>">
@@ -19,7 +19,7 @@
           <% end %>
         </div>
       </div>
-      <div class="tab-pane custom-scroll search-scroll" id="online-friends">
+      <div class="tab-pane custom-scroll" id="online-friends">
         <div class="ui list">
           <% if current_user.online_friends.empty? %>
             <div class="chat-box status-text horizontal-align" style="margin-left: 0px">
@@ -34,7 +34,7 @@
           <% end %>
         </div>
       </div>
-      <div class="tab-pane search-scroll custom-scroll" id="pending-friends">
+      <div class="tab-pane custom-scroll" id="pending-friends">
         <div class="ui list">
           <div>
             <% if current_user.pending_friends.empty? %>
@@ -51,7 +51,7 @@
           </div>
         </div>
       </div>
-      <div class="tab-pane custom-scroll search-scroll" id="friend-requests">
+      <div class="tab-pane custom-scroll" id="friend-requests">
         <div class="ui list">
           <div>
             <% if current_user.requested_friendships.empty? %>

@@ -132,6 +132,7 @@ class User < ActiveRecord::Base
 
   def showcase_reset
     self.signed_liability = false
+    self.completed_bio = false
     self.done_tut_filter = false
     self.done_tut_add_friend = false
     self.non_counselor_friends.each do |friend|
