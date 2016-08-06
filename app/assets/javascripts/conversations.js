@@ -88,6 +88,14 @@ $('.conversations.index').ready(function() {
 		}
 	});
 
+	// "Disable" the horizontal scroll.
+	var $body = $(document);
+    $body.bind('scroll', function() {
+        if ($body.scrollLeft() !== 0) {
+            $body.scrollLeft(0);
+        }
+    });
+
 	// Download Chat tutorial
 	$(".download-chat").tooltip({
       container: 'body',

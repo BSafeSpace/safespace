@@ -35,7 +35,7 @@ $(function() {
     		container: 'body',
             html: true,
             trigger: 'manual',
-            title: 'Filters are automatically set to your profile characteristics. Click Default to reset them.',
+            title: 'Click Default to set the filters to your profile characteristics.',
             placement: 'right'
     	}).tooltip('show');
 
