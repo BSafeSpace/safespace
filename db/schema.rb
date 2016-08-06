@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802001612) do
+ActiveRecord::Schema.define(version: 20160806095302) do
 
   create_table "blocks", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -155,6 +155,7 @@ ActiveRecord::Schema.define(version: 20160802001612) do
     t.integer  "quiz_id"
     t.boolean  "signed_liability",       default: false
     t.boolean  "showcase",               default: false
+    t.boolean  "completed_bio",          default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

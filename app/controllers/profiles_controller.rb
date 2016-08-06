@@ -1,4 +1,7 @@
 include ProfilesHelper
+require "ask_awesomely"
+require 'bio_typeform'
+require 'httparty'
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
   before_filter :fix_json_params
@@ -45,6 +48,30 @@ class ProfilesController < ApplicationController
         gon.firstSignIn = false
       end
 
+      create_bio
+
+      @doneTutFilter = params[:doneTutFilter]
+      if @doneTutFilter
+        current_user.update(done_tut_filter: @doneTutFilter)
+      end
+      gon.doneTutFilter = current_user.done_tut_filter
+
+      @doneTutAddFriend = params[:doneTutAddFriend]
+      if @doneTutAddFriend
+        current_user.update(done_tut_add_friend: @doneTutAddFriend)
+      end
+      gon.doneTutAddFriend = current_user.done_tut_add_friend
+    end
+  end
+
+  def create_bio
+    @completedBio = params[:completedBio]
+    if @completedBio
+      current_user.update(completed_bio: @completedBio)
+    end
+    gon.completedBio = current_user.completed_bio
+
+    if !current_user.completed_bio 
       @typeform = BioTypeform.build(current_user)
       @typeform.instance_variable_get(:@structure).instance_variable_get(:@state)[:tags][0] = current_user.id.to_s
       url = 'https://api.typeform.io/latest/forms'
@@ -55,20 +82,6 @@ class ProfilesController < ApplicationController
       @typeform.instance_variable_set(:@id, body["id"])
       @typeform.instance_variable_set(:@links, body["_links"])
       @typeform.instance_variable_set(:@public_url, body["_links"][1]["href"])
-
-      @doneTutFilter = params[:doneTutFilter]
-      if @doneTutFilter
-        current_user.done_tut_filter = @doneTutFilter
-        current_user.save
-      end
-      gon.doneTutFilter = current_user.done_tut_filter
-
-      @doneTutAddFriend = params[:doneTutAddFriend]
-      if @doneTutAddFriend
-        current_user.done_tut_add_friend = @doneTutAddFriend
-        current_user.save
-      end
-      gon.doneTutAddFriend = current_user.done_tut_add_friend
     end
   end
 
@@ -95,6 +108,7 @@ class ProfilesController < ApplicationController
     @user = User.find params[:user_id]
     @profile = @user.profile
     @profile.update(profile_params)
+    @user.update(completed_bio: true)
 
     respond_to do |format|
       format.json { render :show, status: :created, location: @profile }

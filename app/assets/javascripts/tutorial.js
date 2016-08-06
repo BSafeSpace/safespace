@@ -1,7 +1,25 @@
 $(function() {
 
 	// Create Bio Modal
-	$('#tutorial-wrapper').css('z-index', '10003');
+	if (gon.completedBio == false) {
+		$('#tutorial-wrapper').css('z-index', '10003');
+		$('#bio-overlay').fadeIn(300);
+
+		$('.typeform-share').click(function() {
+			console.log("launch button clicked");
+			$('#bio-overlay').fadeOut(300, function(){
+		        $('.filters-container.expose').css('z-index','1');
+		        $filterTooltip.tooltip('hide');
+		        $defaultTooltip.tooltip('hide');
+		    });
+
+		    $.ajax({
+			   method: 'get',
+			   url: '/profiles',
+			   data: { completedBio: true }
+			});
+		});
+	}
 
 	// initialize Bootstrap Tooltips
 	var $filterTooltip = $('#filter-tooltip');

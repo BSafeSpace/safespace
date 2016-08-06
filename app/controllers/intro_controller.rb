@@ -18,7 +18,7 @@ class IntroController < ApplicationController
 	def sign_liability
 		@user = User.find params[:user_id]
 		@user.update(signed_liability: true)
-		redirect_to intro_create_bio_path
+		redirect_to profiles_path
 	end
 
 	def create_bio

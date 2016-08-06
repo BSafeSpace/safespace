@@ -3,12 +3,9 @@
 <p></p>
 <div class="overlay"></div>
 
-<div class="overlay" id ="bio-overlay"></div>
-<div class="border-form-div expose center-absolute" id="tutorial-wrapper">
-	 <h3>Welcome to Our Website Tutorial!</h3>
-	 <p>To start off, please fill out your Anonymous Bio so that you can connect with your peers.</p>
-	 <%= @typeform.embed_as(:modal, button_text: "Fill out my Anonymous Bio!").html_safe %>
-</div>
+<% if !current_user.completed_bio %>
+	<%= render 'create_bio' %>
+<% end %>
 
 <div class="container-fluid">
 	<div class="row">
