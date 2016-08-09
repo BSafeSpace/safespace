@@ -32,6 +32,12 @@ class Conversation < ActiveRecord::Base
     return self == Conversation.between(sender_id, recipient_id).first
   end
 
+  # Get updated_at of conversation if conversation, else return random 2012 date
+  def self.conversation_time(sender_id, recipient_id)
+    @conversation = Conversation.between(sender_id, recipient_id).first
+    @conversation ? @conversation.updated_at : Time.zone.parse('2012-07-11 21:00')
+  end
+
   def get_chars(user)
     other_user = self.get_other_user(user)
     characteristics = other_user.profile.characteristics 
