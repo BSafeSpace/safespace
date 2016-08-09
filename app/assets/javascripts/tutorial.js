@@ -61,10 +61,22 @@ $(function() {
 				   url: '/profiles',
 				   data: { doneTutFilter: true },
 				   complete: function(response) {
-				   	addFriendTutorial();
+				   	$('.overlay').fadeIn(300);
+				   	$('.profile-results-container').tooltip({
+			    		container: 'body',
+			            html: true,
+			            trigger: 'manual',
+			            title: 'Based on the traits you selected, a list of potential buddies will appear',
+			            placement: 'left'
+			    	}).tooltip('show');
+
+			    	$('.overlay').click(function() {
+			    		$('.tooltip').remove();
+		  				$('.overlay').fadeOut(300);
+			    		addFriendTutorial();
+			    	});
 				   }
 				});
-				console.log('1st overlay click');
     		}
 		    
 
@@ -96,7 +108,6 @@ $(function() {
 		  gon.doneTutAddFriend = true;
 
 		  chatTutorial(); // tutorial.js
-		  console.log('2nd overlay click');
 		}
 	})
 
