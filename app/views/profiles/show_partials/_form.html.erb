@@ -21,11 +21,11 @@
           <%= render 'profiles/show_partials/edit_characteristic', title: "Mental Health", name: "mental_health", f: f, id: "edit-mental-health" %>
           <%= render 'profiles/show_partials/edit_characteristic', title: "Gender", name: "gender", f: f, id: "edit-gender" %>
           <%= render 'profiles/show_partials/edit_characteristic', title: "Ethnicity", name: "ethnicity", f: f, id: "edit-ethnicity" %>
-          <%= render 'profiles/show_partials/edit_characteristic', title: "Major", name: "academic_focus", f: f, id: "edit-academic-focus" %>
+          <%= render 'profiles/show_partials/edit_characteristic', title: "Academic Focus", name: "academic_focus", f: f, id: "edit-academic-focus" %>
         </div><br>
         <div class="actions">
+          <%= link_to 'Back', @profile , class: 'btn btn-default' %>
           <%= f.submit "Update", class: 'btn btn-primary' %>
-          <%= link_to 'Profile', @profile , class: 'btn btn-default' %>
         </div>
       </div>
 
@@ -33,6 +33,11 @@
         <div class="profile-box">
           <h4><strong>Basic Information</strong></h4>
           <div class="basic-info char-option">
+            <p class="char-edit">
+              <%= f.label :age, :class => "char-field-title" %>
+              <%= f.number_field :age, class: "form-control age-field" %>
+            </p>
+
             <p class="char-edit">
               <%= f.label :class_rank, :class => "char-field-title" %><br>
               <%= f.select :class_rank, @arr_class_rank , {}, { :class => 'btn btn-default dropdown-toggle' } %>
@@ -49,22 +54,18 @@
             </p>
 
             <p class="char-edit">
-              <%= f.label :age, :class => "char-field-title" %>
-              <%= f.number_field :age, class: "form-control age-field" %>
-            </p>
-
-            <p class="char-edit">
               <%= f.label :sexual_orientation, :class => "char-field-title" %><br>
               <%= f.select :sexual_orientation , @arr_sexual_orientation , {}, { :class => 'btn btn-default dropdown-toggle' } %>
             </p>
 
-            <p class="char-edit">
-              <%= f.label :comfort_with_sexuality, :class => "char-field-title" %><br>
-              <%= f.select :comfort_with_sexuality , @arr_comfort_with_sexuality, {}, { :class => 'btn btn-default dropdown-toggle' } %>
-            </p>
           </div>
           <h5><strong>More Information</strong></h5>
           <div class="basic-info char-option"> 
+            <p class="char-edit">
+              <%= f.check_box :is_transfer_student %>
+              <%= f.label "Transfer student", :class => "char-field-title" %>
+            </p>
+
             <p class="char-edit">
                 <%= f.check_box :is_first_generation_college_student %>
                 <%= f.label "First generation college student", :class => "char-field-title" %>
@@ -110,10 +111,6 @@
               <%= f.label "International Student", :class => "char-field-title" %>
             </p>
             
-            <p class="char-edit">
-              <%= f.check_box :is_transfer_student %>
-              <%= f.label "Transfer student", :class => "char-field-title" %>
-            </p>
           </div>
         </div>
       </div>

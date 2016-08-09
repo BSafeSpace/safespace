@@ -120,7 +120,7 @@ class BioTypeform
     choice "Junior"
     choice "Senior"
 
-    tags "profile_string", "class_rank"
+    tags "characteristic", "single", "class_rank"
     required
     can_specify_other
   end
@@ -154,7 +154,7 @@ class BioTypeform
     choice "I am of middle socioeconomic status"
     choice "I am of high socioeconomic status"
 
-    tags "profile_string", "socioeconomic_status"
+    tags "characteristic", "single", "socioeconomic_status"
     can_specify_other
   end
 
@@ -188,7 +188,7 @@ class BioTypeform
     choice "Co-op"
     choice "Greek Housing"
 
-    tags "profile_string", "living_situation"
+    tags "characteristic", "single", "living_situation"
     can_specify_other
   end
 

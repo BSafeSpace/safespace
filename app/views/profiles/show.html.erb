@@ -17,7 +17,7 @@
         <%= render 'profiles/show_partials/show_characteristic', name: "mental_health", title: "Mental Health" %>
         <%= render 'profiles/show_partials/show_characteristic', name: "gender", title: "Gender" %>
         <%= render 'profiles/show_partials/show_characteristic', name: "ethnicity", title: "Ethnicity" %>
-        <%= render 'profiles/show_partials/show_characteristic', name: "academic_focus", title: "Major" %>
+        <%= render 'profiles/show_partials/show_characteristic', name: "academic_focus", title: "Academic Focus" %>
 
       </div>
 
@@ -25,12 +25,13 @@
 
     <div class="col-md-4">
       <div class="profile-box">
-        <h4><strong>Information</strong></h4>
+        <h4><strong>Basic Information</strong></h4>
         <div class="basic-info char-option">
+          <%= render "profiles/show_partials/char_answer", title: "Age", answer: @profile.format_answer(:age) %>
           <%= render "profiles/show_partials/char_answer", title: "Class Rank", answer: @profile.format_answer(:class_rank) %>
+          <%= render "profiles/show_partials/char_answer", title: "Transfer Student", answer: @profile.format_answer(:is_transfer_student) %>
           <%= render "profiles/show_partials/char_answer", title: "Socioeconomic Status", answer: @profile.format_answer(:socioeconomic_status) %>
           <%= render "profiles/show_partials/char_answer", title: "Living Situation", answer: @profile.format_answer(:living_situation) %>
-          <%= render "profiles/show_partials/char_answer", title: "Age", answer: @profile.format_answer(:age) %>
 
           <%= render "profiles/show_partials/char_answer", title: "First Generation College Student", answer: @profile.format_answer(:is_first_generation_college_student) %>
           <%= render "profiles/show_partials/char_answer", title: "Physically Disabled", answer: @profile.format_answer(:is_physically_disabled) %>
@@ -41,7 +42,6 @@
           <%= render "profiles/show_partials/char_answer", title: "Military", answer: @profile.format_answer(:is_military) %>
           <%= render "profiles/show_partials/char_answer", title: "Out of State Student", answer: @profile.format_answer(:is_out_of_state_student) %>
           <%= render "profiles/show_partials/char_answer", title: "International Student", answer: @profile.format_answer(:is_international_student) %>
-          <%= render "profiles/show_partials/char_answer", title: "Transfer Student", answer: @profile.format_answer(:is_transfer_student) %>
         </div>
       </div>
     </div>
