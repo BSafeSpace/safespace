@@ -13,7 +13,7 @@ $(function() {
 	        var delay = 5000; // 5 seconds
 			setTimeout(function() {
 			  // start filter tutorial after 5 seconds (typeform should be fully loaded)
-			  tutorial1();
+			  filterTutorial();
 			}, delay);
 	        
 		});
@@ -24,10 +24,10 @@ $(function() {
 	var $defaultTooltip = $('#default-tooltip');
 
 	if (gon.completedBio && !gon.doneTutFilter) {
-		tutorial1();
+		filterTutorial();
 	}
 
-	function tutorial1() {
+	function filterTutorial() {
 		$(".filters-container.expose").css('z-index','9998');
     	$('.overlay').fadeIn(300);
 
@@ -59,7 +59,7 @@ $(function() {
 			   url: '/profiles',
 			   data: { doneTutFilter: true },
 			   complete: function(response) {
-			   	tutorial2();
+			   	addFriendTutorial();
 			   }
 			});
 
@@ -68,11 +68,11 @@ $(function() {
 
 	$('#save-filters').click(function() {
 		if (gon.doneTutFilter && !gon.doneTutAddFriend) {
-	    	tutorial2();
+	    	addFriendTutorial();
 		}
 	});
 
-	function tutorial2() {
+	function addFriendTutorial() {
 		if ($('.result-names').children().length > 0) {
 			$('.overlay').fadeIn(300);
 			$('.profile-results-container.expose').css('z-index','9998');

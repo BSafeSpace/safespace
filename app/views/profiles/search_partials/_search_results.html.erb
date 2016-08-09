@@ -33,7 +33,9 @@
                 <%= link_to @profile_user.username, profile, class: "contact-list-name", remote: true %>
               <% end %>
             </div>
-            <% if !@profile_user.peer_counselor %>
+            <% if @profile_user.peer_counselor %>
+              <div class="status-text">Hours: <%= profile.counselor_hours %></div>
+            <% else %>
               <div class="status-text">Age: <%= profile.age %></div>
             <% end %>
         </div>

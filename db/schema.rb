@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160806095302) do
+ActiveRecord::Schema.define(version: 20160809044420) do
 
   create_table "blocks", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20160806095302) do
     t.boolean  "online"
     t.string   "name"
     t.integer  "recommend_count",                     default: 0
+    t.string   "counselor_hours"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
