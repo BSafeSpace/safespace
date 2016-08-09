@@ -67,8 +67,13 @@ class ApplicationController < ActionController::Base
   def order_preferences(search_query)
     if params[:preferences]
       @sorted_preferences = Hash[params[:preferences].sort_by{|k, v| v}.reverse]
+      puts "sorted_preferences"
+      puts @sorted_preferences
       @sorted_preferences.each do |category, rank|
-        search_query = put_preference_first(search_query, category)
+        # ignore rank 0
+        if rank != '0'
+          search_query = put_preference_first(search_query, category)
+        end
       end
     end
 
