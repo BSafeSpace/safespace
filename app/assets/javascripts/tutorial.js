@@ -48,33 +48,62 @@ $(function() {
     	}).tooltip('show');
 
     	$('#save-filters, .overlay').click(function(){
-		    $('.overlay').fadeOut(300, function(){
-		        $('.filters-container.expose').css('z-index','1');
-		        $filterTooltip.tooltip('hide');
-		        $defaultTooltip.tooltip('hide');
-		    });
+    		// Check if overlay clicked is from add friend tutorial
+    		if ( $('.filters-container.expose').css('z-index') == '9998' ) {
+    			$('.overlay').fadeOut(300, function(){
+			        $('.filters-container.expose').css('z-index','1');
+			        $filterTooltip.tooltip('hide');
+			        $defaultTooltip.tooltip('hide');
+			    });
 
-		    $.ajax({
-			   method: 'get',
-			   url: '/profiles',
-			   data: { doneTutFilter: true },
-			   complete: function(response) {
-			   	addFriendTutorial();
-			   }
-			});
+			    $.ajax({
+				   method: 'get',
+				   url: '/profiles',
+				   data: { doneTutFilter: true },
+				   complete: function(response) {
+				   	addFriendTutorial();
+				   }
+				});
+				console.log('1st overlay click');
+    		}
+		    
 
 		});
 	}
 
-	$('#save-filters, .overlay').click(function() {
+	$('#save-filters').click(function() {
+		// If user comes back to page without finishing tutorial
 		if (gon.doneTutFilter && !gon.doneTutAddFriend) {
 	    	addFriendTutorial();
 		}
+
 	});
+
+	$('.overlay').click(function() {
+		if (gon.doneTutFilter && !gon.doneTutAddFriend && $('.profile-results-container.expose').css('z-index') == '9998') {
+
+		  $('.tooltip').remove();
+		  $('.overlay').fadeOut(300, function(){
+		      $('.profile-results-container.expose').css('z-index', '1');
+		  });
+
+		  $.ajax({
+		     method: 'get',
+		     url: '/profiles',
+		     data: { doneTutAddFriend: true },
+		  });
+
+		  gon.doneTutAddFriend = true;
+
+		  chatTutorial(); // tutorial.js
+		  console.log('2nd overlay click');
+		}
+	})
 
 	function addFriendTutorial() {
 		if ($('.result-names').children().length > 0) {
 			$('.overlay').fadeIn(300);
+			$('.overlay').removeClass('filter-overlay');
 			$('.profile-results-container.expose').css('z-index','9998');
 
 			var $resultsTooltip = $('.friend-link').first();
@@ -94,12 +123,13 @@ $(function() {
 	}
 
 	function chatTutorial() {
-		$('#chat-tooltip').tooltip({
-		    html: true,
-		    trigger: 'manual',
-		    title: 'Go here to start chatting with your friends!',
-		    placement: 'bottom'
-		}).tooltip('show');
+	    $('#chat-tooltip').tooltip({
+	        html: true,
+	        trigger: 'manual',
+	        title: 'Go here to start chatting with your friends!',
+	        placement: 'bottom'
+	    }).tooltip('show');
+	    console.log("chat tutorial");
 	}
 	
 });

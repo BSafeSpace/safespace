@@ -1,26 +1,37 @@
 if (gon.doneTutFilter && !gon.doneTutAddFriend) {
 
-	$('.tooltip').remove();
-	$('.overlay').fadeOut(300, function(){
-	    $('.profile-results-container.expose').css('z-index', '1');
-	});
+  $('.tooltip').remove();
+  $('.overlay').fadeOut(300, function(){
+      $('.profile-results-container.expose').css('z-index', '1');
+  });
 
-	$.ajax({
-	   method: 'get',
-	   url: '/profiles',
-	   data: { doneTutAddFriend: true },
-	});
+  $.ajax({
+     method: 'get',
+     url: '/profiles',
+     data: { doneTutAddFriend: true },
+  });
 
-	gon.doneTutAddFriend = true;
+  gon.doneTutAddFriend = true;
 
-  window.chatTutorial(); // tutorial.js
+  chatTutorial(); // tutorial.js
 
-	console.log('clicked add friend');
+  function chatTutorial() {
+    $('#chat-tooltip').tooltip({
+        html: true,
+        trigger: 'manual',
+        title: 'Go here to start chatting with your friends!',
+        placement: 'bottom'
+    }).tooltip('show');
+    console.log("chat tutorial");
+  }
+
+  console.log('clicked add friend');
 }
 
-$('.pagination').remove()
+$('.pagination').remove();
 $('.results-container').remove();
 $('.profile-results-container').append('<%= j render("/profiles/search_partials/search_results") %>');
+console.log("create friendship");
 
 // dynamically add flash message
 $("#flash").html('<%= j render partial: "shared/flash" %>');
