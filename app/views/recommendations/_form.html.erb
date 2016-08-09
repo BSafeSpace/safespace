@@ -7,12 +7,12 @@
 			<%= form_for @recommendation, url: {controller: "recommendations", action: "create"}, remote: true do |f| %>
 			  	<div class="modal-header">
 				    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				    <h3 class="modal-title" id="recommend-modal-title">Recommend to Peer Counselor</h3>
+				    <h3 class="modal-title" id="recommend-modal-title">Refer to Peer Counselor</h3>
 			  	</div>
 
 				<div class="modal-body">
 				    
-					<h4 style="margin-bottom: 3vh;">Why are you recommending this user?</h4>
+					<h4 style="margin-bottom: 3vh;">Why are you referring this user?</h4>
 
 					<div class="form-group form-radio">
 						<%= f.radio_button(:reason, "Too dependent on me") %>
@@ -36,7 +36,7 @@
 				</div>
 
 			    <div class="modal-footer", data-dismiss="modal">
-			        <%= f.submit "Submit recommendation", id: "rec-btn", class: "btn btn-yellow btn-block" %>
+			        <%= f.submit "Submit referral", id: "rec-btn", class: "btn btn-yellow btn-block" %>
 			    </div>
 		    <% end %>
 		</div><!-- /.modal-content -->
