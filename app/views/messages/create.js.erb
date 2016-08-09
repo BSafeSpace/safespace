@@ -29,6 +29,9 @@
 	// update message preview for existing conversations
 	$(".status-text[data-conv-id='<%=@conversation.id.to_s%>']").text("<%= j render '/conversations/message_preview' %>");
 
+	// update conversation order
+	$('.active-conversation').insertBefore('.chat-box:first');
+
 <% end %>
 
 // Updates unread count on chat link in nav	
