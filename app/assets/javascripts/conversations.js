@@ -94,7 +94,7 @@ $('.conversations.index').ready(function() {
 	// Protocol Button 
 	var $protocolContainer = $('<div class="protocol-container"></div>');
 	$protocolContainer.appendTo($("body"));
-	var $protocolButton = $('<div class="protocol-button vertical-text btn btn-danger">PROTOCOL</div>');
+	var $protocolButton = $('<div class="protocol-button vertical-text btn btn-danger btn-lg">PROTOCOL</div>');
 	$protocolButton.appendTo($protocolContainer);
 	var $protocolMenu =  $('<div class="protocol-menu margin-negative"></div>');
 	$protocolMenu.appendTo($('.protocol-container'));
