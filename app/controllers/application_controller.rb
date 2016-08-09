@@ -69,10 +69,12 @@ class ApplicationController < ActionController::Base
       @sorted_preferences = Hash[params[:preferences].sort_by{|k, v| v}.reverse]
       puts "sorted_preferences"
       puts @sorted_preferences
+      char_ids = params[:q][:characteristics_id_in_any]
+      search_chars = build_search_chars(char_ids)
       @sorted_preferences.each do |category, rank|
         # ignore rank 0
         if rank != '0'
-          search_query = put_preference_first(search_query, category)
+          search_query = put_preference_first(search_query, category, search_chars)
         end
       end
     end
@@ -80,11 +82,11 @@ class ApplicationController < ActionController::Base
     return search_query
   end
 
-  def put_preference_first(search_query, category)
-    matching_characteristics = Characteristic.where('category = ?', category)
+  def put_preference_first(search_query, category, search_chars)
+    matching_characteristics = search_chars
     
     if matching_characteristics
-      matching_profiles = search_query.select { |profile| !(profile.characteristics & matching_characteristics).empty? }
+      matching_profiles = search_query.select { |profile| !(profile.characteristics & matching_characteristics["#{category}"]).empty? }
       search_query = search_query.reject{ |profile| matching_profiles.include? profile }
       search_query = matching_profiles + search_query
     end
@@ -96,6 +98,21 @@ class ApplicationController < ActionController::Base
     # end
 
     return search_query
+  end
+
+  def build_search_chars(char_ids)
+    @search_chars = {}
+    char_ids.each do |id|
+      if !id.empty?
+        @char = Characteristic.find id
+        if @search_chars["#{@char.category}"]
+          @search_chars["#{@char.category}"] << @char
+        else 
+          @search_chars["#{@char.category}"] = [@char] 
+        end
+      end
+    end
+    return @search_chars
   end
 
   def put_peer_counselor_first(search_query)
