@@ -1,3 +1,4 @@
+// Left Sidebar Styles
 .nav-tabs li a {
 	margin-right: 0px;
 	padding: 6px 10px;
@@ -39,11 +40,28 @@
     color: rgba(0, 0, 0, 0.38);
 }
 
+.friend-scroll {
+	height: 79.5vh;
+	overflow: auto;
+}
+
+// Chat Styles
 .pre-chat {
 	margin-top: 5vh;
 	font-size: 2em;
 }
 
+.chat-container {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.chat-body {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+// Chat Sidebar
 .chat-sidebar {
 	position: relative;
 	height : 91.5vh;
@@ -59,17 +77,6 @@
 	font-family: Lato;
 }
 
-.chat-container {
-	margin-left: 20px;
-	margin-right: 20px;
-}
-
-.chat-body {
-	padding-left: 20px;
-	padding-right: 20px;
-}
-
-// Chat Sidebar
 .sidebar-link {
 	margin-top: 1em;
 }

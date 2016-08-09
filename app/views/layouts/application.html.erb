@@ -32,10 +32,9 @@
               <li id="chat-link">
                 <% if current_user.peer_counselor %>
                   <%= link_to_in_li 'Recommendations', recommendations_path, "inbox" %>
-                <% else %>
-                  <%= link_to_in_li 'Chat', conversations_path, "comment", id: "chat-tooltip" %>
                 <% end %>
               </li>
+              <li><%= link_to_in_li 'Chat', conversations_path, "comment", id: "chat-tooltip" %></li>
             <% end %>
             <li><%= link_to_in_li "Resources", resources_path, "list-alt" %></li>
             <li><%= link_to_in_li "About", home_about_path, "file-text-o" %></li>
