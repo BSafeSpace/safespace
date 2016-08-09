@@ -1,0 +1,6 @@
+<p class="char-edit">
+	<% @profile.characteristics.select { |char| char.category == name }.each do |char| %>
+		<div class="category"><strong><%= title %>:</strong></div>
+	  	<div class="answer"><%= char.name %></div>
+	<% end %>
+</p>

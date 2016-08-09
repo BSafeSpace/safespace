@@ -243,7 +243,7 @@ class BioTypeform
   end
 
   field :statement do
-    say "Yay! That's all the questions. Please submit, close the form, and go back to the tutorial page to proceed."
+    say "Yay! That's all the questions. Please submit and close the form to proceed."
   end
 
   design do
