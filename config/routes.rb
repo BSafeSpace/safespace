@@ -14,7 +14,9 @@ Rails.application.routes.draw do
       get 'default_search'
       match 'search' => 'profiles#search', via: [:get, :post], as: :search
     end
-    put 'showcase_reset', on: :member
+    member do
+      put 'showcase_reset'
+    end
   end
 
   # devise_for :users, :controllers => {:destroy => "destroy"}

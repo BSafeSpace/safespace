@@ -3,7 +3,7 @@ require "ask_awesomely"
 require 'bio_typeform'
 require 'httparty'
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :set_profile, only: [:show, :edit, :update, :update_hours, :destroy]
   before_filter :fix_json_params
   before_filter :liability_required, except: [:create]
 
@@ -94,6 +94,9 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
+    respond_to do |format|
+      format.js
+    end
   end
 
   # POST /profiles
@@ -123,12 +126,22 @@ class ProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @profile.update(profile_params)
+        if params[:profile][:counselor_hours]
+          format.js
+        end
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
         format.json { render :show, status: :ok, location: @profile }
       else
         format.html { render :edit }
         format.json { render json: @profile.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def update_hours
+    @profile.update(profile_params)
+    respond_to do |format|
+      format.js
     end
   end
 

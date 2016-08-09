@@ -34,7 +34,12 @@
               <% end %>
             </div>
             <% if @profile_user.peer_counselor %>
-              <div class="status-text">Hours: <%= profile.counselor_hours %></div>
+              <div class="status-text" id="profile_<%= profile.id %>">
+                Hours: <%= profile.counselor_hours %>
+                <% if current_user.id == @profile_user.id %>
+                  <%= link_to_icon "", edit_profile_path(profile.id), "pencil" %>
+                <% end %>
+              </div>
             <% else %>
               <div class="status-text">Age: <%= profile.age %></div>
             <% end %>
