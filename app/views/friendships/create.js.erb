@@ -13,12 +13,7 @@ if (gon.doneTutFilter && !gon.doneTutAddFriend) {
 
 	gon.doneTutAddFriend = true;
 
-	$('#chat-tooltip').tooltip({
-	    html: true,
-	    trigger: 'manual',
-	    title: 'Go here to start chatting with your friends!',
-	    placement: 'bottom'
-	}).tooltip('show');
+  window.chatTutorial(); // tutorial.js
 
 	console.log('clicked add friend');
 }

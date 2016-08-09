@@ -35,7 +35,7 @@ $(function() {
     		container: 'body',
             html: true,
             trigger: 'manual',
-            title: 'Click Default to set the filters to your profile characteristics.',
+            title: 'Click Default to set the filters to your profile characteristics. Click Save Filters to see your results.',
             placement: 'right'
     	}).tooltip('show');
 
@@ -47,7 +47,7 @@ $(function() {
             placement: 'right'
     	}).tooltip('show');
 
-    	$('#save-filters').click(function(){
+    	$('#save-filters, .overlay').click(function(){
 		    $('.overlay').fadeOut(300, function(){
 		        $('.filters-container.expose').css('z-index','1');
 		        $filterTooltip.tooltip('hide');
@@ -66,7 +66,7 @@ $(function() {
 		});
 	}
 
-	$('#save-filters').click(function() {
+	$('#save-filters, .overlay').click(function() {
 		if (gon.doneTutFilter && !gon.doneTutAddFriend) {
 	    	addFriendTutorial();
 		}
@@ -91,6 +91,15 @@ $(function() {
             }).tooltip('show');
 
 		}
+	}
+
+	function chatTutorial() {
+		$('#chat-tooltip').tooltip({
+		    html: true,
+		    trigger: 'manual',
+		    title: 'Go here to start chatting with your friends!',
+		    placement: 'bottom'
+		}).tooltip('show');
 	}
 	
 });
