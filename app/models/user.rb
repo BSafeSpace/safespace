@@ -46,15 +46,13 @@ class User < ActiveRecord::Base
   end
 
   def create_initial_friendships
-    if !peer_counselor
-      User.where('peer_counselor = ?', true).each do |user|
-        User.create_friendship(self, user)
-      end
-    else 
-      User.where('peer_counselor = ?', false).each do |user|
-        User.create_friendship(self, user)
-      end
+    self.peer_counselor ||= false
+    
+    User.where('peer_counselor = ?', !self.peer_counselor).reject{ |u| u == self }.each do |user|
+      User.create_friendship(self, user)
     end
+
+    self.save
   end
 
   def self.peer_counselors
