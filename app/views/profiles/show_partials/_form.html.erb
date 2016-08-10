@@ -38,10 +38,12 @@
               <%= f.number_field :age, class: "form-control age-field" %>
             </p>
 
-            <%= render 'profiles/show_partials/edit_basic_info_char', title: "Class rank", name: "class_rank", f: f %>
-            <%= render 'profiles/show_partials/edit_basic_info_char', title: "Socioeconomic status", name: "socioeconomic_status", f: f %>
-            <%= render 'profiles/show_partials/edit_basic_info_char', title: "Living situation", name: "living_situation", f: f %>
+            <%= render 'profiles/show_partials/edit_basic_info_char', title: "Class standing", name: "class_rank", f: f %>
             <%= render 'profiles/show_partials/edit_basic_info_char', title: "Sexual orientation", name: "sexual_orientation", f: f %>
+            <%= render 'profiles/show_partials/edit_basic_info_char', title: "Socioeconomic status", name: "socioeconomic_status", f: f %>
+            <%= render 'profiles/show_partials/edit_basic_info_char', title: "Religion", name: "religion", f: f %>
+            <%= render 'profiles/show_partials/edit_basic_info_char', title: "Living situation", name: "living_situation", f: f %>
+            
 
           </div>
           <h5><strong>More Information</strong></h5>
