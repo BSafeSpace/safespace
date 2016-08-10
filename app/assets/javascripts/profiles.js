@@ -210,3 +210,7 @@ $('.profiles.index').ready(function() {
 
   defaultSearch();
 });
+
+$('.profiles.edit').ready(function() {
+  $(".char-select").attr("name", 'profile[characteristic_ids][]');
+});

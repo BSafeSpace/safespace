@@ -1,6 +1,7 @@
 <p class="char-edit">
 	<%= f.label "#{name}", :class => "char-field-title" %><br>
-	<%= f.collection_select :characteristic_ids, Characteristic.where('category = ?', name), :id, :name, {}, class: "btn btn-default dropdown-toggle" do |c| %>
+
+	<%= f.collection_select :characteristic_ids, Characteristic.where('category = ?', name), :id, :name, {}, class: "btn btn-default dropdown-toggle char-select" do |c| %>
 
 		<p class="char-edit">
 	      <%= c.select %>
