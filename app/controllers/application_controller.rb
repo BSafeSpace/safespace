@@ -60,6 +60,7 @@ class ApplicationController < ActionController::Base
     # @profiles = @search.result(distinct: true).reject{ |p| p.user == current_user}.select { |p| !current_user.block_exists?(p.user) }
     @profiles = order_preferences(@search.result(distinct: true).reject{ |p| p.user == current_user}).select { |p| !current_user.block_exists?(p.user) }
     @profiles = put_peer_counselor_first(@profiles) if !current_user.peer_counselor
+
     @num_profiles = @profiles.count
     @profiles.paginate(page: params[:page], per_page: 15)
   end
@@ -133,5 +134,9 @@ class ApplicationController < ActionController::Base
   def query_sort_type
     return params[:q][:s]["0"][:name] if params[:q]
     return ""
+  end
+
+  def query_all_counselors?
+    return params[:q][:user_peer_counselor_true] == "1" if params[:q]
   end
 end

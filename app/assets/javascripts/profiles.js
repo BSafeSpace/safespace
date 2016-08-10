@@ -1,4 +1,4 @@
-var bindPrefrenceSelectors = function() {
+var bindPreferenceSelectors = function() {
   var previousIndex;
   var optionIndex;
   $('select#preferences_mental_health').on('focus', function() {
@@ -89,6 +89,14 @@ var bindOnlineToggle = function() {
   });
 }
 
+var bindPeerCounselorSearch = function() {
+  $('#toggle-counselor-profiles').click(function() {
+    console.log("toggle counselor profiles");
+    $('input#q_user_peer_counselor_true').prop('checked', true);
+    $('input[name=commit').click();
+  });
+}
+
 var bindRecommendSort = function() {
   $('#recommend-sort').click(function() {
     $('select#q_s_0_name>option:eq(3)').prop('selected', true);
@@ -170,12 +178,12 @@ $(function() {
   $('input#q_age_lteq').val(60)
 
   bindOnlineToggle();
-  
+  bindPeerCounselorSearch();
   bindRecommendSort();
   bindSort('#age-sort', '1');
   bindSort('#name-sort', '2');
   
-  bindPrefrenceSelectors();
+  bindPreferenceSelectors();
 });
 
 $('.profiles.index').ready(function() {

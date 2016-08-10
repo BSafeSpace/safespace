@@ -27,6 +27,7 @@ class ProfilesController < ApplicationController
   def search
     @profiles = build_query  
     @online_only = query_online_only?
+    @all_counselors = query_all_counselors?
     @sort_type = query_sort_type
 
     gon.profiles = @profiles

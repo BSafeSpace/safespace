@@ -1,9 +1,11 @@
 <div class="results-container">
   <br>
-  <% if @online_only %>
-    <p class="status-text all-online"><a href="#" id="toggle-online-profiles">All</a> | Online</p>
+  <% if @all_counselors %>
+    <p class="status-text all-online"><a href="#" id="toggle-online-profiles">All</a> | Peer Counselors | <a href="#" id="toggle-online-profiles">Online</age</p>
+  <% elsif @online_only %>
+    <p class="status-text all-online"><a href="#" id="toggle-online-profiles">All</a> | <a href="#" id="toggle-counselor-profiles">Peer Counselors</a> | Online</p>
   <% else %>
-    <p class="status-text all-online">All | <a href="#" id="toggle-online-profiles">Online</a></p>
+    <p class="status-text all-online">All | <a href="#" id="toggle-counselor-profiles">Peer Counselors</a> | <a href="#" id="toggle-online-profiles">Online</a></p>
   <% end %>
 
   <!-- <div id="sort-dropdown" class="dropdown">
