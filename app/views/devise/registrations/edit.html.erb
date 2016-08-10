@@ -1,14 +1,16 @@
+<%= devise_error_messages! %>
 <div class="border-form-div">
   <h3>Edit Account</h3>
 
   <div style="margin-top: 15px;">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= devise_error_messages! %>
     
-      <!-- <div class="form-group">
-        <%= f.label :username %>
-        <%= f.text_field :username, class: 'form-control' %>
-      </div> -->
+      <% if resource.peer_counselor %>
+        <div class="form-group">
+          <%= f.label :username %>
+          <%= f.text_field :username, class: 'form-control' %>
+        </div>
+      <% end %>
     
       <!-- <div class="form-group">
         <%= f.label :email %>

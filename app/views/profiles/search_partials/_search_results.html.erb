@@ -28,7 +28,7 @@
             <div class="horizontal-align">
               <div class="<%= profile.online_status_css %>-status-indicator" style="display: inline-block;"></div>
               <% if @profile_user.peer_counselor %>
-                Peer Counselor
+                Peer Counselor <%= @profile_user.username %>
               <% else %>
                 <%= link_to @profile_user.username, profile, class: "contact-list-name", remote: true %>
               <% end %>
@@ -36,9 +36,6 @@
             <% if @profile_user.peer_counselor %>
               <div class="status-text" id="profile_<%= profile.id %>">
                 Hours: <%= profile.counselor_hours %>
-                <% if current_user.id == @profile_user.id %>
-                  <%= link_to_icon "", edit_profile_path(profile.id), "pencil" %>
-                <% end %>
               </div>
             <% else %>
               <div class="status-text">Age: <%= profile.age %></div>
