@@ -58,7 +58,7 @@
           
           <% elsif !current_user.friends.include? @profile_user %>
             <%= link_to friendships_path(:friend_id => @profile_user), :method => :post, :class => "friend-link", remote: true do %>
-              <i class="fa fa-plus fa-2x icon-cog" aria-hidden="true"></i>
+              <i class="fa fa-user-plus fa-2x icon-cog" aria-hidden="true"></i>
             <% end %>
           <% else %>
             <i class="fa fa-check fa-2x icon-cog friend-link" aria-hidden="true"></i>

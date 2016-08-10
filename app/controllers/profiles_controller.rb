@@ -94,9 +94,8 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
-    respond_to do |format|
-      format.html
-      format.js
+    if params[:edit_hours]
+      render 'edit_hours'
     end
   end
 
@@ -128,7 +127,7 @@ class ProfilesController < ApplicationController
     respond_to do |format|
       if @profile.update(profile_params)
         if params[:profile][:counselor_hours]
-          format.js
+           redirect_to edit_profile_path(edit_hours: true) and return
         end
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
         format.json { render :show, status: :ok, location: @profile }
@@ -136,13 +135,6 @@ class ProfilesController < ApplicationController
         format.html { render :edit }
         format.json { render json: @profile.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  def update_hours
-    @profile.update(profile_params)
-    respond_to do |format|
-      format.js
     end
   end
 
