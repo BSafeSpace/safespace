@@ -88,7 +88,7 @@ var bindOnlineToggle = function() {
     console.log("toggle online profiles");
     $('input#q_online_or_all_profiles').prop('checked', !$('input#q_online_or_all_profiles').is(':checked'));
     $('input#q_user_peer_counselor_true').prop('checked', false);
-    $('input[name=commit').click();
+    $('input[name=commit]').click();
   });
 }
 
@@ -98,7 +98,7 @@ var bindPeerCounselorSearch = function() {
     console.log("toggle counselor profiles");
     $('input#q_user_peer_counselor_true').prop('checked', true);
     $('input#q_online_or_all_profiles').prop('checked', !$('input#q_online_or_all_profiles').is(':checked'));
-    $('input[name=commit').click();
+    $('input[name=commit]').click();
   });
 }
 
@@ -106,7 +106,7 @@ var bindRecommendSort = function() {
   $('#recommend-sort').click(function() {
     $('select#q_s_0_name>option:eq(3)').prop('selected', true);
     $('select#q_s_0_dir>option:eq(2)').prop('selected', true);
-    $('input[name=commit').click()
+    $('input[name=commit]').click();
   });
 }
 
@@ -114,7 +114,7 @@ var bindSort = function(sortId, checkPos) {
   $(sortId).click(function() {
     var selectId = 'select#q_s_0_name>option:eq(' + checkPos + ')'
     $(selectId).prop('selected', true);
-    $('input[name=commit').click()
+    $('input[name=commit]').click();
   });
 }
 
