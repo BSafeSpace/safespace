@@ -118,8 +118,8 @@ var bindSort = function(sortId, checkPos) {
 }
 
 var updateSearchContent = function(searchFormContent, searchResultsContent) {
-  $('.search-field').remove();
-  $('.filters-container').append(searchFormContent);
+  // $('.search-field').remove();
+  // $('.filters-container').append(searchFormContent);
 
   $('.pagination').remove();
   $('.results-container').remove();
