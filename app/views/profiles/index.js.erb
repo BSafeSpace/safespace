@@ -5,12 +5,14 @@ if (!gon.doneTutFilter) {
 updateSearchContent('<%= j render("/profiles/search_partials/search_form") %>', '<%= j render("/profiles/search_partials/search_results") %>');
 bindAgeSlider();
 bindOnlineToggle();
-bindPrefrenceSelectors();
+bindPeerCounselorSearch();
+bindPreferenceSelectors();
 $('div.users-found').html("<%= @num_profiles %> users found")
 
 //initialize scrollbars
 $('.custom-scroll').mCustomScrollbar({
-    theme: "minimal-dark"
+    theme: "minimal-dark",
+    advanced: { autoScrollOnFocus: false }
 });
 
 <% if current_user.peer_counselor %>
