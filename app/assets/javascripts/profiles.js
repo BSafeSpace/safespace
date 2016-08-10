@@ -84,7 +84,7 @@ var bindPreferenceSelectors = function() {
 
 var bindOnlineToggle = function() {
   console.log("called bindOnlineToggle");
-  $('#toggle-online-profiles').click(function() {
+  $('.toggle-online-profiles').click(function() {
     console.log("toggle online profiles");
     $('input#q_online_or_all_profiles').prop('checked', !$('input#q_online_or_all_profiles').is(':checked'));
     $('input#q_user_peer_counselor_true').prop('checked', false);

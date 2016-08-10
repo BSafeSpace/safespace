@@ -2,15 +2,15 @@
   <br>
   <% if @all_counselors %>
     <p class="status-text all-online">
-      <a href="#" id="toggle-online-profiles">All</a> | Peer Counselors | <a href="#" id="toggle-online-profiles">Online</a>
+      <a href="#" class="toggle-online-profiles">All</a> | Peer Counselors | <a href="#" class="toggle-online-profiles">Online</a>
     </p>
   <% elsif @online_only %>
     <p class="status-text all-online">
-      <a href="#" id="toggle-online-profiles">All</a> | <a href="#" id="toggle-counselor-profiles">Peer Counselors</a> | Online
+      <a href="#" class="toggle-online-profiles">All</a> | <a href="#" id="toggle-counselor-profiles">Peer Counselors</a> | Online
     </p>
   <% else %>
     <p class="status-text all-online">
-      All | <a href="#" id="toggle-counselor-profiles">Peer Counselors</a> | <a href="#" id="toggle-online-profiles">Online</a>
+      All | <a href="#" id="toggle-counselor-profiles">Peer Counselors</a> | <a href="#" class="toggle-online-profiles">Online</a>
     </p>
   <% end %>
 
