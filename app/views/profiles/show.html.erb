@@ -29,7 +29,7 @@
         <div class="basic-info char-option">
           <%= render "profiles/show_partials/char_answer", title: "Age", answer: @profile.format_answer(:age) %>
           <%= render 'profiles/show_partials/basic_info_char', name: "class_rank", title: "Class Rank" %>
-          <%= render "profiles/show_partials/char_answer", title: "Transfer Student", answer: @profile.format_answer(:is_transfer_student) %>
+          <%= render "profiles/show_partials/char_answer", title: "Transfer Student", answer: @profile.format_answer(:is_transfer_student)%>
           <%= render 'profiles/show_partials/basic_info_char', name: "socioeconomic_status", title: "Socioeconomic Status" %>
           <%= render 'profiles/show_partials/basic_info_char', name: "living_situation", title: "Living Situation" %>
           <%= render "profiles/show_partials/char_answer", title: "First Generation College Student", answer: @profile.format_answer(:is_first_generation_college_student) %>

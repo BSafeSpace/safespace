@@ -50,11 +50,11 @@ User.all.each do |u|
 end
 
 User.all.reject { |u| u.peer_counselor }.each do |u|
-	rand_characterictic = Characteristic.find(rand(1..Characteristic.all.count))
-	u.profile.add_characteristic(rand_characterictic)
+	rand_characteristic = Characteristic.find(rand(1..Characteristic.all.count))
+	u.profile.add_characteristic(rand_characteristic)
 
-	rand_characterictic = Characteristic.find(rand(1..Characteristic.all.count))
-	u.profile.add_characteristic(rand_characterictic)
+	rand_characteristic = Characteristic.find(rand(1..Characteristic.all.count))
+	u.profile.add_characteristic(rand_characteristic)
 
 	rand_user = User.find(rand(2..User.all.count))
 	User.create_friendship(u, rand_user)
