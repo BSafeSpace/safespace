@@ -8,18 +8,6 @@
     <p class="status-text all-online">All | <a href="#" id="toggle-counselor-profiles">Peer Counselors</a> | <a href="#" id="toggle-online-profiles">Online</a></p>
   <% end %>
 
-  <!-- <div id="sort-dropdown" class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sort by..
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <% if current_user.peer_counselor %>
-        <li><a href="#" id="recommend-sort">Most Demand</a></li>
-      <% else %>
-        <li><a href="#" id="age-sort">Age</a></li>
-        <li><a href="#" id="name-sort">Name</a></li>
-      <% end %>
-    </ul>
-  </div> -->
   <hr>
   <div class="result-names results-scroll custom-scroll">
     <% @profiles.each do |profile| %>

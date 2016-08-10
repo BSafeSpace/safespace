@@ -122,7 +122,7 @@ var updateSearchContent = function(searchFormContent, searchResultsContent) {
   $('.search-field').remove();
   $('.filters-container').append(searchFormContent);
 
-  $('.pagination').remove()
+  $('.pagination').remove();
   $('.results-container').remove();
   $('.profile-results-container').append(searchResultsContent);
 }
