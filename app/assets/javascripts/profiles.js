@@ -97,7 +97,6 @@ var bindPeerCounselorSearch = function() {
   $('#toggle-counselor-profiles').click(function() {
     console.log("toggle counselor profiles");
     $('input#q_user_peer_counselor_true').prop('checked', true);
-    $('input#q_online_or_all_profiles').prop('checked', !$('input#q_online_or_all_profiles').is(':checked'));
     $('input[name=commit]').click();
   });
 }
