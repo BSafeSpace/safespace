@@ -158,7 +158,7 @@ $('.conversations.index').ready(function() {
       container: 'body',
       html: true,
       trigger: 'hover',
-      template: '<div class="tooltip dropdown-tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
+      template: '<div class="tooltip dropdown-tooltip" id="block-button-tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
       title: 'If this person deserves to be deleted off SafeSpace permanently for inappropriate or hurtful language, BLOCK them.',
       placement: 'left'
   	});
