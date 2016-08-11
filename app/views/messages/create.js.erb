@@ -30,7 +30,7 @@
 	$(".status-text[data-conv-id='<%=@conversation.id.to_s%>']").text("<%= j render '/conversations/message_preview' %>");
 
 	// update conversation order
-	$('.active-conversation').insertBefore('.chat-box:first');
+	$('.active-conversation').insertBefore('.tab-pane.active.chat-box:first');
 
 <% end %>
 
