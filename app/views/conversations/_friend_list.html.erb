@@ -5,6 +5,7 @@
       <li class="active">
         <a href="#all-friends" data-toggle="tab">All</a>
       </li>
+      <li><a href="#peer-counselors" data-toggle="tab">Peer Counselors</a></li>
       <li><a href="#online-friends" data-toggle="tab">Online</a></li>
       <li><a href="#pending-friends" data-toggle="tab">Pending</a></li>
       <li><a href="#friend-requests" data-toggle="tab">Requests</a></li>
@@ -16,6 +17,15 @@
             <% @friend = e[:friend] %>
             <div class="chat-box horizontal-align <%= "active-conversation" if @conversation && @conversation.same_convo?(current_user.id, @friend.id) %>">
               <%= render 'chat_name', user: @friend %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="tab-pane custom-scroll friend-scroll active" id="peer-counselors">
+        <div class="ui list">
+          <% User.peer_counselors.each do |counselor| %>
+            <div class="chat-box horizontal-align <%= "active-conversation" if @conversation && @conversation.same_convo?(current_user.id, counselor.id) %>">
+              <%= render 'chat_name', user: counselor %>
             </div>
           <% end %>
         </div>

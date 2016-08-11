@@ -102,10 +102,10 @@ $('.conversations.index').ready(function() {
 						<div class="copy-container input-group">\
 							<h4>Crisis Support Services of Alameda County. 24/7</h4>\
 							<input class="input-number suicide-input" id="alameda-number" type="text" value="1-800-309-2131" />\
-							<div class="copy-button btn btn-success btn-lg" id="alameda-copy">Paste as Message</div>\
+							<div class="copy-button btn btn-success btn-lg" id="alameda-copy">Paste into Chat</div>\
 							<h4>Crisis Text Line. Free, 24/7, confidential.</h4>\
 							<input class="input-number suicide-input" id="crisis-text-number" type="text" value="Text “GO” to 741741" />\
-							<div class="copy-button btn btn-success btn-lg" id="crisis-text-copy">Paste as Message</div>\
+							<div class="copy-button btn btn-success btn-lg" id="crisis-text-copy">Paste into Chat</div>\
 						</div>'
 						);
 
