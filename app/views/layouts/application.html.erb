@@ -82,10 +82,14 @@
     
     <%= yield :top_content %>
 
-    <div class="container">
-      <!-- <h1><%= yield :header %></h1> -->
+    <% if controller_name == "conversations" %>
       <%= yield %>
-    </div>
+    <% else %>
+      <div class="container">
+        <!-- <h1><%= yield :header %></h1> -->
+        <%= yield %>
+      </div>
+    <% end %>
     
   </body>
 
