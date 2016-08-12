@@ -22,6 +22,7 @@
           <%= render 'profiles/show_partials/edit_characteristic', title: "Gender", name: "gender", f: f, id: "edit-gender" %>
           <%= render 'profiles/show_partials/edit_characteristic', title: "Ethnicity", name: "ethnicity", f: f, id: "edit-ethnicity" %>
           <%= render 'profiles/show_partials/edit_characteristic', title: "Academic Focus", name: "academic_focus", f: f, id: "edit-academic-focus" %>
+          <%= render 'profiles/show_partials/edit_characteristic', title: "Sexual Orientation", name: "sexual_orientation", f: f, id: "edit-sexual-orientation" %>
         </div><br>
         <div class="actions">
           <%= link_to 'Back', @profile , class: 'btn btn-default' %>
@@ -39,7 +40,6 @@
             </p>
 
             <%= render 'profiles/show_partials/edit_basic_info_char', title: "Class standing", name: "class_rank", f: f %>
-            <%= render 'profiles/show_partials/edit_basic_info_char', title: "Sexual orientation", name: "sexual_orientation", f: f %>
             <%= render 'profiles/show_partials/edit_basic_info_char', title: "Socioeconomic status", name: "socioeconomic_status", f: f %>
             <%= render 'profiles/show_partials/edit_basic_info_char', title: "Religion", name: "religion", f: f %>
             <%= render 'profiles/show_partials/edit_basic_info_char', title: "Living situation", name: "living_situation", f: f %>

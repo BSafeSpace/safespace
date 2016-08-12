@@ -18,7 +18,7 @@
         <%= render 'profiles/show_partials/show_characteristic', name: "gender", title: "Gender" %>
         <%= render 'profiles/show_partials/show_characteristic', name: "ethnicity", title: "Ethnicity" %>
         <%= render 'profiles/show_partials/show_characteristic', name: "academic_focus", title: "Academic Focus" %>
-
+        <%= render 'profiles/show_partials/show_characteristic', name: "sexual_orientation", title: "Sexual Orientation" %>
       </div>
 
     </div>
@@ -29,7 +29,6 @@
         <div class="basic-info char-option">
           <%= render "profiles/show_partials/char_answer", title: "Age", answer: @profile.format_answer(:age) %>
           <%= render 'profiles/show_partials/basic_info_char', name: "class_rank", title: "Class Standing" %>
-          <%= render 'profiles/show_partials/basic_info_char', name: "sexual_orientation", title: "Sexual Orientation" %>
           <%= render 'profiles/show_partials/basic_info_char', name: "socioeconomic_status", title: "Socioeconomic Status" %>
           <%= render 'profiles/show_partials/basic_info_char', name: "religion", title: "Religion" %>
           <%= render 'profiles/show_partials/basic_info_char', name: "living_situation", title: "Living Situation" %>
