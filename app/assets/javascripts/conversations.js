@@ -1,9 +1,4 @@
 $('.conversations.index').ready(function() {
-	// // activate chat-name box on name click
-	// $('a.contact-list-name').click(function() {
-	// 	$('active-conversation').removeClass('active-conversation');
-	// 	$(this).parent().parent().parent().addClass('active-conversation');
-	// });
 	$.ajax({
 	   method: 'get',
 	   url: '/conversations/update_convo_id',

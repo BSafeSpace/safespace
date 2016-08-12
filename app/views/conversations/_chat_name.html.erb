@@ -5,7 +5,7 @@
 	</div>
 	<% @chat_convo = Conversation.between(current_user.id, user.id).first %>
 	<div class="status-text truncate" data-conv-id="<%=@chat_convo.id.to_s if @chat_convo %>">
-		<%= render 'message_preview' %>
+		<%= render '/conversations/message_preview' %>
 	</div>
 </div>
 

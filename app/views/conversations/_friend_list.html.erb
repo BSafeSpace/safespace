@@ -16,7 +16,7 @@
           <% @all_friends_sorted.each do |e| %>
             <% @friend = e[:friend] %>
             <div class="chat-box horizontal-align <%= "active-conversation" if @conversation && @conversation.same_convo?(current_user.id, @friend.id) %>">
-              <%= render 'chat_name', user: @friend %>
+              <%= render '/conversations/chat_name', user: @friend %>
             </div>
           <% end %>
         </div>
@@ -25,7 +25,7 @@
         <div class="ui list">
           <% User.peer_counselors.each do |counselor| %>
             <div class="chat-box horizontal-align <%= "active-conversation" if @conversation && @conversation.same_convo?(current_user.id, counselor.id) %>">
-              <%= render 'chat_name', user: counselor %>
+              <%= render '/conversations/chat_name', user: counselor %>
             </div>
           <% end %>
         </div>
@@ -40,12 +40,12 @@
 
           <% current_user.online_friends.each do |friend| %>
             <div class="chat-box horizontal-align <%= "active-conversation" if @conversation && @conversation.same_convo?(current_user.id, friend.id) %>">
-              <%= render 'chat_name', user: friend %>
+              <%= render '/conversations/chat_name', user: friend %>
             </div>
           <% end %>
         </div>
       </div>
-      
+
       <div class="tab-pane custom-scroll friend-scroll" id="friend-requests">
         <div class="ui list">
           <div>
@@ -80,7 +80,7 @@
 
             <% current_user.pending_friends.each do |pending| %>
               <div class="chat-box horizontal-align">
-                <%= render 'contact_name', user: pending %>
+                <%= render '/conversations/contact_name', user: pending %>
               </div>
             <% end %>
           </div>

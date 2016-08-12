@@ -93,6 +93,14 @@ class User < ActiveRecord::Base
     return self.friends
   end
 
+  def all_friends_sorted
+    @all_friends = self.all_friends.map{|friend| 
+      {:friend => friend, :conversation_time => Conversation.conversation_time(friend.id, self.id)  }
+    }
+    @all_friends_sorted = @all_friends.sort { |a, b| b[:conversation_time] <=> a[:conversation_time] }
+    return @all_friends_sorted
+  end
+
   def non_counselor_friends
     self.friends.select { |friend| friend.peer_counselor == false }
   end

@@ -7,10 +7,7 @@ class ConversationsController < ApplicationController
   def index
     @user = current_user
     @users = User.all
-    @all_friends = @user.all_friends.map{|friend| 
-      {:friend => friend, :conversation_time => Conversation.conversation_time(friend.id, @user.id)  }
-    }
-    @all_friends_sorted = @all_friends.sort { |a, b| b[:conversation_time] <=> a[:conversation_time] }
+    @all_friends_sorted = @user.all_friends_sorted
     
     @conversations = Conversation.where('sender_id = ? OR recipient_id = ?', @user.id, @user.id)
     if !@conversations.empty?

@@ -29,6 +29,7 @@ class MessagesController < ApplicationController
     end
 
     @message = @conversation.messages.new
+    @all_friends_sorted = current_user.all_friends_sorted
  
     respond_to do |format|
       format.html { redirect_to conversations_path(@conversation, @message, @messages) }

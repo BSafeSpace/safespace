@@ -8,7 +8,7 @@ $(function() {
 	<% @pending = current_user.pending_friends.include? @other_user %>
 	<% if !@pending %>
 		$requestScreen.remove();
-		console.log('not pending');
+		console.log('not pending friend');
 		if ( $chatBox.length == 0 ) {
 			$('.pre-chat').remove();
 			console.log('append');
@@ -23,10 +23,14 @@ $(function() {
 		var $chatSidebar =  $('<div class="col-md-3 chat-sidebar"></div>');
 		$chatSidebar.appendTo($('.row'));
 		$chatSidebar.append('<%= j render("chat_sidebar", conversation: @conversation) %>');
+
+		// Refresh the friend sidebar to update conv-ids of new conversations
+		$('.friend-sidebar').remove(); 
+		$('.friend-list').append('<%= j render("/conversations/friend_list") %>');
 	<% else %>
 		$('.chat').remove();
 		$('#chat').append('<%= j render("chat") %>');
-		console.log('pending');	
+		console.log('pending friend');	
 	<% end %>
 
 	// add active class to current conversation
