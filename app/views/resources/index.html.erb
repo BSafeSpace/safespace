@@ -1,5 +1,5 @@
 <div class="text-container">
-	<h2>Resources List</h2>
+	<h2>Resources</h2>
 	<% if user_signed_in? && current_user.peer_counselor %>
 		<%= link_to "Add Resource", new_resource_path, id: "new_link", remote: true %>
 	<% end %>
