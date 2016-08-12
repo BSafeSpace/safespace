@@ -147,12 +147,25 @@ var disableSort = function(sortId) {
   $(sortId).parent().addClass("disabled")
 }
 
-$(function() {
+var initializeFunctions = function() {
+  bindAgeSlider();
+  bindOnlineToggle();
+  bindPreferenceSelectors();
+  // bindPeerCounselorSearch();
+  bindRecommendSort();
+  bindSort('#age-sort', '1');
+  bindSort('#name-sort', '2');
+
   //initialize scrollbars
   $('.custom-scroll').mCustomScrollbar({
       theme: "minimal-dark",
       advanced: { autoScrollOnFocus: false }
   });
+}
+
+$(function() {
+  
+  initializeFunctions();
 
   // initialize dropdown preference tooltips
   $('.dropdown-pref').tooltip({
@@ -180,14 +193,7 @@ $(function() {
   $( "#age-range" ).val( $( "#slider-range" ).slider( "values", 0 ) + " - " + $( "#slider-range" ).slider( "values", 1 ) );
   $('input#q_age_gteq').val(16)
   $('input#q_age_lteq').val(60)
-
-  bindOnlineToggle();
-  // bindPeerCounselorSearch();
-  bindRecommendSort();
-  bindSort('#age-sort', '1');
-  bindSort('#name-sort', '2');
   
-  bindPreferenceSelectors();
 });
 
 $('.profiles.index').ready(function() {
