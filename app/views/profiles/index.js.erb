@@ -5,7 +5,7 @@ if (!gon.doneTutFilter) {
 updateSearchContent('<%= j render("/profiles/search_partials/search_form") %>', '<%= j render("/profiles/search_partials/search_results") %>');
 bindAgeSlider();
 bindOnlineToggle();
-bindPeerCounselorSearch();
+// bindPeerCounselorSearch();
 bindPreferenceSelectors();
 $('div.users-found').html("<%= @num_profiles %> users found")
 

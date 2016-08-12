@@ -1,3 +1,13 @@
 $('.results-container').remove();
 $('.profile-results-container').append("<%= j render partial: '/profiles/search_partials/search_results', locals: {all_counselors: true} %>");
 $('.users-found').text('<%= @profiles.count %>' + 'users found');
+
+bindAgeSlider();
+bindOnlineToggle();
+bindPreferenceSelectors();
+
+//initialize scrollbars
+$('.custom-scroll').mCustomScrollbar({
+    theme: "minimal-dark",
+    advanced: { autoScrollOnFocus: false }
+});
