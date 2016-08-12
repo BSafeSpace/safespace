@@ -19,3 +19,8 @@
 <% profile.characteristics.select { |char| char.category == "academic_focus" }.each do |char| %>
 	<div><%= char.name %></div>
 <% end %>
+
+<div class="char-title">Sexual Orientation</div>
+<% profile.characteristics.select { |char| char.category == "sexual_orientation" }.each do |char| %>
+	<div><%= char.name %></div>
+<% end %>
