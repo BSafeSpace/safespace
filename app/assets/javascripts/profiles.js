@@ -87,19 +87,19 @@ var bindOnlineToggle = function() {
   $('.toggle-online-profiles').click(function() {
     console.log("toggle online profiles");
     $('input#q_online_or_all_profiles').prop('checked', !$('input#q_online_or_all_profiles').is(':checked'));
-    $('input#q_user_peer_counselor_true').prop('checked', false);
+    // $('input#q_user_peer_counselor_true').prop('checked', false);
     $('input[name=commit]').click();
   });
 }
 
-var bindPeerCounselorSearch = function() {
-  console.log("called bindPeerCounselorSearch");
-  $('#toggle-counselor-profiles').click(function() {
-    console.log("toggle counselor profiles");
-    $('input#q_user_peer_counselor_true').prop('checked', true);
-    $('input[name=commit]').click();
-  });
-}
+// var bindPeerCounselorSearch = function() {
+//   console.log("called bindPeerCounselorSearch");
+//   $('#toggle-counselor-profiles').click(function() {
+//     console.log("toggle counselor profiles");
+//     $('input#q_user_peer_counselor_true').prop('checked', true);
+//     $('input[name=commit]').click();
+//   });
+// }
 
 var bindRecommendSort = function() {
   $('#recommend-sort').click(function() {
@@ -182,7 +182,7 @@ $(function() {
   $('input#q_age_lteq').val(60)
 
   bindOnlineToggle();
-  bindPeerCounselorSearch();
+  // bindPeerCounselorSearch();
   bindRecommendSort();
   bindSort('#age-sort', '1');
   bindSort('#name-sort', '2');

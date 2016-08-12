@@ -25,6 +25,14 @@ class Profile < ActiveRecord::Base
   	end
   end
 
+  def self.peer_counselor_profiles
+    peer_counselor_profiles = []
+    User.peer_counselors.each do |counselor|
+      peer_counselor_profiles << counselor.profile
+    end
+    return peer_counselor_profiles
+  end
+
   def format_answer(field)
     answer = self.send(field)
     if !answer

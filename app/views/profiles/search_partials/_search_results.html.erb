@@ -1,16 +1,16 @@
 <div class="results-container">
   <br>
-  <% if @all_counselors %>
+  <% if defined?(all_counselors) %>
     <p class="status-text all-online">
       <a href="#" class="toggle-online-profiles">All</a> | Peer Counselors | <a href="#" class="toggle-online-profiles">Online</a>
     </p>
   <% elsif @online_only %>
     <p class="status-text all-online">
-      <a href="#" class="toggle-online-profiles">All</a> | <a href="#" id="toggle-counselor-profiles">Peer Counselors</a> | Online
+      <a href="#" class="toggle-online-profiles">All</a> | <%= link_to "Peer Counselors", peer_counselors_profiles_path, remote: true %> | Online
     </p>
   <% else %>
     <p class="status-text all-online">
-      All | <a href="#" id="toggle-counselor-profiles">Peer Counselors</a> | <a href="#" class="toggle-online-profiles">Online</a>
+      All | <%= link_to "Peer Counselors", peer_counselors_profiles_path, remote: true %> | <a href="#" class="toggle-online-profiles">Online</a>
     </p>
   <% end %>
 

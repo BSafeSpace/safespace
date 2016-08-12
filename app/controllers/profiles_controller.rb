@@ -2,6 +2,7 @@ include ProfilesHelper
 require "ask_awesomely"
 require 'bio_typeform'
 require 'httparty'
+require 'will_paginate/array'
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :update_hours, :destroy]
   before_filter :fix_json_params
@@ -27,7 +28,7 @@ class ProfilesController < ApplicationController
   def search
     @profiles = build_query  
     @online_only = query_online_only?
-    @all_counselors = query_all_counselors?
+    # @all_counselors = query_all_counselors?
     @sort_type = query_sort_type
 
     gon.profiles = @profiles
@@ -157,6 +158,14 @@ class ProfilesController < ApplicationController
       @char_ids.push(char.id)
     end
     render json: { char_ids: @char_ids }
+  end
+
+  def peer_counselors
+    @profiles = Profile.peer_counselor_profiles
+    @profiles = @profiles.paginate(page: params[:page], per_page: 15)
+    respond_to do |format|
+      format.js
+    end
   end
 
   # PATCH/PUT /profiles/1/showcase_reset

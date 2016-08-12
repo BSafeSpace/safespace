@@ -1,0 +1,3 @@
+$('.results-container').remove();
+$('.profile-results-container').append("<%= j render partial: '/profiles/search_partials/search_results', locals: {all_counselors: true} %>");
+$('.users-found').text('<%= @profiles.count %>' + 'users found');
