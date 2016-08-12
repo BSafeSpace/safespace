@@ -11,9 +11,11 @@
 		$("#msg").append("<%= j render 'sender' %>");
 	}
 	
-	var $previewText = $("div[data-conv-id='<%=@conversation.id.to_s%>']")
+	console.log("conversation id: " + '<%=@conversation.id.to_s%>');
+	var $previewText = $(".status-text[data-conv-id='<%=@conversation.id.to_s%>']");
+	console.log("previewText length");
+	console.log($previewText.length);
 	if ( !$previewText.length ) {
-		// add data-conv-id to status-text
 		var $senderText = $("a[data-method='post']:contains('<%= @sender.username %>')").parent().next('.status-text');
 		var $receiverText = $("a[data-method='post']:contains('<%= @receiver.username %>')").parent().next('.status-text');
 
@@ -30,7 +32,7 @@
 	$(".status-text[data-conv-id='<%=@conversation.id.to_s%>']").text("<%= j render '/conversations/message_preview' %>");
 
 	// update conversation order
-	$('.active-conversation').insertBefore('.tab-pane.active.chat-box:first');
+	$('.active-conversation').insertBefore('.tab-pane.active .chat-box:first').after(console.log('inserted before'));
 
 <% end %>
 
