@@ -171,13 +171,13 @@ $('.conversations.index').ready(function() {
 	// Copy number into message input on copy button click
 	$('#alameda-copy').click(function() {
 	    // copyToClipboardMsg($(this), document.getElementById("alameda-number"), "msg");
-	    $('#message_body').val($('#alameda-number').val());
+	    $('#message_body').val('Here is the number for the Crisis Support Services of Alameda County: ' + $('#alameda-number').val());
 	});
 
 	// Copy number into message input on copy button click
 	$('#crisis-text-copy').click(function() {
 	    // copyToClipboardMsg($(this), document.getElementById("crisis-text-number"), "msg");
-	    $('#message_body').val($('#crisis-text-number').val());
+	    $('#message_body').val("Text trained crisis counselors about anything that's on your mind at the Crisis Text Line: " + $('#crisis-text-number').val());
 	});
 
 	function copyToClipboardMsg(copyButton, elem, msgElem) {
