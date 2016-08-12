@@ -1,7 +1,7 @@
  <div class="chat-item">
 	 <div class="horizontal-align">
 	  <div class="<%="#{user.online_status_css}"%>-status-indicator" style="display: inline-block;"></div>
-	  <%= link_to user.username, conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', :class => "contact-list-name", remote: true %>
+	  <%= link_to user.username, conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', :data => {:confirm => 'Are you sure you want to remove this friend?'}, :class => "contact-list-name", remote: true %>
 	</div>
 	<% @chat_convo = Conversation.between(current_user.id, user.id).first %>
 	<div class="status-text truncate" data-conv-id="<%=@chat_convo.id.to_s if @chat_convo %>">

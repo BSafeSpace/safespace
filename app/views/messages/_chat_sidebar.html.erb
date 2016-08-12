@@ -72,7 +72,7 @@
     </div>
     <% if !@other_user.peer_counselor %>
       <div class="sidebar-link">
-        <%= link_to "Block User", friendship_path(:id => @other_user, :block => true), :method => :delete, class: "block-button" %>
+        <%= link_to "Block User", friendship_path(:id => @other_user, :block => true), :method => :delete, :data => {:confirm => 'Are you sure you want to permanently block this user? If they are blocked by three or more users, they will be permanently deleted from SafeSpace.'}, class: "block-button" %>
       </div>
     <% end %>
   </div>
