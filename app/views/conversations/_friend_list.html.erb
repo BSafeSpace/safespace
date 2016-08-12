@@ -7,8 +7,8 @@
       </li>
       <li><a href="#peer-counselors" data-toggle="tab">Counselors</a></li>
       <li><a href="#online-friends" data-toggle="tab">Online</a></li>
-      <li><a href="#pending-friends" data-toggle="tab">Pending</a></li>
       <li><a href="#friend-requests" data-toggle="tab">Requests</a></li>
+      <li><a href="#pending-friends" data-toggle="tab">Pending</a></li>
     </ul>
     <div class="tab-content">
       <div class="tab-pane custom-scroll friend-scroll active" id="all-friends">
@@ -45,23 +45,7 @@
           <% end %>
         </div>
       </div>
-      <div class="tab-pane custom-scroll friend-scroll" id="pending-friends">
-        <div class="ui list">
-          <div>
-            <% if current_user.pending_friends.empty? %>
-              <div class="chat-box status-text horizontal-align" style="margin-left: 0px;">
-                You have no pending requests
-              </div>
-            <% end %>
-
-            <% current_user.pending_friends.each do |pending| %>
-              <div class="chat-box horizontal-align">
-                <%= render 'contact_name', user: pending %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
+      
       <div class="tab-pane custom-scroll friend-scroll" id="friend-requests">
         <div class="ui list">
           <div>
@@ -84,6 +68,25 @@
           </div>
         </div>
       </div>
+
+      <div class="tab-pane custom-scroll friend-scroll" id="pending-friends">
+        <div class="ui list">
+          <div>
+            <% if current_user.pending_friends.empty? %>
+              <div class="chat-box status-text horizontal-align" style="margin-left: 0px;">
+                You have no pending requests
+              </div>
+            <% end %>
+
+            <% current_user.pending_friends.each do |pending| %>
+              <div class="chat-box horizontal-align">
+                <%= render 'contact_name', user: pending %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      
     </div>
   </div>
 </div>
