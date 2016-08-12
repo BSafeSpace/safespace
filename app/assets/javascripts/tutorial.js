@@ -47,32 +47,39 @@ $(function() {
             placement: 'right'
     	}).tooltip('show');
 
-    	$('#save-filters, .overlay').click(function(){
+    	$('#save-filters, .overlay').bind('click.filterOverlay', function(){
+    		console.log("clicked filter overlay");
     		// Check if overlay clicked is from add friend tutorial
     		if ( $('.filters-container.expose').css('z-index') == '9998' ) {
+    			$('.overlay').unbind('click.filterOverlay');
     			$('.overlay').fadeOut(300, function(){
 			        $('.filters-container.expose').css('z-index','1');
 			        $filterTooltip.tooltip('hide');
 			        $defaultTooltip.tooltip('hide');
 			    });
+			    console.log("filters container z-index 9998");
 
 			    $.ajax({
 				   method: 'get',
 				   url: '/profiles',
 				   data: { doneTutFilter: true },
-				   complete: function(response) {
-				   	$('.overlay').fadeIn(300);
-				   	$('.profile-results-container').tooltip({
-			    		container: 'body',
-			            html: true,
-			            trigger: 'manual',
-			            title: 'Based on the traits you selected, a list of potential buddies will appear',
-			            placement: 'left'
-			    	}).tooltip('show');
+				   success: function(response) {
+				   	$('.overlay').fadeIn(300, function() {
+				   		$('.profile-results-container').tooltip({
+				    		container: 'body',
+				            html: true,
+				            trigger: 'manual',
+				            title: 'Based on the traits you selected, a list of potential buddies will appear',
+				            placement: 'left'
+				    	}).tooltip('show');
+				   	});
 
-			    	$('.overlay').click(function() {
+
+			    	$('.overlay').bind('click.potentialBuddiesOverlay', function() {
+			    		console.log('intermediary tooltip');
+			    		$('.overlay').unbind('click.potentialBuddiesOverlay');
 			    		$('.tooltip').remove();
-		  				$('.overlay').fadeOut(300);
+		  				$(this).fadeOut(300);
 			    		addFriendTutorial();
 			    	});
 				   }
@@ -91,12 +98,14 @@ $(function() {
 
 	});
 
-	$('.overlay').click(function() {
-		if (gon.doneTutFilter && !gon.doneTutAddFriend && $('.profile-results-container.expose').css('z-index') == '9998') {
-
+	function addFriendOverlay() {
+		$('.overlay').click(function() {
+		  console.log("clicked results overlay");
 		  $('.tooltip').remove();
 		  $('.overlay').fadeOut(300, function(){
 		      $('.profile-results-container.expose').css('z-index', '1');
+		      $('.overlay').hide();
+		      console.log("fade overlay");
 		  });
 
 		  $.ajax({
@@ -106,16 +115,15 @@ $(function() {
 		  });
 
 		  gon.doneTutAddFriend = true;
-
-		  chatTutorial(); // tutorial.js
-		}
-	})
+		  chatTutorial();
+		});
+	}
 
 	function addFriendTutorial() {
 		if ($('.result-names').children().length > 0) {
 			$('.overlay').fadeIn(300);
-			$('.overlay').removeClass('filter-overlay');
 			$('.profile-results-container.expose').css('z-index','9998');
+			addFriendOverlay();
 
 			var $resultsTooltip = $('.friend-link').first();
 
@@ -129,7 +137,6 @@ $(function() {
                 title: 'Add a buddy to begin chatting',
                 placement: 'right'
             }).tooltip('show');
-
 		}
 	}
 
