@@ -8,7 +8,9 @@ class Profile < ActiveRecord::Base
   end
 
   def add_characteristic(characteristic)
-    self.characteristics << characteristic
+    if !self.characteristics.include? characteristic
+      self.characteristics << characteristic
+    end
   end
 
   def online_status_css

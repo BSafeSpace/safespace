@@ -43,9 +43,11 @@ end
 
 User.all.each do |u|
 	u.profile.age = rand(16...60)
-	u.signed_liability = true
-	u.completed_bio = true
-	u.save
+	if !u.showcase
+		u.signed_liability = true
+		u.completed_bio = true
+		u.save
+	end
 	u.profile.save
 end
 
