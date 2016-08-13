@@ -16,8 +16,10 @@
 	padding-right: 5px;
 }
 
-.friend-nav .active {
-	
+.friend-nav li.active a {
+	color: #c8ccd0;
+	pointer-events: none;
+   	cursor: default;
 }
 
 .tab-pane {
