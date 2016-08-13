@@ -6,7 +6,6 @@
     <li data-target="#info-slides" data-slide-to="2"></li>
     <li data-target="#info-slides" data-slide-to="3"></li>
     <li data-target="#info-slides" data-slide-to="4"></li>
-    <li data-target="#info-slides" data-slide-to="5"></li>
   </ol>
 
   <!-- Wrapper for slides -->
@@ -63,19 +62,12 @@
         	<p>Lastly, we will discuss Emergency Protocol. If someone mentions suicidal ideation, click on the big red protocol button to copy paste the Alameda County Crisis Hotline Number in their chat. <strong>Suicidal ideation and self-harm are serious topics to be discussed with a professional. Any topics falling under suicide are prohibited on SafeSpace.</strong></p>
 
             <p>A large school can feel very isolating and struggling with an additional layer of difficulty, such as poor mental health, can further distance you from the very thing you need: motivation to get professional help or finding a support network. And remember: <strong>don’t be discouraged, not everyone will immediately find a perfect match. We hope you’ll find a supportive community here at Berkeley by using SafeSpace.</strong> </p>
-        </div>
-    </div>
-    <div class="item" id="slide6">
-    	<img>
-        <div class="carousel-caption center-caption">
-        	<h1>Did you get all that?</h1>
-        	<p>We are going to ask you a few questions on the most important things you should remember.</p>
-        	<%= link_to intro_quiz_path, id: 'ready-btn', class: 'btn btn-success btn-lg' do %>
-        		<ul>
-        			<li><span><%= icon('check', class: 'fa-lg') %></span></li>
-        			<li><span>Ready!</span></li>
-        		</ul>
-        	<% end %>
+            <%= link_to intro_quiz_path, id: 'ready-btn', class: 'btn btn-success btn-lg' do %>
+                <ul>
+                    <li><span><%= icon('check', class: 'fa-lg') %></span></li>
+                    <li><span>Ready!</span></li>
+                </ul>
+            <% end %>
         </div>
     </div>
   </div>
