@@ -3,10 +3,21 @@
 	margin-right: 0;
 }
 // Left Sidebar Styles
-.nav-tabs li a {
+.friend-nav li a {
 	margin-right: 0px;
-	padding: 6px 5px;
 	font-size: small;
+}
+
+.friend-nav li {
+	display: inline;
+}
+
+.friend-nav a {
+	padding-right: 5px;
+}
+
+.friend-nav .active {
+	
 }
 
 .tab-pane {
@@ -24,7 +35,13 @@
 }
 
 .friend-nav {
+	border-top: thin solid #c8ccd0;
+	border-bottom: thin solid #c8ccd0;
 	padding-left: 16px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	margin-bottom: 0px;
+	list-style-type: none;
 }
 
 .friend-link {

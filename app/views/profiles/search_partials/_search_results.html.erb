@@ -2,15 +2,15 @@
   <br>
   <% if defined?(all_counselors) %>
     <p class="status-text all-online">
-      <a href="#" class="toggle-online-profiles toggle-all">All</a> | Peer Counselors | <a href="#" class="toggle-online-profiles toggle-online">Online</a>
+      <a href="#" class="toggle-all">All</a> | Peer Counselors | <a href="#" class="toggle-online">Online</a>
     </p>
   <% elsif @online_only %>
     <p class="status-text all-online">
-      <a href="#" class="toggle-online-profiles toggle-all">All</a> | <%= link_to "Peer Counselors", peer_counselors_profiles_path, remote: true %> | Online
+      <a href="#" class="toggle-all">All</a> | <%= link_to "Peer Counselors", peer_counselors_profiles_path, remote: true %> | Online
     </p>
   <% else %>
     <p class="status-text all-online">
-      All | <%= link_to "Peer Counselors", peer_counselors_profiles_path, remote: true %> | <a href="#" class="toggle-online-profiles toggle-online">Online</a>
+      All | <%= link_to "Peer Counselors", peer_counselors_profiles_path, remote: true %> | <a href="#" class="toggle-online">Online</a>
     </p>
   <% end %>
 
