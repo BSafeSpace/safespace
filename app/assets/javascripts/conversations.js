@@ -49,7 +49,7 @@ $('.conversations.index').ready(function() {
 	// Show liability dialog if new session
 	if (Cookies.get('agree_chat_liability') == null) {
 		console.log('hello');
-		var $dialog = $('<div id="dialog-confirm" title="Chat Liability">\
+		var $dialog = $('<div id="dialog-confirm" title="Reminder">\
 						  <p>By clicking <em>I agree,</em> you agree to the following:</p>\
 						  <ul>\
 						    <li>I am not homicidal or suicidal. (If you are, we strongly urge you to speak with a professional).</li>\
