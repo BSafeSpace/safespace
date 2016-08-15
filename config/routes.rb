@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get 'contact' => 'static_pages#contact', :as => :contact
   get 'info' => 'intro#info', :as => :intro_info
   get 'quiz' => 'intro#quiz', :as => :intro_quiz
-  get 'liability' => 'intro#liability', :as => :intro_liability
+  get 'terms_of_service' => 'intro#liability', :as => :intro_terms_of_service
   get 'create_bio' => 'intro#create_bio', :as => :intro_create_bio
   put 'sign_liability' => 'intro#sign_liability', :as => :intro_sign_liability
   
