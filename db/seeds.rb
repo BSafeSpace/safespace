@@ -65,4 +65,48 @@ User.all.reject { |u| u.peer_counselor }.each do |u|
 	User.create_friendship(u, rand_user)
 end
 
+slide_one = <<EOD
+h1. What is SafeSpace?
+
+This is both a place for people to:
+* chat with like-minded peers who come from similar and/or different backgrounds
+* share their experiences with other UC-Berkeley students when pursuing mental wellness
+EOD
+
+slide_two = <<EOD
+h1. Support Techniques: LDVSB
+
+h3. Lovely Dolphins Venture, Swim, and Bathe
+
+
+        	
+*LISTEN* to your SafeSpace Buddy. Give them space to talk about their concerns first. The focus should be on them, before it is on you.
+            
+*DON’T JUDGE.* No matter how minimal a person’s problems seem to you, their pain is very real to them. You have not been in that person’s shoes, so it is NOT helpful to question their past decisions, current behavior, or way of thinking.
+            
+*VALIDATE* their feelings. Comments like “you’re right to feel this way” or “it’s totally reasonable to think that” or “it’s ok, you’re not alone. X also happened to me” are helpful.
+EOD
+
+slide_three = <<EOD
+h1. Support Techniques Continued:
+
+h3. LDVSB Lovely Dolphins Venture, Swim, and Bathe
+
+*SUPPORT.* When someone tells you about a particular struggle, show them you care, that you are present and want to help. Part of being supportive is being empathetic and open-minded.
+
+*BRAINSTORM SOLUTIONS!* This may seem challenging, but that’s why we have a “Resource List” on SafeSpace. If someone needs real help, tell them Counseling and Psychological Services at Tang make referrals. Help them find a local clinic. In less drastic situations, however, feel free to give your buddy unbiased, sincere advice on what has worked for you when it comes to mental wellness. SafeSpace is but a transitory tool for you to realize the benefits of talking things out. *If, however, SafeSpace is not enough of a solution for you, help yourself and your buddies by connecting them or yourself with the right resources.*
+EOD
+
+slide_four = <<EOD
+h1. Suicidal Ideation
+
+Lastly, we will discuss Emergency Protocol. If someone mentions suicidal ideation, click on the big red protocol button to copy paste the Alameda County Crisis Hotline Number in their chat. *Suicidal ideation and self-harm are serious topics to be discussed with a professional. Any topics falling under suicide are prohibited on SafeSpace.*
+
+A large school can feel very isolating and struggling with an additional layer of difficulty, such as poor mental health, can further distance you from the very thing you need: motivation to get professional help or finding a support network. And remember: *don’t be discouraged, not everyone will immediately find a perfect match. We hope you’ll find a supportive community here at Berkeley by using SafeSpace.* 
+EOD
+
+terms_of_service = ""
+
+Content.create(slide_one: slide_one, slide_two: slide_two, slide_three: slide_three, slide_four: slide_four, terms_of_service: terms_of_service)
+
 
