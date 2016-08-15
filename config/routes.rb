@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :contents
+
   # devise_for :users, :controllers => {:destroy => "destroy"}
   devise_for :users, controllers: { destroy: "destroy", registrations: "registrations" }
   root 'static_pages#home'
