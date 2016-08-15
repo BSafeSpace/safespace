@@ -177,7 +177,7 @@ $('.conversations.index').ready(function() {
 	// Copy number into message input on copy button click
 	$('#crisis-text-copy').click(function() {
 	    // copyToClipboardMsg($(this), document.getElementById("crisis-text-number"), "msg");
-	    $('#message_body').val("Text trained crisis counselors about anything that's on your mind at the Crisis Text Line: " + $('#crisis-text-number').val());
+	    $('#message_body').val("Here is the Crisis Text Line: " + $('#crisis-text-number').val());
 	});
 
 	function copyToClipboardMsg(copyButton, elem, msgElem) {
