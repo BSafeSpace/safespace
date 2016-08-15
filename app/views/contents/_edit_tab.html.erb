@@ -2,14 +2,12 @@
 	<div id="preview-<%= tag %>" class="preview-content">
 		<%= body %>
 	</div>
-	<a class="btn btn-default btn-lg" align="center" data-toggle="collapse" data-target="#edit-<%= tag %>">Edit</a>
-	<br>
-	<div id="edit-<%= tag %>" class="edit-content-form collapse">
-    	<%= form_for(@content, remote: true) do |f| %>
-    		<%= f.text_area :slide_one, cols: "70", rows: "10", class: "content-text-area" %><br>
-    		<%= hidden_field_tag :content_tag, value: tag %>
-    		<%= hidden_field_tag :content_name, value: name %>
-    		<%= f.submit "Submit", class: "btn btn-default btn-lg" %>
-    	<% end %>
-    </div>
+	<div style="margin-top: 15px">
+		<%= form_for(@content, remote: true) do |f| %>
+			<%= f.text_area name, cols: "60", rows: "10", class: "content-text-area" %><br>
+			<%= hidden_field_tag :content_tag, value: tag %>
+			<%= hidden_field_tag :content_name, value: name %>
+			<%= f.submit "Submit", class: "btn btn-default btn-lg" %>
+		<% end %>
+	</div>
 </div>
