@@ -30,13 +30,17 @@
 	padding-top: 5px;
 }
 
+#slide4 p {
+	font-size: 1.1em;
+}
+
 #slide5 h1 {
-	margin-top: 4vh;
-	margin-bottom: 6vh;	
+	margin-top: 0;
 }
 
 #slide5 p {
-	margin-bottom: 4vh;
+	font-size: 1.1em;
+	margin-bottom: 2vh;
 }
 
 #info-slides {
@@ -124,7 +128,7 @@
 	padding-right: 0;
 	border-radius: 3rem;
 	width: 160px;
-	margin-top: 2vh;
+	margin-bottom: 2vh;
 }
 
 #ready-btn ul {
@@ -144,21 +148,4 @@
 #ready-btn ul {
 	line-height: 3rem;
 	left: 0;
-}
-
-// Typeform
-a[href="/signup?utm_campaign=uOcIgm&utm_source=typeform.com-3793316-Basic&utm_medium=typeform&utm_content=typeform-footer&utm_term=EN"] {
-	display: none;
-}
-
-
-// Create Bio Page
-.typeform-share {
-	@extend .btn;
-	@extend .btn-yellow;
-}
-
-#tutorial-wrapper {
-	max-width: 50%;
-	text-align: center;
 }
