@@ -4,7 +4,7 @@
 	</div>
 	<div style="margin-top: 15px">
 		<%= form_for(@content, remote: true) do |f| %>
-			<%= f.text_area name, cols: "70", rows: "10", class: "content-text-area" %><br>
+			<%= f.text_area name, cols: "60", rows: "10", class: "content-text-area" %><br>
 			<%= hidden_field_tag :content_tag, value: tag %>
 			<%= hidden_field_tag :content_name, value: name %>
 			<%= f.submit "Submit", class: "btn btn-default btn-lg" %>
