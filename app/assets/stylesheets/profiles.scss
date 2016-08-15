@@ -22,6 +22,15 @@
     margin-bottom: 10px;
 }
 
+.search-field {
+    width: 305px;
+}
+
+.preference-instructions {
+    font-size: 0.8em;
+    text-align: center;
+}
+
 .profile-header {
     text-align: center;
     font-weight: 700;
@@ -52,7 +61,6 @@
 .dropdown-pref {
     padding: 2px 8px;
     float: right;
-    margin-right: 3.5vw;
     margin-top: 0.5vh;
 }
 
