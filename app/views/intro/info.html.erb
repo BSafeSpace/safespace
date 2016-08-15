@@ -19,13 +19,7 @@
     <div class="item" id="slide2">
     	<img>
         <div class="carousel-caption">
-        	<h1>What is SafeSpace?</h1>
-        	<p>This is both a place for people to:
-                <ol>
-                    <li>chat with like-minded peers who come from similar and/or different backgrounds</li>
-                    <li>share their experiences with other UC-Berkeley students when pursuing mental wellness</li>
-                </ol>
-            </p>
+        	<%= RedCloth.new(@content.slide_one).to_html.html_safe %>
         </div>
     </div>
     <div class="item" id="slide3">
