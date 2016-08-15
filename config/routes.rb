@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { destroy: "destroy", registrations: "registrations" }
   root 'static_pages#home'
   get 'about' => 'static_pages#about', :as => :home_about
-  get 'contact' => 'contacts#new', :as => :contact
+  get 'contact' => 'static_pages#contact', :as => :contact
   get 'info' => 'intro#info', :as => :intro_info
   get 'quiz' => 'intro#quiz', :as => :intro_quiz
   get 'liability' => 'intro#liability', :as => :intro_liability
