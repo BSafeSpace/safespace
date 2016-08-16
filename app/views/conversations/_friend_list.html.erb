@@ -7,8 +7,12 @@
       </li>
       <li><a href="#peer-counselors" data-toggle="tab">Counselors</a></li>
       <li><a href="#online-friends" data-toggle="tab">Online</a></li>
-      <%= friend_list_link('Requests', "#friend-requests") %>
-      <li><a href="#pending-friends" data-toggle="tab">Pending</a></li>
+
+      <% if !current_user.peer_counselor %>
+        <%= friend_list_link('Requests', "#friend-requests") %>
+        <li><a href="#pending-friends" data-toggle="tab">Pending</a></li>
+      <% end %>
+
     </ul>
     <div class="tab-content">
       <div class="tab-pane custom-scroll friend-scroll active" id="all-friends">
@@ -46,47 +50,48 @@
         </div>
       </div>
 
-      <div class="tab-pane custom-scroll friend-scroll" id="friend-requests">
-        <div class="ui list">
-          <div>
-            <% if current_user.requested_friendships.empty? %>
-              <div class="chat-box status-text horizontal-align" style="margin-left: 0px">
-                You have no friend requests
-              </div>
-            <% end %>
-
-            <% current_user.requested_friendships.each do |request| %>
-              <div class="chat-box  horizontal-align">
-                <%= render 'contact_name', user: request %>
-                <div class="links-container horizontal-align">
-                  <%= link_to "Accept", friendship_path(:id => request), :method => "put", :class => "friend-link" %> 
-                  <%= link_to "Decline", friendship_path(:id => request), :method => :delete, :class => "friend-link" %>
+      <% if !current_user.peer_counselor %>
+        <div class="tab-pane custom-scroll friend-scroll" id="friend-requests">
+          <div class="ui list">
+            <div>
+              <% if current_user.requested_friendships.empty? %>
+                <div class="chat-box status-text horizontal-align" style="margin-left: 0px">
+                  You have no friend requests
                 </div>
-              </div>
-              
-            <% end %>
+              <% end %>
+
+              <% current_user.requested_friendships.each do |request| %>
+                <div class="chat-box  horizontal-align">
+                  <%= render 'contact_name', user: request %>
+                  <div class="links-container horizontal-align">
+                    <%= link_to "Accept", friendship_path(:id => request), :method => "put", :class => "friend-link" %> 
+                    <%= link_to "Decline", friendship_path(:id => request), :method => :delete, :class => "friend-link" %>
+                  </div>
+                </div>
+                
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="tab-pane custom-scroll friend-scroll" id="pending-friends">
-        <div class="ui list">
-          <div>
-            <% if current_user.pending_friends.empty? %>
-              <div class="chat-box status-text horizontal-align" style="margin-left: 0px;">
-                You have no pending requests
-              </div>
-            <% end %>
+        <div class="tab-pane custom-scroll friend-scroll" id="pending-friends">
+          <div class="ui list">
+            <div>
+              <% if current_user.pending_friends.empty? %>
+                <div class="chat-box status-text horizontal-align" style="margin-left: 0px;">
+                  You have no pending requests
+                </div>
+              <% end %>
 
-            <% current_user.pending_friends.each do |pending| %>
-              <div class="chat-box horizontal-align">
-                <%= render '/conversations/contact_name', user: pending %>
-              </div>
-            <% end %>
+              <% current_user.pending_friends.each do |pending| %>
+                <div class="chat-box horizontal-align">
+                  <%= render '/conversations/contact_name', user: pending %>
+                </div>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
-      
+      <% end %>
     </div>
   </div>
 </div>

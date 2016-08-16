@@ -47,7 +47,7 @@
   <% end %>
 
   <div class="sidebar-links">
-    <% if !@other_user.peer_counselor %>
+    <% if !current_user.peer_counselor && !@other_user.peer_counselor %>
       <div class="sidebar-link recommend-button">
         <%= render("recommendations/form", other_user_id: @other_user.id) %>
         <!-- Button trigger modal -->
