@@ -5,6 +5,7 @@
 <div class="edit-content-container">
 	<ul class="nav nav-tabs">
 		<li class="active"><a data-toggle="tab" href="#about">About</a></li>
+		<li><a data-toggle="tab" href="#contact">Contact</a></li>
 		<li><a data-toggle="tab" href="#terms-of-service">Terms of Service</a></li>
 		<li><a data-toggle="tab" href="#slide-one">Slide 1</a></li>
 		<li><a data-toggle="tab" href="#slide-two">Slide 2</a></li>
@@ -15,6 +16,10 @@
 	<div class="tab-content">
 		<div id="about" class="tab-pane fade in active">
 			<%= render "edit_tab", body: @content.about.html_safe, tag: "about", name: :about %>
+		</div>
+
+		<div id="contact" class="tab-pane fade">
+			<%= render "edit_tab", body: @content.contact.html_safe, tag: "contact", name: :contact %>
 		</div>
 
 		<div id="terms-of-service" class="tab-pane fade">
