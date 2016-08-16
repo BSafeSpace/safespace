@@ -1,3 +1,9 @@
 <h3>Terms of Service</h3>
 
-<%= link_to 'Agree', intro_sign_liability_path(user_id: current_user.id), method: 'put', class: "btn btn-success" %>
+<div class="terms-of-service"></div>
+
+<%= form_for(TermsOfService.new) do |f| %>
+	<%= f.check_box :terms_of_service %>
+<% end %>
+
+<%= link_to 'Submit', intro_sign_liability_path(user_id: current_user.id), method: 'put', class: "btn btn-success" %>

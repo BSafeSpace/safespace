@@ -22,7 +22,7 @@ class IntroController < ApplicationController
 	end
 
 	def sign_liability
-		@user = User.find params[:user_id]
+		@user = User.find current_user.id
 		@user.update(signed_liability: true)
 		redirect_to profiles_path
 	end

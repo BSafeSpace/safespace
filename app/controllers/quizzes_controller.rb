@@ -6,7 +6,7 @@ class QuizzesController < ApplicationController
   def create
   	@quiz = Quiz.new(quiz_params)
   	if @quiz.save
-  		flash[:notice] = "Successfully passed quiz."
+  		flash[:notice] = "Successfully answered all questions"
   		redirect_to intro_terms_of_service_path
   	else 
   		render 'new'

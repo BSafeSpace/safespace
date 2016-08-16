@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
 
   resources :contents
+  resources :terms_of_services
 
   # devise_for :users, :controllers => {:destroy => "destroy"}
   devise_for :users, controllers: { destroy: "destroy", registrations: "registrations" }
