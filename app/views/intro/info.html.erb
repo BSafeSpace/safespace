@@ -19,25 +19,25 @@
     <div class="item" id="slide2">
         <img>
         <div class="carousel-caption">
-        	<%= RedCloth.new(@content.slide_one).to_html.html_safe %>
+        	<%= @content.slide_one.html_safe %>
         </div>
     </div>
     <div class="item" id="slide3">
     	<img>
         <div class="carousel-caption">
-        	<%= RedCloth.new(@content.slide_two).to_html.html_safe %>
+        	<%= @content.slide_two.html_safe %>
         </div>
     </div>
     <div class="item" id="slide4">
     	<img>
         <div class="carousel-caption">
-            <%= RedCloth.new(@content.slide_three).to_html.html_safe %>
+          <%= @content.slide_three.html_safe %>
         </div>
     </div>
     <div class="item" id="slide5">
     	<img>
         <div class="carousel-caption">
-        	<%= RedCloth.new(@content.slide_four).to_html.html_safe %>
+        	<%= @content.slide_four.html_safe %>
 
             <%= link_to intro_quiz_path, id: 'ready-btn', class: 'btn btn-success btn-lg' do %>
                 <ul>
