@@ -1,4 +1,17 @@
 $(function() {
+	var $filterReady =  $('<a class="ready-btn filter-ready tutorial-btn btn btn-success btn-lg">\
+    							<ul>\
+				                    <li><span><i class="fa fa-check fa-lg"></i></span></li>\
+				                    <li><span>Got it!</span></li>\
+				                </ul>\
+    						</a>');
+
+	var $addFriendReady =  $('<a class="ready-btn add-friend-ready tutorial-btn btn btn-success btn-lg">\
+    							<ul>\
+				                    <li><span><i class="fa fa-check fa-lg"></i></span></li>\
+				                    <li><span>Got it!</span></li>\
+				                </ul>\
+    						</a>');
 
 	// Create Bio Modal
 	if (gon.completedBio == false) {
@@ -31,6 +44,8 @@ $(function() {
 		$(".filters-container.expose").css('z-index','9998');
     	$('.overlay').fadeIn(300);
 
+		$filterReady.appendTo($('.overlay'));
+
     	$filterTooltip.tooltip({
     		container: 'body',
             html: true,
@@ -52,6 +67,7 @@ $(function() {
     		// Check if overlay clicked is from add friend tutorial
     		if ( $('.filters-container.expose').css('z-index') == '9998' ) {
     			$('.overlay').unbind('click.filterOverlay');
+    			$('.filter-ready').remove();
     			$('.overlay').fadeOut(300, function(){
 			        $('.filters-container.expose').css('z-index','1');
 			        $filterTooltip.tooltip('hide');
@@ -72,12 +88,14 @@ $(function() {
 				            title: 'Based on the traits you selected, a list of potential buddies will appear',
 				            placement: 'left'
 				    	}).tooltip('show');
+				    	$filterReady.appendTo($('.overlay'));
 				   	});
 
 
 			    	$('.overlay').bind('click.potentialBuddiesOverlay', function() {
 			    		console.log('intermediary tooltip');
 			    		$('.overlay').unbind('click.potentialBuddiesOverlay');
+			    		$('.filter-ready').remove();
 			    		$('.tooltip').remove();
 		  				$(this).fadeOut(300);
 			    		addFriendTutorial();
@@ -105,6 +123,7 @@ $(function() {
 		  $('.overlay').fadeOut(300, function(){
 		      $('.profile-results-container.expose').css('z-index', '1');
 		      $('.overlay').hide();
+		      $addFriendReady.remove();
 		      console.log("fade overlay");
 		  });
 
@@ -122,6 +141,7 @@ $(function() {
 	function addFriendTutorial() {
 		if ($('.result-names').children().length > 0) {
 			$('.overlay').fadeIn(300);
+			$addFriendReady.appendTo($('.overlay'));
 			$('.profile-results-container.expose').css('z-index','9998');
 			addFriendOverlay();
 
