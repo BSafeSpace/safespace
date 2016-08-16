@@ -161,6 +161,7 @@ $(function() {
 	}
 
 	function chatTutorial() {
+		$('#tutorialFinish').modal('show');
 	    $('#chat-tooltip').tooltip({
 	        html: true,
 	        trigger: 'manual',

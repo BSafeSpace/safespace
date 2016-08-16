@@ -16,6 +16,7 @@ if (gon.doneTutFilter && !gon.doneTutAddFriend) {
   chatTutorial(); // tutorial.js
 
   function chatTutorial() {
+    $('#tutorialFinish').modal('show');
     $('#chat-tooltip').tooltip({
         html: true,
         trigger: 'manual',
