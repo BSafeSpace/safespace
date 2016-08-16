@@ -3,7 +3,7 @@
 </div>
 
 <div class="container" style="text-align: center">
-	<%= RedCloth.new(@content.terms_of_service).to_html.html_safe %>
+	<%= @content.terms_of_service.html_safe %>
 </div>
 
 <%= simple_form_for @terms_of_service do |f| %>
