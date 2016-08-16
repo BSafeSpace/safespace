@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   end
 
   resources :contents
-  resources :terms_of_services
+  resources :terms_of_services, only: [:new, :create]
 
   # devise_for :users, :controllers => {:destroy => "destroy"}
   devise_for :users, controllers: { destroy: "destroy", registrations: "registrations" }
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   get 'contact' => 'static_pages#contact', :as => :contact
   get 'info' => 'intro#info', :as => :intro_info
   get 'quiz' => 'intro#quiz', :as => :intro_quiz
-  get 'terms_of_service' => 'intro#liability', :as => :intro_terms_of_service
+  get 'terms_of_service' => 'terms_of_services#new', :as => :terms_of_service
   get 'create_bio' => 'intro#create_bio', :as => :intro_create_bio
   put 'sign_liability' => 'intro#sign_liability', :as => :intro_sign_liability
   

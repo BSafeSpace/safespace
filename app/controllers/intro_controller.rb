@@ -21,12 +21,6 @@ class IntroController < ApplicationController
 	    render "liability"
 	end
 
-	def sign_liability
-		@user = User.find current_user.id
-		@user.update(signed_liability: true)
-		redirect_to profiles_path
-	end
-
 	def create_bio
 		@typeform = BioTypeform.build(current_user)
 		@typeform.instance_variable_get(:@structure).instance_variable_get(:@state)[:tags][0] = current_user.id.to_s
