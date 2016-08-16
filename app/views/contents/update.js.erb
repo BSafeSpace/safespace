@@ -1,1 +1,2 @@
-$('div#preview-<%= @content_tag %>').replaceWith('<%= RedCloth.new(@content.send(@content_name).to_html.html_safe %>');
+$("#flash").html('<%= j flash[:notice] %>');
+$('div#<%= @content_tag %>').replaceWith('<%= j render("edit_tab", body: RedCloth.new(@content.send(@content_name)).to_html.html_safe, tag: @content_tag, name: @content_name) %>')
