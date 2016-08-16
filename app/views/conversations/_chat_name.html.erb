@@ -9,7 +9,7 @@
 	</div>
 </div>
 
-<% if !user.peer_counselor %>
+<% if !current_user.peer_counselor && !user.peer_counselor %>
 	<div class="links-container horizontal-align">
 	  <%= link_to "Remove", friendship_path(:id => user), :method => :delete, :data => {:confirm => 'Are you sure you want to remove this friend?'}, :class => "friend-link" %>
 	</div>
