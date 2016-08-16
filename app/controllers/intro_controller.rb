@@ -2,11 +2,6 @@ require "ask_awesomely"
 require 'bio_typeform'
 require 'httparty'
 class IntroController < ApplicationController
-	before_action :set_content
-
-	def set_content
-		@content = Content.first
-	end
 
 	def info
 	    render "info"

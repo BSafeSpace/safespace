@@ -1,4 +1,10 @@
 class TermsOfServicesController < ApplicationController
+	before_action :set_content
+
+	def set_content
+		@content = Content.first
+	end
+	
   def new
   	@terms_of_service = TermsOfService.new
   end

@@ -6,8 +6,7 @@
 	<%= RedCloth.new(@content.terms_of_service).to_html.html_safe %>
 </div>
 
-<%= form_for(TermsOfService.new) do |f| %>
-	<%= f.check_box :terms_of_service %>
-	<%= f.label :terms_of_service, "I have read and agree to the SafeSpace user/member terms and conditions" %>
+<%= simple_form_for @terms_of_service do |f| %>
+	<%= f.input :terms_of_service, :as => :boolean, label: "I have read and agree to the SafeSpace user/member terms and conditions" %>
 	<div class="submit-button"><%= f.submit "Submit", class: "btn btn-success" %></div>
 <% end %>
