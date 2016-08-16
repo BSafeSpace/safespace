@@ -4,7 +4,8 @@
 
 <div class="edit-content-container">
 	<ul class="nav nav-tabs">
-		<li class="active"><a data-toggle="tab" href="#terms-of-service">Terms of Service</a></li>
+		<li class="active"><a data-toggle="tab" href="#about">About</a></li>
+		<li><a data-toggle="tab" href="#terms-of-service">Terms of Service</a></li>
 		<li><a data-toggle="tab" href="#slide-one">Slide 1</a></li>
 		<li><a data-toggle="tab" href="#slide-two">Slide 2</a></li>
 		<li><a data-toggle="tab" href="#slide-three">Slide 3</a></li>
@@ -12,7 +13,12 @@
 	</ul>
 
 	<div class="tab-content">
-		<div id="terms-of-service" class="tab-pane fade in active">
+		<div id="about" class="tab-pane fade in active">
+			<%= render "edit_tab", body: RedCloth.new(@content.about).to_html.html_safe, tag: "about", name: :about %>
+		</div>
+
+		<div id="terms-of-service" class="tab-pane fade">
+			<%= render "edit_tab", body: RedCloth.new(@content.terms_of_service).to_html.html_safe, tag: "terms-of-service", name: :terms_of_service %>
 		</div>
 
 		<div id="slide-one" class="tab-pane fade">

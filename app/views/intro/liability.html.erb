@@ -1,3 +1,8 @@
-<h3>Terms of Service</h3>
+<div align="center">
+	<h3>Terms of Service</h3>
+</div>
 
-<%= link_to 'Agree', intro_sign_liability_path(user_id: current_user.id), method: 'put', class: "btn btn-success" %>
+<div class="contatiner" style="text-align: center">
+	<%= RedCloth.new(@content.terms_of_service).to_html.html_safe %>
+	<%= link_to 'Agree', intro_sign_liability_path(user_id: current_user.id), method: 'put', class: "btn btn-success" %>
+</div>

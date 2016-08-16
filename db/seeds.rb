@@ -65,6 +65,26 @@ User.all.reject { |u| u.peer_counselor }.each do |u|
 	User.create_friendship(u, rand_user)
 end
 
+about = <<EOD
+h2. SafeSpace
+
+An anonymous, peer-led chat service for UC Berkeley undergraduate students to comfortably share their similar mental health issues in a virtual environment.
+
+h3. The Issue
+
+Poor mental health is a widespread issue plaguing college students across the country. According to a national survey, 85 % of University mental health center directors reported an increase in "severe psychological problems over the last five years.” Nearly one in six college students has been diagnosed or treated for anxiety within the last 12 months. Half of all college students in the US report feeling so depressed at some point in time that they “have trouble functioning.” A UC Berkeley report had similar if not more drastic results.  Because prioritization of mental health improves school performance, reduces school withdrawals, and diminishes adverse life-course consequences, its significance should not be neglected.
+
+Currently, Tang’s Counseling and Psychological Services (CPS) has 50 counselors for 36,000 students (ratio 1:720). According to an ASUC Senate Bill from 2014’s Mental Health Action Plan, there were approximately 5,700 students who had records at Tang Center’s CPS services, which is only about 16% of the 36,000 students. A UC Berkeley Graduate Survey confirms that students wish there were more mental health programs on campus.
+
+h3. Our Solution
+
+SafeSpace is a website for UC Berkeley undergraduates to anonymously be paired with others similar to themselves and provide each other peer support; it is an anonymous, peer led chat. Our goal is to improve the overall mental health for undergraduates at UC Berkeley. The definition of “mental health” we use refers to any psychological distress and emotional well-being. Studies show that psychological distress in college peaks during freshman year and then declines for most because it is the transition to college life that is particularly challenging. Sharing with peers can reduce anxiety and support the development of coping strategies that reduce psychological distress and increase emotional well-being.
+
+A UC Berkeley e-mail address is required to sign up for two main reasons: to avoid anonymous “internet trolls” (malicious users) so that only UC Berkeley students can sign up and to permanently delete users from SafeSpace if they are blocked three times. In addition, we’ve partnered with the campus club “Student to Student Peer Counseling” which will have their own general account for users to talk to other trained peers. By keeping it anonymous, students would not have to worry about being stigmatized, while still having that one friend (or several friends) available to confide in, who personally understand(s) their issues.
+
+For example, a premed Latina with social anxiety would find other premed Latinas who also have social anxiety. SafeSpace initially targets first year students, transfers, and minorities, although it would not be exclusive to these populations. SafeSpace would NOT serve as a replacement for therapy or counseling, but rather a means for students to adapt to the challenges associated with attending a large university, understand that there is a community of people out there like themselves, and have a comfortable space to share their issues with someone who is able to relate to their struggles.
+EOD
+
 slide_one = <<EOD
 h1. What is SafeSpace?
 
@@ -107,6 +127,6 @@ EOD
 
 terms_of_service = ""
 
-Content.create(slide_one: slide_one, slide_two: slide_two, slide_three: slide_three, slide_four: slide_four, terms_of_service: terms_of_service)
+Content.create(about: about, slide_one: slide_one, slide_two: slide_two, slide_three: slide_three, slide_four: slide_four, terms_of_service: terms_of_service)
 
 
