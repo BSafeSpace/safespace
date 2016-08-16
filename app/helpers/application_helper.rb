@@ -35,6 +35,24 @@ module ApplicationHelper
 	  end
 	end
 
+	def friend_list_link(body, url, html_options = {})
+		content_tag :li do
+			link_to url, :data => { :toggle => 'tab' } do
+				if body == "Requests"
+					if current_user.requested_friendships.count > 0
+					    concat(content_tag(:div, class: "unread-count") do 
+				    		current_user.requested_friendships.count.to_s
+				    	end)
+				    else
+				    	concat(content_tag(:div, "", class: "unread-count"))
+				    end
+				end
+				concat body
+			end
+		end
+
+	end
+
 	def to_boolean(str)
       str == 'true'
     end

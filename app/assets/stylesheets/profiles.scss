@@ -22,13 +22,10 @@
     margin-bottom: 10px;
 }
 
-.search-field {
-    width: 305px;
-}
-
 .preference-instructions {
     font-size: 0.8em;
     text-align: center;
+    margin-right: 3.5vw;
 }
 
 .profile-header {
@@ -61,6 +58,7 @@
 .dropdown-pref {
     padding: 2px 8px;
     float: right;
+    margin-right: 3.5vw;
     margin-top: 0.5vh;
 }
 
@@ -112,9 +110,6 @@
 .results-scroll {
 	height: 82vh;
 	overflow: auto;
-}
-
-.result-names {
 }
 
 .row.profile-item {
