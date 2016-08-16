@@ -120,9 +120,9 @@ EOD
 slide_four = <<EOD
 h1. Suicidal Ideation
 
-Lastly, we will discuss Emergency Protocol. If someone mentions suicidal ideation, click on the big red protocol button to copy paste the Alameda County Crisis Hotline Number in their chat. *Suicidal ideation and self-harm are serious topics to be discussed with a professional. Any topics falling under suicide are prohibited on SafeSpace.*
+Lastly, we will discuss the Emergency Button. If someone mentions suicidal ideation, %{color:red}click on the big red protocol button% to copy paste the Alameda County Crisis Hotline Number in their chat. Any topics falling under suicide are NOT to be discussed in SafeSpace solely for safety reasons. Do not feel ashamed of discussing suicidal ideation or self-harm with a professional or call a Suicide Prevention Hotline. 
 
-A large school can feel very isolating and struggling with an additional layer of difficulty, such as poor mental health, can further distance you from the very thing you need: motivation to get professional help or finding a support network. And remember: *don’t be discouraged, not everyone will immediately find a perfect match. We hope you’ll find a supportive community here at Berkeley by using SafeSpace.* 
+*Any topics falling under suicide are NOT to be discussed in SafeSpace solely for safety reasons. Do not feel ashamed of discussing suicidal ideation or self-harm with a professional or call a Suicide Prevention Hotline.*
 EOD
 
 terms_of_service = ""
