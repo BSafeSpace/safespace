@@ -9,32 +9,32 @@
 		<li><a data-toggle="tab" href="#slide-one">Slide 1</a></li>
 		<li><a data-toggle="tab" href="#slide-two">Slide 2</a></li>
 		<li><a data-toggle="tab" href="#slide-three">Slide 3</a></li>
-		<li><a data-toggle="tab" href="#slide-four">Slide 3</a></li> 
+		<li><a data-toggle="tab" href="#slide-four">Slide 4</a></li> 
 	</ul>
 
 	<div class="tab-content">
 		<div id="about" class="tab-pane fade in active">
-			<%= render "edit_tab", body: RedCloth.new(@content.about).to_html.html_safe, tag: "about", name: :about %>
+			<%= render "edit_tab", body: @content.about.html_safe, tag: "about", name: :about %>
 		</div>
 
 		<div id="terms-of-service" class="tab-pane fade">
-			<%= render "edit_tab", body: RedCloth.new(@content.terms_of_service).to_html.html_safe, tag: "terms-of-service", name: :terms_of_service %>
+			<%= render "edit_tab", body: @content.terms_of_service.html_safe, tag: "terms-of-service", name: :terms_of_service %>
 		</div>
 
 		<div id="slide-one" class="tab-pane fade">
-		    <%= render "edit_tab", body: RedCloth.new(@content.slide_one).to_html.html_safe, tag: "slide-one", name: :slide_one %>
+		    <%= render "edit_tab", body: @content.slide_one.html_safe, tag: "slide-one", name: :slide_one %>
 		</div>
 
 		<div id="slide-two" class="tab-pane fade">
-			<%= render "edit_tab", body: RedCloth.new(@content.slide_two).to_html.html_safe, tag: "slide-two", name: :slide_two %>
+			<%= render "edit_tab", body: @content.slide_two.html_safe, tag: "slide-two", name: :slide_two %>
 		</div>
 
 		<div id="slide-three" class="tab-pane fade">
-			<%= render "edit_tab", body: RedCloth.new(@content.slide_three).to_html.html_safe, tag: "slide-three", name: :slide_three %>
+			<%= render "edit_tab", body: @content.slide_three.html_safe, tag: "slide-three", name: :slide_three %>
 		</div>
 
 		<div id="slide-four" class="tab-pane fade">
-			<%= render "edit_tab", body: RedCloth.new(@content.slide_four).to_html.html_safe, tag: "slide-four", name: :slide_four %>
+			<%= render "edit_tab", body: @content.slide_four.html_safe, tag: "slide-four", name: :slide_four %>
 		</div>
 	</div>
 </div>
