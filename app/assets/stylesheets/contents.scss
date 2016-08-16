@@ -4,10 +4,16 @@
 
 .content-text-area {
 	text-align: center;
+	width: 100%;
+	margin-bottom: 10px;
 }
 
 .preview-content {
-	margin-top: 20px;
+	margin-top: 15px;
+	padding: 10px;
+	border: thin solid #c8ccd0;
+	height: 67vh;
+	overflow-y: auto;
 }
 
 .edit-content-form {
@@ -15,8 +21,6 @@
 }
 
 .edit-content-tab {
-	width: 65%;
-	margin: 0 auto;
 	text-align: center;
 }
 
