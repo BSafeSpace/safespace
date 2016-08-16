@@ -127,8 +127,16 @@ slide_four = <<EOD
 <p><strong>Any topics falling under suicide are NOT to be discussed in SafeSpace solely for safety reasons. Do not feel ashamed of discussing suicidal ideation or self-harm with a professional or call a Suicide Prevention Hotline.</strong></p>
 EOD
 
+contact = <<EOD
+<h2>Peer Counselor Location and Hours</h2>
+
+<p class="peer-counselor-hours">
+  Peer Counselor 1: MW 5-7pm at MLK
+</p>
+EOD
+
 terms_of_service = ""
 
-Content.create(about: about, slide_one: slide_one, slide_two: slide_two, slide_three: slide_three, slide_four: slide_four, terms_of_service: terms_of_service)
+Content.create(about: about, slide_one: slide_one, slide_two: slide_two, slide_three: slide_three, slide_four: slide_four, terms_of_service: terms_of_service, contact: contact)
 
 

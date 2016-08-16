@@ -2,9 +2,6 @@
 	<%= render '/contacts/contact_form' %>
 
 	<div class="col-md-6">
-		<h2>Peer Counselor Location and Hours</h2>
-		<p class="peer-counselor-hours">
-		  Peer Counselor 1: MW 5-7pm at MLK
-		</p>
+		<%= @content.contact.html_safe %>
 	</div>
 </div>
