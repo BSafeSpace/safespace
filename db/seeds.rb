@@ -122,7 +122,7 @@ EOD
 slide_four = <<EOD
 <h1>Suicidal Ideation</h1>
 
-<p>Lastly, we will discuss the Emergency Button. If someone mentions suicidal ideation, <span style="color:red;">click on the big red protocol button</span> to copy paste the Alameda County Crisis Hotline Number in their chat. Any topics falling under suicide are NOT to be discussed in SafeSpace solely for safety reasons. Do not feel ashamed of discussing suicidal ideation or self-harm with a professional or call a Suicide Prevention Hotline.</p>
+<p>Lastly, we will discuss the Emergency Button. If someone mentions suicidal ideation, <span style="color:red;">click on the big red protocol button</span> to copy paste the Alameda County Crisis Hotline Number in their chat.</p>
 
 <p><strong>Any topics falling under suicide are NOT to be discussed in SafeSpace solely for safety reasons. Do not feel ashamed of discussing suicidal ideation or self-harm with a professional or call a Suicide Prevention Hotline.</strong></p>
 EOD
