@@ -178,7 +178,7 @@ $(function() {
       html: true,
       trigger: 'hover',
       template: '<div class="tooltip dropdown-tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
-      title: 'Rank your top traits! If you care to be matched based on certain traits over others, select it as #1. You can rank your top 4. Leave at 0 if you have no preference.',
+      title: 'Rank your top traits! If you care to be matched based on certain traits over others, select it as #1. You can rank your top 3. Leave at 0 if you have no preference.',
       placement: 'right'
   });
 
