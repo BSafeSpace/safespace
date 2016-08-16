@@ -9,12 +9,26 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session, only: Proc.new { |c| c.request.format.json? }
   
   before_action :configure_permitted_parameters, if: :devise_controller?
-  # before_filter :confirm_current_user
+  before_filter :confirm_current_user
   after_filter :user_activity
 
   def confirm_current_user
-    not_accessible = ["conversations", "profiles", "characteristics", "messages", "friendships"]
-    redirect_to root_path if (!current_user && not_accessible.include?(controller_name))
+    not_accessible = ["conversations", "profiles", "characteristics", "messages", "friendships", "contents"]
+    if (!current_user && not_accessible.include?(controller_name))
+      flash[:error] = "Please log in or sign up to access that page."
+      redirect_to root_path
+    end
+
+    if current_user && !current_user.peer_counselor
+      if controller_name == "contents"
+        flash[:error] = "You do not have access to that page."
+        redirect_to conversations_path
+      end
+    end
+  end
+
+  def redirect_user
+    redirect_to '/404'
   end
 
   def liability_required

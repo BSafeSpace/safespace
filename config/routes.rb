@@ -62,6 +62,9 @@ Rails.application.routes.draw do
     end
   end
 
+  #If no route matches
+  get ":url" => "application#redirect_user", :constraints => { :url => /.*/ }
+
   # get 'conversations/download_chat'
 
   # The priority is based upon order of creation: first created -> highest priority.
