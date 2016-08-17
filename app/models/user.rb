@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   end
   
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :lockable #, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable, :lockable, :confirmable
          # add :confirmable when ready to email
   validate :berkeley_email
   after_create :create_initial_friendships, :create_initial_profile
