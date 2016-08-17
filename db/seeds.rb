@@ -7,9 +7,18 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 users = [User.create( email: "masoncscott@berkeley.edu", password: "password", password_confirmation: "password", username: "Peer Counselor", peer_counselor: true, signed_liability: true, sign_in_count: 2, done_tut_filter: true, done_tut_add_friend: true), 
-		 User.create( email: "monica-casanova@berkeley.edu", password: "password", password_confirmation: "password", username: "Monica Casanova", sign_in_count: 2, done_tut_filter: true, done_tut_add_friend: true, signed_liability: true),
-         User.create( email: "user@berkeley.edu", password: "password", password_confirmation: "password", username: "User", showcase: true)
+		 User.create( email: "monica-casanova@berkeley.edu", password: "password", password_confirmation: "password", username: "Monica Casanova", sign_in_count: 2, done_tut_filter: true, done_tut_add_friend: true, signed_liability: true)
          ]
+
+showcase_user = User.new(
+					email: "user@berkeley.edu", 
+					password: "password", 
+					password_confirmation: "password", 
+					username: "User", 
+					showcase: true
+				)
+showcase_user.skip_confirmation!
+showcase_user.save!
 
 omit_message = "Prefer to omit from personal profile"
 questions = {mental_health: ["No specifics: seeking out peers", "Depression", "General Anxiety" , "Social Anxiety", "ADHD", "OCD", "Autistic", "Bipolar Disorder", "Post-Traumatic Stress Disorder (PTSD)", "Grieving", "Addiction", "Insomnia", "Other"],
