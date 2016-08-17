@@ -58,6 +58,7 @@ User.all.reject { |u| u.peer_counselor }.each do |u|
 	User.create_friendship(u, rand_user)
 end
 
+# Seed editable content
 about = <<EOD
 <h2>SafeSpace</h2>
 

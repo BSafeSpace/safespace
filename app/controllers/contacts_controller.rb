@@ -8,6 +8,7 @@ class ContactsController < ApplicationController
     @contact.request = request
     if @contact.deliver
       flash[:notice] = 'Thank you for your message. We will contact you soon!'
+      redirect_to contact_path
     else
       flash[:error] = 'Cannot send message.'
       render 'new'

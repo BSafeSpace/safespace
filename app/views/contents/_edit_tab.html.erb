@@ -11,7 +11,7 @@
 			<h3>Edit</h3>
 			<div style="margin-top: 15px">
 				<%= simple_form_for(@content) do |f| %>
-					<%= f.input name, as: :ckeditor, :input_html => {ckeditor: { toolbar: 'Full' }}, rows: "20", class: "content-text-area" %><br>
+					<%= f.input name, as: :ckeditor, :input_html => {ckeditor: { toolbar: 'Full' }}, rows: "20", class: "content-text-area" %>
 					<%= hidden_field_tag :content_tag, tag %>
 					<%= hidden_field_tag :content_name, name %>
 					<%= f.submit "Submit", class: "btn btn-default btn-lg" %>
