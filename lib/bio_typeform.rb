@@ -12,7 +12,7 @@ class BioTypeform
   end
 
   field :multiple_choice do
-    ask "Mental Wellness: Which of these best describe you?"
+    ask "Mental Wellness: Which of these best describes you?"
 
     choice "Prefer to omit from personal profile"
     choice "No specifics: seeking out peers"
@@ -29,9 +29,8 @@ class BioTypeform
     choice "Insomnia"
     choice "Other"
 
-    tags "characteristic", "multiple", "mental_health"
+    tags "characteristic", "single", "mental_health"
     required
-    allow_multiple_selections
   end
 
   field :number do
@@ -69,7 +68,7 @@ class BioTypeform
   end
 
   field :multiple_choice do
-    ask "Academic Focus: Which of these best describe you?"
+    ask "Academic Focus: Which of these best describes you?"
 
     choice "Prefer to omit from personal profile"
     choice "Undecided"
@@ -105,9 +104,8 @@ class BioTypeform
     choice "Gender nonconforming"
     choice "Questioning"
 
-    tags "characteristic", "multiple", "gender"
+    tags "characteristic", "single", "gender"
     required
-    allow_multiple_selections
     can_specify_other
   end
 
