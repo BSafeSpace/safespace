@@ -6,20 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-users = [User.create( email: "masoncscott@berkeley.edu", password: "password", password_confirmation: "password", username: "Peer Counselor", peer_counselor: true, signed_liability: true, sign_in_count: 2, done_tut_filter: true, done_tut_add_friend: true), 
-		 User.create( email: "monica-casanova@berkeley.edu", password: "password", password_confirmation: "password", username: "Monica Casanova", sign_in_count: 2, done_tut_filter: true, done_tut_add_friend: true, signed_liability: true)
-         ]
-
-showcase_user = User.new(
-					email: "user@berkeley.edu", 
-					password: "password", 
-					password_confirmation: "password", 
-					username: "User", 
-					showcase: true
-				)
-showcase_user.skip_confirmation!
-showcase_user.save!
-
+# Seed the characteristics 
 omit_message = "Prefer to omit from personal profile"
 questions = {mental_health: ["No specifics: seeking out peers", "Depression", "General Anxiety" , "Social Anxiety", "ADHD", "OCD", "Autistic", "Bipolar Disorder", "Post-Traumatic Stress Disorder (PTSD)", "Grieving", "Addiction", "Insomnia", "Other"],
 			class_rank: [omit_message, "Freshman", "Sophomore", "Junior", "Senior", "Other"],
@@ -37,7 +24,17 @@ questions.each do |category, names|
 	end
 end
 
-User.all.each do |u|
+users = [User.new( email: "masoncscott@berkeley.edu", password: "password", password_confirmation: "password", username: "Peer Counselor", peer_counselor: true, signed_liability: true, sign_in_count: 2, done_tut_filter: true, done_tut_add_friend: true), 
+		 User.new( email: "monica-casanova@berkeley.edu", password: "password", password_confirmation: "password", username: "Monica Casanova", sign_in_count: 2, done_tut_filter: true, done_tut_add_friend: true, signed_liability: true),
+         User.new( email: "user@berkeley.edu", password: "password", password_confirmation: "password", username: "User", showcase: true)
+         ]
+
+users.each do |u|
+	# Skip email confirmation for seeded users
+	u.skip_confirmation!
+	u.confirm!
+	u.save
+
 	u.profile.age = rand(16...60)
 	if !u.showcase
 		u.signed_liability = true
