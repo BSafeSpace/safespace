@@ -11,16 +11,6 @@ class MessagesController < ApplicationController
     else
       @last_user = @messages[@messages.length-1].user
     end
-
-    if @messages.length > 10
-      @over_ten = true
-      @messages = @messages[-10..-1]
-    end
-    
-    if params[:m]
-      @over_ten = false
-      @messages = @conversation.messages
-    end
     
     if @messages.last
       if @messages.last.user_id != current_user.id
@@ -56,12 +46,7 @@ class MessagesController < ApplicationController
       else
         @last_user = @messages[@messages.length-2].user
       end
-      if @messages.length > 10
-        @over_ten = true
-      end
-      if params[:m]
-        @over_ten = false
-      end
+
       if @messages.last
         # sender is always the current_user
         if @messages.last.user_id != current_user.id
