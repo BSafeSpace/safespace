@@ -1,4 +1,4 @@
-$('.modal').modal()
+$('#profileModal').modal()
 $('.modal .modal-title').html("<%= @profile.user.username %>'s Profile")
 $('.modal .modal-body').html("<%= j render(partial: 'profiles/show_partials/profile_modal_body', locals: {profile: @profile}) %>")
 $('.modal .modal-footer').html("<%= j render(partial: 'profiles/show_partials/profile_modal_footer', locals: {profile: @profile}) %>")
