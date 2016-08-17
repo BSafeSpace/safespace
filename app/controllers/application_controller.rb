@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
 
-    if current_user && !current_user.peer_counselor
+    if current_user && !current_user.showcase
       if controller_name == "contents"
         flash[:error] = "You do not have access to that page."
         redirect_to conversations_path

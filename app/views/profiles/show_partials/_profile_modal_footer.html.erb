@@ -1,4 +1,4 @@
-<% if current_user.requested_friendships.include? profile %>
+<% if current_user.requested_friendships.include? profile.user %>
   <%= link_to friendship_path(:id => profile), :method => "put", :class => "friend-link" do %>
     <i class="fa fa-check fa-2x icon-cog" aria-hidden="true"></i>
   <% end %> 
@@ -6,10 +6,10 @@
     <i class="fa fa-times fa-2x icon-cog" aria-hidden="true"></i>
   <% end %>
 
-<% elsif current_user.pending_friends.include? profile %>
+<% elsif current_user.pending_friends.include? profile.user %>
   <div class="friend-link" id="friend-info">pending request</div>
 
-<% elsif !current_user.friends.include? profile %>
+<% elsif !current_user.friends.include? profile.user %>
   <%= link_to friendships_path(:friend_id => profile), :method => :post, :class => "friend-link", remote: true do %>
     <button type="button" class="btn btn-default">Add Friend</button>
   <% end %>
