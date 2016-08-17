@@ -9,8 +9,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session, only: Proc.new { |c| c.request.format.json? }
   
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_filter :banned?
   before_filter :confirm_current_user
   after_filter :user_activity
+
+  def banned?
+    if current_user.present? && current_user.banned?
+      sign_out current_user
+      flash[:error] = "You have been blocked by at least three users. This is to protect students from harmful or inappropriate comments. If you feel this is a mistake, please e-mail safespacebear@gmail.com with the subject headline 'Mistakenly blocked.'"
+      root_path
+    end
+  end
 
   def confirm_current_user
     not_accessible = ["conversations", "profiles", "characteristics", "messages", "friendships", "contents"]
@@ -51,9 +60,13 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if current_user.showcase
+    if resource.is_a?(User) && resource.banned?
+      sign_out resource
+      flash[:error] = "You have been blocked by at least three users. This is to protect students from harmful or inappropriate comments. If you feel this is a mistake, please e-mail safespacebear@gmail.com with the subject headline 'Mistakenly blocked.'"
+      root_path
+    elsif resource.showcase
       intro_info_path
-    elsif current_user.peer_counselor
+    elsif resource.peer_counselor
       recommendations_path
     else
       session["user_return_to"] || conversations_path

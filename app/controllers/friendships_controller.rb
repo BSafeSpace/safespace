@@ -73,7 +73,7 @@ class FriendshipsController < ApplicationController
       @blocked_user.block_count += 1
       @blocked_user.save
       if @blocked_user.block_count >= 3
-        @blocked_user.destroy
+        @blocked_user.banned = true
       end
       flash[:notice] = "Blocked user"
     else
