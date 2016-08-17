@@ -60,10 +60,12 @@ class User < ActiveRecord::Base
   end
 
   def self.create_friendship(user1, user2)
-    friendship = user1.friendships.build(friend_id: user2.id, approved: "true")
-    friendship.save
-    user1.save
-    user2.save
+    if user1 != user2
+      friendship = user1.friendships.build(friend_id: user2.id, approved: "true")
+      friendship.save
+      user1.save
+      user2.save
+    end
   end
 
   def online?
