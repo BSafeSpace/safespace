@@ -5,7 +5,7 @@
 
   <% user = @conversation.get_other_user(current_user) %>
 
-  <% if current_user.friends.include? user %>
+  <% if current_user.friends? user %>
     <div class="panel panel-default" id="messages">
       <div class="panel-body">
         <ul class="media-list" id="msg">
@@ -28,7 +28,7 @@
       <% end %>
     </div>
 
-  <% elsif current_user.pending_friends.include? user %>
+  <% elsif current_user.pending? user %>
     <div class="request_screen">
       <div class="request-message">
         <h4>Pending Request</h4>
@@ -36,7 +36,7 @@
       </div>
     </div>
 
-  <% elsif current_user.requested_friendships.include? user %>
+  <% elsif current_user.requested? user %>
     <%= render '/messages/request_friendship' %>
 
   <% end %>

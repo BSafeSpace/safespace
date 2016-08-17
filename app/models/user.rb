@@ -30,6 +30,18 @@ class User < ActiveRecord::Base
 
   has_one :profile
 
+  def requested?(other_user)
+    self.requested_friendships.include?(other_user)
+  end
+
+  def pending?(other_user)
+    self.pending_friends.include?(other_user)
+  end
+
+  def friends?(other_user)
+    self.friends.include?(other_user)
+  end
+
   def berkeley_email
     if email.present? and not email.match(/.*@berkeley.edu$/)
       errors.add :email, "Must use berkeley.edu email"
