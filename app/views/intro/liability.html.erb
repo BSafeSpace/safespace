@@ -3,7 +3,7 @@
 </div>
 
 <div class="container" style="text-align: center">
-	<%= @content.terms_of_service.html_safe %>
+	<%= @content.as_html("terms_of_service") %>
 </div>
 
 <%= form_for(TermsOfService.new) do |f| %>

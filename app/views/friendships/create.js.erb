@@ -37,17 +37,6 @@ console.log("create friendship");
 // dynamically add flash message
 $("#flash").html('<%= j render partial: "shared/flash" %>');
 
-<% if @sort_type == "age" %>
-  disableSort('#age-sort');
-  bindSort('#name-sort', '2');
-<% elsif @sort_type == "name" %>
-  disabledSort('#name-sort');
-  bindSort('#age-sort', '1');
-<% else %>
-  bindSort('#age-sort', '1');
-  bindSort('#name-sort', '2');
-<% end %>
-
 bindOnlineToggle();
 
 $('div.users-found').html("<%= @num_profiles %> users found")

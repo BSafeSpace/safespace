@@ -2,6 +2,6 @@
 	<%= render '/contacts/contact_form' %>
 
 	<div class="col-md-6">
-		<%= @content.contact.html_safe %>
+		<%= @content.as_html("contact") %>
 	</div>
 </div>

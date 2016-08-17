@@ -19,25 +19,25 @@
     <div class="item" id="slide2">
         <img>
         <div class="carousel-caption">
-        	<%= @content.slide_one.html_safe %>
+        	<%= @content.as_html("slide_one") %>
         </div>
     </div>
     <div class="item" id="slide3">
     	<img>
         <div class="carousel-caption">
-        	<%= @content.slide_two.html_safe %>
+        	<%= @content.as_html("slide_two") %>
         </div>
     </div>
     <div class="item" id="slide4">
     	<img>
         <div class="carousel-caption">
-          <%= @content.slide_three.html_safe %>
+          <%= @content.as_html("slide_three") %>
         </div>
     </div>
     <div class="item" id="slide5">
     	<img>
         <div class="carousel-caption">
-        	<%= @content.slide_four.html_safe %>
+        	<%= @content.as_html("slide_four") %>
 
             <%= link_to intro_quiz_path, class: 'ready-btn btn btn-success btn-lg' do %>
                 <ul>
