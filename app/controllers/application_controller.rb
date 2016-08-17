@@ -59,6 +59,8 @@ class ApplicationController < ActionController::Base
   	 @current_user.try(:touch) if @current_user
   end
 
+  protected
+
   def after_sign_in_path_for(resource)
     if resource.is_a?(User) && resource.banned?
       sign_out resource
@@ -69,12 +71,10 @@ class ApplicationController < ActionController::Base
     elsif resource.peer_counselor
       recommendations_path
     else
-      session["user_return_to"] || conversations_path
+      conversations_path || session["user_return_to"]
     end
     # session["user_return_to"] request.env['omniauth.origin'] || stored_location_for(resource)
   end
-
-  protected
   
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :username
