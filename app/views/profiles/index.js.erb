@@ -21,15 +21,4 @@ $('.custom-scroll').mCustomScrollbar({
   <% else %>
     bindRecommendSort();
   <% end %>
-<% else %>
-  <% if @sort_type == "age" %>
-    disableSort('#age-sort');
-    bindSort('#name-sort', '2');
-  <% elsif @sort_type == "name" %>
-    disableSort('#name-sort');
-    bindSort('#age-sort', '1');
-  <% else %>
-    bindSort('#name-sort', '2');
-    bindSort('#age-sort', '1');
-  <% end %>
 <% end %>

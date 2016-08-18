@@ -15,31 +15,31 @@
 
 	<div class="tab-content">
 		<div id="about" class="tab-pane fade in active">
-			<%= render "edit_tab", body: @content.about.html_safe, tag: "about", name: :about %>
+			<%= render "edit_tab", body: @content.as_html("about"), tag: "about", name: :about %>
 		</div>
 
 		<div id="contact" class="tab-pane fade">
-			<%= render "edit_tab", body: @content.contact.html_safe, tag: "contact", name: :contact %>
+			<%= render "edit_tab", body: @content.as_html("contact"), tag: "contact", name: :contact %>
 		</div>
 
 		<div id="terms-of-service" class="tab-pane fade">
-			<%= render "edit_tab", body: @content.terms_of_service.html_safe, tag: "terms-of-service", name: :terms_of_service %>
+			<%= render "edit_tab", body: @content.as_html("terms_of_service"), tag: "terms-of-service", name: :terms_of_service %>
 		</div>
 
 		<div id="slide-one" class="tab-pane fade">
-		    <%= render "edit_tab", body: @content.slide_one.html_safe, tag: "slide-one", name: :slide_one %>
+		    <%= render "edit_tab", body: @content.as_html("slide_one"), tag: "slide-one", name: :slide_one %>
 		</div>
 
 		<div id="slide-two" class="tab-pane fade">
-			<%= render "edit_tab", body: @content.slide_two.html_safe, tag: "slide-two", name: :slide_two %>
+			<%= render "edit_tab", body: @content.as_html("slide_two"), tag: "slide-two", name: :slide_two %>
 		</div>
 
 		<div id="slide-three" class="tab-pane fade">
-			<%= render "edit_tab", body: @content.slide_three.html_safe, tag: "slide-three", name: :slide_three %>
+			<%= render "edit_tab", body: @content.as_html("slide_three"), tag: "slide-three", name: :slide_three %>
 		</div>
 
 		<div id="slide-four" class="tab-pane fade">
-			<%= render "edit_tab", body: @content.slide_four.html_safe, tag: "slide-four", name: :slide_four %>
+			<%= render "edit_tab", body: @content.as_html("slide_four"), tag: "slide-four", name: :slide_four %>
 		</div>
 	</div>
 </div>

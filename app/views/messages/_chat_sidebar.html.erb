@@ -1,5 +1,5 @@
 <% @other_user = conversation.get_other_user(current_user) %>
-<% if current_user.friends.include? @other_user %>
+<% if current_user.friends? @other_user %>
   <div class="item">
     <div class="horizontal-align">
       <div class="<%= @other_user.online_status_css %>-status-indicator" style="display: inline-block;"></div>
