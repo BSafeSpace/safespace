@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   after_filter :user_activity
 
   def banned?
-    if current_user.present? && current_user.banned?
+    if current_user.present? && current_user.banned
       sign_out current_user
       flash[:error] = "You have been blocked by at least three users. This is to protect students from harmful or inappropriate comments. If you feel this is a mistake, please e-mail safespacebear@gmail.com with the subject headline 'Mistakenly blocked.'"
       root_path
