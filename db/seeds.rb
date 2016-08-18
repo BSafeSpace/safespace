@@ -40,6 +40,8 @@ users.each do |u|
 	if !u.showcase
 		u.signed_liability = true
 		u.completed_bio = true
+		u.done_tut_add_friend = true
+		u.done_tut_filter = true
 		u.save
 	end
 	u.profile.save
