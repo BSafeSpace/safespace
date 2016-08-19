@@ -130,7 +130,7 @@ $('.conversations.index').ready(function() {
     });
 
     // Recommend button tutorial
-	$(".download-chat").tooltip({
+	$(".recommend-button").tooltip({
       container: 'body',
       html: true,
       trigger: 'hover',
