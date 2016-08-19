@@ -158,9 +158,7 @@ var initializeFunctions = function() {
   bindPreferenceSelectors();
   // bindPeerCounselorSearch();
   bindRecommendSort();
-  bindSort('#age-sort', '1');
-  bindSort('#name-sort', '2');
-
+  
   //initialize scrollbars
   $('.custom-scroll').mCustomScrollbar({
       theme: "minimal-dark",
