@@ -31,6 +31,7 @@ class BioTypeform
 
     tags "characteristic", "single", "mental_health"
     required
+    allow_multiple_selections
   end
 
   field :number do
@@ -41,7 +42,7 @@ class BioTypeform
   end
 
   field :multiple_choice do
-    ask "Ethnicity: Which of these best describes you?"
+    ask "Race/Ethnicity: Which of these best describes you?"
     
     choice "Prefer to omit from personal profile"
     choice "African/African American"
