@@ -39,6 +39,9 @@
             <li><%= link_to_in_li "Resources", resources_path, "list-alt" %></li>
             <li><%= link_to_in_li "About", home_about_path, "file-text-o" %></li>
             <li><%= link_to_in_li 'Contact', contact_path, "envelope-o" %></li>
+            <% if user_signed_in? && current_user.email == "user1@berkeley.edu" %>
+              <li><%= link_to_in_li "", contents_path, "gear" %></li>
+            <% end %>
           </ul>
           <ul class="nav navbar-nav pull-right">
             <% if user_signed_in? %>
