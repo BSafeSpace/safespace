@@ -129,6 +129,16 @@ $('.conversations.index').ready(function() {
         }
     });
 
+    // Recommend button tutorial
+	$(".recommend-button").tooltip({
+      container: 'body',
+      html: true,
+      trigger: 'hover',
+      template: '<div class="tooltip dropdown-tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
+      title: 'If you believe your Chat Buddy would benefit more by speaking to a Peer Counselor, make a recommendation.',
+      placement: 'left'
+  	});
+
 	// Download Chat tutorial
 	$(".download-chat").tooltip({
       container: 'body',

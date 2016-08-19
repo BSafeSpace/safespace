@@ -25,7 +25,7 @@ questions.each do |category, names|
 end
 
 users = [User.new( email: "masoncscott@berkeley.edu", password: "password", password_confirmation: "password", username: "Peer Counselor", peer_counselor: true, signed_liability: true, sign_in_count: 2, done_tut_filter: true, done_tut_add_friend: true), 
-		 User.new( email: "monica-casanova@berkeley.edu", password: "peace&love2008", password_confirmation: "peace&love2008", username: "Monica Casanova", sign_in_count: 2, done_tut_filter: true, done_tut_add_friend: true, signed_liability: true),
+		 User.new( email: "monica-casanova@berkeley.edu", password: "peace&love2008", password_confirmation: "peace&love2008", username: "tralala", sign_in_count: 2, done_tut_filter: true, done_tut_add_friend: true, signed_liability: true),
          User.new( email: "user@berkeley.edu", password: "peace&love2008", password_confirmation: "peace&love2008", username: "User", showcase: true),
          User.new( email: "user1@berkeley.edu", password: "peace&love2008", password_confirmation: "peace&love2008", username: "User1")
          ]
