@@ -39,6 +39,7 @@ gem 'thin'
 
 # Pass Ruby Variables to JavaScript
 gem 'gon'
+
 gem 'jquery-ui-rails'
 
 # PDF generator
