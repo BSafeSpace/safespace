@@ -11,8 +11,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :banned?
-  skip_before_filter :confirm_current_user, :only => :create
   before_filter :confirm_current_user
+  skip_before_filter :confirm_current_user, :only => [:create, :update]
   after_filter :user_activity
 
   def banned?
