@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   resources :terms_of_services, only: [:new, :create]
 
   # devise_for :users, :controllers => {:destroy => "destroy"}
-  devise_for :users, controllers: { destroy: "destroy", registrations: "registrations" }
+  devise_for :users, controllers: { confirmations: 'confirmations', destroy: "destroy", registrations: "registrations" }
   root 'static_pages#home'
   get 'about' => 'static_pages#about', :as => :home_about
   get 'contact' => 'static_pages#contact', :as => :contact
