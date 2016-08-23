@@ -29,7 +29,7 @@ class BioTypeform
     choice "Insomnia"
     choice "Other"
 
-    tags "characteristic", "single", "mental_health"
+    tags "characteristic", "multiple", "mental_health"
     required
     allow_multiple_selections
   end
