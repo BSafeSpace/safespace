@@ -5,8 +5,8 @@ class UserMailer < Devise::Mailer
 
 	def confirmation_instructions(record, token, opts={})
 		headers["Custom-header"] = "Bar"
-		opts[:from] = 'my_custom_from@domain.com'
-		opts[:reply_to] = 'my_custom_from@domain.com'
+		opts[:from] = 'safespacebear@gmail.com'
+		opts[:reply_to] = 'safespacebear@gmail.com'
 		super
 	end
 
