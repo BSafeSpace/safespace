@@ -30,9 +30,12 @@ module ProfilesHelper
 	end
 
 	def push_char_id(label, category)
-		@char_id = Characteristic.find_name_and_category(label, category).id 
-		params[:profile][:characteristic_ids] ||= []
-		params[:profile][:characteristic_ids].push @char_id
+		@char = Characteristic.find_name_and_category(label, category)
+		if @char
+			@char_id = @char.id
+			params[:profile][:characteristic_ids] ||= []
+			params[:profile][:characteristic_ids].push @char_id
+		end
 	end
 
 end
