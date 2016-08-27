@@ -1,12 +1,24 @@
 class RegistrationsController < Devise::RegistrationsController
 
 	def create
-		super
+
+		super do |resource|
+			puts 'params: ayayayayay'
+			puts params
+			puts 'errors:'
+			puts resource.errors[:email]
+			if params[:user][:email]
+				puts 'email exists'
+				resource.errors.delete(:email)
+			end
+		end
+
 		puts 'create action'
 		if params[:user][:passcode] == ENV['COUNSELOR_PASSCODE']
 			resource.update(peer_counselor: true, signed_liability: true, completed_bio: true, done_tut_add_friend: true, done_tut_filter: true)
 			puts 'updated as peer counselor'
 		end
+
 	end
 
 	protected
