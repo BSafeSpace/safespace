@@ -109,3 +109,9 @@
     	transform: translateY(-100%);
     }
 }
+
+.no-animation {
+    animation: none;
+    -webkit-animation: none;
+    -moz-animation: none;
+}

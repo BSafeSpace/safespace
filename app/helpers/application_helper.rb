@@ -73,12 +73,15 @@ module ApplicationHelper
       @devise_mapping ||= Devise.mappings[:user]
     end
 
-    def flash_class(level)
+    def flash_class(level, message)
+    	if message.include? 'confirm' 
+    		return 'alert alert-info no-animation'
+    	end
 	    case level.to_sym
-	    when :notice then "alert alert-info"
-	    when :success then "alert alert-success"
-	    when :error then "alert alert-danger"
-	    when :alert then "alert alert-danger"
+		    when :notice then "alert alert-info"
+		    when :success then "alert alert-success"
+		    when :error then "alert alert-danger"
+		    when :alert then "alert alert-danger"
 	    end
 	end
 

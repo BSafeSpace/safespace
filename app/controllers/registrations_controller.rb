@@ -3,8 +3,6 @@ class RegistrationsController < Devise::RegistrationsController
 	def create
 
 		super do |resource|
-			puts 'params: ayayayayay'
-			puts params
 			puts 'errors:'
 			puts resource.errors[:email]
 			if params[:user][:email]
