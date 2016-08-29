@@ -14,7 +14,9 @@ class Profile < ActiveRecord::Base
   end
 
   def online_status_css
-    self.user.online_status_css
+    if self.user
+      self.user.online_status_css
+    end
   end
 
   def self.online_or_all_profiles(online)
