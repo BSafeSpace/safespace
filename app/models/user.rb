@@ -58,6 +58,7 @@ class User < ActiveRecord::Base
   end
 
   def create_initial_friendships
+    self.reload
     self.peer_counselor ||= false
     
     User.where('peer_counselor = ?', !self.peer_counselor).reject{ |u| u == self }.each do |user|
