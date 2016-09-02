@@ -62,7 +62,7 @@
 
               <% current_user.requested_friendships.each do |request| %>
                 <div class="chat-box  horizontal-align">
-                  <%= render 'contact_name', user: request %>
+                  <%= render '/conversations/contact_name', user: request %>
                   <div class="links-container horizontal-align">
                     <%= link_to "Accept", friendship_path(:id => request), :method => "put", :class => "friend-link" %> 
                     <%= link_to "Decline", friendship_path(:id => request), :method => :delete, :class => "friend-link" %>
