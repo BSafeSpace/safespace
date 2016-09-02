@@ -5,10 +5,6 @@ class RegistrationsController < Devise::RegistrationsController
 		super do |resource|
 			puts 'errors:'
 			puts resource.errors[:email]
-			if params[:user][:email]
-				puts 'email exists'
-				resource.errors.delete(:email)
-			end
 		end
 
 		puts 'create action'
