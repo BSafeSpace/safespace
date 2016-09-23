@@ -50,9 +50,13 @@
 .homepage {
 	height: 94.5vh;
 	background-image: image-url("sea1.jpg");
-	background-size: 120%;
+	background-size: cover;
 	background-position: left center;
 	background-repeat: no-repeat;
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 	padding: 0;
 	margin: 0;
 }

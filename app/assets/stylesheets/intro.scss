@@ -1,8 +1,11 @@
 // Slider Styles
 .carousel-inner > .item > img {
 	background-color: #FFD98C;
-	width: 1490px;
-	height: 80vh;
+	width: 1650px;
+	height: 85vh;
+	display:block; 
+	//max-width: 100%;
+	// max-height: 80%;
 }
 
 #slide1 img {
@@ -32,6 +35,7 @@
 
 #slide4 p {
 	font-size: 1.1em;
+	//overflow: auto;
 }
 
 #slide5 h1 {
@@ -62,6 +66,8 @@
   	text-shadow: none;
   	left: 10%;
   	right: 10%;
+  	overflow: auto;
+  	overflow-x: hidden;
 }
 
 .carousel-inner {
@@ -154,4 +160,14 @@
 // Terms of Service
 .terms_of_service_terms_of_service label[for="terms_of_service_terms_of_service"] {
 	margin-left: 20px;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+// optional scrolling thingy
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
 }
