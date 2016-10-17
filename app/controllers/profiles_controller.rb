@@ -50,7 +50,7 @@ class ProfilesController < ApplicationController
         gon.firstSignIn = false
       end
 
-      create_bio
+      # create_bio
 
       @doneTutFilter = params[:doneTutFilter]
       if @doneTutFilter
@@ -68,6 +68,7 @@ class ProfilesController < ApplicationController
 
   def create_bio
     gon.completedBio = current_user.completed_bio
+    puts gon.completedBio
 
     if !current_user.completed_bio 
       @typeform = BioTypeform.build(current_user)
@@ -87,6 +88,11 @@ class ProfilesController < ApplicationController
   # GET /profiles/1.json
   def show
     @profile = Profile.find(params[:id])
+    # prevent other users from editing profile
+    unless current_user.id == @profile.id
+      flash[:notice] = "You can not access this."
+      redirect_to root_path
+    end
   end
 
   # GET /profiles/new
@@ -96,8 +102,14 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
-    if params[:edit_hours]
+    @profile = Profile.find(params[:id])
+    if params[:edit_hours] 
       render 'edit_hours'
+    end
+    # prevent other users from editing profile
+    unless current_user.id == @profile.id
+      flash[:notice] = "You can not access this."
+      redirect_to root_path
     end
   end
 

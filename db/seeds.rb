@@ -38,10 +38,10 @@ users.each do |u|
 
 	u.profile.age = rand(16...60)
 	if !u.showcase
-		u.signed_liability = true
-		u.completed_bio = true
-		u.done_tut_add_friend = true
-		u.done_tut_filter = true
+		u.signed_liability = false
+		u.completed_bio = false
+		u.done_tut_add_friend = false
+		u.done_tut_filter = false
 		u.save
 	end
 	u.profile.save

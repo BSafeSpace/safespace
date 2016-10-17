@@ -20,31 +20,31 @@
 
 .online-status-indicator {
 	border-radius: 50%;
-	width: 6px;
-	height: 6px; 
+	width: 8px;
+	height: 8px; 
 	background: #4CAF50;
-	margin-right: 5px;
+	// margin-right: 20px;
 }
 
 #online-navbar  {
-	margin-top:22px;
-	margin-bottom:22px;
-	margin-right:0px;
+	margin-top:0px;
+	margin-bottom:0px;
+	//margin-right:50px;
 }
 
 #offline-navbar {
-	margin-top:22px;
-	margin-bottom:22px;
-	margin-right:0px;
+	margin-top:0px;
+	margin-bottom:0px;
+	//margin-right:50px;
 	background: #9d9d9d;
 }
 
 .offline-status-indicator {
 	border-radius: 50%;
-	width: 6px;
-	height: 6px; 
+	width: 8px;
+	height: 8px; 
 	background: rgba(0, 0, 0, 0.38);
-	margin-right: 5px;
+	//margin-right: 20px;
 }
 
 .homepage {
@@ -54,9 +54,9 @@
 	background-position: left center;
 	background-repeat: no-repeat;
     -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 	padding: 0;
 	margin: 0;
 }

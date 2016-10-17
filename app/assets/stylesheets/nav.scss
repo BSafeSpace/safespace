@@ -6,6 +6,7 @@ $bgHighlight    : #fcd68a;
 $colDefault     : #4e4e4e;
 $colHighlight   : #31708f;
 $dropDown       : false;
+
 .navbar-default {
   background-color: $bgDefault;
   border-color: $bgHighlight;
@@ -22,12 +23,21 @@ $dropDown       : false;
   
   .navbar-text {
     color: $colDefault; 
+  display: inline-block;
+    float: none;
+    vertical-algin: top;
   }
   
   .navbar-nav {
     > li {
+    display: inline-block;
+    float: none;
+    vertical-algin: top;
       > a {
         color: $colDefault;
+        display: inline-block;
+        text-align: center;
+        padding: 14px 16px;
         
         &:hover,  &:focus {
           color: $colHighlight; 
@@ -37,6 +47,7 @@ $dropDown       : false;
       @if $dropDown {
         > .dropdown-menu {
           background-color: $bgDefault;
+          margin-right: 10px;
           > li {
             > a {
               color: $colDefault;
@@ -87,7 +98,8 @@ $dropDown       : false;
   }
   .navbar-collapse,
   .navbar-form {
-    border-color: $colDefault; }
+    border-color: $colDefault; 
+    text-align: center;}
   .navbar-link {
     color: $colDefault;
     &:hover {
@@ -98,6 +110,8 @@ $dropDown       : false;
 
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu {
+    display: inline-block;
+    float: none;
     > li > a {
       color: $colDefault;
       &:hover, &:focus {
@@ -113,6 +127,17 @@ $dropDown       : false;
     }
   }
 }
+
+    @media (min-width: 768px) {
+        .navbar .navbar-nav {
+            display: inline-block;
+            float: none;
+        }
+        
+        .navbar .navbar-collapse {
+            text-align: center;
+        }
+    }
 
 .highlight-hover > li:hover {
   color: $colHighlight;

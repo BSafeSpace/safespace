@@ -21,18 +21,25 @@
     </div>
 
     <nav class="navbar navbar-default homepage-nav">
-      <div class="container">
+      <div class="container-fluid">
         <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
           <%= link_to 'SafeSpace', root_path, class: 'navbar-brand' %>
         </div>
-        <div id="navbar">
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">         
           <ul class="nav navbar-nav highlight-hover">
             <% if user_signed_in? && current_user.signed_liability %>
-              <li id = "people"><%= link_to_in_li  'People', profiles_path, "users", id: "people-tooltip" %></li>
+              <li id = "people"><%= link_to_in_li  'People', profiles_path, "users", id: "people-tooltip" %><span class="sr-only">(current)</span></li>
               <li id="chat-link">
                 <% if current_user.peer_counselor %>
                   <%= link_to_in_li 'Recommendations', recommendations_path, "inbox" %>
-                <% end %>
+                <% end %><span class="sr-only">(current)</span>
               </li>
               <li><%= link_to_in_li 'Chat', conversations_path, "comment", id: "chat-tooltip" %></li>
             <% end %>
@@ -41,8 +48,10 @@
             <li><%= link_to_in_li 'Contact', contact_path, "envelope-o" %></li>
             <% if user_signed_in? && current_user.email == "user1@berkeley.edu" %>
               <li><%= link_to_in_li "", contents_path, "gear" %></li>
-            <% end %>
+              <% end %>
           </ul>
+
+
           <ul class="nav navbar-nav pull-right">
             <% if user_signed_in? %>
               <li>
