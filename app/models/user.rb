@@ -86,11 +86,15 @@ class User < ActiveRecord::Base
     if current_sign_in_at.present? 
       online_status = last_sign_out_at.present? ? current_sign_in_at > last_sign_out_at : true
       if (online_status.present?)
-      #   logger.debug "*****************************"
-      # logger.debug online_status
+      # logger.debug "*****************************"
+      # logger.debug "****** #{online_status} ******" 
+      # logger.debug " #{self.appear_offline} ******"
+      # logger.debug " #{profile.online} ******"
       # logger.debug "*****************************"
         online_status = updated_at > 1.minutes.ago
-        profile.online = online_status && !self.appear_offline
+        if (online_status.present? && self.appear_offline.present?)
+          profile.online = online_status && !self.appear_offline
+        end
       else
         profile.online = false
       end
