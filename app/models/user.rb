@@ -104,9 +104,10 @@ class User < ActiveRecord::Base
     else
       profile.online = false
     end
-    
-    profile.save
-    profile.online
+    if (profile.present?)
+      profile.save
+      profile.online
+    end
   end
 
   def block_exists?(user)
