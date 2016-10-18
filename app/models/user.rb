@@ -82,6 +82,7 @@ class User < ActiveRecord::Base
   end
 
   def online?
+    puts("here")
     if current_sign_in_at.present? 
       online_status = last_sign_out_at.present? ? current_sign_in_at > last_sign_out_at : true
       if (online_status)
@@ -125,7 +126,8 @@ class User < ActiveRecord::Base
   end
 
   def online_status_css
-    if self.online? && !self.appear_offline
+    self.online?
+    if profile.online && !self.appear_offline
       return "online"
     else
       return "offline"
