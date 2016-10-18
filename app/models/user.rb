@@ -82,13 +82,21 @@ class User < ActiveRecord::Base
   end
 
   def online?
-    puts("here")
+    # if signed in
     if current_sign_in_at.present? 
       online_status = last_sign_out_at.present? ? current_sign_in_at > last_sign_out_at : true
-      if (online_status)
+      if (online_status.present?)
+      #   logger.debug "*****************************"
+      # logger.debug online_status
+      # logger.debug "*****************************"
         online_status = updated_at > 1.minutes.ago
+        profile.online = online_status && !self.appear_offline
+      else
+        profile.online = false
       end
-      profile.online = online_status && !appear_offline
+
+      # profile.online = online_status && !self.appear_offline
+
     else
       profile.online = false
     end
@@ -126,6 +134,7 @@ class User < ActiveRecord::Base
   end
 
   def online_status_css
+    puts "hererere"
     self.online?
     if profile.online && !self.appear_offline
       return "online"
