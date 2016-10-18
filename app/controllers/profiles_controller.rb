@@ -50,7 +50,7 @@ class ProfilesController < ApplicationController
         gon.firstSignIn = false
       end
 
-      # create_bio
+      create_bio
 
       @doneTutFilter = params[:doneTutFilter]
       if @doneTutFilter

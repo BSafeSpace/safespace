@@ -138,9 +138,9 @@ class User < ActiveRecord::Base
   end
 
   def online_status_css
-    puts "hererere"
-    self.online?
-    if profile.online && !self.appear_offline
+    # puts "hererere"
+    # self.online?
+    if self.online? && !self.appear_offline
       return "online"
     else
       return "offline"
