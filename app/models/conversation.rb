@@ -40,7 +40,7 @@ class Conversation < ActiveRecord::Base
 
   def get_chars(user)
     other_user = self.get_other_user(user)
-    if other_user.present?
+    if other_user.present? && other_user.profile.present?
       characteristics = other_user.profile.characteristics 
       return OpenStruct.new(mental_health: characteristics.where('category = ?', "mental_health"), 
                             age: other_user.profile.age, 
