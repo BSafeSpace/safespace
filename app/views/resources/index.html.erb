@@ -1,6 +1,6 @@
 <div class="text-container">
 	<h2>Resources</h2>
-	<% if user_signed_in? && current_user.peer_counselor %>
+	<% if user_signed_in? && (current_user.peer_counselor || current_user.showcase || current_user.username == "User1")  %>
 		<%= link_to "Add Resource", new_resource_path, id: "new_link", remote: true %>
 	<% end %>
 	<div class="resources <%= 'resources-sortable' if user_signed_in? && current_user.peer_counselor %>"

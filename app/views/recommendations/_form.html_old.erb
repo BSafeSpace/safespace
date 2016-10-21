@@ -12,7 +12,7 @@
 
 				<div class="modal-body">
 				    
-					<!-- <h4 style="margin-bottom: 3vh;">Why are you recommending this user?</h4>
+					<h4 style="margin-bottom: 3vh;">Why are you recommending this user?</h4>
 
 					<div class="form-group form-radio">
 						<%= f.radio_button(:reason, "Too dependent on me") %>
@@ -27,10 +27,10 @@
 					<div class="form-group form-radio">
 						<%= f.radio_button(:reason, "Other") %>
 						<%= label_tag(:reason_other, "Other") %>
-					</div> -->
+					</div>
 
-					<%= f.label :additional_info, "Briefly explain why you are recommending this Buddy and how they feel about this situation. (60 characters) " %>
-					<%= f.text_area :additional_info, rows:"4", maxlength: "60", :class => "form-control" %>
+					<%= f.label :additional_info, "Additional Information (300 characters) " %>
+					<%= f.text_area :additional_info, rows:"4", maxlength: "300", :class => "form-control" %>
 
 					<%= f.hidden_field :user_id, value: other_user_id %>
 				</div>

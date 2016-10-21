@@ -102,7 +102,9 @@ class User < ActiveRecord::Base
       # profile.online = online_status && !self.appear_offline
 
     else
-      profile.online = false
+      if profile.present?
+        profile.online = false
+      end
     end
     if (profile.present?)
       profile.save
