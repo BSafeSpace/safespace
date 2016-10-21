@@ -40,12 +40,14 @@ class Conversation < ActiveRecord::Base
 
   def get_chars(user)
     other_user = self.get_other_user(user)
-    characteristics = other_user.profile.characteristics 
-    return OpenStruct.new(mental_health: characteristics.where('category = ?', "mental_health"), 
-                          age: other_user.profile.age, 
-                          gender: characteristics.where('category = ?', "gender"), 
-                          religion: characteristics.where('category = ?', "religion"), 
-                          ethnicity: characteristics.where('category = ?', "ethnicity"),
-                          academic_focus: characteristics.where('category = ?', "academic_focus"))
+    if other_user.present?
+      characteristics = other_user.profile.characteristics 
+      return OpenStruct.new(mental_health: characteristics.where('category = ?', "mental_health"), 
+                            age: other_user.profile.age, 
+                            gender: characteristics.where('category = ?', "gender"), 
+                            religion: characteristics.where('category = ?', "religion"), 
+                            ethnicity: characteristics.where('category = ?', "ethnicity"),
+                            academic_focus: characteristics.where('category = ?', "academic_focus"))
+    end
   end
 end
