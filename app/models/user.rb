@@ -92,7 +92,7 @@ class User < ActiveRecord::Base
       # logger.debug " #{profile.online} ******"
       # logger.debug "*****************************"
         online_status = updated_at > 1.minutes.ago
-        if (online_status.present? && self.appear_offline.present?)
+        if (online_status.present? && self.appear_offline.present? && profile.present?)
           profile.online = online_status && !self.appear_offline
         end
       else
