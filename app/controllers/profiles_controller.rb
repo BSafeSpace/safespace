@@ -128,8 +128,9 @@ class ProfilesController < ApplicationController
     if @profile.present?
       @profile.update(profile_params)
     end
-    @user.update(completed_bio: true)
-
+    if (!@user.showcase)
+      @user.update(completed_bio: true)
+    end
     respond_to do |format|
       format.json { render :show, status: :created, location: @profile }
       # if @profile.save
@@ -174,8 +175,12 @@ class ProfilesController < ApplicationController
   def default_search
     @user_chars = current_user.get_characteristics
     @char_ids = []
+
+    # puts @user_chars
+    
     if (@user_chars.present?)
       @user_chars.each do |char|
+        # puts char.id
         @char_ids.push(char.id)
       end
     end
