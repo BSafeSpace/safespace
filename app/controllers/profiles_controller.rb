@@ -174,8 +174,10 @@ class ProfilesController < ApplicationController
   def default_search
     @user_chars = current_user.get_characteristics
     @char_ids = []
-    @user_chars.each do |char|
-      @char_ids.push(char.id)
+    if (@user_chars.present?)
+      @user_chars.each do |char|
+        @char_ids.push(char.id)
+      end
     end
     render json: { char_ids: @char_ids }
   end
