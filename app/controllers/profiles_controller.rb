@@ -50,8 +50,11 @@ class ProfilesController < ApplicationController
         gon.firstSignIn = false
       end
 
-      create_bio
-
+      if (!current_user.completed_bio || current_user.showcase)
+        create_bio
+        current_user.completed_bio = true
+      end 
+        
       @doneTutFilter = params[:doneTutFilter]
       if @doneTutFilter
         current_user.update(done_tut_filter: @doneTutFilter)
@@ -81,7 +84,7 @@ class ProfilesController < ApplicationController
       @typeform.instance_variable_set(:@id, body["id"])
       @typeform.instance_variable_set(:@links, body["_links"])
       @typeform.instance_variable_set(:@public_url, body["_links"][1]["href"])
-      current_user.completed_bio = true
+      # current_user.completed_bio = true
     end
   end
 
