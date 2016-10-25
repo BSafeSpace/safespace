@@ -297,7 +297,8 @@ input[type="text"] {
 	top: 60%;
   	transform: translateY(-50%);
   	right: -5.4vw;
-  	position: absolute;
+  	position: relative;
+  	/* position: absolute; */
 }
 
 @-moz-document url-prefix() { 
@@ -307,8 +308,9 @@ input[type="text"] {
 }
 
 .protocol-button {
-	margin-bottom: 22vh;
-	margin-right: -1.8vw;
+	margin-bottom: 32vh;
+	margin-right: -6.0vw;
+	//margin-right: 32px
 	border-bottom: none;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
@@ -366,6 +368,7 @@ input[type="text"] {
 .vertical-text {
 	transform: rotate(270deg);
 	transform-origin: left top 0;
+	font-size: 50px;
 }
 
 .center-absolute {

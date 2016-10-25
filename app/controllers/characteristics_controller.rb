@@ -26,7 +26,7 @@ class CharacteristicsController < ApplicationController
     @characteristic = Characteristic.new(characteristic_params)
 
     respond_to do |format|
-      if @characteristic.save
+      if @characteristic.save 
         format.html { redirect_to @characteristic, notice: 'Characteristic was successfully created.' }
         format.json { render :show, status: :created, location: @characteristic }
       else

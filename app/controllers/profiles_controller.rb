@@ -81,6 +81,7 @@ class ProfilesController < ApplicationController
       @typeform.instance_variable_set(:@id, body["id"])
       @typeform.instance_variable_set(:@links, body["_links"])
       @typeform.instance_variable_set(:@public_url, body["_links"][1]["href"])
+      current_user.completed_bio = true
     end
   end
 
@@ -116,6 +117,7 @@ class ProfilesController < ApplicationController
   # POST /profiles
   # POST /profiles.json
   def create
+    puts("created profile")
     parse_answers(params[:answers])
     params[:user_id] = params[:tags][0].to_i
     @user = User.find params[:user_id]

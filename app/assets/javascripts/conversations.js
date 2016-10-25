@@ -94,6 +94,7 @@ $('.conversations.index').ready(function() {
 	// Protocol Button 
 	var $protocolContainer = $('<div class="protocol-container"></div>');
 	$protocolContainer.appendTo($("body"));
+	console.log("got here");
 	var $protocolButton = $('<div class="protocol-button vertical-text btn btn-danger btn-lg">PROTOCOL</div>');
 	$protocolButton.appendTo($protocolContainer);
 	var $protocolMenu =  $('<div class="protocol-menu margin-negative"></div>');
@@ -108,7 +109,7 @@ $('.conversations.index').ready(function() {
 							<div class="copy-button btn btn-success btn-lg" id="crisis-text-copy">Paste into Chat</div>\
 						</div>'
 						);
-
+	console.log("got here 2");
 	// Expand Protocol Menu on Protocol Button Click
 	$protocolButton.click(function() {
 		$protocolMenu = $('.protocol-menu');
