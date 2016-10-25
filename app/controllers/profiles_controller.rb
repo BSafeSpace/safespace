@@ -120,12 +120,14 @@ class ProfilesController < ApplicationController
   # POST /profiles
   # POST /profiles.json
   def create
-    puts("created profile")
     parse_answers(params[:answers])
+    puts params[:answers]
     params[:user_id] = params[:tags][0].to_i
     @user = User.find params[:user_id]
     @profile = @user.profile
-    @profile.update(profile_params)
+    if @profile.present?
+      @profile.update(profile_params)
+    end
     @user.update(completed_bio: true)
 
     respond_to do |format|
@@ -143,6 +145,7 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1
   # PATCH/PUT /profiles/1.json
   def update
+    puts "update"
     respond_to do |format|
       if @profile.update(profile_params)
         if params[:profile][:counselor_hours]

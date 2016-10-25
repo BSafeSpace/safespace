@@ -151,7 +151,9 @@ class User < ActiveRecord::Base
   end
 
   def get_characteristics
-    self.profile.characteristics
+    if (self.profile.present?)
+      self.profile.characteristics
+    end
   end
 
   def get_characteristic_ids
