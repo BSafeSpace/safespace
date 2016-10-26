@@ -45,9 +45,10 @@ $dropDown       : false;
       }
       
       @if $dropDown {
+        //margin-left: 55px;
         > .dropdown-menu {
           background-color: $bgDefault;
-          margin-right: 10px;
+          margin-left: -55px;
           > li {
             > a {
               color: $colDefault;
@@ -62,6 +63,7 @@ $dropDown       : false;
             }
           }
         }
+        margin-left: -55px;
       }
     }
     

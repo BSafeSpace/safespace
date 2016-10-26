@@ -92,11 +92,11 @@ class ProfilesController < ApplicationController
   # GET /profiles/1.json
   def show
     @profile = Profile.find(params[:id])
-    # prevent other users from editing profile
-    unless current_user.id == @profile.id
-      flash[:notice] = "You can not access this."
-      redirect_to root_path
-    end
+    # # prevent other users from editing profile
+    # unless current_user.id == @profile.id
+    #   flash[:notice] = "You can not access this."
+    #   redirect_to root_path
+    # end
   end
 
   # GET /profiles/new
