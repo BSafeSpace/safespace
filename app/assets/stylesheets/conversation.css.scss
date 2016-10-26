@@ -293,11 +293,14 @@ input[type="text"] {
 }
 
 .protocol-container {
-	float: right;
-	top: 60%;
+  	right: -110px;
+  	top: 100%;
+	//float: right;
+	//top: 60%;
   	transform: translateY(-50%);
-  	right: -5.4vw;
-  	position: relative;
+  	//right: -5.4vw;
+  	// position: relative;
+  	position: fixed;
   	/* position: absolute; */
 }
 
@@ -308,20 +311,28 @@ input[type="text"] {
 }
 
 .protocol-button {
-	margin-bottom: 32vh;
-	margin-right: -6.0vw;
-	//margin-right: 32px
+	//position: absolute;
+	//margin-bottom: 92.5vh;
+	//margin-right: -6.2vw;
+	
+	margin-bottom: 880px;
+	margin-right: -120.2px;
 	border-bottom: none;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 }
 
 .protocol-menu {
-	width: 50vw;
-	height: 50vh;
+	//width: 43vw;
+	//height: 33vh;
+	width: 780px;
+	height: 311px;
 	display: inline-block;
 	background-color: #d9534f;
-	margin-left: -5.4vw;
+	//margin-left: -5.4vw;
+	//margin-bottom: 50vh;
+	margin-left: -113px;
+	margin-bottom: 488px;
 	border-radius: 10px;
 	-webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -345,7 +356,7 @@ input[type="text"] {
 }
 
 .margin-negative {
-	margin-right: -50vw;
+	margin-right: -780px;
 }
 
 .margin-zero {
@@ -368,7 +379,7 @@ input[type="text"] {
 .vertical-text {
 	transform: rotate(270deg);
 	transform-origin: left top 0;
-	font-size: 50px;
+	font-size: 50.34px;
 }
 
 .center-absolute {

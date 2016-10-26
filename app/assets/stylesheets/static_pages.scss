@@ -35,7 +35,8 @@ p, ol, ul, td {
 
 .tagline {
 	color: gray;
-	font-size: 22px;
+	//font-size: 22px;
+	font-size: 2.5vh;
 	padding-bottom: 5vh;
 	font-weight: 400;
 }
@@ -63,3 +64,7 @@ p, ol, ul, td {
 	background-color: #1da1f2;
 	color: white;
 }
+
+.btn {
+	//padding: 1.5vw 2vh;
+}	

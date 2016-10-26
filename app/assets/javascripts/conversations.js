@@ -93,9 +93,11 @@ $('.conversations.index').ready(function() {
 
 	// Protocol Button 
 	var $protocolContainer = $('<div class="protocol-container"></div>');
+	// var $protocolContainer = $(".sideNavi")
 	$protocolContainer.appendTo($("body"));
 	console.log("got here");
 	var $protocolButton = $('<div class="protocol-button vertical-text btn btn-danger btn-lg">PROTOCOL</div>');
+	// var $protocolButton = $('side-navi-item item2');
 	$protocolButton.appendTo($protocolContainer);
 	var $protocolMenu =  $('<div class="protocol-menu margin-negative"></div>');
 	$protocolMenu.appendTo($('.protocol-container'));
