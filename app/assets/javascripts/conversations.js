@@ -44,6 +44,7 @@ $('.conversations.index').ready(function() {
 	// Submit recommendation form on button click
 	$('#rec-btn').click(function() {
 		$('#new_recommendation').submit();
+		$('#new_message').submit();
 	});
 
 	// Show liability dialog if new session
@@ -192,6 +193,23 @@ $('.conversations.index').ready(function() {
 	    // copyToClipboardMsg($(this), document.getElementById("crisis-text-number"), "msg");
 	    $('#message_body').val("Here is the Crisis Text Line: " + $('#crisis-text-number').val());
 	});
+
+	// Copy recommend message into message input on Recommend to Peer Counselor button click
+	$('#recom-button').click(function() {
+		console.log("clicked recom btn");
+	    // copyToClipboardMsg($(this), document.getElementById("crisis-text-number"), "msg");
+	    $('#message_body').val('Congratz! Your Buddy really cares about helping you out and has submitted a recommendation on your behalf. A Student Peer Counselor will reach out to you shortly. If you do not wish to chat with a Peer Counselor, no worries! You don’t have to respond.');
+	});
+
+	// // Send message on Alert Buddy button click
+	// $('#rec-btn').click(function() {
+	//     // copyToClipboardMsg($(this), document.getElementById("crisis-text-number"), "msg");
+	//     $('#message_body').val('Congratz! Your Buddy really cares about helping you out and has submitted a recommendation on your behalf. A Student Peer Counselor will reach out to you shortly. If you do not wish to chat with a Peer Counselor, no worries! You don’t have to respond.');
+	// });
+
+
+
+
 
 	function copyToClipboardMsg(copyButton, elem, msgElem) {
 		var succeed = copyToClipboard(elem);

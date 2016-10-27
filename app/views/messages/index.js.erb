@@ -85,7 +85,7 @@ $(function() {
 
   	$(".mute").on('click', function() {
   		$(this).tooltip('hide')
-  	})
+  	});
 
   	// Block tutorial
   	$(".block-button").tooltip({
@@ -96,5 +96,10 @@ $(function() {
       title: 'If this person deserves to be deleted off SafeSpace permanently for inappropriate or hurtful language, BLOCK them.',
       placement: 'left'
   	});
+
+	// $(".rec").on('click', function() {
+	// 	console.log("rec");
+ //  		$('#message_body').val('Congratz! Your Buddy really cares about helping you out and has submitted a recommendation on your behalf. A Student Peer Counselor will reach out to you shortly. If you do not wish to chat with a Peer Counselor, no worries! You don’t have to respond.');
+ //  	});
 });
 
