@@ -45,11 +45,12 @@ $dropDown       : false;
       }
       
       @if $dropDown {
-        //margin-left: 55px;
+        margin-left: -55px;
         > .dropdown-menu {
           background-color: $bgDefault;
           margin-left: -55px;
           > li {
+            margin-left: -55px;
             > a {
               color: $colDefault;
               &:hover,  &:focus {
@@ -63,12 +64,12 @@ $dropDown       : false;
             }
           }
         }
-        margin-left: -55px;
       }
     }
     
     @if $dropDown {
       .open .dropdown-menu > .active {
+      
         > a, > a:hover, > a:focus {
           color: $colHighlight;
           background-color: $bgHighlight; 

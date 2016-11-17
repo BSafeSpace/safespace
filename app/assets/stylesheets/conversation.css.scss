@@ -299,9 +299,10 @@ input[type="text"] {
 	//top: 60%;
   	transform: translateY(-50%);
   	//right: -5.4vw;
-  	// position: relative;
-  	position: fixed;
+  	// position: relative 
+ 	position: fixed;
   	/* position: absolute; */
+  	margin-top: 10%
 }
 
 @-moz-document url-prefix() { 
