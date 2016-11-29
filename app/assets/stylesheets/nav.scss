@@ -1,13 +1,17 @@
 // TBWS Color
 // #673AB7
 // rgba(204,204,204,.9);
-$bgDefault      : #fcd68a;
-$bgHighlight    : #fcd68a;
-$colDefault     : #4e4e4e;
+//$bgDefault      : #fcd68a;
+//#337AB7
+$bgDefault      : transparent;
+//$bgHighlight    : #fcd68a;
+$bgHighlight    : transparent;
+//$colDefault     : #4e4e4e;
+$colDefault     : #fdd785;
 $colHighlight   : #31708f;
 $dropDown       : false;
 
-.navbar-default {
+.navbar-fixed-top {
   background-color: $bgDefault;
   border-color: $bgHighlight;
   
@@ -80,7 +84,7 @@ $dropDown       : false;
     > .active {
       > a, > a:hover, > a:focus {
         color: $colHighlight;
-        background-color: $bgHighlight; 
+        background-color: $bgHighlight;
       }
     }
     > .open {
