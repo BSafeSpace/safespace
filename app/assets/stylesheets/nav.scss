@@ -7,7 +7,7 @@ $bgDefault      : transparent;
 //$bgHighlight    : #fcd68a;
 $bgHighlight    : transparent;
 //$colDefault     : #4e4e4e;
-$colDefault     : #ffffff;
+$colDefault     : #fdd785;
 $colHighlight   : #31708f;
 $dropDown       : false;
 
@@ -84,7 +84,7 @@ $dropDown       : false;
     > .active {
       > a, > a:hover, > a:focus {
         color: $colHighlight;
-        background-color: $bgHighlight; 
+        background-color: $bgHighlight;
       }
     }
     > .open {
