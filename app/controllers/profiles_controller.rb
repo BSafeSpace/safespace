@@ -187,6 +187,22 @@ class ProfilesController < ApplicationController
     render json: { char_ids: @char_ids }
   end
 
+  def friend_finder
+    @user_chars = current_user.get_characteristics
+    @char_ids = []
+
+    # puts @user_chars
+    
+    # if (@user_chars.present?)
+      @user_chars.each do |char|
+        # puts char.id
+        @char_ids.push(char.id)
+      end
+    # end
+    render json: { char_ids: @char_ids }
+  end
+
+
   def peer_counselors
     @profiles = Profile.peer_counselor_profiles
     @profiles = @profiles.paginate(page: params[:page], per_page: 15)

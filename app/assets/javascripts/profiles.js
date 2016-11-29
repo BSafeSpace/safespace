@@ -208,6 +208,16 @@ $('.profiles.index').ready(function() {
     defaultSearch();
   });
 
+   $('#friend-finder').click(function() {
+    friendFinder();
+  });
+
+   function friendFinder() {
+    $.get("/profiles/friend_finder", { }, function (data) {
+      console.log("friend finder");
+    });
+   }
+
   function defaultSearch() {
     $.get("/profiles/default_search", { }, function (data) {
       var char_ids = data.char_ids;

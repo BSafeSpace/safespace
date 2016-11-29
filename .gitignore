@@ -72,3 +72,6 @@ db/*.sqlite3
 **.orig
 rerun.txt
 pickle-email-*.html
+
+# Ignore application configuration
+/config/application.yml

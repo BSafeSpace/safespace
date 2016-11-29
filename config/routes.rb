@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :profiles do
     collection do 
       get 'default_search'
+      get 'friend_finder'
       get 'peer_counselors'
       match 'search' => 'profiles#search', via: [:get, :post], as: :search
     end
