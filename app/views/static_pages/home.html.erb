@@ -1,9 +1,10 @@
 <% content_for :top_content do %>
   <div class="jumbotron homepage">
     <div class="container vertical-center">
-      <div class="my-header">SafeSpace</div>
+      <div class="my-header">Someone To Talk To</div>
       
-      <div class="tagline">An anonymous, peer-led chat for UC Berkeley undergraduates <br> to share their experiences with other students when pursuing mental wellness.</div>
+      <div class="tagline">An anonymous chat platform empowering UC Berkeley students<br>
+        to share their experiences pursuing mental wellness.</div>
       <% if !user_signed_in? %>
         <div class="my-button">
           <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
@@ -11,15 +12,42 @@
       <% end %>
     </div>
   </div>
+    <div class="container-fluid" id="counselors-div">
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-1">
+          <h1>College can be difficult.</h1>
+          <p>You're not alone. Talk to peers and trained peer counselors, completely anonymously.</p>
+        </div>
+        <div class="col-sm-4">
+        </div>
+      </div>
+    </div>
+    <div class="container" id="resources-div">
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-2">
+          <h1>Resources</h1>
+          <p>safespace is not a replacement for therapy or counseling.
+            If you're seriously considering self-harm or suicide,
+            contact these services immediately.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2" id="services-div">
+          <h4>Crisis Support Services of Alameda County</h4>
+          <h5>1-800-309-2131</h5>
+          <br>
+          <h4>Crisis Text Line</h4>
+          <h5>Text "GO" to 741741</h5>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+<div class="row" id="contact-us-div">
+        <div class="col-sm-6 col-sm-offset-2">
+          <h1>Contact Us</h1>
+          <p>If you're interested in reaching out to the SafeSpace team please send us an email at </p>
+        </div>
+    </div>
 <% end %>
-
-
-
-
-
-
-
-
-
 
 
