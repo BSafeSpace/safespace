@@ -3,15 +3,19 @@
 // rgba(204,204,204,.9);
 //$bgDefault      : #fcd68a;
 //#337AB7
-$bgDefault      : transparent;
+$bgDefault      : #286090;
 //$bgHighlight    : #fcd68a;
-$bgHighlight    : transparent;
+$bgHighlight    : #286090;
 //$colDefault     : #4e4e4e;
 $colDefault     : #fdd785;
-$colHighlight   : #31708f;
+$colHighlight   : #fff;
 $dropDown       : false;
 
-.navbar-fixed-top {
+.container-fluid {
+  padding-right: 50px;
+}
+
+.navbar-static-top {
   background-color: $bgDefault;
   border-color: $bgHighlight;
   
@@ -44,7 +48,7 @@ $dropDown       : false;
         padding: 14px 16px;
         
         &:hover,  &:focus {
-          color: $colHighlight; 
+          color: $bgDefault; 
         }
       }
       
