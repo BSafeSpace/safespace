@@ -99,7 +99,7 @@ class ApplicationController < ActionController::Base
     @profiles = put_peer_counselor_first(@profiles) if !current_user.peer_counselor
 
     @num_profiles = @profiles.count
-    @profiles.paginate(page: params[:page], per_page: 15)
+    @profiles.paginate(page: params[:page], per_page: @num_profiles)
   end
 
   def get_all_profiles
@@ -109,7 +109,7 @@ class ApplicationController < ActionController::Base
     @profiles = put_peer_counselor_first(@profiles) if !current_user.peer_counselor
 
     @num_profiles = @profiles.count
-    @profiles.paginate(page: params[:page], per_page: 15)
+    @profiles.paginate(page: params[:page], per_page: @num_profiles)
   end
 
   def order_preferences(search_query)

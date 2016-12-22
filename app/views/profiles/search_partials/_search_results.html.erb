@@ -16,65 +16,70 @@
 
   <hr>
   <div class="result-names results-scroll custom-scroll">
-    <% @profiles.each do |profile| %>
-      <% @profile_user = profile.user %>
-      <% if profile && @profile_user %>
-        <div class="row profile-item horizontal-align profile-result">
-          
-          <div class="profile-item col-md-9">
-              <div class="horizontal-align">
-                <div class="<%= profile.online_status_css %>-status-indicator" style="display: inline-block;"></div>
+    <%if @profiles%>
+      <% @profiles.each do |profile| %>
+        <% if profile %>  
+          <% @profile_user = profile.user %>
+          <% if profile && @profile_user %>
+            <div class="row profile-item horizontal-align profile-result">
+              
+              <div class="profile-item col-md-9">
+                  <div class="horizontal-align">
+                    <div class="<%= profile.online_status_css %>-status-indicator" style="display: inline-block;"></div>
+                    <% if @profile_user.peer_counselor %>
+                      Peer Counselor <%= @profile_user.username %>
+                    <% else %>
+                      <%= link_to @profile_user.username, profile, class: "contact-list-name", remote: true %>
+                    <% end %>
+                  </div>
+                  <% if @profile_user.peer_counselor %>
+                    <div class="status-text" id="profile_<%= profile.id %>">
+                      Hours: <%= profile.counselor_hours %>
+                    </div>
+                  <% else %>
+                    <div class="status-text">Age: <%= profile.age %></div>
+                  <% end %>
+              </div>
+              
+              <div class="col-md-3 links-container horizontal-align">
                 <% if @profile_user.peer_counselor %>
-                  Peer Counselor <%= @profile_user.username %>
+                  
+
+                  <%= link_to "Start a Chat", "#", class: "btn btn-success start-conversation",
+                      "data-sid" => current_user.id, "data-rip" => @profile_user.id %>
+
+
+                <% elsif current_user.requested? @profile_user %>
+                  <%= link_to friendship_path(:id => @profile_user), :method => :delete, :class => "friend-link" do %> 
+                    <i class="fa fa-times fa-2x icon-cog" aria-hidden="true"></i>
+    <!--                 <%= link_to "Start a Chat", "#", class: "btn btn-success start-conversation",
+                      "data-sid" => current_user.id, "data-rip" => @profile_user.id %> -->
+
+                  <% end %>
+                <% elsif current_user.pending? @profile_user %>
+                  <div class="friend-link" id="friend-info">pending request</div>
+                
+                <% elsif !current_user.friends? @profile_user %>
+                  <%= link_to friendships_path(:friend_id => @profile_user), :method => :post, :class => "friend-link", remote: true do %>
+                    <i class="fa fa-user-plus fa-2x icon-cog" aria-hidden="true"></i>
+    <!--                 <%= link_to "Start a Chat", "#", class: "btn btn-success start-conversation",
+                      "data-sid" => current_user.id, "data-rip" => @profile_user.id %> -->
+                  <% end %>
                 <% else %>
-                  <%= link_to @profile_user.username, profile, class: "contact-list-name", remote: true %>
+                  <i class="fa fa-check fa-2x icon-cog friend-link" aria-hidden="true"></i>
+    <!--                   <%= link_to "Start a Chat", "#", class: "btn btn-success start-conversation",
+                      "data-sid" => current_user.id, "data-rip" => @profile_user.id %> -->
                 <% end %>
               </div>
-              <% if @profile_user.peer_counselor %>
-                <div class="status-text" id="profile_<%= profile.id %>">
-                  Hours: <%= profile.counselor_hours %>
-                </div>
-              <% else %>
-                <div class="status-text">Age: <%= profile.age %></div>
-              <% end %>
-          </div>
-          
-          <div class="col-md-3 links-container horizontal-align">
-            <% if @profile_user.peer_counselor %>
-              
-
-              <%= link_to "Start a Chat", "#", class: "btn btn-success start-conversation",
-                  "data-sid" => current_user.id, "data-rip" => @profile_user.id %>
-
-
-            <% elsif current_user.requested? @profile_user %>
-              <%= link_to friendship_path(:id => @profile_user), :method => :delete, :class => "friend-link" do %> 
-                <i class="fa fa-times fa-2x icon-cog" aria-hidden="true"></i>
-<!--                 <%= link_to "Start a Chat", "#", class: "btn btn-success start-conversation",
-                  "data-sid" => current_user.id, "data-rip" => @profile_user.id %> -->
-
-              <% end %>
-            <% elsif current_user.pending? @profile_user %>
-              <div class="friend-link" id="friend-info">pending request</div>
-            
-            <% elsif !current_user.friends? @profile_user %>
-              <%= link_to friendships_path(:friend_id => @profile_user), :method => :post, :class => "friend-link", remote: true do %>
-                <i class="fa fa-user-plus fa-2x icon-cog" aria-hidden="true"></i>
-<!--                 <%= link_to "Start a Chat", "#", class: "btn btn-success start-conversation",
-                  "data-sid" => current_user.id, "data-rip" => @profile_user.id %> -->
-              <% end %>
-            <% else %>
-              <i class="fa fa-check fa-2x icon-cog friend-link" aria-hidden="true"></i>
-<!--                   <%= link_to "Start a Chat", "#", class: "btn btn-success start-conversation",
-                  "data-sid" => current_user.id, "data-rip" => @profile_user.id %> -->
-            <% end %>
-          </div>
-            
-        </div>
+                
+            </div>
+          <% end %>
+        <% end %>
       <% end %>
     <% end %>
   </div>
-  
-  <%= will_paginate @profiles, previous_label: "<", next_label: ">" %>
+<!--   <%if @profiles%>
+    <%= will_paginate @profiles, previous_label: "<", next_label: ">" %>
+  <%end%> -->
 </div>
 
