@@ -26,12 +26,20 @@ class ProfilesController < ApplicationController
   end
 
   def search
-    @profiles = build_query  
+    if params[:commit] == "Save Filters"
+      @profiles = build_query  
+    end
+    if params[:commit] == "Friend Finder"
+      @profiles = get_all_profiles  
+    end   
     @online_only = query_online_only?
     # @all_counselors = query_all_counselors?
     @sort_type = query_sort_type
 
     gon.profiles = @profiles
+
+    puts @profiles
+    
     setup_tutorial
 
     respond_to do |format|
@@ -187,22 +195,6 @@ class ProfilesController < ApplicationController
     render json: { char_ids: @char_ids }
   end
 
-  def friend_finder
-    @user_chars = current_user.get_characteristics
-    @char_ids = []
-
-    # puts @user_chars
-    
-    # if (@user_chars.present?)
-      @user_chars.each do |char|
-        # puts char.id
-        @char_ids.push(char.id)
-      end
-    # end
-    render json: { char_ids: @char_ids }
-  end
-
-
   def peer_counselors
     @profiles = Profile.peer_counselor_profiles
     @profiles = @profiles.paginate(page: params[:page], per_page: 15)
@@ -226,6 +218,7 @@ class ProfilesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
+      puts "here"
       @profile = Profile.find(params[:id])
     end
 

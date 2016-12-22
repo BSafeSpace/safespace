@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :banned?
   before_filter :confirm_current_user
+  before_filter :set_search
+
   skip_before_filter :confirm_current_user, :only => [:create, :update]
   after_filter :user_activity
 
@@ -89,9 +91,21 @@ class ApplicationController < ActionController::Base
 
   def build_query
     @search = Profile.search(params[:q])
+    puts "hi"
+    puts params
     @search.build_sort if @search.sorts.empty?
     # @profiles = @search.result(distinct: true).reject{ |p| p.user == current_user}.select { |p| !current_user.block_exists?(p.user) }
     @profiles = order_preferences(@search.result(distinct: true).reject{ |p| p.user == current_user}).select { |p| !current_user.block_exists?(p.user) }
+    @profiles = put_peer_counselor_first(@profiles) if !current_user.peer_counselor
+
+    @num_profiles = @profiles.count
+    @profiles.paginate(page: params[:page], per_page: 15)
+  end
+
+  def get_all_profiles
+    @profiles = Profile.all
+    @profiles = order_preferences(@profiles.reject{ |p| p.user == current_user}).select { |p| !current_user.block_exists?(p.user) }
+
     @profiles = put_peer_counselor_first(@profiles) if !current_user.peer_counselor
 
     @num_profiles = @profiles.count
@@ -171,5 +185,9 @@ class ApplicationController < ActionController::Base
 
   def query_all_counselors?
     return params[:q][:user_peer_counselor_true] == "1" if params[:q]
+  end
+
+  def set_search
+    @search = Profile.search(params[:q])
   end
 end
