@@ -78,3 +78,6 @@ pickle-email-*.html
 
 # Ignore ide config
 .idea/*
+
+# Ignore coverage reports
+coverage*
