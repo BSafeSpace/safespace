@@ -75,3 +75,9 @@ pickle-email-*.html
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore ide config
+.idea/*
+
+# Ignore coverage reports
+coverage*
