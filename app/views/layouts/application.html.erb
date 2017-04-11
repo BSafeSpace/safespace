@@ -16,9 +16,6 @@
   </head>
   <body class="<%= controller_name %> <%= action_name %>">
 
-    <div class="flash">
-      <%= render partial: "shared/flash" %>
-    </div>
 
     <nav class="navbar navbar-static-top homepage-nav">
       <div class="container-fluid">
@@ -32,7 +29,7 @@
           <%= link_to 'SafeSpace', root_path, class: 'navbar-brand' %>
         </div>
 
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">         
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav highlight-hover">
             <% if user_signed_in? && current_user.signed_liability %>
               <li id = "people"><%= link_to_in_li  'People', profiles_path, "users", id: "people-tooltip" %><span class="sr-only">(current)</span></li>
@@ -92,8 +89,13 @@
           </ul>
         </div>
       </div>
+
+      <div class="flash">
+        <%= render partial: "shared/flash" %>
+      </div>
+
     </nav>
-    
+
     <div class="media-list" id="notif"></div>
     
     <%= yield :top_content %>
