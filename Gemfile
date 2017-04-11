@@ -22,10 +22,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # SafeSpace Added Gems
   # Devise Tutorial  http://www.sitepoint.com/devise-authentication-in-depth/
   # Devise Demo      https://sitepoint-devise.herokuapp.com/
-gem 'devise', '3.4.1'
+gem 'devise'
 gem 'bootstrap-sass'
 gem 'jquery-turbolinks'
-gem "codeclimate-test-reporter", group: :test, require: nil
+gem 'codeclimate-test-reporter', group: :test, require: nil
 # http://www.sitepoint.com/save-multiple-checkbox-values-database-rails/
   # Profile Characteristic Model Search
 gem 'ransack'
@@ -70,15 +70,6 @@ gem 'mail_form'
 
 gem 'figaro'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 group :production do
   gem 'pg'
   # Better error logs on Heroku
@@ -88,7 +79,7 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem "rspec-rails", ">= 2.0.1"
+  gem 'rspec-rails'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'capybara'
