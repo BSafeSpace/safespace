@@ -33,7 +33,7 @@ users = [User.new( email: "masoncscott@berkeley.edu", password: "password", pass
 users.each do |u|
 	# Skip email confirmation for seeded users
 	u.skip_confirmation!
-	u.confirm!
+	u.confirm
 	u.save
 
 	u.profile.age = rand(16...60)
