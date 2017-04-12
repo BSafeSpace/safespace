@@ -10,7 +10,8 @@ script:
   - bundle exec rspec
 after_success:
   - bundle exec codeclimate-test-reporter
-
+after_script:
+  - bundle exec rake send_to_codeclimate
 
 addons:
     code_climate:
