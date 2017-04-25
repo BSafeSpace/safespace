@@ -134,7 +134,11 @@ $(function() {
 		  });
 
 		  gon.doneTutAddFriend = true;
-		  chatTutorial();
+
+		  // Commenting out the line of code below will reenable the chat tutorial help box.
+		  // chatTutorial();
+
+          $('#tutorialFinish').modal('show');
 		});
 	}
 
@@ -161,7 +165,6 @@ $(function() {
 	}
 
 	function chatTutorial() {
-		$('#tutorialFinish').modal('show');
 	    $('#chat-tooltip').tooltip({
 	        html: true,
 	        trigger: 'manual',
