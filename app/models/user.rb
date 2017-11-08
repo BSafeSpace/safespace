@@ -83,11 +83,11 @@ class User < ActiveRecord::Base
 
   def online?
     # if signed in
-    if current_sign_in_at.present? 
+    if current_sign_in_at.present?
       online_status = last_sign_out_at.present? ? current_sign_in_at > last_sign_out_at : true
       if (online_status.present?)
       # logger.debug "*****************************"
-      # logger.debug "****** #{online_status} ******" 
+      # logger.debug "****** #{online_status} ******"
       # logger.debug " #{self.appear_offline} ******"
       # logger.debug " #{profile.online} ******"
       # logger.debug "*****************************"

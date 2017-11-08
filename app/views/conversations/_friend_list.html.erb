@@ -25,7 +25,7 @@
           <% end %>
         </div>
       </div>
-      <!-- <div class="tab-pane custom-scroll friend-scroll" id="peer-counselors">
+      <div class="tab-pane custom-scroll friend-scroll" id="peer-counselors">
         <div class="ui list">
           <% User.peer_counselors.each do |counselor| %>
             <div class="chat-box horizontal-align <%= "active-conversation" if @conversation && @conversation.same_convo?(current_user.id, counselor.id) %>">
@@ -33,7 +33,7 @@
             </div>
           <% end %>
         </div>
-      </div> -->
+      </div>
       <div class="tab-pane custom-scroll friend-scroll" id="online-friends">
         <div class="ui list">
           <% if current_user.online_friends.empty? %>
