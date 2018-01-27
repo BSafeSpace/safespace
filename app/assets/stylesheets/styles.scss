@@ -83,13 +83,13 @@
     z-index: 1;
     transition: all 0.4s ease-in-out;
 
-    animation: signup-response 0.5s 1;
+    /*animation: signup-response 0.5s 1;v
     animation-delay: 1s;
-    animation-fill-mode: forwards;
+    /*animation-fill-mode: forwards;*/
 
-    -webkit-animation: signup-response 0.5s 1;
+    /*-webkit-animation: signup-response 0.5s 1;*/
     -webkit-animation-delay: 1s; /* Safari and Chrome */
-    -webkit-animation-fill-mode: forwards;
+    /*-webkit-animation-fill-mode: forwards;*/
 }
 
 .alert, #error_explanation h2 {
