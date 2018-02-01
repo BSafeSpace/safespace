@@ -71,7 +71,7 @@ gem 'mail_form'
 gem 'figaro'
 
 group :production do
-  gem 'pg', '~> 0.21'
+  gem 'pg', '~> 0.20'
   # Better error logs on Heroku
   gem 'rails_12factor'
 end
