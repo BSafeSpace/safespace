@@ -71,7 +71,7 @@ gem 'mail_form'
 gem 'figaro'
 
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 0.21'
   # Better error logs on Heroku
   gem 'rails_12factor'
 end
@@ -84,7 +84,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'factory_girl'
-  # gem 'pg'
   gem 'sqlite3'
   gem 'foreman' # allow us to use our .env file by accessing the local variables before starting the application.
 end
