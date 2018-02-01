@@ -385,7 +385,7 @@ DEPENDENCIES
   jquery-turbolinks
   jquery-ui-rails
   mail_form
-  pg (~> 0.21)
+  pg (~> 0.20)
   prawn (~> 2.1)
   private_pub
   rails (= 4.2.7)
