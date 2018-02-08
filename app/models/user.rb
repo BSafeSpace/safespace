@@ -42,6 +42,7 @@ class User < ActiveRecord::Base
     self.friends.include?(other_user)
   end
 
+  # change me to allow any email
   def berkeley_email
     if email.present? and not email.match(/.*@berkeley.edu$/)
       errors.add :email, "Must use berkeley.edu email"

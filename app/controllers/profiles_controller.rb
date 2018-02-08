@@ -81,7 +81,7 @@ class ProfilesController < ApplicationController
     gon.completedBio = current_user.completed_bio
     puts gon.completedBio
 
-    if !current_user.completed_bio 
+    if false: #!current_user.completed_bio 
       @typeform = BioTypeform.build(current_user)
       @typeform.instance_variable_get(:@structure).instance_variable_get(:@state)[:tags][0] = current_user.id.to_s
       url = 'https://api.typeform.io/latest/forms'

@@ -155,7 +155,7 @@ var disableSort = function(sortId) {
 var initializeFunctions = function() {
   bindAgeSlider();
   bindOnlineToggle();
-  bindPreferenceSelectors();
+  //bindPreferenceSelectors();
   // bindPeerCounselorSearch();
   bindRecommendSort();
   
@@ -171,14 +171,14 @@ $(function() {
   initializeFunctions();
 
   // initialize dropdown preference tooltips
-  $('.dropdown-pref').tooltip({
+  /*$('.dropdown-pref').tooltip({
       container: 'body',
       html: true,
       trigger: 'hover',
       template: '<div class="tooltip dropdown-tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
       title: 'What matters most to you? Rank your top traits! If you care to be matched based on certain traits over others, select it as 1. You can rank your top 3. Leave at 0 if you have no preference.',
       placement: 'right'
-  });
+  });*/
 
   $( "#slider-range" ).slider({
     range: true,
