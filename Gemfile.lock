@@ -206,7 +206,7 @@ GEM
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
     pdf-core (0.7.0)
-    pg (1.0.0)
+    pg (0.21.0)
     polyamorous (1.3.3)
       activerecord (>= 3.0)
     prawn (2.2.2)
@@ -382,7 +382,7 @@ DEPENDENCIES
   jquery-turbolinks
   jquery-ui-rails
   mail_form
-  pg
+  pg (~> 0.21.0)
   prawn
   private_pub
   rails
