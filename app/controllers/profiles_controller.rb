@@ -49,6 +49,7 @@ class ProfilesController < ApplicationController
     
   end
 
+# this replaced current_user.completedBio. doneTutFilter
   def setup_tutorial
     if user_signed_in?
       @signInCount = current_user.sign_in_count;
@@ -81,7 +82,7 @@ class ProfilesController < ApplicationController
     gon.completedBio = current_user.completed_bio
     puts gon.completedBio
 
-    if false: #!current_user.completed_bio 
+    if false #!current_user.completed_bio 
       @typeform = BioTypeform.build(current_user)
       @typeform.instance_variable_get(:@structure).instance_variable_get(:@state)[:tags][0] = current_user.id.to_s
       url = 'https://api.typeform.io/latest/forms'
@@ -113,8 +114,9 @@ class ProfilesController < ApplicationController
   end
 
   # GET /profiles/1/edit
+
   def edit
-    @profile = Profile.find(params[:id])
+    @profile = Profile.find(current_user.id)# changed from (params[:id]) because no one needs to edit anyone else's profile
     if params[:edit_hours] 
       render 'edit_hours'
     end
@@ -123,21 +125,26 @@ class ProfilesController < ApplicationController
       flash[:notice] = "You can not access this."
       redirect_to root_path
     end
+    current_user.update(done_tut_filter: @doneTutFilter) #TODO: how to get the tutorial filter to go away
   end
 
   # POST /profiles
   # POST /profiles.json
+  
+  #there is a profile/new page, but the update doesn't go anywhere
+  #actually this is on post 
   def create
     parse_answers(params[:answers])
     puts params[:answers]
-    params[:user_id] = params[:tags][0].to_i
-    @user = User.find params[:user_id]
+    params[:user_id] = params[:tags][0].to_i #this line errors because no id. also same for if you go to profiles/edit because it tries to lookup by id and there is no id.
+    @user = User.find params[:user_id] #why this and not just current user 
     @profile = @user.profile
     if @profile.present?
       @profile.update(profile_params)
     end
     if (!@user.showcase)
       @user.update(completed_bio: true)
+      #TODO: how to update so tutorial doesn't show again
     end
     respond_to do |format|
       format.json { render :show, status: :created, location: @profile }
