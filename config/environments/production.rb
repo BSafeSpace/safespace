@@ -82,8 +82,8 @@ Rails.application.configure do
   #   password: ENV["GMAIL_PASSWORD"]
   # }
   ActionMailer::Base.smtp_settings = {
-    :user_name => 'apikey',
-    :password => ENV["SENDGRID_API_KEY"],
+    :user_name => ENV["SENDGRID_USERNAME"],
+    :password => ENV["SENDGRID_PASSWORD"],,
     :domain => 'safespace-test.herokuapp.com',
     :address => 'smtp.sendgrid.net',
     :port => 587,
