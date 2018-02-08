@@ -7,14 +7,14 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session, only: Proc.new { |c| c.request.format.json? }
-  
-  before_filter :configure_permitted_parameters, if: :devise_controller?
-  before_filter :banned?
-  before_filter :confirm_current_user
-  before_filter :set_search
 
-  skip_before_filter :confirm_current_user, :only => [:create, :update]
-  after_filter :user_activity
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :banned?
+  before_action :confirm_current_user
+  before_action :set_search
+
+  skip_before_action :confirm_current_user, :only => [:create, :update]
+  after_action :user_activity
 
   def banned?
     if current_user.present? && current_user.banned
@@ -55,10 +55,10 @@ class ApplicationController < ActionController::Base
       format.html { redirect_to :back }
     end
   end
-  
+
   private
 
-  def user_activity  
+  def user_activity
   	 @current_user.try(:touch) if @current_user
   end
 
@@ -78,7 +78,7 @@ class ApplicationController < ActionController::Base
     end
     # session["user_return_to"] request.env['omniauth.origin'] || stored_location_for(resource)
   end
-  
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |u|
       u.permit(:username, :email, :password, :password_confirmation, :passcode)
@@ -132,7 +132,7 @@ class ApplicationController < ActionController::Base
 
   def put_preference_first(search_query, category, search_chars)
     matching_characteristics = search_chars
-    
+
     if matching_characteristics
       matching_profiles = search_query.select { |profile| !(profile.characteristics & matching_characteristics["#{category}"]).empty? }
       search_query = search_query.reject{ |profile| matching_profiles.include? profile }
@@ -155,8 +155,8 @@ class ApplicationController < ActionController::Base
         @char = Characteristic.find id
         if @search_chars["#{@char.category}"]
           @search_chars["#{@char.category}"] << @char
-        else 
-          @search_chars["#{@char.category}"] = [@char] 
+        else
+          @search_chars["#{@char.category}"] = [@char]
         end
       end
     end
@@ -170,7 +170,7 @@ class ApplicationController < ActionController::Base
     for i in 0..search_query.count
       search_query.insert(i, peer_counselors.sample.profile) if i % 15 == 0
     end
-    
+
     return search_query
   end
 

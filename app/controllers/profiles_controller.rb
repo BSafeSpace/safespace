@@ -5,8 +5,8 @@ require 'httparty'
 require 'will_paginate/array'
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :update_hours, :destroy]
-  before_filter :fix_json_params
-  before_filter :liability_required, except: [:create]
+  before_action :fix_json_params
+  before_action :liability_required, except: [:create]
 
   # GET /profiles
   # GET /profiles.json

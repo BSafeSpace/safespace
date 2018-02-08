@@ -2,13 +2,13 @@ require "prawn"
 include ApplicationHelper
 class ConversationsController < ApplicationController
   # before_action :authenticate_user
-  before_filter :liability_required
+  before_action :liability_required
 
   def index
     @user = current_user
     @users = User.all
     @all_friends_sorted = @user.all_friends_sorted
-    
+
     @conversations = Conversation.where('sender_id = ? OR recipient_id = ?', @user.id, @user.id)
     if !@conversations.empty?
       @conversation = @conversations.order("updated_at").last
@@ -16,7 +16,7 @@ class ConversationsController < ApplicationController
       @messages = @conversation.messages
     end
     current_user.reset_unread()
-    
+
   end
 
   def create
@@ -67,7 +67,7 @@ class ConversationsController < ApplicationController
         @receiver.reset_unread()
       end
     end
-    
+
     render json: {:current_id => @current_id, :same_convo => @same_convo}
 
   end
@@ -122,7 +122,7 @@ private
       conversation.messages.each do |m|
         if m.user_id == user.id
           text "#{m.body}", align: :right
-        else 
+        else
           text "#{m.body}", align: :left
         end
       end

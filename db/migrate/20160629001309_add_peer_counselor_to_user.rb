@@ -1,4 +1,4 @@
-class AddPeerCounselorToUser < ActiveRecord::Migration
+class AddPeerCounselorToUser < ActiveRecord::Migration[5.1]
   def change
     add_column :users, :peer_counselor, :boolean, default: false
   end
