@@ -1,4 +1,4 @@
-class CreateMutes < ActiveRecord::Migration
+class CreateMutes < ActiveRecord::Migration[5.1]
   def change
     create_table :mutes do |t|
       t.integer :muter_id

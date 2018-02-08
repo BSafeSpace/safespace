@@ -31,9 +31,8 @@ module SafeSpace
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
+    # The code below is for rails 4.1 and 4.2.
+    # config.active_record.raise_in_transactional_callbacks = true
     config.time_zone = "Pacific Time (US & Canada)"
   end
 end
-
-

@@ -1,6 +1,6 @@
 class FriendshipsController < ApplicationController
   before_action :set_friendship, only: [:show, :edit]
-  after_filter { flash.discard if request.xhr? }
+  after_action { flash.discard if request.xhr? }
 
   # GET /friendships
   # GET /friendships.json
