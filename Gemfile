@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
-ruby '2.5.0'
+ruby '2.3.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails'
+gem 'rails', '4.2.7'
 # Use SCSS for stylesheets
-gem 'sass-rails'
+gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier'
+gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails'
+gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -16,9 +16,9 @@ gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder'
+gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', group: :doc
+gem 'sdoc', '~> 0.4.0', group: :doc
 # SafeSpace Added Gems
   # Devise Tutorial  http://www.sitepoint.com/devise-authentication-in-depth/
   # Devise Demo      https://sitepoint-devise.herokuapp.com/
@@ -42,11 +42,11 @@ gem 'gon'
 gem 'jquery-ui-rails'
 
 # PDF generator
-gem 'prawn'
+gem 'prawn', '~> 2.1'
 
 # Font Awesome icons
 gem 'font-awesome-sass'
-gem 'will_paginate'
+gem 'will_paginate', github: 'jonatack/will_paginate'
 gem "font-awesome-rails"
 
 gem 'whenever', :require => false
@@ -57,7 +57,7 @@ gem 'simple_form'
 gem 'ask_awesomely'
 
 # For Making HTTP Requests. It's a party!
-gem 'httparty'
+gem 'httparty', '~> 0.13.7'
 
 # For updating the position attribute of resources
 gem 'acts_as_list'
@@ -71,7 +71,7 @@ gem 'mail_form'
 gem 'figaro'
 
 group :production do
-  # gem 'pg'
+  gem 'pg', '~> 0.20.0'
   # Better error logs on Heroku
   gem 'rails_12factor'
 end
@@ -83,14 +83,14 @@ group :development, :test do
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'capybara'
-  gem 'factory_bot'
+  gem 'factory_girl'
   gem 'sqlite3'
   gem 'foreman' # allow us to use our .env file by accessing the local variables before starting the application.
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console'
+  gem 'web-console', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
