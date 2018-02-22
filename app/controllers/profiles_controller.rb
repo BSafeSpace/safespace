@@ -58,9 +58,9 @@ class ProfilesController < ApplicationController
         gon.firstSignIn = false
       end
 
-      if (!current_user.completed_bio || current_user.showcase)
+      if (current_user.completed_bio == false)
         create_bio
-        # current_user.completed_bio = true
+        current_user.completed_bio = true
       end 
         
       @doneTutFilter = params[:doneTutFilter]
@@ -80,7 +80,6 @@ class ProfilesController < ApplicationController
   def create_bio
     gon.completedBio = current_user.completed_bio
     puts gon.completedBio
-    current_user.completed_bio = true
   end
 
   # GET /profiles/1
