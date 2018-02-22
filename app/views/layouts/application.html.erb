@@ -31,7 +31,7 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav highlight-hover">
-            <% if user_signed_in? && current_user.signed_liability %>
+            <% if user_signed_in? %>
               <li id = "people"><%= link_to_in_li  'People', profiles_path, "users", id: "people-tooltip" %><span class="sr-only">(current)</span></li>
               <li id="chat-link">
                 <% if current_user.peer_counselor %>
@@ -40,7 +40,7 @@
               </li>
               <li><%= link_to_in_li 'Chat', conversations_path, "comment", id: "chat-tooltip" %></li>
             <% end %>
-            <% if user_signed_in? && current_user.signed_liability %>
+            <% if user_signed_in? %>
             <li><%= link_to_in_li "Resources", resources_path, "list-alt" %></li>
             <li><%= link_to_in_li "About", home_about_path, "file-text-o" %></li>
             <li><%= link_to_in_li 'Contact', contact_path, "envelope-o" %></li>
