@@ -23,7 +23,7 @@ class TermsOfServicesController < ApplicationController
   def sign_liability
 	@user = User.find current_user.id
 	@user.update(signed_liability: true)
-	redirect_to profiles_path
+	redirect_to edit_profile_path(current_user.profile.id)
   end
 
   private
