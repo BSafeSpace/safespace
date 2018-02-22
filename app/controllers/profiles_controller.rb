@@ -58,29 +58,29 @@ class ProfilesController < ApplicationController
         gon.firstSignIn = false
       end
 
-      # if (!current_user.completed_bio || current_user.showcase)
-      create_bio
-        # current_user.completed_bio = true
-      # end 
-        
-      @doneTutFilter = params[:doneTutFilter]
-      if @doneTutFilter
-        current_user.update(done_tut_filter: @doneTutFilter)
-      end
-      gon.doneTutFilter = current_user.done_tut_filter
+      if (!current_user.completed_bio || current_user.showcase)
+       create_bio
+       current_user.completed_bio = true
+      end 
 
-      @doneTutAddFriend = params[:doneTutAddFriend]
-      if @doneTutAddFriend
-        current_user.update(done_tut_add_friend: @doneTutAddFriend)
-      end
-      gon.doneTutAddFriend = current_user.done_tut_add_friend
+     @doneTutFilter = params[:doneTutFilter]
+     if @doneTutFilter
+      current_user.update(done_tut_filter: @doneTutFilter)
+     end
+    gon.doneTutFilter = current_user.done_tut_filter
+
+    @doneTutAddFriend = params[:doneTutAddFriend]
+    if @doneTutAddFriend
+      current_user.update(done_tut_add_friend: @doneTutAddFriend)
     end
+    gon.doneTutAddFriend = current_user.done_tut_add_friend
   end
+end
 
-  def create_bio
-    gon.completedBio = current_user.completed_bio
-    puts gon.completedBio
-  end
+def create_bio
+  gon.completedBio = current_user.completed_bio
+  puts gon.completedBio
+end
 
   # GET /profiles/1
   # GET /profiles/1.json
@@ -144,16 +144,16 @@ class ProfilesController < ApplicationController
     respond_to do |format|
       if @profile.update(profile_params)
         if params[:profile][:counselor_hours]
-           redirect_to edit_profile_path(edit_hours: true) and return
-        end
-        format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
-        format.json { render :show, status: :ok, location: @profile }
-      else
-        format.html { render :edit }
-        format.json { render json: @profile.errors, status: :unprocessable_entity }
-      end
+         redirect_to edit_profile_path(edit_hours: true) and return
+       end
+       format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
+       format.json { render :show, status: :ok, location: @profile }
+     else
+      format.html { render :edit }
+      format.json { render json: @profile.errors, status: :unprocessable_entity }
     end
   end
+end
 
   # DELETE /profiles/1
   # DELETE /profiles/1.json
@@ -212,4 +212,4 @@ class ProfilesController < ApplicationController
     def profile_params
       params.require(:profile).permit(:class_rank, :socioeconomic_status, :living_situation, :sexual_orientation, :comfort_with_sexuality, :age, :is_first_generation_college_student, :is_physically_disabled, :is_parent, :is_single_parent, :is_from_foster_care, :is_intercollegiate_athlete, :is_military, :is_out_of_state_student, :is_international_student, :is_transfer_student, :user_id, :counselor_hours, characteristic_ids:[])
     end
-end
+  end
