@@ -51,7 +51,12 @@
 
                 <% elsif current_user.requested? @profile_user %>
                   <%= link_to friendship_path(:id => @profile_user), :method => :delete, :class => "friend-link" do %> 
-                    <i class="fa fa-times fa-2x icon-cog" aria-hidden="true"></i>
+                    <%= link_to friendship_path(:id => profile), :method => "put", :class => "friend-link" do %>
+                      <i class="fa fa-check fa-2x icon-cog" aria-hidden="true"></i>
+                    <% end %> 
+                    <%= link_to friendship_path(:id => profile), :method => :delete, :class => "friend-link" do %>
+                      <i class="fa fa-times fa-2x icon-cog" aria-hidden="true"></i>
+                    <% end %>
     <!--                 <%= link_to "Start a Chat", "#", class: "btn btn-success start-conversation",
                       "data-sid" => current_user.id, "data-rip" => @profile_user.id %> -->
 
