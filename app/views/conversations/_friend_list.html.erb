@@ -18,7 +18,7 @@
       <div class="tab-pane custom-scroll friend-scroll active" id="all-friends">
         <div class="ui list">
           <% @all_friends_sorted.each do |e| %>
-          <% if !e.peer_counselor%> 
+          <% if not e[:friend].peer_counselor %> 
               <% @friend = e[:friend] %>
               <div class="chat-box horizontal-align <%= "active-conversation" if @conversation && @conversation.same_convo?(current_user.id, @friend.id) %>">
                 <%= render '/conversations/chat_name', user: @friend %>
