@@ -84,7 +84,7 @@ class FriendshipsController < ApplicationController
     @conversation = conversations.order("updated_at").last
 
     respond_to do |format|
-      format.html { redirect_to :back }
+      format.html { redirect_back fallback_location: conversations_path }
       format.js
     end
   end
