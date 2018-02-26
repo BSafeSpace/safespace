@@ -5,7 +5,6 @@ module ResourcesHelper
 
 	def link_to_icon(body, url, icon)
 	    link_to url, remote: true do
-	    	concat icon(icon)
 	    	concat body
 	    end
 	end

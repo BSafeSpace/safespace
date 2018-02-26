@@ -54,7 +54,7 @@ $('.conversations.index').ready(function() {
 						  <p>By clicking <em>I agree,</em> you agree to the following:</p>\
 						  <ul>\
 						    <li>I am not homicidal or suicidal. (If you are, we strongly urge you to speak with a professional).</li>\
-						    <li>I understand that no action can be taken towards any users who make inappropriate or hurtful comments as all users are anonymous.</li>\
+						    <li>I understand that no action other than muting/blocking can be taken towards any users who make inappropriate or hurtful comments as all users are anonymous.</li>\
 						    <li>I am a UC-Berkeley student.</li>\
 						    <li>I understand that the chat is intended for peer to peer support and not for diagnosis or therapy.</li>\
 						    <li>I understand that I am here as a peer to listen and share experiences. I will help others connect to resources/professionals if need be. </li>\

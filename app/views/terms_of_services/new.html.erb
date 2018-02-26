@@ -4,11 +4,11 @@
 
 <div class="container" style="text-align: center">
 	<%= @content.as_html("terms_of_service") %>
-	<a href="https://drive.google.com/file/d/0B9w7pkF407dERHp5cG1FbVBiTFV1MU9WLXdTdDNhby1FdTVZ/view?usp=sharing">Terms and Services</a><br>
-	<a href="https://drive.google.com/file/d/0B9w7pkF407dEcDR4bTVyYWpOZ2F3aFNyMTA4aUl2UHQ5NXhF/view?usp=sharing">Privacy Policy</a>
+	<a href="https://drive.google.com/file/d/0B9w7pkF407dERHp5cG1FbVBiTFV1MU9WLXdTdDNhby1FdTVZ/view?usp=sharing" target="_blank">Terms and Services</a><br>
+	<a href="https://drive.google.com/file/d/0B9w7pkF407dEcDR4bTVyYWpOZ2F3aFNyMTA4aUl2UHQ5NXhF/view?usp=sharing" target="_blank">Privacy Policy</a>
 </div>
 
 <%= simple_form_for @terms_of_service do |f| %>
-	<%= f.input :terms_of_service, :as => :boolean, label: "I have read and agree to the SafeSpace user/member terms and conditions" %>
+	<%= f.input :terms_of_service, :as => :boolean, label: "I have read and agree to the SafeSpace user/member terms and conditions and privacy policy." %>
 	<div class="submit-button"><%= f.submit "Submit", class: "btn btn-success" %></div>
 <% end %>
