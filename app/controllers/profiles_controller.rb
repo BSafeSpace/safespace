@@ -11,12 +11,9 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = build_query  
-    @online_only = query_online_only?
-    @sort_type = query_sort_type
-
-    gon.profiles = @profiles
-    setup_tutorial
+    @profiles = Profile.all
+    @profiles = @profiles.paginate(page: params[:page], per_page: 15)
+    
 
     respond_to do |format|
       format.html 

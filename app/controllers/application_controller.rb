@@ -104,12 +104,7 @@ class ApplicationController < ActionController::Base
 
   def get_all_profiles
     @profiles = Profile.all
-    @profiles = order_preferences(@profiles.reject{ |p| p.user == current_user}).select { |p| !current_user.block_exists?(p.user) }
-
-    @profiles = put_peer_counselor_first(@profiles) if !current_user.peer_counselor
-
-    @num_profiles = @profiles.count
-    @profiles.paginate(page: params[:page], per_page: @num_profiles)
+    #
   end
 
   def order_preferences(search_query)

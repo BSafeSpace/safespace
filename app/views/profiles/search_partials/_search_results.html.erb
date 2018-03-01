@@ -20,7 +20,7 @@
       <% @profiles.each do |profile| %>
         <% if profile %>  
           <% @profile_user = profile.user %>
-          <% if profile && @profile_user %>
+          <% if @profile_user %>
             <div class="row profile-item horizontal-align profile-result">
               
               <div class="profile-item col-md-9">
