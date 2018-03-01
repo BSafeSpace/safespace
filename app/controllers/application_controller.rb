@@ -109,13 +109,10 @@ class ApplicationController < ActionController::Base
 
   def order_preferences(search_query)
     if params[:preferences]
-      @sorted_preferences = Hash[params[:preferences].sort_by{|k, v| v}.reverse]
-      puts "sorted_preferences"
-      puts @sorted_preferences
+      @sorted_preferences = (params[:preferences].permit(params[:preferences].keys)).to_h.sort_by{|k, v| v}.reverse.to_h
       char_ids = params[:q][:characteristics_id_in_any]
       search_chars = build_search_chars(char_ids)
       @sorted_preferences.each do |category, rank|
-        # ignore rank 0
         if rank != '0'
           search_query = put_preference_first(search_query, category, search_chars)
         end
@@ -174,8 +171,8 @@ class ApplicationController < ActionController::Base
   end
 
   def query_sort_type
-    return params[:q][:s]["0"][:name] if params[:q]
-    return ""
+    # return params[:q][:s]["0"][:name] if params[:q]
+    return params[:q]
   end
 
   def query_all_counselors?
