@@ -3,18 +3,14 @@
 <p></p>
 <div class="overlay"></div>
 
-<% if !current_user.completed_bio %>
-	<%= render 'create_bio' %>
-<% end %>
-
 <div class="container-fluid">
 	<div class="row">
-	  
+
 	    <div id="default-tooltip" class="col-md-4 filters-container expose">
 	        <legend class="filter-legend search-header" id="filter-tooltip">Filter by</legend>
 	        <%= render '/profiles/search_partials/search_form' %>
 	    </div>
-	    
+
 	    <div class="col-md-8 profile-results-container expose">
 	        <legend style="margin-bottom:-5px;" class="search-header">
 	        	Results
