@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# Seed the characteristics 
+# Seed the characteristics
 omit_message = "Prefer to omit from personal profile"
 questions = {mental_health: ["No specifics: seeking out peers", "Depression", "General Anxiety" , "Social Anxiety", "ADHD", "OCD", "Autistic", "Bipolar Disorder", "Post-Traumatic Stress Disorder (PTSD)", "Grieving", "Addiction", "Insomnia", "Other"],
 			class_rank: [omit_message, "Freshman", "Sophomore", "Junior", "Senior", "Other"],
@@ -19,14 +19,14 @@ questions = {mental_health: ["No specifics: seeking out peers", "Depression", "G
 			religion: [omit_message, "Baha’i","Buddhism","Christianity","Hinduism","Islam","Jainism","Judaism","Shinto","Sikhism","Taoism","Atheist", "Agnostic","Other"]}
 
 questions.each do |category, names|
-   names.each do |name|
+	names.each do |name|
 	   Characteristic.create(name: name, category: category, created_at: "2016-04-15 12:00:00")
 	end
 end
 
 users = [User.new( email: "masoncscott@berkeley.edu", password: "password", password_confirmation: "password", username: "Cuddly Bear", peer_counselor: true, signed_liability: true, sign_in_count: 2, done_tut_filter: true, done_tut_add_friend: true),
 		 User.new( email: "wilsonw926@berkeley.edu", password: "password", password_confirmation: "password", username: "Oski", peer_counselor: true, signed_liability: true, sign_in_count: 2, done_tut_filter: true, done_tut_add_friend: true),
-		 User.new( email: "wilsonw@berkeley.edu", password: "password", password_confirmation: "password", username: "yee", peer_counselor: true, signed_liability: true, sign_in_count: 2, done_tut_filter: true, done_tut_add_friend: true), 
+		 User.new( email: "wilsonw@berkeley.edu", password: "password", password_confirmation: "password", username: "yee", peer_counselor: true, signed_liability: true, sign_in_count: 2, done_tut_filter: true, done_tut_add_friend: true),
 		 User.new( email: "monica-casanova@berkeley.edu", password: "peace&love2008", password_confirmation: "peace&love2008", username: "tralala", sign_in_count: 2, done_tut_filter: true, done_tut_add_friend: true, signed_liability: true),
          User.new( email: "user@berkeley.edu", password: "peace&love2008", password_confirmation: "peace&love2008", username: "User", showcase: true, signed_liability: true),
          User.new( email: "user1@berkeley.edu", password: "peace&love2008", password_confirmation: "peace&love2008", username: "User1", signed_liability: true)
@@ -78,7 +78,7 @@ Crisis Support Services of Alameda County: 1800-309-2131
 National Suicide Prevention Hotline:1-800-273-TALK (8255).
 
 National Hopeline Network: 1.800.442.HOPE (4673)", url: "https://uhs.berkeley.edu/emergency#resources")
-Resource.create(name: "Depression", description: "Counseling services: 
+Resource.create(name: "Depression", description: "Counseling services:
 
 Counseling for Students/ Tang Center:
 
@@ -119,73 +119,73 @@ University Health Service: 642-2000
 Counselor/Therapist: 642-9494
 
 ", url: "https://uhs.berkeley.edu/health-topics/mental-health/stress-and-anxiety")
-Resource.create(name: "Clubs", description: "You Mean More: UC Berkeley's first mental health awareness and suicide prevention group. 
+Resource.create(name: "Clubs", description: "You Mean More: UC Berkeley's first mental health awareness and suicide prevention group.
 
-Red Tent: meetings and discussions on topics related to women's mental health. 
+Red Tent: meetings and discussions on topics related to women's mental health.
 
-Half of Us: campaign to address the issue of mental health at Cal. 
+Half of Us: campaign to address the issue of mental health at Cal.
 
-Body Peace: promotion of body image positivity and raising awareness of body image issues and eating disorders. 
+Body Peace: promotion of body image positivity and raising awareness of body image issues and eating disorders.
 
 SoBears; Students for Recovery: support for students recovering from substance abuse and those in support of recovery. ", url: "")
-Resource.create(name: "Resources in Oakland", description: "Asian Community Mental Health Services: 
+Resource.create(name: "Resources in Oakland", description: "Asian Community Mental Health Services:
 
-310 8th Street, Suite 201, Oakland. 
+310 8th Street, Suite 201, Oakland.
 
 510-451-6729
 
-info@acmhs.org 
+info@acmhs.org
 
-JFK Transpersonal and Holistic Counseling Center: 
+JFK Transpersonal and Holistic Counseling Center:
 
-2501 Harrison Street, Oakland 
+2501 Harrison Street, Oakland
 
 510-444-3344
 
-La Clinica De La Raza- Casa Del Sol: 
+La Clinica De La Raza- Casa Del Sol:
 
-1501 Fruitvale Ave, Oakland 
+1501 Fruitvale Ave, Oakland
 
 510-535-6200
 
-Lifelong Medical Care: 
+Lifelong Medical Care:
 
-Located throughout Berkeley and Oakland. 
+Located throughout Berkeley and Oakland.
 
-510-981-4100 
+510-981-4100
 
-Psychological Services Center: 
+Psychological Services Center:
 
-519 17th Street, Suite 210, Oakland. 
+519 17th Street, Suite 210, Oakland.
 
-510-628-9065 
+510-628-9065
 
-Sausal Creek Outpatient Stabilization Clinic: 
+Sausal Creek Outpatient Stabilization Clinic:
 
-2620 26th Ave, Oakland. 
+2620 26th Ave, Oakland.
 
-510-437-2363 
+510-437-2363
 
-West Oakland Health Center: 
+West Oakland Health Center:
 
-700 Adeline St, Oakland. 
+700 Adeline St, Oakland.
 
 510-835-9610 ", url: "")
-Resource.create(name: "Resources in San Francisco", description: "Access Institute for Psychological Services: 
+Resource.create(name: "Resources in San Francisco", description: "Access Institute for Psychological Services:
 
-110 Gough St, 3rd Floor, SF. 
+110 Gough St, 3rd Floor, SF.
 
-415-861-5449 
+415-861-5449
 
-info@accessinst.org 
+info@accessinst.org
 
-Chinatown North Beach Mental Health: 
+Chinatown North Beach Mental Health:
 
 729 Filbert Street, SF
 
 415-352-2000
 
-Insituto Familiar de la Raza- La clinica: 
+Insituto Familiar de la Raza- La clinica:
 
 2919 Mission St, SF
 
@@ -193,15 +193,15 @@ Insituto Familiar de la Raza- La clinica:
 
 laclinica@ifrsf.org
 
-Marina Counseling Center: 
+Marina Counseling Center:
 
 2317 Lombard St, SF
 
-415-563-2137 
+415-563-2137
 
-Richmond Area Multi-Services Inc (RAMS): 
+Richmond Area Multi-Services Inc (RAMS):
 
-3626 Balboa St, SF 
+3626 Balboa St, SF
 
 415-668-5955
 
@@ -212,33 +212,33 @@ UCSF Langley-Porter Psychiatric Hospital & Clinics:
 401 Parnassus Ave, SF
 
 415-476-7500 ", url: "")
-Resource.create(name: "Other Resources", description: "2-1-1: crisis assistance and resource referrals. 
+Resource.create(name: "Other Resources", description: "2-1-1: crisis assistance and resource referrals.
 
-Alameda County Psycholocial Association Referral Line: 
+Alameda County Psycholocial Association Referral Line:
 
 510-433-9580
 
-The Community Center for Health and Wellness: 
+The Community Center for Health and Wellness:
 
-1057 East Meadow Circle, Palo Alto 
+1057 East Meadow Circle, Palo Alto
 
 650-493-5006
 
-counseling@sofia.edu 
+counseling@sofia.edu
 
-Community Institute for Psychotherapy (CIP): 
+Community Institute for Psychotherapy (CIP):
 
-1330 Lincoln Ave, Suite 201, San Rafael 
+1330 Lincoln Ave, Suite 201, San Rafael
 
 415-459-5999
 
-CIPMarin@aol.com 
+CIPMarin@aol.com
 
-Feminist Therapy Referral Project: 
+Feminist Therapy Referral Project:
 
-510-841-1269 
+510-841-1269
 
-Sonoma County Mental Health Services: 
+Sonoma County Mental Health Services:
 
 707-565-6900
 
@@ -283,11 +283,11 @@ slide_two = <<EOD
 <h3>Lovely Dolphins Venture, Swim, and Bathe</h3>
 
 
-        	
+
 <p><strong>LISTEN</strong> to your SafeSpace Buddy. Give them space to talk about their concerns first. The focus should be on them, before it is on you.</p>
-            
+
 <p><strong>DON’T JUDGE.</strong> No matter how minimal a person’s problems seem to you, their pain is very real to them. You have not been in that person’s shoes, so it is NOT helpful to question their past decisions, current behavior, or way of thinking.</p>
-            
+
 <p><strong>VALIDATE</strong> their feelings. Comments like “you’re right to feel this way” or “it’s totally reasonable to think that” or “it’s ok, you’re not alone. X also happened to me” are helpful.</p>
 EOD
 
@@ -320,5 +320,3 @@ EOD
 terms_of_service = ""
 
 Content.create(about: about, slide_one: slide_one, slide_two: slide_two, slide_three: slide_three, slide_four: slide_four, terms_of_service: terms_of_service, contact: contact)
-
-

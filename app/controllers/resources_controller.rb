@@ -27,7 +27,7 @@ class ResourcesController < ApplicationController
   	end
   end
 
-  def update 
+  def update
   	@resource = Resource.find params[:id]
   	@resource.update(resource_params)
   	respond_to do |format|

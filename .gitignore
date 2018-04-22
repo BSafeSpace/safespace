@@ -62,6 +62,7 @@ pickle-email-*.html
 /spec/reports/
 /test/tmp/
 /test/version_tmp/
+.rubocop
 
 db/*.sqlite3
 /db/*.sqlite3
